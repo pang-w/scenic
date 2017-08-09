@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="cms">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="scenic-common-core-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-common-core/scenic-common-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="scenic-common-redis-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-common-redis/scenic-common-redis">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="scenic-common-fdfs-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-common-fdfs/scenic-common-fdfs">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="scenic-common-security-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-common-security/scenic-common-security">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="scenic-common-template-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-common-template/scenic-common-template">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="scenic-cms-api-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-cms-api/scenic-cms-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="scenic-cms-service-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/scenic-cms-service/scenic-cms-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="cms"/>
+        <property name="java-output-path" value="/mumu-cms-web/target/classes"/>
+    </wb-module>
+</project-modules>
