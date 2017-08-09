@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.security;
+package com.itmaoo.scenic.common.core.security;
 
 import java.io.*;
 

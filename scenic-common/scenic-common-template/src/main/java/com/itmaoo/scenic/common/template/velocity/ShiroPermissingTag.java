@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.template.velocity;
+package com.itmaoo.scenic.common.template.velocity;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;

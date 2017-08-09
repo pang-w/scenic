@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

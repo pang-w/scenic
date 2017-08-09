@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.io.File;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * @desc 文件工具类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月16日 下午5:00:18
  */
 public class FileUtil {

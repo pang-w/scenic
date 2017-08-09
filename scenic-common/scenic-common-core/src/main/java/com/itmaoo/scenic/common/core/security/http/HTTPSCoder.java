@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.security.http;
+package com.itmaoo.scenic.common.core.security.http;
 
 import javax.net.ssl.*;
 import java.io.FileInputStream;

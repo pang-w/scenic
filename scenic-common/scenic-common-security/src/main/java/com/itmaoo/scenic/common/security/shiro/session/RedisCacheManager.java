@@ -1,11 +1,12 @@
-package com.lovecws.mumu.common.security.shiro.session;
+package com.itmaoo.scenic.common.security.shiro.session;
 
-import com.lovecws.mumu.common.redis.JedisClient;
 import org.apache.log4j.Logger;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.apache.shiro.cache.CacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.itmaoo.scenic.common.redis.JedisClient;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

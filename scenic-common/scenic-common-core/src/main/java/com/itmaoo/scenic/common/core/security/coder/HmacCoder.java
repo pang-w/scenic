@@ -1,12 +1,12 @@
-package com.lovecws.mumu.common.core.security.coder;
-
-import com.lovecws.mumu.common.core.security.Hex;
-import com.lovecws.mumu.common.core.security.SecurityCoder;
+package com.itmaoo.scenic.common.core.security.coder;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+
+import com.itmaoo.scenic.common.core.security.Hex;
+import com.itmaoo.scenic.common.core.security.SecurityCoder;
 
 /**
  * HMAC加密组件

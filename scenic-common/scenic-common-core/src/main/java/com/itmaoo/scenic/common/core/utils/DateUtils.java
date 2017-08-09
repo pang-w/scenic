@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import org.apache.log4j.Logger;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @desc 日期工具类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午9:33:38
  */
 public class DateUtils extends org.apache.commons.lang.time.DateUtils {

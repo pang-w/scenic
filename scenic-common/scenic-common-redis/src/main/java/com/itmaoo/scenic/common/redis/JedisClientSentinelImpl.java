@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.redis;
+package com.itmaoo.scenic.common.redis;
 
 import redis.clients.jedis.*;
 
@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * redis主从配置
- * @author itmaoo
+ * @author lovecws
  */
 public class JedisClientSentinelImpl implements JedisClient{
 

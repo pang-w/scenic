@@ -1,7 +1,8 @@
-package com.lovecws.mumu.common.fdfs;
+package com.itmaoo.scenic.common.fdfs;
 
-import com.lovecws.mumu.common.fdfs.service.FDFSAttachmentService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.itmaoo.scenic.common.fdfs.service.FDFSAttachmentService;
 
 import java.io.File;
 import java.io.FileInputStream;

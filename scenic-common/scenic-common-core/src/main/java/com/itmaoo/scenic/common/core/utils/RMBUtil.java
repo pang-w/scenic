@@ -1,8 +1,8 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 /**
  * @desc 人民币工具类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:29:52
  */
 public final class RMBUtil {

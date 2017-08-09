@@ -2,6 +2,12 @@ package com.lovecws.mumu.common.redis;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.itmaoo.scenic.common.redis.JedisClientClusterImpl;
+import com.itmaoo.scenic.common.redis.JedisClientSentinelImpl;
+import com.itmaoo.scenic.common.redis.JedisClientShardImpl;
+import com.itmaoo.scenic.common.redis.JedisClientStandaloneImpl;
+import com.itmaoo.scenic.common.redis.JedisClientTwemproxyImpl;
+
 import java.util.Set;
 
 /**

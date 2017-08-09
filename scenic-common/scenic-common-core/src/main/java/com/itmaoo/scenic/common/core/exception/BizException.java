@@ -1,8 +1,8 @@
-package com.lovecws.mumu.common.core.exception;
+package com.itmaoo.scenic.common.core.exception;
 
 /**
  * @desc 业务异常基类，所有业务异常都必须继承于此异常
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午9:28:13
  */
 public class BizException extends RuntimeException {

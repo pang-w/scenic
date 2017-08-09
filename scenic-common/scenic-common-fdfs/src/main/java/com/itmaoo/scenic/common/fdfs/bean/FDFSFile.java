@@ -1,10 +1,10 @@
-package com.lovecws.mumu.common.fdfs.bean;
+package com.itmaoo.scenic.common.fdfs.bean;
 
 
-import com.lovecws.mumu.common.fdfs.config.FDFSConfig;
+import com.itmaoo.scenic.common.fdfs.config.FDFSConfig;
 
 /**
- * @author itmaoo
+ * @author lovecws
  */
 public class FDFSFile implements FDFSConfig {
 

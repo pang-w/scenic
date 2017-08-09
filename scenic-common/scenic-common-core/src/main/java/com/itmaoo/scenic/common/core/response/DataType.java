@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.response;
+package com.itmaoo.scenic.common.core.response;
 
 /**
  * @author ShenHuaJie

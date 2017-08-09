@@ -1,8 +1,8 @@
-package com.lovecws.mumu.common.core.controller;
+package com.itmaoo.scenic.common.core.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.lovecws.mumu.common.core.response.HttpCode;
-import com.lovecws.mumu.common.core.response.ResponseEntity;
+import com.itmaoo.scenic.common.core.response.HttpCode;
+import com.itmaoo.scenic.common.core.response.ResponseEntity;
 import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 /**
  * @desc 控制器基类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月8日 下午2:37:50
  */
 @Component

@@ -1,7 +1,8 @@
-package com.lovecws.mumu.common.fdfs.service;
+package com.itmaoo.scenic.common.fdfs.service;
 
-import com.lovecws.mumu.common.fdfs.bean.FDFSFile;
-import com.lovecws.mumu.common.fdfs.config.FDFSConfig;
+import com.itmaoo.scenic.common.fdfs.bean.FDFSFile;
+import com.itmaoo.scenic.common.fdfs.config.FDFSConfig;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
@@ -16,7 +17,7 @@ import java.util.List;
 
 /**
  * 分布式文件系统fastdfs
- * @author itmaoo
+ * @author lovecws
  */
 public class FDFSAttachmentServiceImpl implements FDFSAttachmentService {
 

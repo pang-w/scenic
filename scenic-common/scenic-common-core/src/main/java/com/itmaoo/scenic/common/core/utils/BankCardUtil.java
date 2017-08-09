@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 public class BankCardUtil {
 

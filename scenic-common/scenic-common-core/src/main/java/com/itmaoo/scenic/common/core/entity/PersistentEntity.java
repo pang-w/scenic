@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.entity;
+package com.itmaoo.scenic.common.core.entity;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * 实体化对象
- * @author itmaoo
+ * @author lovecws
  */
 public abstract class PersistentEntity implements Serializable {
 

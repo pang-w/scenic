@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.entity;
+package com.itmaoo.scenic.common.security.shiro.entity;
 
 import java.io.Serializable;
 

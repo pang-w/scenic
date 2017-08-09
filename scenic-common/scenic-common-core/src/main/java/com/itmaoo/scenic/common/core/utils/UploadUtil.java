@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUpload;
@@ -23,7 +23,7 @@ import java.util.UUID;
 
 /**
  * @desc 文件上传
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:20:26
  */
 public final class UploadUtil {

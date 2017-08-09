@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.redis;
+package com.itmaoo.scenic.common.redis;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import redis.clients.jedis.Transaction;
 
 /**
  * redis
- * @author itmaoo
+ * @author lovecws
  */
 public interface JedisClient {
 	/********************************* common ************************************/

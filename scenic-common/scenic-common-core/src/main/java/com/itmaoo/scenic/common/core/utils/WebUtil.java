@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 
 /**
  * @desc 本地ip工具类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:27:05
  */
 public final class WebUtil {

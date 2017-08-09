@@ -1,10 +1,10 @@
-package com.lovecws.mumu.common.core.page;
+package com.itmaoo.scenic.common.core.page;
 
 import java.io.Serializable;
 
 /**
  * @desc 分页参数传递工具类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午9:26:51
  */
 public class PageParam implements Serializable {

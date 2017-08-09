@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.filter;
+package com.itmaoo.scenic.common.security.shiro.filter;
 
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 
@@ -7,7 +7,7 @@ import javax.servlet.ServletResponse;
 
 /**
  * @desc 自定义form表单认证过滤器
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午10:52:13
  */
 public class RcFormAuthenticationFilter extends FormAuthenticationFilter {

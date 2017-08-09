@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -27,7 +27,7 @@ import org.springframework.web.context.ContextLoader;
 
 /**
  * @desc 实例辅助类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:26:57
  */
 public final class InstanceUtil {

@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.cache;
+package com.itmaoo.scenic.common.security.shiro.cache;
 
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.ehcache.EhCacheManager;

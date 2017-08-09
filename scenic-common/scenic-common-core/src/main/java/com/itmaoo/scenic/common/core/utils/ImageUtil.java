@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * @desc  图片处理辅助类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:26:48
  */
 public final class ImageUtil {

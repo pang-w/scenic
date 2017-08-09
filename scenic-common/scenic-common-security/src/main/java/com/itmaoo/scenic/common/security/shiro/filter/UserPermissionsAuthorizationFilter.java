@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.filter;
+package com.itmaoo.scenic.common.security.shiro.filter;
 
 import org.apache.log4j.Logger;
 import org.apache.shiro.subject.Subject;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * @desc 用户自定义的权限 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午11:01:49
  */
 public class UserPermissionsAuthorizationFilter extends PermissionsAuthorizationFilter {

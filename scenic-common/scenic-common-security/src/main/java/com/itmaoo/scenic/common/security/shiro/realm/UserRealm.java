@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.realm;
+package com.itmaoo.scenic.common.security.shiro.realm;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * @desc 自定义realm
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午11:11:00
  */
 public class UserRealm extends AuthorizingRealm {

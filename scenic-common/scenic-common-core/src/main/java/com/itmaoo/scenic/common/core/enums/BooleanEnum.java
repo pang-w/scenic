@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.enums;
+package com.itmaoo.scenic.common.core.enums;
 
 public enum BooleanEnum {
 

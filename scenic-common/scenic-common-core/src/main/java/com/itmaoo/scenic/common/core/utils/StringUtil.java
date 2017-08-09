@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -15,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * @desc String字符串工具类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午9:37:01
  */
 public final class StringUtil {

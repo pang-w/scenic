@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.cache;
+package com.itmaoo.scenic.common.security.shiro.cache;
 
 public interface CacheManager {
 

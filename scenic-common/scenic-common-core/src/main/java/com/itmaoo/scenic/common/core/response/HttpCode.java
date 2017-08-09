@@ -1,8 +1,8 @@
-package com.lovecws.mumu.common.core.response;
+package com.itmaoo.scenic.common.core.response;
 
 /**
  * @desc huasi 后台服务器状态吗
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月9日 上午11:39:52
  */
 public enum HttpCode {

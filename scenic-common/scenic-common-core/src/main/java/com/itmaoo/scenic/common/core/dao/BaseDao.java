@@ -1,9 +1,10 @@
-package com.lovecws.mumu.common.core.dao;
+package com.itmaoo.scenic.common.core.dao;
 
-import com.lovecws.mumu.common.core.page.PageBean;
-import com.lovecws.mumu.common.core.page.PageParam;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
+
+import com.itmaoo.scenic.common.core.page.PageBean;
+import com.itmaoo.scenic.common.core.page.PageParam;
 
 import java.util.List;
 import java.util.Map;

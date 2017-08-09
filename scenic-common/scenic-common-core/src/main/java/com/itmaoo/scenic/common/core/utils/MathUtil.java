@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 /**
  * @desc 数字运算工具类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:30:10
  */
 public final strictfp class MathUtil {

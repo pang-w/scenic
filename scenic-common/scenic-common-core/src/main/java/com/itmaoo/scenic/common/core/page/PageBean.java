@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.page;
+package com.itmaoo.scenic.common.core.page;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @desc 分页组件
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午9:27:00
  * @param <T>
  */

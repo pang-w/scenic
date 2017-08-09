@@ -1,7 +1,8 @@
-package com.lovecws.mumu.common.security.shiro.session;
+package com.itmaoo.scenic.common.security.shiro.session;
 
-import com.lovecws.mumu.common.core.utils.SerializeUtils;
-import com.lovecws.mumu.common.redis.JedisClient;
+import com.itmaoo.scenic.common.core.utils.SerializeUtils;
+import com.itmaoo.scenic.common.redis.JedisClient;
+
 import org.apache.log4j.Logger;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;

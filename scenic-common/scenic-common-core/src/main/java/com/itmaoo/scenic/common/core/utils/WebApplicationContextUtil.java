@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @desc spring WebApplicationContext工具类
- * @author itmaoo
+ * @author lovecws
  * @version 2016年9月27日 上午11:51:37
  */
 @Component

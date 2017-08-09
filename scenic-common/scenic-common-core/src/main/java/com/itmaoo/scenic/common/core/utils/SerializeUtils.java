@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 /**
  * 它的作用就是把对象转化为byte数组，或把byte数组转化为对象。

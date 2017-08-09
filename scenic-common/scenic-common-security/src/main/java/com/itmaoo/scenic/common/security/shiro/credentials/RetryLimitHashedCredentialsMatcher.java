@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.credentials;
+package com.itmaoo.scenic.common.security.shiro.credentials;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @desc 自定义的市容凭证匹配器 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午10:44:49
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {

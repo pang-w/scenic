@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.tree;
+package com.itmaoo.scenic.common.core.tree;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
  * 菜单树
  * 
  * @desc
- * @author itmaoo
+ * @author lovecws
  * @version 2016年9月29日 下午11:15:32
  */
 public class MenuTree implements Serializable {

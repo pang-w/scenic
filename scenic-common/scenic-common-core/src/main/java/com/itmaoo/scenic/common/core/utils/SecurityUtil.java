@@ -1,13 +1,13 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
-import com.lovecws.mumu.common.core.security.BASE64Encoder;
-import com.lovecws.mumu.common.core.security.coder.*;
+import com.itmaoo.scenic.common.core.security.BASE64Encoder;
+import com.itmaoo.scenic.common.core.security.coder.*;
 
 import java.util.Map;
 
 /**
  * @desc 数据加密辅助类(默认编码UTF-8) 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:26:01
  */
 public final class SecurityUtil {

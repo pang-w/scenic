@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.exception;
+package com.itmaoo.scenic.common.security.shiro.exception;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * ajax请求异常
  * @desc
- * @author itmaoo
+ * @author lovecws
  * @version 2016年11月4日 下午11:38:20
  */
 public class GlobalHandlerException extends SimpleMappingExceptionResolver{

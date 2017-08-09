@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.exception;
+package com.itmaoo.scenic.common.core.exception;
 
 public class MumuLimitException extends RuntimeException {
 

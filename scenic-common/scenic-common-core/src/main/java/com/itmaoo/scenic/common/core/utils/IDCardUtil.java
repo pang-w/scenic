@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * @desc 身份证验证辅助类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:26:38
  */
 public final class IDCardUtil {

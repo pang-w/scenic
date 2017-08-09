@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.filter;
+package com.itmaoo.scenic.common.security.shiro.filter;
 
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.UserFilter;
@@ -8,7 +8,7 @@ import javax.servlet.ServletResponse;
 
 /**
  * @desc 记住密码 自动登录 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午11:01:00
  */
 public class RememberAuthenticationFilter extends UserFilter {

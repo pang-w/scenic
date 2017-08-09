@@ -1,9 +1,10 @@
-package com.lovecws.mumu.common.core.dao.impl;
+package com.itmaoo.scenic.common.core.dao.impl;
 
-import com.lovecws.mumu.common.core.dao.BaseDao;
-import com.lovecws.mumu.common.core.exception.BizException;
-import com.lovecws.mumu.common.core.page.PageBean;
-import com.lovecws.mumu.common.core.page.PageParam;
+import com.itmaoo.scenic.common.core.dao.BaseDao;
+import com.itmaoo.scenic.common.core.exception.BizException;
+import com.itmaoo.scenic.common.core.page.PageBean;
+import com.itmaoo.scenic.common.core.page.PageParam;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 /**
  * @desc 据访问层基础支撑类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午9:38:31
  * @param <T>
  */

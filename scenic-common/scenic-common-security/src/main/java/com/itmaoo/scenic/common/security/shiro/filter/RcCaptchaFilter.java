@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.filter;
+package com.itmaoo.scenic.common.security.shiro.filter;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -15,7 +15,7 @@ import java.util.Random;
 
 /**
  * @desc 定义验证码拦截器 生成验证码方式 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午10:50:40
  */
 public class RcCaptchaFilter extends OncePerRequestFilter {

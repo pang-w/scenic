@@ -1,13 +1,14 @@
-package com.lovecws.mumu.common.core.config;
+package com.itmaoo.scenic.common.core.config;
 
 import com.alibaba.druid.util.DruidPasswordCallback;
-import com.lovecws.mumu.common.core.utils.SecurityUtil;
+import com.itmaoo.scenic.common.core.utils.SecurityUtil;
+
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Properties;
 /**
  * @desc 数据库密码回调解密
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月10日 上午10:07:09
  */
 @SuppressWarnings("serial")

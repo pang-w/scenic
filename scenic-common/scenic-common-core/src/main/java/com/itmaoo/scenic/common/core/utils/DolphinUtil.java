@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,7 +8,7 @@ import org.apache.commons.lang3.RandomUtils;
 
 /**
  * 夺宝算法计算
- * @author itmaoo
+ * @author lovecws
  */
 public class DolphinUtil {
 

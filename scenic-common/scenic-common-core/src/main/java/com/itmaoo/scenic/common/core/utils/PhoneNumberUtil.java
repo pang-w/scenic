@@ -1,11 +1,11 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * @desc 手机号码检测 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月9日 上午10:41:44
  */
 public class PhoneNumberUtil {

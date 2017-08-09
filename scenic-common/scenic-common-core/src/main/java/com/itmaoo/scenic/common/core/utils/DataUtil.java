@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 
 import java.io.File;
@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * @desc 常见的辅助类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:26:13
  */
 public final class DataUtil {

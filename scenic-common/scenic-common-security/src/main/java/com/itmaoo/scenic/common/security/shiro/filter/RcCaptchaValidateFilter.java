@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.security.shiro.filter;
+package com.itmaoo.scenic.common.security.shiro.filter;
 
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @desc 验证码验证过滤器
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月29日 上午10:51:00
  */
 public class RcCaptchaValidateFilter extends AccessControlFilter {

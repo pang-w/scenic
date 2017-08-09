@@ -1,9 +1,10 @@
-package com.lovecws.mumu.common.core.security.coder;
-
-import com.lovecws.mumu.common.core.security.SecurityCoder;
+package com.itmaoo.scenic.common.core.security.coder;
 
 import javax.crypto.*;
 import javax.crypto.spec.DESKeySpec;
+
+import com.itmaoo.scenic.common.core.security.SecurityCoder;
+
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;

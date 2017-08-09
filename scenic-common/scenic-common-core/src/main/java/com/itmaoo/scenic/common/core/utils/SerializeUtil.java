@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.core.utils;
+package com.itmaoo.scenic.common.core.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 
 /**
  * @desc 序列化辅助类 
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月15日 上午9:29:40
  */
 public final class SerializeUtil {

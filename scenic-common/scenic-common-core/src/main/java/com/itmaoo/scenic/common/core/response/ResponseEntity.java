@@ -1,12 +1,12 @@
-package com.lovecws.mumu.common.core.response;
-
-import com.lovecws.mumu.common.core.entity.PersistentEntity;
+package com.itmaoo.scenic.common.core.response;
 
 import java.util.HashMap;
 
+import com.itmaoo.scenic.common.core.entity.PersistentEntity;
+
 /**
  * @desc 服务器向客户端返回的数据
- * @author itmaoo
+ * @author lovecws
  * @version 2016年8月8日 下午1:52:14
  */
 public class ResponseEntity extends PersistentEntity {

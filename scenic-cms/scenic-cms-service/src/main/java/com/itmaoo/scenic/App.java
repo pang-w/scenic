@@ -1,4 +1,4 @@
-package com.lovecws.mumu;
+package com.itmaoo.scenic;
 
 /**
  * Hello world!

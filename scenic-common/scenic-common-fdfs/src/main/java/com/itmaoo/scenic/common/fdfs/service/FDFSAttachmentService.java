@@ -1,7 +1,8 @@
-package com.lovecws.mumu.common.fdfs.service;
+package com.itmaoo.scenic.common.fdfs.service;
 
-import com.lovecws.mumu.common.fdfs.bean.FDFSFile;
 import org.csource.fastdfs.FileInfo;
+
+import com.itmaoo.scenic.common.fdfs.bean.FDFSFile;
 
 import java.io.File;
 import java.util.List;

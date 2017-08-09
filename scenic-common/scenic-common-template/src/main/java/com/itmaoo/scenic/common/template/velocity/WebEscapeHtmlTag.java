@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.template.velocity;
+package com.itmaoo.scenic.common.template.velocity;
 
 import org.apache.velocity.tools.Scope;
 import org.apache.velocity.tools.config.DefaultKey;

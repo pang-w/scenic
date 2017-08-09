@@ -1,9 +1,9 @@
-package com.lovecws.mumu.common.core.security.coder;
-
-import com.lovecws.mumu.common.core.security.Hex;
-import com.lovecws.mumu.common.core.security.SecurityCoder;
+package com.itmaoo.scenic.common.core.security.coder;
 
 import java.security.MessageDigest;
+
+import com.itmaoo.scenic.common.core.security.Hex;
+import com.itmaoo.scenic.common.core.security.SecurityCoder;
 
 /**
  * MD加密组件

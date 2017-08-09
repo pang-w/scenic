@@ -1,9 +1,9 @@
-package com.lovecws.mumu.common.fdfs.config;
+package com.itmaoo.scenic.common.fdfs.config;
 
 import java.io.Serializable;
 
 /**
- * @author itmaoo
+ * @author lovecws
  */
 public interface FDFSConfig extends Serializable {
 
