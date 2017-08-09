@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>scenic-common</artifactId>
-        <groupId>com.lovecws.scenic</groupId>
+        <groupId>com.itmaoo.scenic</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -70,7 +70,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.lovecws.scenic</groupId>
+            <groupId>com.itmaoo.scenic</groupId>
             <artifactId>scenic-common-core</artifactId>
         </dependency>
     </dependencies>

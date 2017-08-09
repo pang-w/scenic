@@ -8,7 +8,7 @@ import org.apache.commons.lang3.RandomUtils;
 
 /**
  * 夺宝算法计算
- * @author lovecws
+ * @author itmaoo
  */
 public class DolphinUtil {
 

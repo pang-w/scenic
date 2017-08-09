@@ -4,7 +4,7 @@ import java.util.Set;
 
 /**
  * 使用Twemproxy 代理实现分片
- * @author lovecws
+ * @author itmaoo
  */
 public class JedisClientTwemproxyImpl extends JedisClientImpl{
 

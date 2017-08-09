@@ -6,7 +6,7 @@ import com.itmaoo.scenic.common.core.entity.PersistentEntity;
 
 /**
  * @desc 服务器向客户端返回的数据
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月8日 下午1:52:14
  */
 public class ResponseEntity extends PersistentEntity {

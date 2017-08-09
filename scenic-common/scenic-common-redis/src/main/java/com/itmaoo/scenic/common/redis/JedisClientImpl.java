@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * 单个redis服务器
- * @author lovecws
+ * @author itmaoo
  */
 public class JedisClientImpl implements JedisClient {
 

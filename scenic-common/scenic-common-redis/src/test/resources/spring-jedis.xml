@@ -50,7 +50,7 @@
 		<constructor-arg name="timeout" value="${jedis.timeout}"></constructor-arg>
 		<constructor-arg name="password" value="${jedis.password}"></constructor-arg>
 	</bean>
-	<bean id="jedisClient" class="com.lovecws.mumu.cache.redis.JedisClientStandaloneImpl">
+	<bean id="jedisClient" class="com.itmaoo.scenic.cache.redis.JedisClientStandaloneImpl">
 		<property name="jedisPool" ref="jedisPool" />
 	</bean>
 	
@@ -90,7 +90,7 @@
 		</constructor-arg>
 		<constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
 	</bean>
-	<bean id="jedisClientCluster" class="com.lovecws.mumu.cache.redis.JedisClientClusterImpl">
+	<bean id="jedisClientCluster" class="com.itmaoo.scenic.cache.redis.JedisClientClusterImpl">
 		<property name="jedisCluster" ref="jedisCluster" />
 	</bean>
 	
@@ -118,7 +118,7 @@
 			</list>			
 		</constructor-arg>
 	</bean>
-	<bean id="jedisClientShard" class="com.lovecws.mumu.cache.redis.JedisClientShardImpl">
+	<bean id="jedisClientShard" class="com.itmaoo.scenic.cache.redis.JedisClientShardImpl">
 		<property name="jedisSharded" ref="jedisSharded" />
 	</bean>
 	
@@ -135,7 +135,7 @@
 		<constructor-arg index="3" value="${jedis.timeout}"/>
 		<constructor-arg index="4" value="${jedis.password}"/>
 	</bean>
-	<bean id="jedisClientSentinel" class="com.lovecws.mumu.cache.redis.JedisClientSentinelImpl">
+	<bean id="jedisClientSentinel" class="com.itmaoo.scenic.cache.redis.JedisClientSentinelImpl">
 		<property name="jedisSentinel" ref="jedisSentinel" />
 	</bean>
 	
@@ -146,7 +146,7 @@
 		<constructor-arg name="port" value="${jedis.twemproxy.port}"></constructor-arg>
 		<constructor-arg name="timeout" value="${jedis.timeout}"></constructor-arg>
 	</bean>
-	<bean id="twemproxyJedisClient" class="com.lovecws.mumu.cache.redis.JedisClientTwemproxyImpl">
+	<bean id="twemproxyJedisClient" class="com.itmaoo.scenic.cache.redis.JedisClientTwemproxyImpl">
 		<property name="jedisPool" ref="twemproxyJedisPool" />
 	</bean>
 </beans>    

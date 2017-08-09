@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @desc 基类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午9:40:41
  */
 public class BaseEntity extends PersistentEntity {

@@ -66,7 +66,7 @@
 			</list>			
 		</constructor-arg>
 	</bean>
-	<bean id="jedisClientShard" class="com.lovecws.mumu.cache.redis.JedisClientShardImpl">
+	<bean id="jedisClientShard" class="com.itmaoo.scenic.cache.redis.JedisClientShardImpl">
 		<property name="jedisSharded" ref="jedisSharded" />
 	</bean>
 </beans>    

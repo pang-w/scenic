@@ -1,4 +1,4 @@
-package com.lovecws.mumu.common.redis;
+package com.itmaoo.scenic.common.redis;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

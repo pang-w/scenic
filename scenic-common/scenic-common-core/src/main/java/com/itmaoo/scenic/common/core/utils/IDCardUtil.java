@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * @desc 身份证验证辅助类 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:26:38
  */
 public final class IDCardUtil {

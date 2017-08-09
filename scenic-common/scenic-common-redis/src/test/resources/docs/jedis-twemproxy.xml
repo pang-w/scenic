@@ -49,7 +49,7 @@
 		<constructor-arg name="port" value="${jedis.twemproxy.port}"></constructor-arg>
 		<constructor-arg name="timeout" value="${jedis.timeout}"></constructor-arg>
 	</bean>
-	<bean id="twemproxyJedisClient" class="com.lovecws.mumu.cache.redis.JedisClientTwemproxyImpl">
+	<bean id="twemproxyJedisClient" class="com.itmaoo.scenic.cache.redis.JedisClientTwemproxyImpl">
 		<property name="jedisPool" ref="twemproxyJedisPool" />
 	</bean>
 </beans>    

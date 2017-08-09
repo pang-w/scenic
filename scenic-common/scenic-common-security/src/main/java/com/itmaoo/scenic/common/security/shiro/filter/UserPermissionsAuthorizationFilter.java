@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * @desc 用户自定义的权限 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月29日 上午11:01:49
  */
 public class UserPermissionsAuthorizationFilter extends PermissionsAuthorizationFilter {

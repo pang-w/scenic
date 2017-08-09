@@ -19,7 +19,7 @@ import java.util.Map;
 
 /**
  * @desc 据访问层基础支撑类 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午9:38:31
  * @param <T>
  */

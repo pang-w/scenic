@@ -55,7 +55,7 @@
 		<constructor-arg index="3" value="${jedis.timeout}"/>
 		<constructor-arg index="4" value="${jedis.password}"/>
 	</bean>
-	<bean id="jedisClientSentinel" class="com.lovecws.mumu.cache.redis.JedisClientSentinelImpl">
+	<bean id="jedisClientSentinel" class="com.itmaoo.scenic.cache.redis.JedisClientSentinelImpl">
 		<property name="jedisSentinel" ref="jedisSentinel" />
 	</bean>
 	

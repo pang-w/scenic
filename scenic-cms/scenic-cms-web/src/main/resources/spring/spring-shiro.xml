@@ -15,7 +15,7 @@
 
 	<!-- 凭证匹配器，做登录次数验证，和密码匹配验证 -->
 	<bean id="credentialsMatcher"
-		class="com.lovecws.mumu.common.security.shiro.credentials.RetryLimitHashedCredentialsMatcher">
+		class="com.itmaoo.scenic.common.security.shiro.credentials.RetryLimitHashedCredentialsMatcher">
 		<!-- 登录次数放入缓存 -->
 		<property name="hashAlgorithmName" value="md5" />
 		<property name="hashIterations" value="2" />
@@ -24,7 +24,7 @@
 	</bean>
 
 	<!-- 自定义的user Realm实现 -->
-	<bean id="userRealm" class="com.lovecws.mumu.common.security.shiro.realm.UserRealm">
+	<bean id="userRealm" class="com.itmaoo.scenic.common.security.shiro.realm.UserRealm">
 		<property name="credentialsMatcher" ref="credentialsMatcher" />
 		<property name="cachingEnabled" value="true" />
 		<property name="authorizationCachingEnabled" value="true"/>
@@ -32,7 +32,7 @@
 	</bean>
 
 	<!-- 自定义redisManager-redis -->
-	<bean id="redisCacheManager" class="com.lovecws.mumu.common.security.shiro.session.RedisCacheManager">
+	<bean id="redisCacheManager" class="com.itmaoo.scenic.common.security.shiro.session.RedisCacheManager">
 		<property name="jedisClient" ref="jedisClient" />
 	</bean>
 
@@ -44,7 +44,7 @@
 		<property name="httpOnly" value="true" />
 	</bean>
 	<!-- session会话存储的实现类 -->
-	<bean id="redisShiroSessionDAO" class="com.lovecws.mumu.common.security.shiro.session.RedisSessionDAO">
+	<bean id="redisShiroSessionDAO" class="com.itmaoo.scenic.common.security.shiro.session.RedisSessionDAO">
 		<property name="jedisClient" ref="jedisClient" />
 		<!---session缓存前缀-->
 		<property name="keyPrefix" value="${session}"/>
@@ -92,12 +92,12 @@
 	</bean>
 
 	<!-- 记住我拦截器 -->
-	<bean id="RememberAuthenticationFilter" class="com.lovecws.mumu.common.security.shiro.filter.RememberAuthenticationFilter" />
+	<bean id="RememberAuthenticationFilter" class="com.itmaoo.scenic.common.security.shiro.filter.RememberAuthenticationFilter" />
 	<!-- 用户权限拦截器 -->
 	<bean id="UserPermissionsAuthorizationFilter"
-		class="com.lovecws.mumu.common.security.shiro.filter.UserPermissionsAuthorizationFilter" />
+		class="com.itmaoo.scenic.common.security.shiro.filter.UserPermissionsAuthorizationFilter" />
 	<!-- 基于Form表单的身份验证过滤器，为了控制验证码 -->
-	<bean id="authcFilter" class="com.lovecws.mumu.common.security.shiro.filter.RcFormAuthenticationFilter">
+	<bean id="authcFilter" class="com.itmaoo.scenic.common.security.shiro.filter.RcFormAuthenticationFilter">
 		<!-- from表达提交参数的属性命名 -->
 		<property name="usernameParam" value="userName" />
 		<property name="passwordParam" value="userPassword" />
@@ -106,7 +106,7 @@
 		<property name="failureKeyAttribute" value="shiroLoginFailure" />
 	</bean>
 	<!-- 验证码验证过滤器 -->
-	<bean id="rcCaptchaValidateFilter" class="com.lovecws.mumu.common.security.shiro.filter.RcCaptchaValidateFilter">
+	<bean id="rcCaptchaValidateFilter" class="com.itmaoo.scenic.common.security.shiro.filter.RcCaptchaValidateFilter">
 		<property name="captchaEbabled" value="true" />
 		<property name="captchaParam" value="captchaCode" />
 		<property name="failureKeyAttribute" value="shiroLoginFailure" />

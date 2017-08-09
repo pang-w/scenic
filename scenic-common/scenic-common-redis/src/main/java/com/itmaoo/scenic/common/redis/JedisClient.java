@@ -13,7 +13,7 @@ import redis.clients.jedis.Transaction;
 
 /**
  * redis
- * @author lovecws
+ * @author itmaoo
  */
 public interface JedisClient {
 	/********************************* common ************************************/

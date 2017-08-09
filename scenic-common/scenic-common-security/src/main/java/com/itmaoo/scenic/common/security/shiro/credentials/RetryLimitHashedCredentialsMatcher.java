@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @desc 自定义的市容凭证匹配器 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月29日 上午10:44:49
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {

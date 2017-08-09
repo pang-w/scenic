@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * redis分片
- * @author lovecws
+ * @author itmaoo
  */
 public class JedisClientShardImpl implements JedisClient{
 

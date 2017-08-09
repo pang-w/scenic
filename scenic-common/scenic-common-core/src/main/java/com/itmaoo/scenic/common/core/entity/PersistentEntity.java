@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * 实体化对象
- * @author lovecws
+ * @author itmaoo
  */
 public abstract class PersistentEntity implements Serializable {
 

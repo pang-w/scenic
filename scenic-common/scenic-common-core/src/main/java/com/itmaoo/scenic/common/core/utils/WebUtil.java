@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 
 /**
  * @desc 本地ip工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:27:05
  */
 public final class WebUtil {

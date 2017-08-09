@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @desc 日期工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午9:33:38
  */
 public class DateUtils extends org.apache.commons.lang.time.DateUtils {

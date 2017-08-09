@@ -13,12 +13,12 @@ import java.util.List;
 
 /**
  * @desc 自定义realm
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月29日 上午11:11:00
  */
 public class UserRealm extends AuthorizingRealm {
 
-	public static final String authorizationInfoKey="mumu:cms:permissions:";
+	public static final String authorizationInfoKey="scenic:cms:permissions:";
 	/**
 	 * 获取当前用户的角色集合,权限集合
 	 */

@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 
 /**
  * @desc 文件工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月16日 下午5:00:18
  */
 public class FileUtil {

@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface MumuCache {
+public @interface ScenicCache {
 
 	/**
 	 * 是否缓存 ;默认缓存

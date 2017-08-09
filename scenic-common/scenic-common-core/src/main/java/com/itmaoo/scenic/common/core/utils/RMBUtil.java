@@ -2,7 +2,7 @@ package com.itmaoo.scenic.common.core.utils;
 
 /**
  * @desc 人民币工具类 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:29:52
  */
 public final class RMBUtil {

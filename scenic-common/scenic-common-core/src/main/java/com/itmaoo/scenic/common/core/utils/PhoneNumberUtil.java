@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 /**
  * @desc 手机号码检测 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月9日 上午10:41:44
  */
 public class PhoneNumberUtil {

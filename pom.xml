@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.lovecws.scenic</groupId>
+  <groupId>com.itmaoo.scenic</groupId>
   <artifactId>scenic</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
@@ -433,27 +433,27 @@
 
 
       <dependency>
-        <groupId>com.lovecws.scenic</groupId>
+        <groupId>com.itmaoo.scenic</groupId>
         <artifactId>scenic-common-core</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.lovecws.scenic</groupId>
+        <groupId>com.itmaoo.scenic</groupId>
         <artifactId>scenic-common-fdfs</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.lovecws.scenic</groupId>
+        <groupId>com.itmaoo.scenic</groupId>
         <artifactId>scenic-common-redis</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.lovecws.scenic</groupId>
+        <groupId>com.itmaoo.scenic</groupId>
         <artifactId>scenic-common-security</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.lovecws.scenic</groupId>
+        <groupId>com.itmaoo.scenic</groupId>
         <artifactId>scenic-common-template</artifactId>
         <version>1.0-SNAPSHOT</version>
       </dependency>
@@ -464,8 +464,8 @@
   <!-- 开发者信息 -->
   <developers>
     <developer>
-      <id>lovecws</id>
-      <name>lovecws</name>
+      <id>itmaoo</id>
+      <name>itmaoo</name>
       <email>lovercws@gmail.com</email>
       <roles>
         <role>admin</role>

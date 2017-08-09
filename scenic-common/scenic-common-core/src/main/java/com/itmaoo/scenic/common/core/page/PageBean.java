@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @desc 分页组件
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午9:27:00
  * @param <T>
  */

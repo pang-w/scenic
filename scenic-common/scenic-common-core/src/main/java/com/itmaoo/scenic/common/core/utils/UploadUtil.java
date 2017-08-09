@@ -23,7 +23,7 @@ import java.util.UUID;
 
 /**
  * @desc 文件上传
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:20:26
  */
 public final class UploadUtil {

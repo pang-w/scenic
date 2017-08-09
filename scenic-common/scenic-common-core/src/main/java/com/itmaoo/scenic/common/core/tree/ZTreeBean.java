@@ -7,7 +7,7 @@ import java.util.List;
  * ztree树实体对象
  * 
  * @desc
- * @author lovecws
+ * @author itmaoo
  * @version 2016年9月13日 下午10:34:37
  */
 public class ZTreeBean implements Serializable {

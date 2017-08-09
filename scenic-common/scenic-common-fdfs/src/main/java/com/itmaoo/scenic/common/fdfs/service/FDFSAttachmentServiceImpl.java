@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 分布式文件系统fastdfs
- * @author lovecws
+ * @author itmaoo
  */
 public class FDFSAttachmentServiceImpl implements FDFSAttachmentService {
 

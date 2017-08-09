@@ -15,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * @desc String字符串工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午9:37:01
  */
 public final class StringUtil {

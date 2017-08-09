@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Properties;
 /**
  * @desc 数据库密码回调解密
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午10:07:09
  */
 @SuppressWarnings("serial")

@@ -2,7 +2,7 @@ package com.itmaoo.scenic.common.core.enums;
 
 /**
  * @desc 公共状态 0 分类禁用、1分类正常使用、2 分类删除
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月11日 上午9:35:53
  */
 public enum PublicEnum {

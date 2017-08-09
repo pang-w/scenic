@@ -93,7 +93,7 @@
 
   <filter>
     <filter-name>rcCaptchaFilter</filter-name>
-    <filter-class>com.lovecws.mumu.common.security.shiro.filter.RcCaptchaFilter</filter-class>
+    <filter-class>com.itmaoo.scenic.common.security.shiro.filter.RcCaptchaFilter</filter-class>
     <async-supported>true</async-supported>
   </filter>
   <filter-mapping>

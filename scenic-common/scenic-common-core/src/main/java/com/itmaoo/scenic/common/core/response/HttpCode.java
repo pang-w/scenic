@@ -2,7 +2,7 @@ package com.itmaoo.scenic.common.core.response;
 
 /**
  * @desc huasi 后台服务器状态吗
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月9日 上午11:39:52
  */
 public enum HttpCode {

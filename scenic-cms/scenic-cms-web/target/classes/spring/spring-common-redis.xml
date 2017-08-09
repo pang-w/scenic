@@ -51,7 +51,7 @@
         <constructor-arg name="timeout" value="${jedis.timeout}"></constructor-arg>
         <constructor-arg name="password" value="${jedis.password}"></constructor-arg>
     </bean>
-    <bean id="jedisClient" class="com.lovecws.mumu.common.redis.JedisClientStandaloneImpl">
+    <bean id="jedisClient" class="com.itmaoo.scenic.common.redis.JedisClientStandaloneImpl">
         <property name="jedisPool" ref="jedisPool"/>
     </bean>
 

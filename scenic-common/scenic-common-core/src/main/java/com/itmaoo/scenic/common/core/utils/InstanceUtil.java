@@ -27,7 +27,7 @@ import org.springframework.web.context.ContextLoader;
 
 /**
  * @desc 实例辅助类 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:26:57
  */
 public final class InstanceUtil {

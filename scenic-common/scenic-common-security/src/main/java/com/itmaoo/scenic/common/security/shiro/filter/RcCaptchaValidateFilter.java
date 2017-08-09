@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @desc 验证码验证过滤器
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月29日 上午10:51:00
  */
 public class RcCaptchaValidateFilter extends AccessControlFilter {

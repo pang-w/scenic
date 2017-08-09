@@ -8,7 +8,7 @@ import java.util.List;
  * 菜单树
  * 
  * @desc
- * @author lovecws
+ * @author itmaoo
  * @version 2016年9月29日 下午11:15:32
  */
 public class MenuTree implements Serializable {

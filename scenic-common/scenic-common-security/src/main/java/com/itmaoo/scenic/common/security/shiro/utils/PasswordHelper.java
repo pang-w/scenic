@@ -10,7 +10,7 @@ import com.itmaoo.scenic.common.security.shiro.entity.BaseRealm;
 
 /**
  * @desc 生成密码工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月29日 上午11:18:34
  */
 public class PasswordHelper {

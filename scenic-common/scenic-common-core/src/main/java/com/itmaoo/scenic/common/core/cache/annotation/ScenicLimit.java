@@ -8,12 +8,12 @@ import java.lang.annotation.Target;
 
 /**
  * 模块接口访问限制
- * @author lovecws
+ * @author itmaoo
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface MumuLimit {
+public @interface ScenicLimit {
 
 	/**
 	 * 模块限制

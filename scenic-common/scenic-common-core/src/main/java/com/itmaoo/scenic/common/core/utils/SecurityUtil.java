@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @desc 数据加密辅助类(默认编码UTF-8) 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:26:01
  */
 public final class SecurityUtil {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @desc 分页参数传递工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月10日 上午9:26:51
  */
 public class PageParam implements Serializable {

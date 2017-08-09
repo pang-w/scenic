@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * redis主从配置
- * @author lovecws
+ * @author itmaoo
  */
 public class JedisClientSentinelImpl implements JedisClient{
 

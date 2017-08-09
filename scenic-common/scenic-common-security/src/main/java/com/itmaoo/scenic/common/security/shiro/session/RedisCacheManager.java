@@ -33,7 +33,7 @@ public class RedisCacheManager implements CacheManager {
     /**
      * The Redis key prefix for caches
      */
-    private String keyPrefix = "lovecws_shiro_redis_cache:";
+    private String keyPrefix = "itmaoo_shiro_redis_cache:";
 
     /**
      * Returns the Redis session keys

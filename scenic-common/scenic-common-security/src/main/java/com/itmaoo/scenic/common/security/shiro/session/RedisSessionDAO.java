@@ -118,7 +118,7 @@ public class RedisSessionDAO extends AbstractSessionDAO {
      * 默认shiro-redis的session对象前缀
      */
 
-    private String keyPrefix = "mumu:shiro:redis:session:";
+    private String keyPrefix = "scenic:shiro:redis:session:";
 
     /**
      * 默认设置缓存永不过期

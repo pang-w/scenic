@@ -8,7 +8,7 @@ import javax.servlet.ServletResponse;
 
 /**
  * @desc 记住密码 自动登录 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月29日 上午11:01:00
  */
 public class RememberAuthenticationFilter extends UserFilter {

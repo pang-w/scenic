@@ -17,7 +17,7 @@
 	<context:annotation-config />
 
 	<!-- 配置要扫描的包 -->
-	<context:component-scan base-package="com.lovecws.mumu"/>
+	<context:component-scan base-package="com.itmaoo.scenic"/>
 
 	<!-- 字符串格式转化器 -->
 	<bean id="stringHttpMessageConverter"
@@ -95,7 +95,7 @@
 	<!-- 不进行拦截的 -->
     <mvc:resources location="/resources/" mapping="/resources/" cache-period="1024" />
 
-	<bean class="com.lovecws.mumu.common.security.shiro.exception.GlobalHandlerException">
+	<bean class="com.itmaoo.scenic.common.security.shiro.exception.GlobalHandlerException">
 		<!-- 定义默认的异常处理页面，当该异常类型的注册搜索时使用 -->
 		<property name="defaultErrorView" value="error"></property>
 		<!-- 定义异常处理页面用来获取异常信息的变量名，默认名为exception -->

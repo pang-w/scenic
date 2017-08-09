@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @desc spring WebApplicationContext工具类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年9月27日 上午11:51:37
  */
 @Component

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * @desc  图片处理辅助类 
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月15日 上午9:26:48
  */
 public final class ImageUtil {

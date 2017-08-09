@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * ajax请求异常
  * @desc
- * @author lovecws
+ * @author itmaoo
  * @version 2016年11月4日 下午11:38:20
  */
 public class GlobalHandlerException extends SimpleMappingExceptionResolver{

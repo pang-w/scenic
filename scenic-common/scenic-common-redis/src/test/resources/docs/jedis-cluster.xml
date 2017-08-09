@@ -78,7 +78,7 @@
 		</constructor-arg>
 		<constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
 	</bean>
-	<bean id="jedisClientCluster" class="com.lovecws.mumu.cache.redis.JedisClientClusterImpl">
+	<bean id="jedisClientCluster" class="com.itmaoo.scenic.cache.redis.JedisClientClusterImpl">
 		<property name="jedisCluster" ref="jedisCluster" />
 	</bean>
 </beans>    

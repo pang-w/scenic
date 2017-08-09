@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 /**
  * @desc 控制器基类
- * @author lovecws
+ * @author itmaoo
  * @version 2016年8月8日 下午2:37:50
  */
 @Component

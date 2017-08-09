@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * redis 集群
- * @author lovecws
+ * @author itmaoo
  */
 public class JedisClientClusterImpl implements JedisClient {
 
