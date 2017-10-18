@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>啄木鸟（Piculus）</title>
+<script src="assets/js/import-css.js"></script>
+</head>
+
+<body class="no-skin">
+	<div id="navbar" class="navbar navbar-default ace-save-state"></div>
+
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try {
+				ace.settings.loadState('main-container')
+			} catch (e) {
+			}
+		</script>
+
+		<div id="sidebar" class="sidebar responsive ace-save-state"></div>
+
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a
+							href="index.html">首页</a></li>
+						<li class="active">页面构建</li>
+					</ul>
+					<!-- /.breadcrumb -->
+				</div>
+	
+	<!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="assets/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="assets/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container');
+    </script>
+
+				<div class="page-content">
+					<div class="page-header">
+						<h1>页面构建</h1>
+					</div>
+					<!-- /.page-header -->
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+							<div class="widget-box">
+								<div class="widget-header widget-header-blue widget-header-flat">
+									<h4 class="widget-title lighter">查询条件</h4>
+								</div>
+								
+								<div class="widget-body">
+									<form class="form-horizontal" role="form">
+										<div class="widget-main">
+											<hr />
+											<div class="wizard-actions">
+												<button class="btn btn-primary" id="btnSearch" type="button">
+													<i class="ace-icon fa fa-search icon-on-right"></i>生成首页
+												</button>
+											</div>
+										</div>
+										<!-- /.widget-main -->
+									</form>
+								</div>
+								<!-- /.widget-body -->
+							</div>
+							<div class="hr hr-18 dotted hr-double"></div>
+							<div class="row" id="pagination" style="display: none"></div>
+							<!-- PAGE CONTENT ENDS -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.page-content -->
+			</div>
+		</div>
+		<!-- /.main-content -->
+
+		<div id="footer" class="footer"></div>
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	<!-- /.main-container -->
+
+	<script src="assets/js/import-js.js"></script>
+	<script type="text/javascript">
+		var activeMenu = [ 1, 0 ];
+	</script>
+	<script src="assets/js/load.js"></script>
+	<script src="assets/js/pagination.js"></script>
+	<script src="assets/ctrl/IssuesCtrl.js"></script>
+
+	<script id="dataList" type="text/x-jsrender">
+
+    <tr>
+		<td>{{:cno}}</td>
+		<td>{{:isuNum}}</td>
+        <td>{{:isuAppid}}</td>
+        <td>{{:isuGroup}}</td>
+		<td>{{:isuCreateTime}}</td>
+        <td>{{:isuType}}</td>
+        <td>{{:isuLevel}}</td>
+		<td>{{:status}}</td>
+        <td>
+            <button class="btn btn-white btn-info btn-bold btn-minier" onclick="goColleciton('{{:cno}}');">
+                <i class="ace-icon glyphicon glyphicon-list"></i>批次详情
+            </button>
+			<button class="btn btn-white btn-info btn-bold btn-minier" onclick="goSolutionIns('{{:isuNum}}');">
+             	<i class="ace-icon glyphicon glyphicon-list"></i>异常处理
+            </button>
+        </td>
+    </tr>
+</script>
+</body>
+</html>

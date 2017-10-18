@@ -35,6 +35,6 @@ public class DBPasswordCallback extends DruidPasswordCallback {
 		String encrypt = SecurityUtil.encryptDes("xiaoMO123456!@#$%^", key);
 		//String encrypt = SecurityUtil.encryptDes("123", key);
 		System.out.println(encrypt);
-		System.out.println(SecurityUtil.decryptDes(encrypt, key));
+		System.out.println(SecurityUtil.decryptDes("v3RXIa455h29L718i3w6KnWJCBHI/InC", key));
 	}
 }

@@ -1,0 +1,330 @@
+@charset "utf-8";
+
+/***
+ *
+ **/
+ 
+.index .body {
+	width: 1200px;
+	margin: 0px auto;
+}
+
+.index .bodyLeft {
+	width: 201px;
+	float: left;;
+ background-color: #ac7401;
+}
+
+.index .bodyRight {
+	width: 430px;	
+	float: right;
+height:560px;
+ background-color: #ffffff;
+}
+
+.index .bodyRight .slider {
+	width: 440px;
+	height: 200px;
+	clear: both;
+	position: relative;
+	overflow: hidden;
+}
+
+.index .bodyRight .slider .scrollable {
+	width: 440px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+
+.index .bodyRight .scrollableBotom {
+	width: 440px;
+	height: 360px;
+	overflow: hidden;
+	position: relative;
+ background-color: #ffffff;
+}
+.index .bodyRight .scrollableBotom {
+	width: 440px;
+	height: 360px;
+	overflow: hidden;
+	position: relative;
+ background-color: #ffffff;
+}
+
+.index .bodyRight .slider .items {
+	width: 20000em;
+	position: absolute;
+	clear: both;
+background-color: #ffffff;
+}
+
+.index .bodyRight .slider .scrollable .items div {
+	width: 998px;
+	float: left;
+background-color: #ffffff;
+}
+
+.index .bodyRight .slider .scrollable img {
+	float: left;
+	background-color: #fff;
+}
+
+.index .bodyRight .slider .scrollable .navi {
+	height: 10px;
+	margin: 0px 10px;
+	position: absolute;
+	right: 50px;
+	bottom: 12px;
+}
+
+.index .bodyRight .slider .scrollable .navi a {
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin-left: 5px;
+	display: block;
+	outline: none;
+	overflow: hidden;
+	background: url(../images/index_slider_navi_bg.gif) -1px -40px no-repeat;
+}
+
+.index .bodyRight .slider .scrollable .navi a:hover {
+	background-position: -1px -60px;
+}
+
+.index .bodyRight .slider .scrollable .navi a.active {
+	background-position: -1px -60px;
+}
+
+.index .bodyRight .slider .scrollable .prevNext {
+	height: 15px;
+	width: 40px;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	display: block;
+	float: left;
+}
+
+
+
+.index .bodyRight .slider .scrollable a.browse {
+	height: 15px;
+	width: 20px;
+	display: block;
+	float: left;
+	cursor: pointer;
+	overflow: hidden;
+	background: url(../images/index_slider_navi_bg.gif) no-repeat;
+}
+
+.index .bodyRight .slider .scrollable a.right {
+	background-position: -21px 0px;
+}
+
+.index .bodyRight .slider .scrollable .right:hover {
+	background-position: -21px -19px;
+}
+
+.index .bodyRight .slider .scrollable .left:hover {
+	background-position: 0px -19px;
+}
+
+.index .bodyRight .slider .scrollable a.disabled {
+	visibility: hidden !important;
+}
+
+.index .bodyIndexCenter {
+ width: 560px;
+	height: 560px;
+overflow: hidden;
+float:left;
+}
+
+.index .bodyIndexCenter .hotsProduct {
+	width: 560px;
+	height: 560px;
+	position: relative;
+	overflow: hidden;
+}
+
+
+.index .bodyIndexCenter .hotsProduct .scrollable {
+	width: 560px;
+	height: 560px;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.index .bodyIndexCenter .hotsProduct .items {
+
+	width: 560px;
+	position: absolute;
+}
+
+.index .bodyIndexCenter .hotsProduct .scrollable .items div {
+	width: 540px;
+	float: left;
+}
+.index .bodyIndexCenter .hotsProduct .scrollable .items ul {
+width: 560px;
+	float: left;
+}
+
+.index .bodyIndexCenter .hotsProduct .scrollable .items li {
+	width: 140px;
+	height: 140px;
+	_display: inline;
+	float: left;
+	margin: 0px 0px;
+	text-align: center;
+	position: relative;
+}
+
+.index .bodyIndexCenter .hotsProduct .scrollable .items li img {
+	clear: both;
+	padding: 0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+.index .bodyIndexCenter .hotsProduct .scrollable .items li p {
+	width: 140px;
+	line-height: 25px;
+	margin-left: 1px;
+	clear: both;
+	color: #ffffff;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	z-index: 2;
+	background-color: #000000;
+	filter: alpha(opacity=30);
+	-moz-opacity: 0.3;
+	opacity: 0.3;
+}
+
+.index .newProduct {
+	width: 1200px;
+	height: 208px;
+	clear: both;
+	overflow: hidden;
+background-color: #ffffff;
+}
+
+.index .newProduct .left {
+	width: 200px;
+	height: 158px;
+	float: right;
+	padding-top: 50px;
+	text-align: center;
+	background: url(../images/index_bg.gif) 0px -30px no-repeat;
+}
+
+.index .newProduct .left li {
+	line-height: 29px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	cursor: pointer;
+}
+
+.index .newProduct .left li:hover {
+	background: url(../images/index_bg.gif) 0px -240px no-repeat;
+}
+
+.index .newProduct .left li.current {
+	background: url(../images/index_bg.gif) 0px -240px no-repeat;
+}
+
+.index .newProduct .right {
+	width: 1000px;
+	float: left;
+	position: relative;
+background-color:#ffffff;
+}
+
+.index .newProduct .right ul {
+	position: absolute;
+	top: 10px;
+	left: 0px;
+
+}
+
+.index .newProduct .right li {
+	width: 140px;
+	height: 166px;
+	_display: inline;
+	float: left;
+	padding: 10px;
+	margin: 0px 15px;
+	text-align: center;
+}
+
+.index .newProduct .right li p {
+	line-height: 25px;
+	clear: both;
+}
+
+.index .bestProduct {
+	width: 999px;
+	overflow: hidden;
+        float: right;
+background-color:#ffffff;
+}
+
+.index .bestProduct .top {
+	width:999px;
+	height: 31px;
+	line-height: 36px;
+	padding-left: 16px;
+	clear: both;
+	font-size: 14px;
+	font-weight: bold;
+	color: #b983e2;
+	overflow: hidden;
+	background: url(../images/index_bg.gif) 0px -300px no-repeat;
+}
+
+.index .bestProduct .top strong {
+	margin-right: 5px;
+	color: #ffffff;
+}
+
+.index .bestProduct .middle {
+	width: 1000px;
+	clear: both;
+	padding: 5px 0px 19px 0px;
+}
+
+.index .bestProduct li {
+	width: 140px;
+	height: 176px;
+	_display: inline;
+	float: left;
+	padding: 10px;
+	margin: 0px 15px 25px 15px;
+	text-align: center;
+}
+
+.index .bestProduct img {
+	width: 140px;
+	height: 140px;
+}
+
+.index .bestProduct li p {
+	line-height: 20px;
+	clear: both;
+}
+
+.index .bestProduct .bottom {
+	width: 1000px;
+	height: 7px;
+	clear: both;
+	overflow: hidden;
+	background: url(../images/index_bg.gif) 0px -360px no-repeat;
+}
