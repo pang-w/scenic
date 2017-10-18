@@ -7,8 +7,8 @@
 <meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/install.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/admin/js/install.js"></script>
+<link href="${base}/assets/admin/css/install.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/admin/js/install.js"></script>
 </head>
 <body class="install">
 	<div class="header">

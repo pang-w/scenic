@@ -5,7 +5,7 @@
 <title>添加/编辑商品 </title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/input.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/input.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 $().ready(function() {
 

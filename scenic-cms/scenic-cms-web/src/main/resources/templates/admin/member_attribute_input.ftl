@@ -7,7 +7,7 @@
 <meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/input.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/input.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 $().ready(function() {
 
@@ -49,7 +49,7 @@ $().ready(function() {
 	}
 	
 	function addAttributeOptionTr() {
-		var attributeOptionTrHtml = '<tr class="attributeOptionTr"><th>选项内容:</th><td><input type="text" name="attributeOptionList" class="formText attributeOption {required: true}" />&nbsp;<img src="${base}/template/admin/images/input_delete_icon.gif" class="deleteImage" alt="删除" /></td></tr>';
+		var attributeOptionTrHtml = '<tr class="attributeOptionTr"><th>选项内容:</th><td><input type="text" name="attributeOptionList" class="formText attributeOption {required: true}" />&nbsp;<img src="${base}/assets/admin/images/input_delete_icon.gif" class="deleteImage" alt="删除" /></td></tr>';
 		if($(".attributeOptionTr").length > 0) {
 			$(".attributeOptionTr:last").after(attributeOptionTrHtml);
 		} else {
@@ -121,7 +121,7 @@ $().ready(function() {
 							<th>选项内容:</th>
 							<td>
 								<input type="text" name="attributeOptionList" class="formText attributeOption {required: true}" value="${list}" />
-								&nbsp;<img src="${base}/template/admin/images/input_delete_icon.gif" class="deleteImage" alt="删除" />
+								&nbsp;<img src="${base}/assets/admin/images/input_delete_icon.gif" class="deleteImage" alt="删除" />
 							</td>
 						</tr>
 					</#list>
@@ -133,8 +133,8 @@ $().ready(function() {
 						&nbsp;
 					</td>
 					<td>
-						<img src="${base}/template/admin/images/input_add_icon.gif" id="addImage" alt="增加选项" />&nbsp;&nbsp;&nbsp;&nbsp;
-						<img src="${base}/template/admin/images/input_remove_icon.gif" id="removeImage" alt="减少选项" />
+						<img src="${base}/assets/admin/images/input_add_icon.gif" id="addImage" alt="增加选项" />&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="${base}/assets/admin/images/input_remove_icon.gif" id="removeImage" alt="减少选项" />
 					</td>
 				</tr>
 				<tr>

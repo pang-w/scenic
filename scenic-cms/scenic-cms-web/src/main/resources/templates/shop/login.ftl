@@ -9,13 +9,13 @@
 <#if (article.metaDescription)! != ""><meta name="description" content="${article.metaDescription}" /></#if>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
 </head>
 <body class="login">
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="blank"></div>
 	<div class="body">
 		<div class="loginDetail">
@@ -64,6 +64,6 @@
 		
 	</div>
 	<div class="blank"></div>
-<#include "/WEB-INF/template/shop/footer.ftl">
+<#include "footer.ftl">
 </body>
 </html>

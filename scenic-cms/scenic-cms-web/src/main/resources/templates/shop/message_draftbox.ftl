@@ -7,11 +7,11 @@
 <meta name="Copyright" content="足衣" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/member_center.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/member_center.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
 <script type="text/javascript">
 $().ready( function() {
 	
@@ -26,10 +26,10 @@ $().ready( function() {
 </script>
 </head>
 <body class="memberCenter">
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="body messageDraftbox">
 		<div class="bodyLeft">
-			<#include "/WEB-INF/template/shop/member_menu.ftl">
+			<#include "member_menu.ftl">
 		</div>
 		<div class="bodyRight bodyCenter">
 			<div class="memberCenterDetail">
@@ -63,17 +63,17 @@ $().ready( function() {
 						</#list>
 					</table>
 					<div class="blank"></div>
-         			<link href="${base}/template/shop/css/pager.css" rel="stylesheet" type="text/css" />
-         			<#import "/WEB-INF/template/shop/pager.ftl" as p>
+         			<link href="${base}/assets/shop/css/pager.css" rel="stylesheet" type="text/css" />
+         			<#import "pager.ftl" as p>
          			<@p.pager pager = pager baseUrl = "/shop/message!draftbox.action" />
 				</div>
 				<div class="bottom"></div>
 			</div>
 		</div>
 		<div class="blank"></div>
-		<#include "/WEB-INF/template/shop/friend_link.ftl">
+		<#include "friend_link.ftl">
 	</div>
 	<div class="blank"></div>
-	<#include "/WEB-INF/template/shop/footer.ftl">
+	<#include "footer.ftl">
 </body>
 </html>

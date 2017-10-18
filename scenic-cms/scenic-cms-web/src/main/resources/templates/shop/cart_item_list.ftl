@@ -7,11 +7,11 @@
 <meta name="Copyright" content="足衣" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/cart_item.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/cart_item.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
 <script type="text/javascript">
 $().ready( function() {
 
@@ -166,7 +166,7 @@ $().ready( function() {
 			<p id="changeQuantityTipBottomMessage" class="red"></p>
 		</div>
 	</div>
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="body">
 		<div class="cartItemListBar"></div>
 		<div class="blank"></div>
@@ -253,9 +253,9 @@ $().ready( function() {
 			</div>
 		</div>
 		<div class="blank"></div>
-		<#include "/WEB-INF/template/shop/friend_link.ftl">
+		<#include "friend_link.ftl">
 	</div>
 	<div class="blank"></div>
-	<#include "/WEB-INF/template/shop/footer.ftl">
+	<#include "footer.ftl">
 </body>
 </html>

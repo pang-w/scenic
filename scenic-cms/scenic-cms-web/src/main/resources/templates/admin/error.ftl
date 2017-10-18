@@ -7,7 +7,7 @@
 <meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/message.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/message.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="message">
 	<div class="body">

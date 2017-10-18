@@ -7,8 +7,8 @@
 <meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/admin/js/list.js"></script>
+<link href="${base}/assets/admin/css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/admin/js/list.js"></script>
 <script type="text/javascript">
 $().ready(function() {
 
@@ -72,9 +72,9 @@ $().ready(function() {
 						<td class="categoryName">
 							<span style="margin-left: ${list.level * 20}px;">
 								<#if list.level == 0>
-									<img src="${base}/template/admin/images/list_category_first_icon.gif" />
+									<img src="${base}/assets/admin/images/list_category_first_icon.gif" />
 								<#else>
-									<img src="${base}/template/admin/images/list_category_icon.gif" />
+									<img src="${base}/assets/admin/images/list_category_icon.gif" />
 								</#if>
 								${list.name}
 							</span>

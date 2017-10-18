@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.itmaoo.scenic.support.SystemConfigUtil;
+
+import freemarker.ext.beans.BeansWrapper;
+import freemarker.ext.beans.ResourceBundleModel;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
@@ -74,6 +81,18 @@ public class HtmlAction {
 		return "Amdin";
 
 	}
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public ModelAndView indexBuildHtml2(ModelMap map) {
+		ModelAndView mv = new ModelAndView("shop/index");
+		map.addAttribute("base", "http://localhost:8080");
+		map.addAttribute("topNavigationList", new ArrayList<>());
+		Map<String, Object> commonData = getCommonData();
+		for(Map.Entry<String, Object> entry:commonData.entrySet()){
+			map.put(entry.getKey(), entry.getValue());
+		}
+		return mv;
+
+	}
 
 	@RequestMapping(value = "/helloFreeMarker", method = RequestMethod.GET)
 	public ModelAndView indexBuildHtml(ModelMap map) {
@@ -89,6 +108,26 @@ public class HtmlAction {
 		System.out.println(new File("/template/").getAbsolutePath());
 		System.out.println(new File("/template/").getPath());
 		new HtmlAction().buildIndexHtml();
+	}
+	public Map<String, Object> getCommonData() {
+		Map<String, Object> commonData = new HashMap<String, Object>();
+		
+		commonData.put("base", "http://localhost:8080");
+		commonData.put("baseOOS", "http://localhost:8080");
+		commonData.put("systemConfig", SystemConfigUtil.getSystemConfig());
+		commonData.put("priceCurrencyFormat", "#0");
+		commonData.put("priceUnitCurrencyFormat", "#0");
+		commonData.put("orderCurrencyFormat", "#0");
+		commonData.put("orderUnitCurrencyFormat", "#0");
+		commonData.put("topNavigationList", new ArrayList<>());
+		commonData.put("middleNavigationList", new ArrayList<>());
+		commonData.put("bottomNavigationList", new ArrayList<>());
+		commonData.put("friendLinkList",new ArrayList<>());
+		commonData.put("pictureFriendLinkList", new ArrayList<>());
+		commonData.put("textFriendLinkList", new ArrayList<>());
+		commonData.put("rootProductCategoryList", new ArrayList<>());
+		commonData.put("footer", null);
+		return commonData;
 	}
 
 }

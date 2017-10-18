@@ -7,8 +7,8 @@
 <meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/admin/js/list.js"></script>
+<link href="${base}/assets/admin/css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/admin/js/list.js"></script>
 </head>
 <body class="list">
 	<div class="body">
@@ -103,30 +103,30 @@
 						</td>
 						<td>
 							<#if list.isMarketable == true>
-								<img src="${base}/template/admin/images/list_true_icon.gif" />
+								<img src="${base}/assets/admin/images/list_true_icon.gif" />
 							<#else>
-								<img src="${base}/template/admin/images/list_false_icon.gif" />
+								<img src="${base}/assets/admin/images/list_false_icon.gif" />
 							</#if>
 						</td>
 						<td>
 							<#if list.isBest == true>
-								<img src="${base}/template/admin/images/list_true_icon.gif" />
+								<img src="${base}/assets/admin/images/list_true_icon.gif" />
 							<#else>
-								<img src="${base}/template/admin/images/list_false_icon.gif" />
+								<img src="${base}/assets/admin/images/list_false_icon.gif" />
 							</#if>
 						</td>
 						<td>
 							<#if list.isNew == true>
-								<img src="${base}/template/admin/images/list_true_icon.gif" />
+								<img src="${base}/assets/admin/images/list_true_icon.gif" />
 							<#else>
-								<img src="${base}/template/admin/images/list_false_icon.gif" />
+								<img src="${base}/assets/admin/images/list_false_icon.gif" />
 							</#if>
 						</td>
 						<td>
 							<#if list.isHot == true>
-								<img src="${base}/template/admin/images/list_true_icon.gif" />
+								<img src="${base}/assets/admin/images/list_true_icon.gif" />
 							<#else>
-								<img src="${base}/template/admin/images/list_false_icon.gif" />
+								<img src="${base}/assets/admin/images/list_false_icon.gif" />
 							</#if>
 						</td>
 						<td>

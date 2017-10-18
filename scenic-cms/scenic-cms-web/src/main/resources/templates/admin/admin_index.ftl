@@ -5,7 +5,7 @@
 <title>管理中心首页</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/admin.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/admin.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="admin">
 	<div class="adminBar">

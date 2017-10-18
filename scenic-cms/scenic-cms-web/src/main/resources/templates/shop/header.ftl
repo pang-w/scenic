@@ -1,5 +1,5 @@
-<script type="text/javascript" src="${base}/template/shop/js/header.js"></script>
-<link href="${base}/template/shop/css/header.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/header.js"></script>
+<link href="${base}/assets/shop/css/header.css" rel="stylesheet" type="text/css" />
 <div class="backgroundcolor">
 <div class="header png">
 
@@ -30,14 +30,14 @@
 			<form id="productSearchForm" action="${base}/shop/product!search.action" method="get">
                              <div>
 				<div class="headerSearchText">
-					<input type="text" id="productSearchKeyword" name="pager.keyword" value="<#if (pager.keyword != null && rootProductCategoryList != null)!>${pager.keyword}<#else>请输入搜索的鞋...</#if>"}" />
+					<input type="text" id="productSearchKeyword" name="pager.keyword"/>
 				</div>
 				<input type="submit" class="headerSearchButton" value="" />
                              </div>
 				<div class="hotKeyword">
 					热门关键词: 
 					<#list systemConfig.hotSearchList as list>
-						<a href="${base}/shop/product!search.action?pager.keyword=${list?url}">${list}</a>
+						<a href="${base}/shop/product!search.action?pager.keyword=''">${list}</a>
 					</#list>
 				</div>
 			</form>

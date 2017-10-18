@@ -9,13 +9,13 @@
 <#if (productCategory.metaDescription)! != ""><meta name="description" content="${productCategory.metaDescription}" /></#if>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/product.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/product_list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/product.js"></script>
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/product.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/product_list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/product.js"></script>
 </head>
 <body class="productList">
 	<div id="addCartItemTip" class="addCartItemTip">
@@ -33,10 +33,10 @@
 		</div>
 		<div class="bottom"></div>
 	</div>
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="body">
 		<div class="bodyLeft">
-			<#include "/WEB-INF/template/shop/components/product_menu.ftl">
+			<#include "components/product_menu.ftl">
 			<div class="blank"></div>
 			<div class="hotProduct">
 				<div class="top">热销排行</div>
@@ -154,18 +154,18 @@
                 		</#if>
 					</ul>
 					<div class="blank"></div>
-         			<link href="${base}/template/shop/css/pager.css" rel="stylesheet" type="text/css" />
-         			<#import "/WEB-INF/template/shop/pager.ftl" as p>
+         			<link href="${base}/assets/shop/css/pager.css" rel="stylesheet" type="text/css" />
+         			<#import "pager.ftl" as p>
          			<#assign parameterMap = {"id": (productCategory.id)!, "orderType": (orderType)!, "viewType": (viewType)!} />
          			<@p.pager pager = pager baseUrl = "/shop/product!list.action" parameterMap = parameterMap />
 				</div>
 			</form>
 		</div>
 		<div class="blank"></div>
-		<#include "/WEB-INF/template/shop/friend_link.ftl">
+		<#include "friend_link.ftl">
 	</div>
         
 	<div class="blank"></div>
-	<#include "/WEB-INF/template/shop/footer.ftl">
+	<#include "footer.ftl">
 </body>
 </html>

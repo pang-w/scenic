@@ -7,8 +7,8 @@
 <meta name="Copyright" content="SHOP++" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/admin/js/list.js"></script>
+<link href="${base}/assets/admin/css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/admin/js/list.js"></script>
 <script type="text/javascript">
 $().ready( function() {
 

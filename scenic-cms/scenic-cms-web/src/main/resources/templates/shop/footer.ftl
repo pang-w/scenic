@@ -1,4 +1,4 @@
-<link href="${base}/template/shop/css/footer.css" type="text/css" rel="stylesheet" />
+<link href="${base}/assets/shop/css/footer.css" type="text/css" rel="stylesheet" />
 <div class="footer">
 	<div class="bottomNavigation">
 		<#list bottomNavigationList as list>
@@ -18,6 +18,6 @@
 		</#list>
 	</div>
 	<div class="footerInfo">
-		<@footer.content?interpret />
+		
 	</div>
 </div>

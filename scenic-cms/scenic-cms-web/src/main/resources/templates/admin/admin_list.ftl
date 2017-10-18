@@ -5,8 +5,8 @@
 <title>管理员列表</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/admin/js/list.js"></script>
+<link href="${base}/assets/admin/css/list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/admin/js/list.js"></script>
 </head>
 <body class="list">
 	<div class="body">

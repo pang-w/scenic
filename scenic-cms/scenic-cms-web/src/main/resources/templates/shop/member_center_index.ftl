@@ -7,17 +7,17 @@
 <meta name="Copyright" content="足衣男鞋" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/member_center.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/member_center.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
 </head>
 <body class="memberCenter">
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="body memberCenterIndex">
 		<div class="bodyLeft">
-			<#include "/WEB-INF/template/shop/member_menu.ftl">
+			<#include "member_menu.ftl">
 		</div>
 		<div class="bodyRight bodyCenter">
 			<div class="memberCenterDetail">
@@ -117,9 +117,9 @@
 			</div>
 		</div>
 		<div class="blank"></div>
-		<#include "/WEB-INF/template/shop/friend_link.ftl">
+		<#include "friend_link.ftl">
 	</div>
 	<div class="blank"></div>
-	<#include "/WEB-INF/template/shop/footer.ftl">
+	<#include "footer.ftl">
 </body>
 </html>

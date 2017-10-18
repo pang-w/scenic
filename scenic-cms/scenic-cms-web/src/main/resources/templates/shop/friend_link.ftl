@@ -1,5 +1,5 @@
-<link href="${base}/template/shop/css/friend_link.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="${base}/template/shop/js/friend_link.js"></script>
+<link href="${base}/assets/shop/css/friend_link.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="${base}/assets/shop/js/friend_link.js"></script>
 <div class="friendLink">
 	<div class="pictureFriendLink">
 		<div class="left prev"></div>

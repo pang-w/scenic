@@ -5,7 +5,7 @@
 <title>添加/编辑管理员</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/input.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/input.css" rel="stylesheet" type="text/css" />
 <#if !id??>
 	<#assign isAdd = true />
 <#else>

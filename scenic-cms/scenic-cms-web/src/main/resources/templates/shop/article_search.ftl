@@ -8,16 +8,16 @@
 <meta name="keywords" content="${pager.keyword}" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/article.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/article_list.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/article.js"></script>
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/article.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/article_list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/article.js"></script>
 </head>
 <body class="articleList">
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="body">
 		<div class="bodyLeft">
 			<div class="recommendArticle">
@@ -113,17 +113,17 @@
                 		</#if>
 					</ul>
 					<div class="blank"></div>
-         			<link href="${base}/template/shop/css/pager.css" rel="stylesheet" type="text/css" />
-         			<#import "/WEB-INF/template/shop/pager.ftl" as p>
+         			<link href="${base}/assets/shop/css/pager.css" rel="stylesheet" type="text/css" />
+         			<#import "pager.ftl" as p>
          			<@p.pager pager = pager baseUrl = "/shop/article!search.action" />
 				</div>
 				<div class="articleListBottom"></div>
 			</div>
 		</div>
 		<div class="blank"></div>
-		<#include "/WEB-INF/template/shop/friend_link.ftl">
+		<#include "friend_link.ftl">
 	</div>
 	<div class="blank"></div>
-	<#include "/WEB-INF/template/shop/footer.ftl">
+	<#include "footer.ftl">
 </body>
 </html>

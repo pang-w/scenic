@@ -6,16 +6,16 @@
 <#if (systemConfig.metaKeywords)! != ""><meta name="keywords" content="${systemConfig.metaKeywords}" /></#if>
 <#if (systemConfig.metaDescription)! != ""><meta name="description" content="${systemConfig.metaDescription}" /></#if>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
-<#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/shop/css/login.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/register.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/index.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/product.css" rel="stylesheet" type="text/css" />
-<link href="${base}/template/shop/css/article.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${base}/template/shop/js/login.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/register.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/index.js"></script>
-<script type="text/javascript" src="${base}/template/shop/js/product.js"></script>
+
+<link href="${base}/assets/shop/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/register.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/index.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/product.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/shop/css/article.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${base}/assets/shop/js/login.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/register.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/index.js"></script>
+<script type="text/javascript" src="${base}/assets/shop/js/product.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -42,11 +42,11 @@ $(document).ready(function() {
 </script>
 </head>
 <body class="index">
-	<#include "/WEB-INF/template/shop/header.ftl">
+	<#include "header.ftl">
 	<div class="body">
 <div>
 		<div class="bodyLeft">
-			<#include "/WEB-INF/template/shop/components/product_menu.ftl">
+			<#include "components/product_menu.ftl">
 	        </div>
 		<div class="bodyRight">
 			<div class="slider">
@@ -231,9 +231,9 @@ $(document).ready(function() {
 			</div>
 	
 		<div class="blank"></div>
-		<#include "/WEB-INF/template/shop/friend_link.ftl">
+		<#include "friend_link.ftl">
 	</div>
 	<div class="blank"></div>
-	<#include "/WEB-INF/template/shop/footer.ftl">
+	<#include "footer.ftl">
 </body>
 </html>

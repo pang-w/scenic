@@ -5,7 +5,7 @@
 <title>管理登录</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/login.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 
 // 登录页面若在框架内，则跳出框架
@@ -79,7 +79,7 @@ $().ready( function() {
 			<div class="boxMiddle">
 				<form id="loginForm" class="form" action="${base}/admin/loginVerify" method="post">
 					<div class="loginLogo">
-				    	<img src="${base}/template/admin/images/login_logo.gif" />
+				    	<img src="${base}/assets/admin/images/login_logo.gif" />
 				    </div>
 		            <table class="loginTable">
 		            	<tr>

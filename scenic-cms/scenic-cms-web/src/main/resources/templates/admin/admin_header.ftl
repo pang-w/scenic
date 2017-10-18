@@ -6,7 +6,7 @@
 <title>管理中心</title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <#include "/WEB-INF/template/common/include.ftl">
-<link href="${base}/template/admin/css/header.css" rel="stylesheet" type="text/css" />
+<link href="${base}/assets/admin/css/header.css" rel="stylesheet" type="text/css" />
 <!--[if lte IE 6]>
 <script type="text/javascript">
 	DD_belatedPNG.fix(".headerLogo");
