@@ -47,17 +47,11 @@ public class HtmlAction {
 			// configuration.setDirectoryForTemplateLoading(new File("/template"));
 			configuration.setDefaultEncoding("UTF-8"); // 这个一定要设置，不然在生成的页面中 会乱码
 			// 获取或创建一个模版。
-			Template template = configuration.getTemplate("indexFreeMarker.ftl");
+			Template template = configuration.getTemplate("shop/index.ftl");
 
-			Map<String, Object> map = new HashMap<String, Object>();
+			Writer writer = new OutputStreamWriter(new FileOutputStream("src/main/webapp/index.html"), "UTF-8");
 			
-			map.put("name", "王老师");
-			map.put("host", "http://blog.didispace.com");
-
-			Writer writer;
-
-			writer = new OutputStreamWriter(new FileOutputStream("src/main/webapp/indexmao2.html"), "UTF-8");
-			template.process(map, writer);
+			template.process(getCommonData(), writer);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -90,6 +84,7 @@ public class HtmlAction {
 		for(Map.Entry<String, Object> entry:commonData.entrySet()){
 			map.put(entry.getKey(), entry.getValue());
 		}
+		
 		return mv;
 
 	}
@@ -112,7 +107,7 @@ public class HtmlAction {
 	public Map<String, Object> getCommonData() {
 		Map<String, Object> commonData = new HashMap<String, Object>();
 		
-		commonData.put("base", "http://localhost:8080");
+		commonData.put("base", "http://192.168.1.137:8080");
 		commonData.put("baseOOS", "http://localhost:8080");
 		commonData.put("systemConfig", SystemConfigUtil.getSystemConfig());
 		commonData.put("priceCurrencyFormat", "#0");

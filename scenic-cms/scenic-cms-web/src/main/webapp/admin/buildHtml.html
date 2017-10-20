@@ -30,18 +30,7 @@
 					<!-- /.breadcrumb -->
 				</div>
 	
-	<!-- 加载编辑器的容器 -->
-    <script id="container" name="content" type="text/plain">
-        这里写你的初始化内容
-    </script>
-    <!-- 配置文件 -->
-    <script type="text/javascript" src="assets/ueditor/ueditor.config.js"></script>
-    <!-- 编辑器源码文件 -->
-    <script type="text/javascript" src="assets/ueditor/ueditor.all.js"></script>
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
-        var ue = UE.getEditor('container');
-    </script>
+
 
 				<div class="page-content">
 					<div class="page-header">
@@ -53,16 +42,21 @@
 							<!-- PAGE CONTENT BEGINS -->
 							<div class="widget-box">
 								<div class="widget-header widget-header-blue widget-header-flat">
-									<h4 class="widget-title lighter">查询条件</h4>
+									<h4 class="widget-title lighter">页面编辑</h4>
 								</div>
-								
+								<div class="widget-header widget-header-blue widget-header-flat">
+									<textarea name="pageContent" style="width: 100%; height: 500px; padding: 0px;">${pageContent}</textarea>
+								</div>
 								<div class="widget-body">
 									<form class="form-horizontal" role="form">
 										<div class="widget-main">
-											<hr />
+
 											<div class="wizard-actions">
 												<button class="btn btn-primary" id="btnSearch" type="button">
-													<i class="ace-icon fa fa-search icon-on-right"></i>生成首页
+													<i class="ace-icon fa fa-submit icon-on-right"></i>保存
+												</button>
+												<button class="btn btn-primary" id="btnSearch" type="button">
+													<i class="ace-icon fa fa-submit icon-on-right"></i>生成首页
 												</button>
 											</div>
 										</div>
