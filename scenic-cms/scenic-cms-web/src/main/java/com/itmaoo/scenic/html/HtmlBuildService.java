@@ -22,15 +22,13 @@ import com.itmaoo.scenic.support.HtmlConfig;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
-public class HtmlBuildService implements IHtmlBuildService{
+public class HtmlBuildService {
 	@Resource
 	
-	@Override
 	public void buildHtml(String templateFilePath, String htmlFilePath, Map<String, Object> data) {
 
 	}
 
-	@Override
 	public void baseJavascriptBuildHtml() {
 		// TODO Auto-generated method stub
 		
@@ -43,48 +41,6 @@ public class HtmlBuildService implements IHtmlBuildService{
 		        map.addAttribute("name","王老师");
 		        map.addAttribute("host", "http://blog.didispace.com");
 		        return mv;
-		
-	}
-
-	@Override
-	public void loginBuildHtml() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void errorPageBuildHtml() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void errorPageAccessDeniedBuildHtml() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void errorPage500BuildHtml() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void errorPage404BuildHtml() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void errorPage403BuildHtml() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void indexBuildHtml() {
-		// TODO Auto-generated method stub
 		
 	}
 

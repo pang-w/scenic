@@ -21,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Lists;
+import com.itmaoo.scenic.entity.dto.Navigation;
+import com.itmaoo.scenic.entity.dto.Navigation.Position;
+import com.itmaoo.scenic.entity.dto.Product;
 import com.itmaoo.scenic.support.SystemConfigUtil;
 
 import freemarker.ext.beans.BeansWrapper;
@@ -114,15 +118,48 @@ public class HtmlAction {
 		commonData.put("priceUnitCurrencyFormat", "#0");
 		commonData.put("orderCurrencyFormat", "#0");
 		commonData.put("orderUnitCurrencyFormat", "#0");
-		commonData.put("topNavigationList", new ArrayList<>());
-		commonData.put("middleNavigationList", new ArrayList<>());
-		commonData.put("bottomNavigationList", new ArrayList<>());
+		commonData.put("topNavigationList", getTopNavigationList());
+		commonData.put("middleNavigationList",  getTopNavigationList());
+		commonData.put("bottomNavigationList",  getTopNavigationList());
 		commonData.put("friendLinkList",new ArrayList<>());
 		commonData.put("pictureFriendLinkList", new ArrayList<>());
 		commonData.put("textFriendLinkList", new ArrayList<>());
 		commonData.put("rootProductCategoryList", new ArrayList<>());
 		commonData.put("footer", null);
-		return commonData;
+		
+		Map<String, Object> data = new HashMap<String, Object>();
+		data.putAll(commonData);
+		data.put("hotProductList", getProductList());
+		data.put("newProductList",  getProductList());
+
+		
+
+		return data;
+	}
+	
+
+	public List<Product> getProductList() {
+		List<Product> pros = Lists.newArrayList();
+		
+		pros.add(createProduct());
+		pros.add(createProduct());
+		return pros;
+	}
+	private Product createProduct(){
+		Product p = new Product();
+		p.setProductOutURL("http://itmaoo.oss-cn-shanghai.aliyuncs.com/1_itmaoo.jpg");
+		p.setProductImageListStore("http://itmaoo.oss-cn-shanghai.aliyuncs.com/1_itmaoo.jpg");
+		p.setHtmlFilePath("htmlFilePath");
+		p.setName("name");
+		return p;
+	}
+	
+	public List<Navigation> getTopNavigationList() {
+		List<Navigation> topNavigationList = Lists.newArrayList();
+		
+		topNavigationList.add(new Navigation("test1", Position.top , "url", true, true, 1));
+		topNavigationList.add(new Navigation("test2", Position.top , "url", true, true, 2));
+		return topNavigationList;
 	}
 
 }
