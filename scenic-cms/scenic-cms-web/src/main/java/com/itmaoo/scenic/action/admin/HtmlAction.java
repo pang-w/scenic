@@ -74,12 +74,12 @@ public class HtmlAction {
 
 	}
 
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/test", method = RequestMethod.GET)
 	public String loginUser() {
 		return "Amdin";
 
 	}
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/index", method = RequestMethod.GET)
 	public ModelAndView indexBuildHtml2(ModelMap map) {
 		ModelAndView mv = new ModelAndView("shop/index");
 		map.addAttribute("base", "http://localhost:8080");
