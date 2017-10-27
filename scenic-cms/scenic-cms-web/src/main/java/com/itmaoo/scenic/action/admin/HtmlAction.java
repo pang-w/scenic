@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
-
-import javax.servlet.ServletContext;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,10 +24,7 @@ import com.itmaoo.scenic.entity.dto.Navigation.Position;
 import com.itmaoo.scenic.entity.dto.Product;
 import com.itmaoo.scenic.support.SystemConfigUtil;
 
-import freemarker.ext.beans.BeansWrapper;
-import freemarker.ext.beans.ResourceBundleModel;
 import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 

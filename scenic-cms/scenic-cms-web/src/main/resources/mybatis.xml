@@ -29,9 +29,14 @@
 	<typeAliases>
 		<!-- bo -->
 		<typeAlias type="com.itmaoo.scenic.entity.po.Admin" alias="AdminPo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.Article" alias="ArticlePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.Article" alias="ImagePo" />
+		
 
 		<!-- query -->
 		<typeAlias type="com.itmaoo.scenic.entity.query.AdminQuery" alias="AdminQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.ArticleQuery" alias="ArticleQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.ImageQuery" alias="ImageQuery" />
 
 	</typeAliases>
 </configuration>

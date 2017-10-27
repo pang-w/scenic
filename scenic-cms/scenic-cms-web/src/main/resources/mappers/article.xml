@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IArticleDao">
+	<sql id="cols">
+		idarticle AS id,
+		title AS title,
+		keyword AS keyword,
+		iduser AS iduser,
+		content AS content,
+		desc AS desc
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="ArticlePo">
+		INSERT INTO article (
+		idarticle,
+		title,
+		keyword,
+		iduser,
+		content
+		)
+		VALUES
+		(
+		#{id},
+		#{title},
+		#{keyword},
+		#{iduser},
+		#{content}
+		)
+	</insert>
+	<select id="selectSingle" resultType="ArticlePo" parameterType="ArticleQuery">
+		SELECT
+		<include refid="cols" />
+		FROM article
+		WHERE
+		username = #{username}
+	</select>
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		FROM article ad
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="ArticlePo" parameterType="ArticleQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="ArticleQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		)
+	</select>
+</mapper>

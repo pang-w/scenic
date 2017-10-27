@@ -20,7 +20,7 @@ public class App extends SpringBootServletInitializer {
     @RequestMapping(value = "/login",method = { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
     String login(@RequestBody User userModel) {
-    	if(userModel.getUname()=="admin"){
+    	if(userModel.getUsername() =="admin"){
 			System.out.println("OK");
 		}else{
 			System.out.println("Failed");

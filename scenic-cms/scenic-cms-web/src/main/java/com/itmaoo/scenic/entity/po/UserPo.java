@@ -1,4 +1,4 @@
-package com.itmaoo.scenic.entity.dto;
+package com.itmaoo.scenic.entity.po;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,9 +8,9 @@ import java.util.Date;
  * @author mario
  *
  */
-public class User implements Serializable{
+public class UserPo implements Serializable{
 	private static final long serialVersionUID = 6194632578192753293L;
-	private String userid;
+	private Integer userid;
 	private String username;
 	private String password; 
 	private String email;
@@ -20,10 +20,10 @@ public class User implements Serializable{
 	private String passwordTryTimes; 
 	private Date lastLoggedDate;
 	
-	public String getUserid() {
+	public Integer getUserid() {
 		return userid;
 	}
-	public void setUserid(String userid) {
+	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 	public String getUsername() {
