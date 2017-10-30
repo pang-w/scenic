@@ -1,26 +1,25 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="./shop/bootstrap.min.css">
-<link rel="stylesheet" href="./shop/font-awesome.min.css">
-<link rel="stylesheet" href="./shop/monokai_sublime.min.css">
-<link href="./shop/magnific-popup.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./shop/screen.css">
-<script type="text/javascript" src="./shop/ghost-url.min.js"></script>
-
-<link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css"
-	rel="stylesheet">
-<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<link href="editor/summernote.css" rel="stylesheet">
-<script src="editor/summernote.js"></script>
-<script src="editor/editor.js"></script>
-<script src="assets/layer/layer.js"></script>
-<script src="js/GlobalCtrl.js"></script>
+<link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/base/css/monokai_sublime.min.css">
+<link rel="stylesheet" href="/assets/base/css/screen.css">
+<link href="/assets/base/summernote/summernote.css" rel="stylesheet">
 
 
+<script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/assets/ctrl/index.js"></script>
+<script type="text/javascript" src="/assets/ctrl/base.js"></script>
+
+
+<script type="text/javascript" src="/assets/base/summernote/summernote.js" ></script>
+<script src="/assets/base/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="./assets/ctrl/editor.js"></script>
+<script type="text/javascript" src="./assets/ctrl/base.js"></script>
 
 </head>
 <body class="home-template">
@@ -83,19 +82,26 @@
 <div class="form-group">
 			<div class="row">
 			<input id="articleTitle" type="text" /> 
+			<input id="articleUuid" type="text" value="${articleUuid}"/> 
 				<div id="summernote" placeholder=在这里写点东西......">
 					<p>在这里写点东西.......</p>
 				</div>
-				<div class="post-permalink">
-					<input id="saveArticle" type="submit" value="保存" onclick="" />
-					<input id="overView" type="submit" value="保存并预览" onclick="" />
-					<input id="overView" type="submit" value="发布" onclick="" />
+				<div id="editBtns"class="post-permalink">
+					<input  class="btn btn-default" id="saveArticle" type="submit" value="保存" />
+					<input  class="btn btn-default" id="saveAndPreview" type="submit" value="保存并预览" />
+					<input  class="btn btn-default" id="publishArticle" type="submit" value="发布" />
+					<a  class="btn btn-default" target="_blank" href="/article/${articleUuid}.html" >访问文章</a>
 				</div>
 			</div>
 			</div>
 		</div>
 	</section>
-
+<section class="content-wrap">
+		<div class="container">
+			<div class="row" id="previewContent">
+			</div>
+		</div>
+	</section>
 	
 	<footer class="main-footer">
 		<div class="container">

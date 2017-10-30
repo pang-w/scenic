@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itmaoo.scenic.entity.dto.User;
 
-@Controller
-@EnableAutoConfiguration
+
 public class UserCtl {
 	@RequestMapping(value = "do", method = RequestMethod.POST)
 	public void getLogin(@RequestBody User userModel) {

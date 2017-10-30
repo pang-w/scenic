@@ -16,11 +16,11 @@
 	rel="stylesheet">
 <script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<link href="${baseDomain}/editor/summernote.css" rel="stylesheet">
-<script src="${baseDomain}/editor/summernote.js"></script>
-<script src="${baseDomain}/editor/editor.js"></script>
+<link href="${baseDomain}/summernote/summernote.css" rel="stylesheet">
+<script src="${baseDomain}/summernote/summernote.js"></script>
+<script src="${baseDomain}/assets/ctrl/editor.js"></script>
 <script src="${baseDomain}/assets/layer/layer.js"></script>
-<script src="${baseDomain}/js/GlobalCtrl.js"></script>
+<script src="${baseDomain}/assets/ctrl/base.js"></script>
 
 </head>
 <body class="home-template">

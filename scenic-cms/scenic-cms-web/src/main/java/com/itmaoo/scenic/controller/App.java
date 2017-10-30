@@ -17,8 +17,6 @@ public class App extends SpringBootServletInitializer {
     String home() {
         return "Hello World!";
     }
-    @RequestMapping(value = "/login",method = { RequestMethod.POST, RequestMethod.GET })
-    @ResponseBody
     String login(@RequestBody User userModel) {
     	if(userModel.getUsername() =="admin"){
 			System.out.println("OK");
@@ -27,7 +25,7 @@ public class App extends SpringBootServletInitializer {
 		}
         return "Hello World!";
     }
-    @RequestMapping("/test")
+    @RequestMapping("/e/test")
     @ResponseBody
     String test(@RequestBody String uname) {
     	if(uname =="admin"){
