@@ -7,8 +7,8 @@ package com.itmaoo.scenic.entity.dto;
  */
 public class ResponseData extends BaseDto{
 	private static final long serialVersionUID = -614207446823812368L;
-	private String status;
-	private String msg;
+	private String status = "0000";
+	private String msg = "处理成功";
 	private Object data;
 
 	public String getStatus() {

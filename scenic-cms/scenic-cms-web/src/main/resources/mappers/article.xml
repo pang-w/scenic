@@ -4,12 +4,13 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itmaoo.scenic.dao.IArticleDao">
 	<sql id="cols">
-		idarticle AS id,
+		articleid AS id,
 		title AS title,
 		keyword AS keyword,
-		iduser AS iduser,
+		userid AS userid,
+		uuid AS uuid,
 		content AS content,
-		desc AS desc
+		description AS description
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -20,10 +21,11 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ArticlePo">
 		INSERT INTO article (
-		idarticle,
+		articleid,
 		title,
 		keyword,
-		iduser,
+		uuid,
+		userid,
 		content
 		)
 		VALUES
@@ -31,7 +33,8 @@
 		#{id},
 		#{title},
 		#{keyword},
-		#{iduser},
+		#{uuid},
+		#{userid},
 		#{content}
 		)
 	</insert>
@@ -40,8 +43,19 @@
 		<include refid="cols" />
 		FROM article
 		WHERE
-		username = #{username}
+		uuid = #{uuid}
 	</select>
+	<update id="updateByUniqueKey" parameterType="ArticlePo">
+		UPDATE
+		article
+		SET
+		title=#{title},
+		keyword=#{keyword},
+		content=#{content}
+		WHERE
+		uuid = #{uuid}
+	</update>
+	
 	
 	<sql id="collectionList">
 		SELECT

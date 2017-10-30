@@ -30,7 +30,7 @@ import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.entity.dto.Artilcle;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
-import com.itmaoo.scenic.entity.po.Article;
+import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.service.ImageService;
@@ -105,8 +105,11 @@ public class AritcleUserAction extends BaseActiom{
 
 	@RequestMapping("addArticle")
 	public String addArticle(@RequestBody Artilcle article) {
-		Article entity = new Article();
+		ArticlePo entity = new ArticlePo();
 		entity.setContent(checkTextDanger(article.getContent()));
+		entity.setLastModifyDate(new Date());
+		//entity.setUuid(article.getUuid());
+		
 		// entity.setContent("wer");
 		articleDao.insert(entity);
 
@@ -115,7 +118,7 @@ public class AritcleUserAction extends BaseActiom{
 			Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);
 
 			configuration.setDirectoryForTemplateLoading(
-					new File("/home/mario/git/scenic/scenic-cms/scenic-cms-web/src/main/resources/templates"));
+					new File("src/main/resources/templates"));
 
 			// configuration.setDirectoryForTemplateLoading(new
 			// File("/template"));
@@ -123,7 +126,7 @@ public class AritcleUserAction extends BaseActiom{
 			// 获取或创建一个模版。
 			Template template = configuration.getTemplate("iukiss/article.ftl");
 
-			Writer writer = new OutputStreamWriter(new FileOutputStream("src/main/webapp/article/a1.html"), "UTF-8");
+			Writer writer = new OutputStreamWriter(new FileOutputStream("src/main/webapp/article/a.html"), "UTF-8");
 			Map<String, Object> commonData = new HashMap<String, Object>();
 
 			commonData.put("content", entity.getContent());

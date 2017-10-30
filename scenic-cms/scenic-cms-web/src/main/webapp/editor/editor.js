@@ -1,6 +1,12 @@
 jQuery(function($) {
-	$("#addArticle").click(function() {
-		add();
+	$("#saveArticle").click(function() {
+		save();
+	});
+	$("#saveAndPreview").click(function() {
+		saveAndPreview();
+	});
+	$("#publishArticle").click(function() {
+		publish();
 	});
 	$(document).ready(function() {
 		$('#summernote').summernote({
@@ -37,9 +43,9 @@ jQuery(function($) {
 									var imageUrl = response.data.url;
 
 									// 插入到summernote
-									$('#summernote').summernote('insertImage', imageUrl,
-											function($image) {
-												$image.css('width', '80%');
+									$('#summernote').summernote('insertImage',
+											imageUrl, function($image) {
+												$image.css('maxWidth', '80%');
 												$image.css('align', 'center');
 											});
 
@@ -50,16 +56,34 @@ jQuery(function($) {
 					}
 				}
 			});
-
-	function add() {
-
+	function saveAndPreview() {
 		var data = {
 			"title" : $("#aritcleTitle").val(),
-			"content" : $("#summernote").summernote('code')
+			"content" : $("#summernote").summernote('code'),
+			"uuid" : $("#articleUuid").val()
 		};
-		support.ajax("user/addArticle", data, function(data) {
-			layer.msg(data);
+		support.ajax("edit/article/save", data, function(response) {
+			$("#previewContent").html(response.data.content);
 		});
 	}
-
+	function save() {
+		var data = {
+			"title" : $("#aritcleTitle").val(),
+			"content" : $("#summernote").summernote('code'),
+			"uuid" : $("#articleUuid").val()
+		};
+		support.ajax("edit/article/save", data, function(response) {
+			layer.msg(response);
+		});
+	}
+	function publish() {
+		var data = {
+			"uuid" : $("#articleUuid").val()
+		};
+		support.ajax("edit/article/publish", data, function(response) {
+			var uri = "/article/" + $("#articleUuid").val() + ".html";
+			layer.msg(response);
+		});
+	}
+	
 });

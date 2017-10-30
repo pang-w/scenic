@@ -1,4 +1,7 @@
-package com.itmaoo.scenic.entity.dto;
+package com.itmaoo.scenic.entity.query;
+
+import com.itmaoo.scenic.entity.dto.BaseEntity;
+
 /**
  * 
  * @author mario

@@ -2,7 +2,7 @@ package com.itmaoo.scenic.dao;
 
 import java.util.List;
 
-import com.itmaoo.scenic.entity.dto.BaseQuery;
+import com.itmaoo.scenic.entity.query.BaseQuery;
 
 public interface IBaseDao<T> {
 

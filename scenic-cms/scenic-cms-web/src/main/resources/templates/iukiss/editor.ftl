@@ -5,24 +5,22 @@
 
 
 
-<link rel="stylesheet" href="../shop/bootstrap.min.css">
-<link rel="stylesheet" href="../shop/font-awesome.min.css">
-<link rel="stylesheet" href="../shop/monokai_sublime.min.css">
-<link href="../shop/magnific-popup.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../shop/screen.css">
-<script type="text/javascript" src="../shop/ghost-url.min.js"></script>
+<link rel="stylesheet" href="${baseDomain}/shop/bootstrap.min.css">
+<link rel="stylesheet" href="${baseDomain}/shop/font-awesome.min.css">
+<link rel="stylesheet" href="${baseDomain}/shop/monokai_sublime.min.css">
+<link href="${baseDomain}/shop/magnific-popup.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="${baseDomain}/shop/screen.css">
+<script type="text/javascript" src="${baseDomain}/shop/ghost-url.min.js"></script>
 
 <link href="http://www.jq22.com/jquery/bootstrap-3.3.4.css"
 	rel="stylesheet">
 <script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<link href="../editor/summernote.css" rel="stylesheet">
-<script src="../editor/summernote.js"></script>
-<script src="../editor/editor.js"></script>
-<script src="../assets/layer/layer.js"></script>
-<script src="../js/GlobalCtrl.js"></script>
-
-
+<link href="${baseDomain}/editor/summernote.css" rel="stylesheet">
+<script src="${baseDomain}/editor/summernote.js"></script>
+<script src="${baseDomain}/editor/editor.js"></script>
+<script src="${baseDomain}/assets/layer/layer.js"></script>
+<script src="${baseDomain}/js/GlobalCtrl.js"></script>
 
 </head>
 <body class="home-template">
@@ -36,13 +34,13 @@
 
 					<!-- start logo -->
 					<a class="branding" href="http://www.iukiss.com/"
-						title="IUKiss 说正事平台"><img src="../shop/iukiss.png"
+						title="IUKiss 说正事平台"><img src="${baseDomain}/shop/iukiss.png"
 						alt="IUKiss 开源博客平台"></a>
 					<!-- end logo -->
 					<h2 class="text-hide">IUKiss
 						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKiss 来帮你处理吧。</h2>
 
-					<img src="../shop/fcb3879e14429d75833a461572e64.jpg"
+					<img src="${baseDomain}/shop/fcb3879e14429d75833a461572e64.jpg"
 						alt="IUKiss 博客系统" class="hide">
 				</div>
 			</div>
@@ -82,12 +80,29 @@
 
 	<section class="content-wrap">
 		<div class="container">
+<div class="form-group">
 			<div class="row">
-			   <p><img src="http://img.iukiss.com/bg/head_bg_fang.JPG" style="width: 800px;">在</p><p>这里写点东西.......</p>
+			<input id="articleTitle" type="text" /> 
+			<input id="articleUuid" type="text" value="${articleUuid}"/> 
+				<div id="summernote" placeholder=在这里写点东西......">
+					<p>在这里写点东西.......</p>
+				</div>
+				<div id="editBtns"class="post-permalink">
+					<input  class="btn btn-default" id="saveArticle" type="submit" value="保存" />
+					<input  class="btn btn-default" id="saveAndPreview" type="submit" value="保存并预览" />
+					<input  class="btn btn-default" id="publishArticle" type="submit" value="发布" />
+					<a  class="btn btn-default" target="_blank" href="/article/${articleUuid}.html" >访问文章</a>
+				</div>
+			</div>
 			</div>
 		</div>
 	</section>
-
+<section class="content-wrap">
+		<div class="container">
+			<div class="row" id="previewContent">
+			</div>
+		</div>
+	</section>
 	
 	<footer class="main-footer">
 		<div class="container">

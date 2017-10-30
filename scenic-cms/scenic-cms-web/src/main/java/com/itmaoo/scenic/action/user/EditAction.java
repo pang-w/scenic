@@ -7,20 +7,25 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.itmaoo.scenic.dao.IAdminDao;
+import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.entity.dto.Artilcle;
-import com.itmaoo.scenic.entity.po.Admin;
+import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.query.BaseQuery;
 
 import freemarker.template.Configuration;
@@ -28,39 +33,83 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 @Controller
-@RequestMapping(value = "/action/user/")
-public class AuthAction {
-	@Autowired
-	private IAdminDao adminDao;
+@RequestMapping(value = "/action/edit/")
+public class EditAction extends BaseActiom {
 	@Autowired
 	private IArticleDao articleDao;
 
-	// @RequestMapping(value = "/action/user/loginUser",method =
-	// RequestMethod.GET)
-	@RequestMapping("uploadImg")
-	public String loginUser() {
+	@RequestMapping("article/{articleUuid}")
+	@ResponseBody
+	public ModelAndView createArticle(@PathVariable("articleUuid") String articleUuid, ModelMap map) {
+		while(articleUuid.endsWith("/")){
+			articleUuid = articleUuid.substring(0, articleUuid.length()-1);
+		}
+		ArticlePo entity = new ArticlePo();
+		entity.setLastModifyDate(new Date());
+		entity.setUuid(articleUuid);
+		ArticleQuery aq = new ArticleQuery();
+		aq.setUuid(articleUuid);
+		ArticlePo a = articleDao.selectSingle(aq);
+		if (a != null) {
+			map.addAttribute("content", a.getContent());
+		} else {
 
-		List<Admin> list = adminDao.selectList(new BaseQuery());
-
-		System.out.println(list.size());
-
-		return "User";
+		}
+		ModelAndView mv = new ModelAndView("iukiss/editor");
+		map.addAttribute("baseDomain", "http://localhost:8080");
+		map.addAttribute("articleUuid", articleUuid);
+		return mv;
 
 	}
 
-	@RequestMapping("addArticle")
-	public String addArticle(@RequestBody Artilcle article) {
+	@RequestMapping("article/save")
+	@ResponseBody
+	public ResponseData updateArticle(@RequestBody Artilcle article) {
 		ArticlePo entity = new ArticlePo();
 		entity.setContent(checkTextDanger(article.getContent()));
-		// entity.setContent("wer");
-		articleDao.insert(entity);
+		entity.setLastModifyDate(new Date());
+		entity.setUuid(article.getUuid());
+		
+		ArticleQuery aq = new ArticleQuery();
+		aq.setUuid(article.getUuid());
+		ArticlePo a = articleDao.selectSingle(aq);
+		if (a != null) {
+			articleDao.updateByUniqueKey(entity);
+			// check authorization and load article for update
+		} else {
+			articleDao.insert(entity);
+		}
 
+		article.setContent(entity.getContent());
+		ResponseData rd = new ResponseData();
+		rd.setData(article);
+		return rd;
+	}
+
+	@RequestMapping("article/publish")
+	@ResponseBody
+	public ResponseData publishArticle(@RequestBody Artilcle article) {
+
+		
+		ArticleQuery aq = new ArticleQuery();
+		aq.setUuid(article.getUuid());
+		ArticlePo a = articleDao.selectSingle(aq);
+
+		article.setContent(a.getContent());
+		buildArticleHtml(a);
+		
+		ResponseData rd = new ResponseData();
+		rd.setData(article);
+		return rd;
+
+	}
+
+	private void buildArticleHtml(ArticlePo entity) {
 		try {
 			// 创建一个合适的Configration对象
 			Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);
 
-			configuration.setDirectoryForTemplateLoading(
-					new File("/home/mario/git/scenic/scenic-cms/scenic-cms-web/src/main/resources/templates"));
+			configuration.setDirectoryForTemplateLoading(new File("src/main/resources/templates"));
 
 			// configuration.setDirectoryForTemplateLoading(new
 			// File("/template"));
@@ -68,7 +117,8 @@ public class AuthAction {
 			// 获取或创建一个模版。
 			Template template = configuration.getTemplate("iukiss/article.ftl");
 
-			Writer writer = new OutputStreamWriter(new FileOutputStream("src/main/webapp/article/a1.html"), "UTF-8");
+			Writer writer = new OutputStreamWriter(
+					new FileOutputStream("src/main/webapp/article/" + entity.getUuid() + ".html"), "UTF-8");
 			Map<String, Object> commonData = new HashMap<String, Object>();
 
 			commonData.put("content", entity.getContent());
@@ -87,15 +137,6 @@ public class AuthAction {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "User";
-
-	}
-
-	public Map<String, Object> getCommonData() {
-		Map<String, Object> commonData = new HashMap<String, Object>();
-
-		commonData.put("content", "http://192.168.1.137:8080");
-		return commonData;
 	}
 
 	public String checkTextDanger(String checkText) {

@@ -9,6 +9,17 @@ public class Artilcle {
 
 	private String title;
 	private String content;
+	private String uuid;
+	
+	
+	
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 
 	public String getTitle() {
 		return title;
@@ -25,5 +36,6 @@ public class Artilcle {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 
 }

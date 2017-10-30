@@ -29,8 +29,8 @@
 	<typeAliases>
 		<!-- bo -->
 		<typeAlias type="com.itmaoo.scenic.entity.po.Admin" alias="AdminPo" />
-		<typeAlias type="com.itmaoo.scenic.entity.po.Article" alias="ArticlePo" />
-		<typeAlias type="com.itmaoo.scenic.entity.po.Article" alias="ImagePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.ArticlePo" alias="ArticlePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.ImagePo" alias="ImagePo" />
 		
 
 		<!-- query -->

@@ -1,49 +1,75 @@
 package com.itmaoo.scenic.entity.query;
 
-public class ArticleQuery {
+/**
+ * 
+ * @author mario
+ *
+ */
+public class ArticleQuery extends BaseQuery {
+	private static final long serialVersionUID = 1269153569283907877L;
 	private Integer id;
 	private String title;
 	private String keyword;
-	private Integer iduser;
+	private Integer userid;
 	private String content;
 	private String desc;
-	
+	private String uuid;
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getKeyword() {
 		return keyword;
 	}
+
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	public Integer getIduser() {
-		return iduser;
+
+
+	public Integer getUserid() {
+		return userid;
 	}
-	public void setIduser(Integer iduser) {
-		this.iduser = iduser;
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	public String getDesc() {
 		return desc;
 	}
+
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	
-	
+
 }
