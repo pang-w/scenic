@@ -47,13 +47,13 @@ var support = {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.status == "9998") {
+				} else if (data.status == "4003") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
 						errCallback(data);
 					} else {
-						layer.msg(data.errorInfo.errorMessage);
+						layer.msg(data.msg);
 					}
 				}
 			}
@@ -75,13 +75,13 @@ var support = {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.status == "9998") {
+				} else if (data.status == "4003") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
 						errCallback(data);
 					} else {
-						layer.msg(data.errorInfo.errorMessage);
+						layer.msg(data.msg);
 					}
 				}
 			}
@@ -104,17 +104,17 @@ var support = {
 			},
 			success : function(data) {
 				$('.loadingmask').hide();
-				if (data.errorInfo.errorCode == "0000") {
+				if (data.status == "0000") {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.errorInfo.errorCode == "9998") {
+				} else if (data.status == "4003") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
 						errCallback(data);
 					} else {
-						layer.msg(data.errorInfo.errorMessage);
+						layer.msg(data.msg);
 					}
 				}
 			}
@@ -132,17 +132,17 @@ var support = {
 			dataType : 'json',
 			data : data,
 			success : function(data, status) {
-				if (data.errorInfo.errorCode == "0000") {
+				if (data.status == "0000") {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.errorInfo.errorCode == "9998") {
+				} else if (data.status == "4003") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
 						errCallback(data);
 					} else {
-						layer.msg(data.errorInfo.errorMessage);
+						layer.msg(data.msg);
 					}
 				}
 			}

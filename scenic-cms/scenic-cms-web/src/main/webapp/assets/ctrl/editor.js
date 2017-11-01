@@ -13,6 +13,7 @@ jQuery(function($) {
 			height : 300
 		});
 	});
+	
 	// onImageUpload callback
 	$('#summernote').summernote(
 			{
@@ -58,17 +59,18 @@ jQuery(function($) {
 			});
 	function saveAndPreview() {
 		var data = {
-			"title" : $("#aritcleTitle").val(),
+			"title" : $("#articleTitle").val(),
 			"content" : $("#summernote").summernote('code'),
 			"uuid" : $("#articleUuid").val()
 		};
 		support.ajax("edit/article/save", data, function(response) {
+			$("#previewTitle").html(response.data.title);
 			$("#previewContent").html(response.data.content);
 		});
 	}
 	function save() {
 		var data = {
-			"title" : $("#aritcleTitle").val(),
+			"title" : $("#articleTitle").val(),
 			"content" : $("#summernote").summernote('code'),
 			"uuid" : $("#articleUuid").val()
 		};

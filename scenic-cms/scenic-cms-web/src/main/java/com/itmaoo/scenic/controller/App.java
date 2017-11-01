@@ -6,7 +6,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.itmaoo.scenic.entity.dto.User;
+import com.itmaoo.scenic.entity.dto.UserDto;
 
 @Controller
 @EnableAutoConfiguration
@@ -17,7 +17,7 @@ public class App extends SpringBootServletInitializer {
     String home() {
         return "Hello World!";
     }
-    String login(@RequestBody User userModel) {
+    String login(@RequestBody UserDto userModel) {
     	if(userModel.getUsername() =="admin"){
 			System.out.println("OK");
 		}else{

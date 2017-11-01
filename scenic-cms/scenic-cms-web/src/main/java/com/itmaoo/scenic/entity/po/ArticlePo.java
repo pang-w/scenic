@@ -2,11 +2,14 @@ package com.itmaoo.scenic.entity.po;
 
 import java.util.Date;
 
-public class ArticlePo {
+import com.itmaoo.scenic.entity.dto.BaseDto;
+
+public class ArticlePo extends BaseDto{
+	private static final long serialVersionUID = -7245370295420963119L;
 	private Integer id;
 	private String title;
 	private String keyword;
-	private Integer userid;
+	private String username;
 	private String content;
 	private String description;
 	private Integer version;
@@ -32,14 +35,15 @@ public class ArticlePo {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-	public Integer getUserid() {
-		return userid;
-	}
-	public void setUserid(Integer userid) {
-		this.userid = userid;
-	}
+
 	public String getContent() {
 		return content;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public void setContent(String content) {
 		this.content = content;

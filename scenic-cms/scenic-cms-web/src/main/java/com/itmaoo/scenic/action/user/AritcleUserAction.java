@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,10 @@ import com.aliyun.oss.OSSException;
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IImageDao;
-import com.itmaoo.scenic.entity.dto.Artilcle;
+import com.itmaoo.scenic.entity.dto.ArtilcleDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
+import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.UserPo;
@@ -53,7 +55,7 @@ public class AritcleUserAction extends BaseActiom{
 
 	@RequestMapping("saveImg")
 	@ResponseBody
-	public ResponseData saveImg(HttpServletResponse request, @RequestParam("description") String desc, @RequestParam("file") MultipartFile file) {
+	public ResponseData saveImg(HttpServletRequest request, @RequestParam("description") String desc, @RequestParam("file") MultipartFile file) {
 
 		ResponseData rd = new ResponseData();
 		SavedImage si = new SavedImage();
@@ -68,7 +70,7 @@ public class AritcleUserAction extends BaseActiom{
 			}
 			si.setUrl(imagePrefixUrl + imageUri);
 			
-			UserPo user = getLogedUser();
+			UserDto user = getLogedUser(request);
 			ImagePo image = new ImagePo();
 			image.setBaseNum(baseNum);
 			image.setBaseUri(imageUri);
@@ -104,7 +106,7 @@ public class AritcleUserAction extends BaseActiom{
 	}
 
 	@RequestMapping("addArticle")
-	public String addArticle(@RequestBody Artilcle article) {
+	public String addArticle(@RequestBody ArtilcleDto article) {
 		ArticlePo entity = new ArticlePo();
 		entity.setContent(checkTextDanger(article.getContent()));
 		entity.setLastModifyDate(new Date());

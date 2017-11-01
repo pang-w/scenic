@@ -1,13 +1,15 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
+<link rel="stylesheet" href="/assets/base/css/screen.css">
 <link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/base/css/monokai_sublime.min.css">
-<link rel="stylesheet" href="/assets/base/css/screen.css">
 <link href="/assets/base/summernote/summernote.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/iukiss.css">
 
 
 <script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
@@ -15,9 +17,11 @@
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
 
 
-<script type="text/javascript" src="/assets/base/summernote/summernote.js" ></script>
+<script type="text/javascript"
+	src="/assets/base/summernote/summernote.js"></script>
 <script src="/assets/base/js/bootstrap.min.js"></script>
 
+<link rel="stylesheet" href="/assets/css/iukiss.css">
 <script type="text/javascript" src="./assets/ctrl/editor.js"></script>
 <script type="text/javascript" src="./assets/ctrl/base.js"></script>
 
@@ -33,14 +37,14 @@
 
 					<!-- start logo -->
 					<a class="branding" href="http://www.iukiss.com/"
-						title="IUKiss 说正事平台"><img src="./shop/iukiss.png"
-						alt="IUKiss 开源博客平台"></a>
+						title="IUKISS 说正事平台"> <img src="./shop/iukiss.png"
+						alt="IUKISS 开源博客平台"></a>
 					<!-- end logo -->
-					<h2 class="text-hide">IUKiss
-						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKiss 来帮你处理吧。</h2>
+					<h2 class="text-hide">IUKISS
+						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKISS 来帮你处理吧。</h2>
 
 					<img src="./shop/fcb3879e14429d75833a461572e64.jpg"
-						alt="IUKiss 博客系统" class="hide">
+						alt="IUKISS 博客系统" class="hide">
 				</div>
 			</div>
 		</div>
@@ -79,30 +83,35 @@
 
 	<section class="content-wrap">
 		<div class="container">
-<div class="form-group">
-			<div class="row">
-			<input id="articleTitle" type="text" /> 
-			<input id="articleUuid" type="text" value="${articleUuid}"/> 
-				<div id="summernote" placeholder=在这里写点东西......">
-					<p>在这里写点东西.......</p>
+			<div class="form-group">
+				<div class="row">
+					<div class="titleInputForm">
+						<label>文章标题:</label> <input id="articleTitle" type="text"/>
+					</div>
+					<hr />
 				</div>
-				<div id="editBtns"class="post-permalink">
-					<input  class="btn btn-default" id="saveArticle" type="submit" value="保存" />
-					<input  class="btn btn-default" id="saveAndPreview" type="submit" value="保存并预览" />
-					<input  class="btn btn-default" id="publishArticle" type="submit" value="发布" />
-					<a  class="btn btn-default" target="_blank" href="/article/${articleUuid}.html" >访问文章</a>
+				<div class="row">
+					<div id="summernote">
+						<p>在这里写点东西.......</p>
+					</div>
+					<div id="editBtns" class="post-permalink">
+						<input class="btn btn-default" id="saveArticle" type="submit"
+							value="保存" /> <input class="btn btn-default" id="saveAndPreview"
+							type="submit" value="保存并预览" /> <input class="btn btn-default"
+							id="publishArticle" type="submit" value="发布" /> <a
+							class="btn btn-default" target="_blank"
+							href="/article/${articleUuid}.html">访问文章</a>
+					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 	</section>
-<section class="content-wrap">
+	<section class="content-wrap">
 		<div class="container">
-			<div class="row" id="previewContent">
-			</div>
+			<div class="row" id="previewContent"></div>
 		</div>
 	</section>
-	
+
 	<footer class="main-footer">
 		<div class="container">
 			<div class="row">
@@ -121,7 +130,7 @@
 							</div>
 							<div class="recent-single-post">
 								<a href="http://www.iukiss.com/ghost-1-0-released/"
-									class="post-title">IUKiss 1.0 版本正式发布</a>
+									class="post-title">IUKISS 1.0 版本正式发布</a>
 								<div class="date">2017年7月29日</div>
 							</div>
 						</div>
@@ -132,7 +141,7 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/about-ghost/">IUKiss</a> <a
+							<a href="http://www.iukiss.com/tag/about-ghost/">IUKISS</a> <a
 								href="http://www.iukiss.com/tag/release/">新版本发布</a> <a
 								href="http://www.iukiss.com/tag/javascript/">JavaScript</a> <a
 								href="http://www.iukiss.com/tag/promise/">Promise</a> <a
@@ -142,7 +151,7 @@
 								href="http://www.iukiss.com/tag/nginx/">Nginx</a> <a
 								href="http://www.iukiss.com/tag/aliyun-ecs/">阿里云服务器</a> <a
 								href="http://www.iukiss.com/tag/ubuntu/">Ubuntu</a> <a
-								href="http://www.iukiss.com/tag/ghost-in-depth/">深度玩转 IUKiss</a>
+								href="http://www.iukiss.com/tag/ghost-in-depth/">深度玩转 IUKISS</a>
 							<a href="http://www.iukiss.com/tag/theme/">Theme</a> <a
 								href="http://www.iukiss.com/tag/zhu-shou-han-shu/">助手函数</a> <a
 								href="http://www.iukiss.com/tag/markdown/">Markdown</a> <a
@@ -197,7 +206,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<span>Copyright © <a href="http://www.iukiss.com/">IUKiss中文网</a></span>
+					<span>Copyright © <a href="http://www.iukiss.com/">IUKISS中文网</a></span>
 					| <span><a href="http://www.miibeian.gov.cn/"
 						target="_blank">豫ICP备16004342号-2</a></span> |
 				</div>

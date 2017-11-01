@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itmaoo.scenic.dao.IAdminDao;
 import com.itmaoo.scenic.entity.po.Admin;
-import com.itmaoo.scenic.entity.query.AdminQuery;
 import com.itmaoo.scenic.entity.query.BaseQuery;
 
 @Controller

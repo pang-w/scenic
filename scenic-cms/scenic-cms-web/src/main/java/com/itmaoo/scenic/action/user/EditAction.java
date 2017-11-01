@@ -22,11 +22,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.entity.dto.Artilcle;
+import com.itmaoo.scenic.entity.dto.ArtilcleDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
-import com.itmaoo.scenic.entity.query.BaseQuery;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -41,8 +40,8 @@ public class EditAction extends BaseActiom {
 	@RequestMapping("article/{articleUuid}")
 	@ResponseBody
 	public ModelAndView createArticle(@PathVariable("articleUuid") String articleUuid, ModelMap map) {
-		while(articleUuid.endsWith("/")){
-			articleUuid = articleUuid.substring(0, articleUuid.length()-1);
+		while (articleUuid.endsWith("/")) {
+			articleUuid = articleUuid.substring(0, articleUuid.length() - 1);
 		}
 		ArticlePo entity = new ArticlePo();
 		entity.setLastModifyDate(new Date());
@@ -50,26 +49,30 @@ public class EditAction extends BaseActiom {
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(articleUuid);
 		ArticlePo a = articleDao.selectSingle(aq);
-		if (a != null) {
-			map.addAttribute("content", a.getContent());
-		} else {
-
+		if (a == null) {
+			a = new ArticlePo();
+			a.setContent("在这里写点事.....");
+			a.setTitle("填一个标题.....");
 		}
-		ModelAndView mv = new ModelAndView("iukiss/editor");
+		map.addAttribute("article", a);
 		map.addAttribute("baseDomain", "http://localhost:8080");
+		map.addAttribute("imgDomain", "http://img.iukiss.com");
 		map.addAttribute("articleUuid", articleUuid);
+		
+		ModelAndView mv = new ModelAndView("iukiss/editor");
 		return mv;
 
 	}
 
 	@RequestMapping("article/save")
 	@ResponseBody
-	public ResponseData updateArticle(@RequestBody Artilcle article) {
+	public ResponseData saveArticle(@RequestBody ArtilcleDto article) {
 		ArticlePo entity = new ArticlePo();
 		entity.setContent(checkTextDanger(article.getContent()));
 		entity.setLastModifyDate(new Date());
 		entity.setUuid(article.getUuid());
-		
+		entity.setTitle(article.getTitle());
+
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(article.getUuid());
 		ArticlePo a = articleDao.selectSingle(aq);
@@ -77,9 +80,9 @@ public class EditAction extends BaseActiom {
 			articleDao.updateByUniqueKey(entity);
 			// check authorization and load article for update
 		} else {
+			entity.setCreateDate(new Date());
 			articleDao.insert(entity);
 		}
-
 		article.setContent(entity.getContent());
 		ResponseData rd = new ResponseData();
 		rd.setData(article);
@@ -88,16 +91,15 @@ public class EditAction extends BaseActiom {
 
 	@RequestMapping("article/publish")
 	@ResponseBody
-	public ResponseData publishArticle(@RequestBody Artilcle article) {
+	public ResponseData publishArticle(@RequestBody ArtilcleDto article) {
 
-		
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(article.getUuid());
 		ArticlePo a = articleDao.selectSingle(aq);
 
 		article.setContent(a.getContent());
 		buildArticleHtml(a);
-		
+
 		ResponseData rd = new ResponseData();
 		rd.setData(article);
 		return rd;
@@ -119,11 +121,14 @@ public class EditAction extends BaseActiom {
 
 			Writer writer = new OutputStreamWriter(
 					new FileOutputStream("src/main/webapp/article/" + entity.getUuid() + ".html"), "UTF-8");
-			Map<String, Object> commonData = new HashMap<String, Object>();
+			Map<String, Object> map = new HashMap<String, Object>();
 
-			commonData.put("content", entity.getContent());
+			map.put("article", entity);
+			map.put("baseDomain", "http://localhost:8080");
+			map.put("imgDomain", "http://img.iukiss.com");
+			map.put("articleUuid", entity.getUuid());
 
-			template.process(commonData, writer);
+			template.process(map, writer);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

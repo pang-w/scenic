@@ -10,7 +10,7 @@ public class ArticleQuery extends BaseQuery {
 	private Integer id;
 	private String title;
 	private String keyword;
-	private Integer userid;
+	private String username;
 	private String content;
 	private String desc;
 	private String uuid;
@@ -48,12 +48,12 @@ public class ArticleQuery extends BaseQuery {
 	}
 
 
-	public Integer getUserid() {
-		return userid;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserid(Integer userid) {
-		this.userid = userid;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getContent() {
