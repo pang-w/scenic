@@ -25,3 +25,22 @@
     color: #66666;
     align: center;
 }
+
+user {
+  display: block;
+  font-size: 17px;
+  color: red;
+}
+user img{
+  
+}
+user .userInfo{
+  display: block;
+  font-size: 17px;
+  color: red;
+}
+user .userInfo .userDescription {
+  display: block;
+  font-size: 17px;
+  color: red;
+}

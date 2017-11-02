@@ -22,11 +22,14 @@
 <link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/base/css/screen.css">
+<link rel="stylesheet" href="/assets/css/iukiss.css">
 
 <script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
+
 
 </head>
 
@@ -34,6 +37,7 @@
 	<!-- start header -->
 	<header class="main-header"
 		style="background-image: url(http://img.iukiss.com/bg/head_bg_fang.JPG)">
+
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -55,28 +59,41 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="navbar-header">
-						<span class="nav-toggle-button collapsed" data-toggle="collapse"
-							data-target="#main-menu"> <span class="sr-only">Toggle
-								navigation</span> <i class="fa fa-bars"></i>
-						</span>
-					</div>
+
 					<div class="collapse navbar-collapse" id="main-menu">
-						<ul class="menu">
-							<li class="nav-current" role="presentation"><a
-								href="http://www.iukiss.com/">首页</a></li>
-							<li role="presentation"><a
-								href="http://www.iukiss.com/articles.html">文章</a></li>
-							<li role="presentation"><a
-								href="http://www.iukiss.com/products.html">商品</a></li>
-							<li role="presentation"><a
-								href="http://www.iukiss.com/topic/游记">游记</a></li>
-							<li role="presentation"><a
-								href="http://www.iukiss.com/topic/装修">装修</a></li>
-							<li role="presentation"><a
-								href="http://www.iukiss.com/topic/办事流程">办事流程</a></li>
+						<a class="navbar-brand" href="#">IUKISS</a>
+						<ul class="nav navbar-nav">
+							<li><a href="#">文章</a></li>
+							<li><a href="#">商品</a></li>
 						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/register.html">注册</a></li>
+							<li><a onclick="support.layerLogin()" >登录</a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" >ITMAOO 
+								<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li data-filter-camera-type="Alpha"><a data-toggle="tab"
+										href="#">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a data-toggle="tab"
+										href="#">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a data-toggle="tab"
+										href="#">退出</a></li>
+								</ul>
+						</ul>
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">游记 <span class="sr-only">(current)</span></a></li>
+							<li><a href="#">装修</a></li>
+							<li><a href="#">办事流程</a></li>
+						</ul>
+						<form class="navbar-form navbar-right">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -89,17 +106,23 @@
 		<div class="container">
 			<div class="row">
 				<main class="col-md-8 main-content">
+
 				<article id="108" class="post">
-					<div class="post-head">
-						<h1 class="post-title">
-							阿斯顿非
-						</h1>
-						<div class="post-meta">
-							<span class="author">2017-11-26 1:10:23</span> 
+					<aside class="col-md-4 sidebar">
+						<img alt="user" width="90%"
+							src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
+					</aside>
+					<div class="row">
+						<div>
+							<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
 						</div>
-					</div>
-					<div class="post-content">
-						<p>用户空间</p>
+						<div class="pull-right">
+							<span class="author">作者：<a
+								href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
+							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
+								title="2017年10月25日星期三下午4点57分">2017-8-9</time>
+							<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
+						</div>
 					</div>
 				</article>
 				<article id="108" class="post">
@@ -175,38 +198,6 @@
 
 				<aside class="col-md-4 sidebar">
 					<!-- start widget -->
-
-					<!-- end widget -->
-
-					<!-- start tag cloud widget -->
-					<div id="loggedInfo" class="widget">
-					
-						<h4 class="title">登录</h4>
-						<div class="content community">
-						
-							<p>
-								<a href="http://www.iukiss.com/action/user/articles" title="用户文章_IUKISS"
-									target="_blank"><i class="fa fa-folder-open-o"></i> 我的文章</a>
-									
-							</p>
-							<p>
-								<a href="http://www.iukiss.com/action/user/attention" title="用户收藏文章_IUKISS"
-									target="_blank"><i class="fa fa-folder-open-o"></i> 我的收藏</a>
-							</p>
-							<p>
-								<a href="http://www.iukiss.com/action/user/attention" title="用户图片_IUKISS"
-									target="_blank"><i class="fa fa-folder-open-o"></i> 我的图片</a>
-							</p>
-							<p>
-								<a href="http://www.iukiss.com/action/user/attention" title="用户商品_IUKISS"
-									target="_blank"><i class="fa fa-folder-open-o"></i> 我的商品</a>
-							</p>
-						</div>
-
-					</div>
-					<!-- end tag cloud widget -->
-
-					<!-- start widget -->
 					<div class="widget">
 						<h4 class="title">写文章</h4>
 						<div class="content download">
@@ -215,6 +206,50 @@
 						</div>
 					</div>
 					<!-- end widget -->
+
+					<!-- start tag cloud widget -->
+					<div id="loggedInfo" class="widget">
+						<h4 class="title">我的资源</h4>
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseOneAction">我的文章</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">天刚是萨达非afeawe</div>
+								</div>
+							</div>
+							<div class="panel panel-success">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseTwoAction">我的商品</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">Nihil anim keffiyeh helvetica,
+										craft beer labore wes anderson cred nesciunt sapiente ea
+										proident. Ad vegan excepteur butcher vice lomo.</div>
+								</div>
+							</div>
+							<div class="panel panel-info">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseThreeAction">我的图片</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">上牌立刻就来看你</div>
+								</div>
+							</div>
+							<div class="panel panel-warning">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseFourAction">我的收藏</div>
+								<div id="collapseFour" class="panel-collapse collapse">
+									<div class="panel-body">Nihil anim keffiyeh helvetica,
+										craft beer labore wes anderson cred nesciunt sapiente ea
+										proident. Ad vegan excepteur butcher vice lomo.</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<!-- end tag cloud widget -->
+
+
 
 					<!-- start tag cloud widget -->
 					<div class="widget">
