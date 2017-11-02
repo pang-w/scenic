@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="${baseDomain}/assets/base/css/screen.css">
 
 <script type="text/javascript" src="${baseDomain}/assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="${baseDomain}/assets/base/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${baseDomain}/assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="${baseDomain}/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="${baseDomain}/assets/ctrl/base.js"></script>
@@ -31,9 +32,6 @@
 </head>
 
 <body class="home-template">
-	<!-- start header -->
-	<#include "components/bodyHeader.ftl">
-	<!-- end header -->
 
 	<!-- start navigation -->
 	<#include "components/bodyNav.ftl">
@@ -45,14 +43,6 @@
 			<div class="row">
 				<#include "components/userArticleLoop.ftl">
 				<aside class="col-md-4 sidebar">
-					<!-- start login widget -->
-					<#if user??>
-						<#include "components/loginInfo/logged.ftl">
-					<#else>
-						<#include "components/loginInfo/login.ftl">
-					</#if>
-					<!-- end login widget -->
-
 					<!-- start widget -->
 					<div class="widget">
 						<h4 class="title">写文章</h4>
@@ -62,6 +52,47 @@
 						</div>
 					</div>
 					<!-- end widget -->
+					<!-- start login widget -->
+					<div id="loggedInfo" class="widget">
+						<h4 class="title">我的资源</h4>
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseOneAction">我的文章</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">天刚是萨达非afeawe</div>
+								</div>
+							</div>
+							<div class="panel panel-success">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseTwoAction">我的商品</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">Nihil anim keffiyeh helvetica,
+										craft beer labore wes anderson cred nesciunt sapiente ea
+										proident. Ad vegan excepteur butcher vice lomo.</div>
+								</div>
+							</div>
+							<div class="panel panel-info">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseThreeAction">我的图片</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">上牌立刻就来看你</div>
+								</div>
+							</div>
+							<div class="panel panel-warning">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseFourAction">我的收藏</div>
+								<div id="collapseFour" class="panel-collapse collapse">
+									<div class="panel-body">Nihil anim keffiyeh helvetica,
+										craft beer labore wes anderson cred nesciunt sapiente ea
+										proident. Ad vegan excepteur butcher vice lomo.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end login widget -->
+
+					
 
 					<!-- start tag cloud widget -->
 					<#include "components/tags.ftl">

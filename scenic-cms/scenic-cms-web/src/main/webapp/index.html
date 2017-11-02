@@ -6,7 +6,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>哎呦KISS_IUKISS</title>
+<title>消费的故事_哎呦KISS_IUKISS</title>
 <meta name="description" content="我的消费，我的故事。">
 <meta name="keywords" content="文章,商品,旅行，装修，办事流程">
 
@@ -29,6 +29,7 @@
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
+<script type="text/javascript" src="/assets/ctrl/checklogin.js"></script>
 
 
 </head>
@@ -61,25 +62,23 @@
 				<div class="col-sm-12">
 
 					<div class="collapse navbar-collapse" id="main-menu">
-						<a class="navbar-brand" href="#">IUKISS</a>
+						<a class="navbar-brand" href="/">IUKISS</a>
 						<ul class="nav navbar-nav">
 							<li><a href="#">文章</a></li>
 							<li><a href="#">商品</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/register.html">注册</a></li>
-							<li><a onclick="support.layerLogin()" >登录</a></li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" >ITMAOO 
-								<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li data-filter-camera-type="Alpha"><a data-toggle="tab"
-										href="#">个人资料</a></li>
-									<li data-filter-camera-type="Zed"><a data-toggle="tab"
-										href="#">修改密码</a></li>
-									<li data-filter-camera-type="Bravo"><a data-toggle="tab"
-										href="#">退出</a></li>
-								</ul>
+							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()" >登录</a></li>
+							<li id="loggedDropdown" class="dropdown">
+									<a id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown" >${loggedUser.username} 
+									<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="/user/profile.html">个人资料</a></li>
+										<li data-filter-camera-type="Zed"><a onclick="support.layerLogin()">修改密码</a></li>
+										<li data-filter-camera-type="Bravo"><a onclick="support.logout()">退出</a></li>
+									</ul>
+								</li>
 						</ul>
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="#">游记 <span class="sr-only">(current)</span></a></li>

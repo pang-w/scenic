@@ -52,16 +52,13 @@ public class AuthAction extends BaseActiom {
 	@ResponseBody
 	@RequestMapping("checkLogged")
 	public ResponseData checkLogged(HttpServletRequest request) {
-
-		//List<Admin> list = adminDao.selectList(new BaseQuery());
-
 		UserDto user = getLogedUser(request);
 		ResponseData rd = new ResponseData();
 		if (user == null) {
 			rd.setStatus("4004");
 			rd.setMsg("未登录");
 		} else {
-			request.setAttribute("loggedUser", user);
+			request.getSession().setAttribute("loggedUser", user);
 		}
 		rd.setData(user);
 		return rd;

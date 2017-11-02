@@ -23,21 +23,19 @@
 <link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/base/css/screen.css">
 <link rel="stylesheet" href="/assets/css/iukiss.css">
+<link rel="stylesheet" href="/assets/css/register.css">
 
 <script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="/assets/base/js/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
-
+<script type="text/javascript" src="/assets/ctrl/register.js"></script>
 
 </head>
 
 <body class="home-template">
-	<!-- start header -->
-
-	<!-- end header -->
-
 	<!-- start navigation -->
 	<nav class="main-navigation">
 		<div class="container">
@@ -52,8 +50,18 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/register.html">注册</a></li>
-							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()" >登录</a></li>
-							
+							<li><a onclick="support.layerLogin()" >登录</a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" >ITMAOO 
+								<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li data-filter-camera-type="Alpha"><a data-toggle="tab"
+										href="#">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a data-toggle="tab"
+										href="#">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a data-toggle="tab"
+										href="#">退出</a></li>
+								</ul>
 						</ul>
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="#">游记 <span class="sr-only">(current)</span></a></li>
@@ -99,74 +107,51 @@
 						</div>
 					</div>
 				</article>
-				<article id="108" class="post">
-					<div class="post-head">
-						<h1 class="post-title">
-							<a href="http://www.iukiss.com/custom-excerpts/">IUKISS,一个超有趣的平台</a>
-						</h1>
-						<div class="post-meta">
-							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
-							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-								title="2017年10月25日星期三下午4点57分">2017年8月9日</time>
-						</div>
-					</div>
-					<div class="post-content">
-						<p>还记得那次旅行，你提前做了那些准备，买了那些物品，在旅途中起到了什么作用吗？还记得那次装修你做了多少攻略，买了多少建材，花了多少钱吗？还记得那次办理出生证明你跑了多少部门，等了多长时间按吗？今天起IUKISS帮你记录，一起回忆！</p>
-					</div>
-
-
-					<footer class="post-footer clearfix">
-						<div class="pull-left tag-list">
-							<i class="fa fa-folder-open-o"></i>
-
-						</div>
-						<div class="pull-right share"></div>
-					</footer>
-				</article>
-
 				<article id="94" class="post tag-release tag-about-ghost">
 
-					<div class="post-head">
-						<h1 class="post-title">
-							<a href="http://www.iukiss.com/ghost-0-7-4-released/">IUKISS
-								即将发布</a>
-						</h1>
-						<div class="post-meta">
-							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
-							<time class="post-date" datetime="2017年10月24日星期二凌晨12点01分"
-								title="2017年10月24日星期二凌晨12点01分">2017年10月24日</time>
-						</div>
-					</div>
-					<div class="featured-media">
-						<a href="http://www.iukiss.com/ghost-0-7-4-released/"><img
-							src="/assets/base/img/mouse.jpg" alt="IUKISS 即将发布"></a>
-					</div>
-					<div class="post-content">
-						<p>紧随 IUKISS 官方脚步，IUKISS
-							即将发布了！IUKISS是用户可以随心记录旅行过程，办事流程的平台，这一版本包含用户写文字，传图片，编辑购买商品简介，根据网络地址自动导入商品信息等功能</p>
-					</div>
-					<div class="post-permalink">
-						<a href="http://www.iukiss.com" class="btn btn-default">IUISS</a>
-					</div>
-
-					<footer class="post-footer clearfix">
-						<div class="pull-left tag-list">
-							<i class="fa fa-folder-open-o"></i> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a>, <a
-								href="http://www.iukiss.com/tag/about-ghost/">IUKISS</a>
-						</div>
-						<div class="pull-right share"></div>
-					</footer>
+                        	<form role="form" action="http://www.gbtags.com/gb/networks/uploads/4f1507b5-d12d-4e7c-a236-98ad9913b55d/bootstrap-multi-step-registration/index.html" method="post" class="registration-form">
+                        		<fieldset style="display: block;">
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                            		<h4>基本信息</h4>
+		                        		</div>
+		                        		<div class="form-top-right">
+		                        			<i class="fa fa-user"></i>
+		                        		</div>
+		                            </div>
+		                            <div class="form-bottom">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">登录名</label>
+				                        	<input type="text" name="form-first-name" placeholder="登录名..." class="form-first-name form-control" id="form-first-name">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-last-name">昵称</label>
+				                        	<input type="text" name="form-last-name" placeholder="昵称..." class="form-last-name form-control" id="form-last-name">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-about-yourself">自我描述</label>
+				                        	<textarea name="form-about-yourself" placeholder="一句对你影响深刻的话....." class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+				                        </div>
+				                        <div class="form-group">
+				                    		<label class="sr-only" for="form-facebook">密码</label>
+				                        	<input type="text" name="form-facebook" placeholder="密码..." class="form-facebook form-control" id="form-facebook">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-twitter">确认密码</label>
+				                        	<input type="text" name="form-twitter" placeholder="确认密码..." class="form-twitter form-control" id="form-twitter">
+				                        </div>
+				                        <button type="button" class="btn btn-previous">上一步</button>
+				                        <button type="submit" class="btn">注册</button>
+				                        <button type="button" class="btn btn-next">Next</button>
+				                    </div>
+			                    </fieldset>
+			                   
+			                    </fieldset>
+		                    
+		                    </form>
+		                    
+            
 				</article>
-
-
-				<nav class="pagination" role="navigation">
-					<span class="page-number">第 1 页 ⁄ 共 9 页</span> <a
-						class="older-posts" href="http://www.iukiss.com/page/2/"><i
-						class="fa fa-angle-right"></i></a>
-				</nav>
 
 				</main>
 
@@ -221,42 +206,7 @@
 
 
 					</div>
-					<!-- end tag cloud widget -->
 
-
-
-					<!-- start tag cloud widget -->
-					<div class="widget">
-						<h4 class="title">标签云</h4>
-						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/jquery/">jQuery</a> <a
-								href="http://www.iukiss.com/tag/ghost-0-7-ban-ben/">IUKISS
-								0.7 版本</a> <a href="http://www.iukiss.com/tag/opensource/">开源</a> <a
-								href="http://www.iukiss.com/tag/zhu-shou-han-shu/">助手函数</a> <a
-								href="http://www.iukiss.com/tag/tag-cloud/">标签云</a> <a
-								href="http://www.iukiss.com/tag/navigation/">导航</a> <a
-								href="http://www.iukiss.com/tag/customize-page/">自定义页面</a> <a
-								href="http://www.iukiss.com/tag/static-page/">静态页面</a> <a
-								href="http://www.iukiss.com/tag/roon-io/">Roon.io</a> <a
-								href="http://www.iukiss.com/tag/configuration/">配置文件</a> <a
-								href="http://www.iukiss.com/tag/upyun/">又拍云存储</a> <a
-								href="http://www.iukiss.com/tag/upload/">上传</a> <a
-								href="http://www.iukiss.com/tag/handlebars/">Handlebars</a> <a
-								href="http://www.iukiss.com/tag/email/">邮件</a> <a
-								href="http://www.iukiss.com/tag/shortcut/">快捷键</a> <a
-								href="http://www.iukiss.com/tag/yong-hu-zhi-nan/">用户指南</a> <a
-								href="http://www.iukiss.com/tag/theme-market/">主题市场</a> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a> <a
-								href="http://www.iukiss.com/tag-cloud/">...</a>
-						</div>
-					</div>
-					<!-- end tag cloud widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
 				</aside>
 
 			</div>

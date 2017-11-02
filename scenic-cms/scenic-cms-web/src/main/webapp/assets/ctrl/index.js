@@ -12,24 +12,7 @@ jQuery(function($) {
 	$("#layerLoginAction").click(function() {
 		support.layerLogin();
 	});
-	// SLiding codes
-	$("#userMenutoggle > li > div").click(function () {
-	    if (false == $(this).next().is(':visible')) {
-	        $('#userMenutoggle ul').slideUp();
-	    }
-
-	    var $currIcon=$(this).find("span.the-btn");
-
-	    $("span.the-btn").not($currIcon).addClass('fa-plus').removeClass('fa-minus');
-
-	    $currIcon.toggleClass('fa-minus fa-plus');
-
-	    $(this).next().slideToggle();
-
-	    $("#userMenutoggle > li > div").removeClass("active");
-	    $(this).addClass('active');
-
-	});
+	
 	$("#collapseOneAction").click(function () {
 		$('#collapseOne').slideToggle("slow");
 	});
@@ -84,3 +67,7 @@ jQuery(function($) {
 	}
 	
 });
+function changeToLogged(username) {
+	window.location = "/i/" + username;
+
+}

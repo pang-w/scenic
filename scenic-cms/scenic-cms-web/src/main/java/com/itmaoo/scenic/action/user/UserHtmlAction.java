@@ -26,11 +26,16 @@ import com.itmaoo.scenic.entity.query.ArticleQuery;
 public class UserHtmlAction extends BaseActiom{
 	@Autowired
 	private IArticleDao articleDao;
+
 	
 	@RequestMapping("/i/{useranme}")
 	@ResponseBody
 	public ModelAndView index(HttpServletRequest request,@PathVariable("useranme") String viewuseranme, ModelMap map) {
-		UserDto userDto = getLogedUser(request);
+		
+		UserDto author = new UserDto();
+		author.setUsername(viewuseranme);
+		
+		UserDto loggedUser = getLogedUser(request);
 		
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUsername(viewuseranme);
@@ -43,9 +48,46 @@ public class UserHtmlAction extends BaseActiom{
 		map.addAttribute("baseDomain", "http://localhost:8080");
 		map.addAttribute("imgDomain", "http://img.iukiss.com");
 		map.addAttribute("pager", pager);
-		if(userDto!=null){
-			map.addAttribute("user", userDto);
-			if(userDto.getUsername().equals(viewuseranme)){
+		map.addAttribute("author", author);
+		if(loggedUser!=null){
+			map.addAttribute("loggedUser", loggedUser);
+			if(loggedUser.getUsername().equals(viewuseranme)){
+				ModelAndView mv = new ModelAndView("iukiss/index");
+				return mv;
+			}else{
+				ModelAndView mv = new ModelAndView("iukiss/index");
+				return mv;
+			}
+		}else{
+			ModelAndView mv = new ModelAndView("iukiss/index");
+			return mv;
+		}
+
+	}
+	@RequestMapping("/tags/{tag}")
+	@ResponseBody
+	public ModelAndView tag(HttpServletRequest request,@PathVariable("tag") String tag, ModelMap map) {
+		
+		UserDto author = new UserDto();
+		author.setUsername(tag);
+		
+		UserDto loggedUser = getLogedUser(request);
+		
+		ArticleQuery aq = new ArticleQuery();
+		aq.setUsername(tag);
+		List<ArticlePo> articles = articleDao.selectList(aq);
+		List<ArtilcleDto> aticleDtos = toArticleDto(articles);
+		PagerDto pager = new PagerDto();
+		pager.setCurrentPage(1);
+		pager.setTotalPage(aticleDtos.size()/10 + 1);
+		pager.setList(aticleDtos);
+		map.addAttribute("baseDomain", "http://localhost:8080");
+		map.addAttribute("imgDomain", "http://img.iukiss.com");
+		map.addAttribute("pager", pager);
+		map.addAttribute("author", author);
+		if(loggedUser!=null){
+			map.addAttribute("loggedUser", loggedUser);
+			if(loggedUser.getUsername().equals(tag)){
 				ModelAndView mv = new ModelAndView("iukiss/index");
 				return mv;
 			}else{
