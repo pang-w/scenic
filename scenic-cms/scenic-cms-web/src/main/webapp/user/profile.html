@@ -24,7 +24,6 @@
 <link rel="stylesheet" href="/assets/base/css/screen.css">
 <link rel="stylesheet" href="/assets/css/iukiss.css">
 <link rel="stylesheet" href="/assets/css/register.css">
-
 <script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
@@ -32,6 +31,7 @@
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
 <script type="text/javascript" src="/assets/ctrl/register.js"></script>
+<script type="text/javascript" src="/assets/ctrl/checklogin.js"></script>
 
 </head>
 
@@ -45,34 +45,32 @@
 					<div class="collapse navbar-collapse" id="main-menu">
 						<a class="navbar-brand" href="/">IUKISS</a>
 						<ul class="nav navbar-nav">
-							<li><a href="#">文章</a></li>
-							<li><a href="#">商品</a></li>
+							<li><a href="/articles.html">文章</a></li>
+							<li><a href="/products.html">商品</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/register.html">注册</a></li>
-							<li><a onclick="support.layerLogin()" >登录</a></li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" >ITMAOO 
-								<b class="caret"></b></a>
+							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()" >登录</a></li>
+							<li id="loggedDropdown" class="dropdown">
+								<a id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown" >
+									<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li data-filter-camera-type="Alpha"><a data-toggle="tab"
-										href="#">个人资料</a></li>
-									<li data-filter-camera-type="Zed"><a data-toggle="tab"
-										href="#">修改密码</a></li>
-									<li data-filter-camera-type="Bravo"><a data-toggle="tab"
-										href="#">退出</a></li>
+									<li><a href="/user/profile.html">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a onclick="support.layerLogin()">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a onclick="support.logout()">退出</a></li>
 								</ul>
+							</li>
 						</ul>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">游记 <span class="sr-only">(current)</span></a></li>
-							<li><a href="#">装修</a></li>
-							<li><a href="#">办事流程</a></li>
+							<li class="active"><a href="/tags/游记">游记 <span class="sr-only">(current)</span></a></li>
+							<li><a href="/tags/装修">装修</a></li>
+							<li><a href="/tags/办事流程">办事流程</a></li>
 						</ul>
 						<form class="navbar-form navbar-right">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Search">
 							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
+							<button type="submit" class="btn btn-default">搜</button>
 						</form>
 					</div>
 
