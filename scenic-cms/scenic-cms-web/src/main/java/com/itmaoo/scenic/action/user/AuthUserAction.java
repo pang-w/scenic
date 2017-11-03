@@ -14,7 +14,7 @@ import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IAdminDao;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.UserDto;
-import com.itmaoo.scenic.entity.po.Admin;
+import com.itmaoo.scenic.entity.po.AdminPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.BaseQuery;
 
@@ -28,7 +28,7 @@ public class AuthUserAction extends BaseActiom {
 	@RequestMapping("login")
 	public ResponseData loginUser(HttpServletRequest request, @RequestBody UserDto userDto) {
 
-		List<Admin> list = adminDao.selectList(new BaseQuery());
+		List<AdminPo> list = adminDao.selectList(new BaseQuery());
 
 		System.out.println(list.size());
 		UserDto user = new UserDto();

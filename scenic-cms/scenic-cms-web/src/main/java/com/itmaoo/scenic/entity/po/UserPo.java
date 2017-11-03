@@ -16,8 +16,9 @@ public class UserPo implements Serializable{
 	private String email;
 	private String telpone;
 	private Date createdate; 
-	private String invalid; 
-	private String passwordTryTimes; 
+	private Boolean invalid;
+	private Boolean isMale;
+	private Integer passwordTryTimes; 
 	private Date lastLoggedDate;
 	
 	public Integer getUserid() {
@@ -56,16 +57,17 @@ public class UserPo implements Serializable{
 	public void setCreatedate(Date createdate) {
 		this.createdate = createdate;
 	}
-	public String getInvalid() {
+
+	public Boolean getInvalid() {
 		return invalid;
 	}
-	public void setInvalid(String invalid) {
+	public void setInvalid(Boolean invalid) {
 		this.invalid = invalid;
 	}
-	public String getPasswordTryTimes() {
+	public Integer getPasswordTryTimes() {
 		return passwordTryTimes;
 	}
-	public void setPasswordTryTimes(String passwordTryTimes) {
+	public void setPasswordTryTimes(Integer passwordTryTimes) {
 		this.passwordTryTimes = passwordTryTimes;
 	}
 	public Date getLastLoggedDate() {
@@ -74,9 +76,11 @@ public class UserPo implements Serializable{
 	public void setLastLoggedDate(Date lastLoggedDate) {
 		this.lastLoggedDate = lastLoggedDate;
 	}
-	
-	
-	
-	
+	public Boolean getIsMale() {
+		return isMale;
+	}
+	public void setIsMale(Boolean isMale) {
+		this.isMale = isMale;
+	}
 
 }

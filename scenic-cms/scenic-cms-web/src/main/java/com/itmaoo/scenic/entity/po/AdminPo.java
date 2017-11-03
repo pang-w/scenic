@@ -2,7 +2,7 @@ package com.itmaoo.scenic.entity.po;
 
 import java.util.Date;
 
-public class Admin {
+public class AdminPo {
 	private Integer id;
 	private String username;
 	private String passwore;
