@@ -42,6 +42,17 @@ var support = {
 			  ,content: '/layerLogin.html'
 			});
 	},
+	layerImage : function layerImage(url) {
+		layer.open({
+			  type:  1//Page层类型
+			  ,area: ['500px', '300px']
+			  ,title: '登录'
+			  ,shade: 0.6 //遮罩透明度
+			  ,maxmin: true //允许全屏最小化
+			  ,anim: 1 //0-6的动画形式，-1不开启
+			  ,content: '<img alt="user" width="90%" src="'+ url +'">'
+			});
+	},
 	logout : function logout() {
 		support.ajax("user/auth/logout", null,function(response) {
 			location.href = "/index.html";

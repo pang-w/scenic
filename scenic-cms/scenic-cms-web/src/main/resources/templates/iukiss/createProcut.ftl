@@ -23,20 +23,20 @@
 <link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/base/css/screen.css">
 <link rel="stylesheet" href="/assets/css/iukiss.css">
+<link rel="stylesheet" href="/assets/css/register.css">
 
 <script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="/assets/base/js/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
+<script type="text/javascript" src="/assets/ctrl/register.js"></script>
 <script type="text/javascript" src="/assets/ctrl/checklogin.js"></script>
-
 
 </head>
 
 <body class="home-template">
-
-
 	<!-- start navigation -->
 	<nav class="main-navigation">
 		<div class="container">
@@ -79,7 +79,6 @@
 			</div>
 		</div>
 	</nav>
-
 	<!-- end navigation -->
 
 
@@ -107,126 +106,66 @@
 						</div>
 					</div>
 				</article>
-					<article id="108" class="post">
-						<aside class="col-md-4 sidebar">
-							<img alt="user" width="90%"
-								 src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-						</aside>
-						<div class="row">
-							<div>
-								<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
-							</div>
-							<div>
-								<p><span class="author">价格：<a
-										href="http://www.iukiss.com/author/wangsai/">120</a></span>
-								<span class="author"> | 地址：<a
-										href="http://www.iukiss.com/author/wangsai/">http://www.iukiss.com/author/wangsai/</a></span> </>
-							</div>
-							<div class="pull-right">
-								<span class="author">来源：<a
-										href="http://www.iukiss.com/author/wangsai/">安抚巍峨若家</a></span>
-								<span class="author">作者：<a
-									href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
-								<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-									  title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-								<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
-							</div>
-						</div>
-					</article>
+				<article id="94" class="post tag-release tag-about-ghost">
 
-					</article>
-					<article id="108" class="post">
-						<aside class="col-md-4 sidebar">
-							<img alt="user" width="90%"
-								 src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-						</aside>
-						<div class="row">
-							<div>
-								<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
-							</div>
-							<div>
-								<p><span class="author">价格：<a
-										href="http://www.iukiss.com/author/wangsai/">120</a></span>
-								<span class="author"> | 地址：<a
-										href="http://www.iukiss.com/author/wangsai/">http://www.iukiss.com/author/wangsai/</a></span> </>
-							</div>
-							<div class="pull-right">
-								<span class="author">来源：<a
-										href="http://www.iukiss.com/author/wangsai/">安抚巍峨若家</a></span>
-								<span class="author">作者：<a
-									href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
-								<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-									  title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-								<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
-							</div>
-						</div>
-					</article>
-					</article>
-					<article id="108" class="post">
-						<aside class="col-md-4 sidebar">
-							<img alt="user" width="90%"
-								 src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-						</aside>
-						<div class="row">
-							<div>
-								<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
-							</div>
-							<div>
-								<p><span class="author">价格：<a
-										href="http://www.iukiss.com/author/wangsai/">120</a></span>
-								<span class="author"> | 地址：<a
-										href="http://www.iukiss.com/author/wangsai/">http://www.iukiss.com/author/wangsai/</a></span> </>
-							</div>
-							<div class="pull-right">
-								<span class="author">来源：<a
-										href="http://www.iukiss.com/author/wangsai/">安抚巍峨若家</a></span>
-								<span class="author">作者：<a
-									href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
-								<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-									  title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-								<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
-							</div>
-						</div>
-					</article>
-					</article>
-					<article id="108" class="post">
-						<aside class="col-md-4 sidebar">
-							<img alt="user" width="90%"
-								 src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-						</aside>
-						<aside class="col-md-4 sidebar">
-						<div class="row">
-							<div>
-								<h4>商品名</h4>
-								<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
-							</div>
-						</div>
-													</aside>
-						<aside class="col-md-4 sidebar">					
-							<div>
-								<p><span class="author">价格：<a
-										href="http://www.iukiss.com/author/wangsai/">120</a></span></p>
-								<p><span class="author"> http://www.iukiss.com/author/wangsai/
-								<a 	href="http://www.iukiss.com/author/wangsai/">访问商品链接</a></span></p>
-							</div>
-						</aside>
-						<div class="pull-right">
-								<span class="author">来源文章：<a
-										href="http://www.iukiss.com/author/wangsai/">安抚巍峨若家</a></span>
-								<span class="author">作者：<a
-									href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
-								<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-									  title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-								<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
-							</div>
-					</article>
+                        	<form role="form" action="http://www.gbtags.com/gb/networks/uploads/4f1507b5-d12d-4e7c-a236-98ad9913b55d/bootstrap-multi-step-registration/index.html" method="post" class="registration-form">
+                        		<fieldset style="display: block;">
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                        			<h3>注册 1 / 2</h3>
+		                            		<p>基本信息</p>
+		                        		</div>
+		                        		<div class="form-top-right">
+		                        			<i class="fa fa-user"></i>
+		                        		</div>
+		                            </div>
+		                            <div class="form-bottom">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">登录名</label>
+				                        	<input type="text" name="form-first-name" placeholder="登录名..." class="form-first-name form-control" id="form-first-name">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-last-name">昵称</label>
+				                        	<input type="text" name="form-last-name" placeholder="昵称..." class="form-last-name form-control" id="form-last-name">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-about-yourself">自我描述</label>
+				                        	<textarea name="form-about-yourself" placeholder="一句对你影响深刻的话....." class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+				                        </div>
+				                        <button type="button" class="btn btn-next">Next</button>
+				                    </div>
+			                    </fieldset>
+			                    
 
-
-				<nav class="pagination" role="navigation">
-					<span class="page-number">第 1 页 ⁄ 共 9 页</span> <a
-						class="older-posts" href="http://www.iukiss.com/page/2/"><i
-						class="fa fa-angle-right"></i></a>
-				</nav>
+			                    
+			                    <fieldset>
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                        			<h3>注册 2 / 2 </h3>
+		                            		<p>密码</p>
+		                        		</div>
+		                        		<div class="form-top-right">
+		                        			<i class="fa fa-twitter"></i>
+		                        		</div>
+		                            </div>
+		                            <div class="form-bottom">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-facebook">密码</label>
+				                        	<input type="text" name="form-facebook" placeholder="密码..." class="form-facebook form-control" id="form-facebook">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-twitter">确认密码</label>
+				                        	<input type="text" name="form-twitter" placeholder="确认密码..." class="form-twitter form-control" id="form-twitter">
+				                        </div>
+				                        <button type="button" class="btn btn-previous">上一步</button>
+				                        <button type="submit" class="btn">注册</button>
+				                    </div>
+			                    </fieldset>
+		                    
+		                    </form>
+		                    
+            
+				</article>
 
 				</main>
 
@@ -281,42 +220,7 @@
 
 
 					</div>
-					<!-- end tag cloud widget -->
 
-
-
-					<!-- start tag cloud widget -->
-					<div class="widget">
-						<h4 class="title">标签云</h4>
-						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/jquery/">jQuery</a> <a
-								href="http://www.iukiss.com/tag/ghost-0-7-ban-ben/">IUKISS
-								0.7 版本</a> <a href="http://www.iukiss.com/tag/opensource/">开源</a> <a
-								href="http://www.iukiss.com/tag/zhu-shou-han-shu/">助手函数</a> <a
-								href="http://www.iukiss.com/tag/tag-cloud/">标签云</a> <a
-								href="http://www.iukiss.com/tag/navigation/">导航</a> <a
-								href="http://www.iukiss.com/tag/customize-page/">自定义页面</a> <a
-								href="http://www.iukiss.com/tag/static-page/">静态页面</a> <a
-								href="http://www.iukiss.com/tag/roon-io/">Roon.io</a> <a
-								href="http://www.iukiss.com/tag/configuration/">配置文件</a> <a
-								href="http://www.iukiss.com/tag/upyun/">又拍云存储</a> <a
-								href="http://www.iukiss.com/tag/upload/">上传</a> <a
-								href="http://www.iukiss.com/tag/handlebars/">Handlebars</a> <a
-								href="http://www.iukiss.com/tag/email/">邮件</a> <a
-								href="http://www.iukiss.com/tag/shortcut/">快捷键</a> <a
-								href="http://www.iukiss.com/tag/yong-hu-zhi-nan/">用户指南</a> <a
-								href="http://www.iukiss.com/tag/theme-market/">主题市场</a> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a> <a
-								href="http://www.iukiss.com/tag-cloud/">...</a>
-						</div>
-					</div>
-					<!-- end tag cloud widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
 				</aside>
 
 			</div>

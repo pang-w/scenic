@@ -72,13 +72,9 @@
 										proident. Ad vegan excepteur butcher vice lomo.</div>
 								</div>
 							</div>
-							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseThreeAction">我的图片</div>
-								<div id="collapseThree" class="panel-collapse collapse">
-									<div class="panel-body">上牌立刻就来看你</div>
-								</div>
-							</div>
+							
+							<#include "components/userResourceLoop.ftl">
+							
 							<div class="panel panel-warning">
 								<div class='btn-block panel-heading panel-title'
 									id="collapseFourAction">我的收藏</div>

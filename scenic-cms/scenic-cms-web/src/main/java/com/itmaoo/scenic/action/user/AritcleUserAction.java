@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -25,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSException;
+import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IImageDao;
@@ -101,7 +103,29 @@ public class AritcleUserAction extends BaseActiom{
 			e.printStackTrace();
 		}
 		rd.setData(si);
-		return rd;
+		return rd;        
+
+	}
+	@RequestMapping("menuList")
+	@ResponseBody
+	public ResponseData menuList(HttpServletRequest request) {
+		ResponseData rd = new ResponseData();
+		if(getLogedUser(request)==null){
+			rd.setMsg("未登录");
+			rd.setStatus("4000");
+		}else{
+			List<ArtilcleDto> aticleDtos = Lists.newArrayList();
+			ArtilcleDto dto = new ArtilcleDto();
+			dto.setTitle("阿斯顿分类阿斯顿非埃及哦；jli");
+			dto.setDescription("asdfas");
+			dto.setContent("asdfas");
+			dto.setUuid("asdf");
+			aticleDtos.add(dto);
+			aticleDtos.add(dto);
+			aticleDtos.add(dto);
+			rd.setData(aticleDtos);
+		}
+		return rd;        
 
 	}
 

@@ -75,7 +75,6 @@
 			<div class="form-group">
 				<div class="row">
 					<div class="titleInputForm">
-					
 						<label>${article.title}</label>
 						<input id="articleUuid" type="hidden" value="${articleUuid}"/>
 					</div>

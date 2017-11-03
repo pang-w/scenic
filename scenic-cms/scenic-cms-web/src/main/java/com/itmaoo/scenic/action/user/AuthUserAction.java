@@ -20,7 +20,7 @@ import com.itmaoo.scenic.entity.query.BaseQuery;
 
 @Controller
 @RequestMapping(value = "/action/user/auth")
-public class AuthAction extends BaseActiom {
+public class AuthUserAction extends BaseActiom {
 	@Autowired
 	private IAdminDao adminDao;
 

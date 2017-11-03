@@ -13,19 +13,6 @@ jQuery(function($) {
 		support.layerLogin();
 	});
 	
-	$("#collapseOneAction").click(function () {
-		$('#collapseOne').slideToggle("slow");
-	});
-	$("#collapseTwoAction").click(function () {
-		$('#collapseTwo').slideToggle("slow");
-	});
-	$("#collapseThreeAction").click(function () {
-		$('#collapseThree').slideToggle("slow");
-	});
-	$("#collapseFourAction").click(function () {
-		$('#collapseFour').slideToggle("slow");
-	});
-	
 	function logout() {
 		var data = {
 			"uuid" : $("#articleUuid").val()
@@ -34,40 +21,20 @@ jQuery(function($) {
 			location.href = "/index.html";
 		});
 	}
-	function checkLogged() {
-		var data = {
-			"uuid" : $("#articleUuid").val()
-		};
-		support.ajax("user/auth/checkLogged", null,
-				function(response) {
-					if(response.status=="0000"){
-						changeToLogged(response.data.username);
-					}},
-				function(response) {
-					if(response.status=="4004"){
-					//changeToLogged(response.data.username);
-					}
-				}
-		);
-	}
 	function login() {
 		var data = {
 			"username" : $("#iukusername").val(),
 			"password" : $("#iukpassword").val()
 		};
 		support.ajax("user/auth/login", data, function(response) {
-			window.location = "/i/" + response.data.username;
-			layer.msg(response.msg);
+			checkLogged();
 		});
-	}
-	function changeToLogged(username) {
-		
-		window.location = "/i/" + username;
-
 	}
 	
 });
-function changeToLogged(username) {
-	window.location = "/i/" + username;
 
-}
+
+
+
+
+

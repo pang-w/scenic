@@ -15,9 +15,9 @@
 <meta name="referrer" content="origin">
 <meta name="generator" content="IUKISS 1.0.0">
 
-<link rel="canonical" href="http://www.iukiss.com/">
-<link rel="shortcut icon" href="http://www.iukiss.com/favicon.ico">
-<link rel="next" href="http://www.iukiss.com/">
+<link rel="canonical" href="/">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="next" href="/">
 
 <link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
@@ -29,26 +29,27 @@
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
+<script type="text/javascript" src="/assets/ctrl/baseLoad.js"></script>
 <script type="text/javascript" src="/assets/ctrl/checklogin.js"></script>
+
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 
 
 </head>
 
-<body class="home-template">
+<body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
 	<!-- start header -->
-	<header class="main-header"
-		style="background-image: url(http://img.iukiss.com/bg/head_bg_fang.JPG)">
-
+	<header class="main-header"	style="background-image: url({{imagePrefixUrl}}/bg/head_bg_fang.JPG)">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
 					<!-- start logo -->
-					<a class="branding" href="http://www.iukiss.com/"
+					<a class="branding" href="/"
 						title="IUKISS 消费记录平台"><img src="/assets/base/img/iukiss.png"
 						alt="IUKISS 开源博客平台"></a>
 					<!-- end logo -->
 					<h2 class="text-hide">IUKISS
-						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKISS 来帮你处理吧。</h2>
+						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKISS 来帮你处理吧。{{imagePrefixUrl}}</h2>
 				</div>
 			</div>
 		</div>
@@ -69,19 +70,21 @@
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/register.html">注册</a></li>
-							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()" >登录</a></li>
-							<li id="loggedDropdown" class="dropdown">
-									<a id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown" >
-									<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="/user/profile.html">个人资料</a></li>
-										<li data-filter-camera-type="Zed"><a onclick="support.layerLogin()">修改密码</a></li>
-										<li data-filter-camera-type="Bravo"><a onclick="support.logout()">退出</a></li>
-									</ul>
-								</li>
+							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
+							<li id="loggedDropdown" class="dropdown"><a
+								id="loggedUesername" class="dropdown-toggle"
+								data-toggle="dropdown"> <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/user/profile.html">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a
+										onclick="support.layerLogin()">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a
+										onclick="support.logout()">退出</a></li>
+								</ul></li>
 						</ul>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="/tags/游记">游记 <span class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="/tags/游记">游记 <span
+									class="sr-only">(current)</span></a></li>
 							<li><a href="/tags/装修">装修</a></li>
 							<li><a href="/tags/办事流程">办事流程</a></li>
 						</ul>
@@ -117,7 +120,7 @@
 						</div>
 						<div class="pull-right">
 							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
+								href="/author/wangsai/">ITMAOO</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
 								title="2017年10月25日星期三下午4点57分">2017-8-9</time>
 							<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
@@ -127,11 +130,11 @@
 				<article id="108" class="post">
 					<div class="post-head">
 						<h1 class="post-title">
-							<a href="http://www.iukiss.com/custom-excerpts/">IUKISS,一个超有趣的平台</a>
+							<a href="/custom-excerpts/">IUKISS,一个超有趣的平台</a>
 						</h1>
 						<div class="post-meta">
 							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
+								href="/author/wangsai/">ITMAOO</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
 								title="2017年10月25日星期三下午4点57分">2017年8月9日</time>
 						</div>
@@ -154,18 +157,18 @@
 
 					<div class="post-head">
 						<h1 class="post-title">
-							<a href="http://www.iukiss.com/ghost-0-7-4-released/">IUKISS
+							<a href="/ghost-0-7-4-released/">IUKISS
 								即将发布</a>
 						</h1>
 						<div class="post-meta">
 							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai/">ITMAOO</a></span> •
+								href="/author/wangsai/">ITMAOO</a></span> •
 							<time class="post-date" datetime="2017年10月24日星期二凌晨12点01分"
 								title="2017年10月24日星期二凌晨12点01分">2017年10月24日</time>
 						</div>
 					</div>
 					<div class="featured-media">
-						<a href="http://www.iukiss.com/ghost-0-7-4-released/"><img
+						<a href="/ghost-0-7-4-released/"><img
 							src="/assets/base/img/mouse.jpg" alt="IUKISS 即将发布"></a>
 					</div>
 					<div class="post-content">
@@ -173,14 +176,14 @@
 							即将发布了！IUKISS是用户可以随心记录旅行过程，办事流程的平台，这一版本包含用户写文字，传图片，编辑购买商品简介，根据网络地址自动导入商品信息等功能</p>
 					</div>
 					<div class="post-permalink">
-						<a href="http://www.iukiss.com" class="btn btn-default">IUISS</a>
+						<a href="" class="btn btn-default">IUISS</a>
 					</div>
 
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
 							<i class="fa fa-folder-open-o"></i> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a>, <a
-								href="http://www.iukiss.com/tag/about-ghost/">IUKISS</a>
+								href="/tags/release/">新版本发布</a>, <a
+								href="/tags/about-ghost/">IUKISS</a>
 						</div>
 						<div class="pull-right share"></div>
 					</footer>
@@ -189,7 +192,7 @@
 
 				<nav class="pagination" role="navigation">
 					<span class="page-number">第 1 页 ⁄ 共 9 页</span> <a
-						class="older-posts" href="http://www.iukiss.com/page/2/"><i
+						class="older-posts" href="/page/2/"><i
 						class="fa fa-angle-right"></i></a>
 				</nav>
 
@@ -211,75 +214,46 @@
 						<h4 class="title">我的资源</h4>
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseOneAction">我的文章</div>
-								<div id="collapseOne" class="panel-collapse collapse in">
-
-
-										<ul class="list-group panel-body">
-											<li class="list-group-item"><a href="/" >免费域名注册</a><div class="btn btn-default pull-right">编辑</div>	</li>
-											<li class="list-group-item">免费 Window 空间托管</li>
-											<li class="list-group-item">图像的数量</li>
-											<li class="list-group-item">
-												<span class="badge">新</span>
-												24*7 支持
-											</li>
-											<li class="list-group-item">每年更新成本</li>
-											<li class="list-group-item">
-												<span class="badge">新</span>
-												折扣优惠
-											</li>
-										</ul>
-
+								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
+								<div id="collapseArticle" class="panel-collapse collapse in">
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in articleMenu">
+											<a href="/">{{ a.title }}</a>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<div class="panel panel-success">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseTwoAction">我的商品</div>
-								<div id="collapseTwo" class="panel-collapse collapse">
-									<div class="panel-body">
-										<img alt="user" width="90%"
-											 src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-										<img alt="user" width="40%" margin="10" src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-										<img alt="user" width="40%" src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-									</div>
+								<div class='btn-block panel-heading panel-title' id="collapseAttentionAction">我的收藏</div>
+								<div id="collapseAttention" class="panel-collapse collapse">
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in articleMenu">
+											<a href="/">{{ a.title }}</a>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseThreeAction">我的图片</div>
-								<div id="collapseThree" class="panel-collapse collapse">
-									<div class="panel-body">
-										<img alt="user" width="90%"
-											 src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-										<img alt="user" width="40%" margin="10" src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-										<img alt="user" width="40%" src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
-
-									</div>
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品</div>
+								<div id="collapseProduct" class="panel-collapse collapse">
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in articleMenu">
+											<a href="/">{{ a.title }}</a>
+										</li>
+									</ul>
 								</div>
 							</div>
 							<div class="panel panel-warning">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseFourAction">我的收藏</div>
-								<div id="collapseFour" class="panel-collapse collapse">
-
-										<ul class="list-group panel-body">
-											<li class="list-group-item"><a href="/" >免费域名注册</a><div class="btn btn-default pull-right">编辑</div>	</li>
-											<li class="list-group-item">免费 Window 空间托管</li>
-											<li class="list-group-item">图像的数量</li>
-											<li class="list-group-item">
-												<span class="badge">新</span>
-												24*7 支持
-											</li>
-											<li class="list-group-item">每年更新成本</li>
-											<li class="list-group-item">
-												<span class="badge">新</span>
-												折扣优惠
-											</li>
-										</ul>
-
+								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
+								<div id="collapseImage" class="panel-collapse collapse">
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in articleMenu">
+											<a href="/">{{ a.title }}</a>
+										</li>
+									</ul>
 								</div>
 							</div>
+							
 						</div>
 
 
@@ -292,25 +266,25 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/jquery/">jQuery</a> <a
-								href="http://www.iukiss.com/tag/ghost-0-7-ban-ben/">IUKISS
-								0.7 版本</a> <a href="http://www.iukiss.com/tag/opensource/">开源</a> <a
-								href="http://www.iukiss.com/tag/zhu-shou-han-shu/">助手函数</a> <a
-								href="http://www.iukiss.com/tag/tag-cloud/">标签云</a> <a
-								href="http://www.iukiss.com/tag/navigation/">导航</a> <a
-								href="http://www.iukiss.com/tag/customize-page/">自定义页面</a> <a
-								href="http://www.iukiss.com/tag/static-page/">静态页面</a> <a
-								href="http://www.iukiss.com/tag/roon-io/">Roon.io</a> <a
-								href="http://www.iukiss.com/tag/configuration/">配置文件</a> <a
-								href="http://www.iukiss.com/tag/upyun/">又拍云存储</a> <a
-								href="http://www.iukiss.com/tag/upload/">上传</a> <a
-								href="http://www.iukiss.com/tag/handlebars/">Handlebars</a> <a
-								href="http://www.iukiss.com/tag/email/">邮件</a> <a
-								href="http://www.iukiss.com/tag/shortcut/">快捷键</a> <a
-								href="http://www.iukiss.com/tag/yong-hu-zhi-nan/">用户指南</a> <a
-								href="http://www.iukiss.com/tag/theme-market/">主题市场</a> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a> <a
-								href="http://www.iukiss.com/tag-cloud/">...</a>
+							<a href="/tags/jquery/">jQuery</a> <a
+								href="/tags/ghost-0-7-ban-ben/">IUKISS
+								0.7 版本</a> <a href="/tags/opensource/">开源</a> <a
+								href="/tags/zhu-shou-han-shu/">助手函数</a> <a
+								href="/tags/tag-cloud/">标签云</a> <a
+								href="/tags/navigation/">导航</a> <a
+								href="/tags/customize-page/">自定义页面</a> <a
+								href="/tags/static-page/">静态页面</a> <a
+								href="/tags/roon-io/">Roon.io</a> <a
+								href="/tags/configuration/">配置文件</a> <a
+								href="/tags/upyun/">又拍云存储</a> <a
+								href="/tags/upload/">上传</a> <a
+								href="/tags/handlebars/">Handlebars</a> <a
+								href="/tags/email/">邮件</a> <a
+								href="/tags/shortcut/">快捷键</a> <a
+								href="/tags/yong-hu-zhi-nan/">用户指南</a> <a
+								href="/tags/theme-market/">主题市场</a> <a
+								href="/tags/release/">新版本发布</a> <a
+								href="/tag-cloud/">...</a>
 						</div>
 					</div>
 					<!-- end tag cloud widget -->
@@ -334,16 +308,16 @@
 						<h4 class="title">最新文章</h4>
 						<div class="content recent-post">
 							<div class="recent-single-post">
-								<a href="http://www.iukiss.com/custom-excerpts/"
+								<a href="/custom-excerpts/"
 									class="post-title">自定义文章摘要（Excerpt）</a>
 								<div class="date">2017年8月9日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="http://www.iukiss.com/primary-tags/" class="post-title">首要“标签”</a>
+								<a href="/primary-tags/" class="post-title">首要“标签”</a>
 								<div class="date">2017年8月3日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="http://www.iukiss.com/ghost-1-0-released/"
+								<a href="/ghost-1-0-released/"
 									class="post-title">IUKISS 1.0 版本正式发布</a>
 								<div class="date">2017年7月29日</div>
 							</div>
@@ -355,22 +329,22 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/about-ghost/">IUKISS</a> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a> <a
-								href="http://www.iukiss.com/tag/javascript/">JavaScript</a> <a
-								href="http://www.iukiss.com/tag/promise/">Promise</a> <a
-								href="http://www.iukiss.com/tag/zhuti/">主题</a> <a
-								href="http://www.iukiss.com/tag/nodejs/">Node.js</a> <a
-								href="http://www.iukiss.com/tag/mysql/">MySQL</a> <a
-								href="http://www.iukiss.com/tag/nginx/">Nginx</a> <a
-								href="http://www.iukiss.com/tag/aliyun-ecs/">阿里云服务器</a> <a
-								href="http://www.iukiss.com/tag/ubuntu/">Ubuntu</a> <a
-								href="http://www.iukiss.com/tag/ghost-in-depth/">深度玩转 IUKISS</a>
-							<a href="http://www.iukiss.com/tag/theme/">Theme</a> <a
-								href="http://www.iukiss.com/tag/zhu-shou-han-shu/">助手函数</a> <a
-								href="http://www.iukiss.com/tag/markdown/">Markdown</a> <a
-								href="http://www.iukiss.com/tag/proxy/">反向代理</a> <a
-								href="http://www.iukiss.com/tag-cloud/">...</a>
+							<a href="/tags/about-ghost/">IUKISS</a> <a
+								href="/tags/release/">新版本发布</a> <a
+								href="/tags/javascript/">JavaScript</a> <a
+								href="/tags/promise/">Promise</a> <a
+								href="/tags/zhuti/">主题</a> <a
+								href="/tags/nodejs/">Node.js</a> <a
+								href="/tags/mysql/">MySQL</a> <a
+								href="/tags/nginx/">Nginx</a> <a
+								href="/tags/aliyun-ecs/">阿里云服务器</a> <a
+								href="/tags/ubuntu/">Ubuntu</a> <a
+								href="/tags/ghost-in-depth/">深度玩转 IUKISS</a>
+							<a href="/tags/theme/">Theme</a> <a
+								href="/tags/zhu-shou-han-shu/">助手函数</a> <a
+								href="/tags/markdown/">Markdown</a> <a
+								href="/tags/proxy/">反向代理</a> <a
+								href="/tag-cloud/">...</a>
 						</div>
 					</div>
 				</div>
@@ -405,7 +379,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<span>Copyright © <a href="http://www.iukiss.com/">IUKISS中文网</a></span>
+					<span>Copyright © <a href="/">IUKISS中文网</a></span>
 					| <span><a href="http://www.miibeian.gov.cn/"
 						target="_blank">豫ICP备16004342号-2</a></span> |
 				</div>
@@ -413,7 +387,7 @@
 		</div>
 	</div>
 
-	<a href="http://www.iukiss.com/#" id="back-to-top"
+	<a href="/#" id="back-to-top"
 		style="display: none;"><i class="fa fa-angle-up"></i></a>
 
 </body>

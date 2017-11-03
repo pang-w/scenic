@@ -17,6 +17,7 @@ import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.entity.dto.ArtilcleDto;
+import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.PagerDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
@@ -45,10 +46,26 @@ public class UserHtmlAction extends BaseActiom{
 		pager.setCurrentPage(1);
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
 		pager.setList(aticleDtos);
+		
+		ImageDto iDto = new ImageDto();
+		iDto.setBaseNum("ABC");
+		iDto.setDescription("阿斯顿非阿斯顿非");
+		
+		List<ImageDto> images = Lists.newArrayList();
+		images.add(iDto);
+		images.add(iDto);
+		
+		PagerDto imagePager = new PagerDto();
+		imagePager.setCurrentPage(1);
+		imagePager.setTotalPage(aticleDtos.size()/10 + 1);
+		imagePager.setList(images);
+		
 		map.addAttribute("baseDomain", "http://localhost:8080");
 		map.addAttribute("imgDomain", "http://img.iukiss.com");
 		map.addAttribute("pager", pager);
 		map.addAttribute("author", author);
+		map.addAttribute("imagePager", imagePager);
+		
 		if(loggedUser!=null){
 			map.addAttribute("loggedUser", loggedUser);
 			if(loggedUser.getUsername().equals(viewuseranme)){
@@ -98,6 +115,16 @@ public class UserHtmlAction extends BaseActiom{
 			ModelAndView mv = new ModelAndView("iukiss/index");
 			return mv;
 		}
+
+	}
+	@RequestMapping("/product/add/")
+	@ResponseBody
+	public ModelAndView createProduct(HttpServletRequest request, ModelMap map) {
+		
+		request.getAttribute("imageUrl");
+		
+		ModelAndView mv = new ModelAndView("iukiss/index");
+		return mv;
 
 	}
 
