@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.entity.dto.Navigation;
 import com.itmaoo.scenic.entity.dto.Navigation.Position;
-import com.itmaoo.scenic.entity.dto.Product;
+import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.support.SystemConfigUtil;
 
 import freemarker.template.Configuration;
@@ -132,15 +132,15 @@ public class HtmlAction {
 	}
 	
 
-	public List<Product> getProductList() {
-		List<Product> pros = Lists.newArrayList();
+	public List<ProductDto> getProductList() {
+		List<ProductDto> pros = Lists.newArrayList();
 		
 		pros.add(createProduct());
 		pros.add(createProduct());
 		return pros;
 	}
-	private Product createProduct(){
-		Product p = new Product();
+	private ProductDto createProduct(){
+		ProductDto p = new ProductDto();
 		p.setProductOutURL("http://itmaoo.oss-cn-shanghai.aliyuncs.com/1_itmaoo.jpg");
 		p.setProductImageListStore("http://itmaoo.oss-cn-shanghai.aliyuncs.com/1_itmaoo.jpg");
 		p.setHtmlFilePath("htmlFilePath");

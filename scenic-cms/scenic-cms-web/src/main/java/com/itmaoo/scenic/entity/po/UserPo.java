@@ -14,13 +14,29 @@ public class UserPo implements Serializable{
 	private String username;
 	private String password; 
 	private String email;
-	private String telpone;
-	private Date createdate; 
+	private String telphone;
+	private String iuCode;
+	private String recCode;
+	private Date createDate; 
 	private Boolean invalid;
 	private Boolean isMale;
-	private Integer passwordTryTimes; 
+	private Integer loginTryTimes; 
 	private Date lastLoggedDate;
+	private String signature;
 	
+	
+	public String getIuCode() {
+		return iuCode;
+	}
+	public void setIuCode(String iuCode) {
+		this.iuCode = iuCode;
+	}
+	public String getRecCode() {
+		return recCode;
+	}
+	public void setRecCode(String recCode) {
+		this.recCode = recCode;
+	}
 	public Integer getUserid() {
 		return userid;
 	}
@@ -45,31 +61,32 @@ public class UserPo implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTelpone() {
-		return telpone;
+	public String getTelphone() {
+		return telphone;
 	}
-	public void setTelpone(String telpone) {
-		this.telpone = telpone;
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
 	}
-	public Date getCreatedate() {
-		return createdate;
+	public Integer getLoginTryTimes() {
+		return loginTryTimes;
 	}
-	public void setCreatedate(Date createdate) {
-		this.createdate = createdate;
+	public void setLoginTryTimes(Integer loginTryTimes) {
+		this.loginTryTimes = loginTryTimes;
 	}
 
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	public Boolean getInvalid() {
 		return invalid;
 	}
 	public void setInvalid(Boolean invalid) {
 		this.invalid = invalid;
 	}
-	public Integer getPasswordTryTimes() {
-		return passwordTryTimes;
-	}
-	public void setPasswordTryTimes(Integer passwordTryTimes) {
-		this.passwordTryTimes = passwordTryTimes;
-	}
+
 	public Date getLastLoggedDate() {
 		return lastLoggedDate;
 	}
@@ -82,5 +99,12 @@ public class UserPo implements Serializable{
 	public void setIsMale(Boolean isMale) {
 		this.isMale = isMale;
 	}
+	public String getSignature() {
+		return signature;
+	}
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+	
 
 }

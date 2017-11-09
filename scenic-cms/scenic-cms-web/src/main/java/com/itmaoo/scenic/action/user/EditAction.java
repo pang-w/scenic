@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,10 +24,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.entity.dto.ArtilcleDto;
+import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
+import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.support.EntityUtil;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -43,18 +47,18 @@ public class EditAction extends BaseActiom {
 		while (articleUuid.endsWith("/")) {
 			articleUuid = articleUuid.substring(0, articleUuid.length() - 1);
 		}
-		ArticlePo entity = new ArticlePo();
-		entity.setLastModifyDate(new Date());
-		entity.setUuid(articleUuid);
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(articleUuid);
 		ArticlePo a = articleDao.selectSingle(aq);
 		if (a == null) {
 			a = new ArticlePo();
+			a.setUuid(articleUuid);
 			a.setContent("在这里写点事.....");
 			a.setTitle("填一个标题.....");
 		}
-		map.addAttribute("article", a);
+		ArticleDto editArticle = EntityUtil.articlePoToDto(a);
+		map.addAttribute("editArticle", editArticle);
+		
 		map.addAttribute("baseDomain", "http://localhost:8080");
 		map.addAttribute("imgDomain", "http://img.iukiss.com");
 		map.addAttribute("articleUuid", articleUuid);
@@ -66,32 +70,57 @@ public class EditAction extends BaseActiom {
 
 	@RequestMapping("article/save")
 	@ResponseBody
-	public ResponseData saveArticle(@RequestBody ArtilcleDto article) {
-		ArticlePo entity = new ArticlePo();
-		entity.setContent(checkTextDanger(article.getContent()));
-		entity.setLastModifyDate(new Date());
-		entity.setUuid(article.getUuid());
-		entity.setTitle(article.getTitle());
-
-		ArticleQuery aq = new ArticleQuery();
-		aq.setUuid(article.getUuid());
-		ArticlePo a = articleDao.selectSingle(aq);
-		if (a != null) {
-			articleDao.updateByUniqueKey(entity);
-			// check authorization and load article for update
-		} else {
-			entity.setCreateDate(new Date());
-			articleDao.insert(entity);
-		}
-		article.setContent(entity.getContent());
+	public ResponseData saveArticle(HttpServletRequest  request,@RequestBody ArticleDto article) {
 		ResponseData rd = new ResponseData();
-		rd.setData(article);
+		UserDto loggeduser = getLogedUser(request);
+		if(loggeduser!=null){
+			ArticlePo entity = new ArticlePo();
+			entity.setContent(checkTextDanger(article.getContent()));
+			entity.setLastModifyDate(new Date());
+			entity.setUuid(article.getUuid());
+			entity.setTitle(article.getTitle());
+			entity.setUsername(loggeduser.getUsername());
+			
+			entity.setDescription(getDesc(entity.getContent()));
+
+			ArticleQuery aq = new ArticleQuery();
+			aq.setUuid(article.getUuid());
+			ArticlePo a = articleDao.selectSingle(aq);
+			if (a != null) {
+				articleDao.updateByUniqueKey(entity);
+				// check authorization and load article for update
+			} else {
+				entity.setCreateDate(new Date());
+				articleDao.insert(entity);
+			}
+			article.setContent(entity.getContent());
+			rd.setData(article);
+		}else{
+			rd.setStatus("4004");
+			rd.setMsg("未登录");
+		}
 		return rd;
+	}
+
+	private String getDesc(String content) {
+		String tmpString =content.replaceAll("(?i)[^a-zA-Z0-9\u4E00-\u9FA5]", "");//去掉所有中英文符号
+    	char[] carr = tmpString.toCharArray();
+    	for(int i = 0; i<tmpString.length();i++){
+    		if(carr[i] < 0xFF){
+    			carr[i] = ' ' ;//过滤掉非汉字内容
+    		}
+    	}
+    	String desc =  String.copyValueOf(carr).trim();
+    	if(desc.length()>128){
+    		desc = desc.substring(0, 124) + "...";
+    	}
+    	return desc;
+    	
 	}
 
 	@RequestMapping("article/publish")
 	@ResponseBody
-	public ResponseData publishArticle(@RequestBody ArtilcleDto article) {
+	public ResponseData publishArticle(@RequestBody ArticleDto article) {
 
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(article.getUuid());

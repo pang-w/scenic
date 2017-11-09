@@ -30,7 +30,7 @@ import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IImageDao;
-import com.itmaoo.scenic.entity.dto.ArtilcleDto;
+import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
 import com.itmaoo.scenic.entity.dto.UserDto;
@@ -114,8 +114,8 @@ public class AritcleUserAction extends BaseActiom{
 			rd.setMsg("未登录");
 			rd.setStatus("4000");
 		}else{
-			List<ArtilcleDto> aticleDtos = Lists.newArrayList();
-			ArtilcleDto dto = new ArtilcleDto();
+			List<ArticleDto> aticleDtos = Lists.newArrayList();
+			ArticleDto dto = new ArticleDto();
 			dto.setTitle("阿斯顿分类阿斯顿非埃及哦；jli");
 			dto.setDescription("asdfas");
 			dto.setContent("asdfas");
@@ -130,7 +130,7 @@ public class AritcleUserAction extends BaseActiom{
 	}
 
 	@RequestMapping("addArticle")
-	public String addArticle(@RequestBody ArtilcleDto article) {
+	public String addArticle(@RequestBody ArticleDto article) {
 		ArticlePo entity = new ArticlePo();
 		entity.setContent(checkTextDanger(article.getContent()));
 		entity.setLastModifyDate(new Date());

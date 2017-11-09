@@ -5,7 +5,7 @@ package com.itmaoo.scenic.entity.dto;
  * @author mario
  *
  */
-public class ArtilcleDto extends BaseDto{
+public class ArticleDto extends BaseDto{
 
 	private static final long serialVersionUID = 1194326997539222168L;
 	private String title;

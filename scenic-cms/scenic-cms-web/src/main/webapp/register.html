@@ -31,8 +31,10 @@
 <script type="text/javascript" src="/assets/base/js/jquery.backstretch.min.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
+<script type="text/javascript" src="/assets/ctrl/baseLoad.js"></script>
 <script type="text/javascript" src="/assets/ctrl/register.js"></script>
 <script type="text/javascript" src="/assets/ctrl/checklogin.js"></script>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 
 </head>
 
@@ -108,63 +110,46 @@
 				</article>
 				<article id="94" class="post tag-release tag-about-ghost">
 
-                        	<form role="form" action="http://www.gbtags.com/gb/networks/uploads/4f1507b5-d12d-4e7c-a236-98ad9913b55d/bootstrap-multi-step-registration/index.html" method="post" class="registration-form">
                         		<fieldset style="display: block;">
 		                        	<div class="form-top">
 		                        		<div class="form-top-left">
-		                        			<h3>注册 1 / 2</h3>
-		                            		<p>基本信息</p>
+		                        			<h3>注册用户_IUKISS生活消费记录平台</h3>
+		                            		<p>填写基本信息（目前仅对持有 [邀请码] 的用户开放注册）</p>
 		                        		</div>
 		                        		<div class="form-top-right">
 		                        			<i class="fa fa-user"></i>
 		                        		</div>
 		                            </div>
 		                            <div class="form-bottom">
+		                            	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">邀请码</label>
+				                        	<input type="text" placeholder="邀请码（能且只能向已注册的用户索取）..." class="form-control" id="user-rec-code">
+				                        </div>
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-first-name">登录名</label>
-				                        	<input type="text" name="form-first-name" placeholder="登录名..." class="form-first-name form-control" id="form-first-name">
+				                        	<input type="text" placeholder="登录名..." class="form-control" id="user-name">
 				                        </div>
-				                        <div class="form-group">
+				                         <div class="form-group">
 				                        	<label class="sr-only" for="form-last-name">昵称</label>
-				                        	<input type="text" name="form-last-name" placeholder="昵称..." class="form-last-name form-control" id="form-last-name">
+				                        	<input type="text" placeholder="昵称..." class="form-control" id="user-nick-name">
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-about-yourself">自我描述</label>
-				                        	<textarea name="form-about-yourself" placeholder="一句对你影响深刻的话....." class="form-about-yourself form-control" id="form-about-yourself"></textarea>
-				                        </div>
-				                        <button type="button" class="btn btn-next">Next</button>
-				                    </div>
-			                    </fieldset>
-			                    
-
-			                    
-			                    <fieldset>
-		                        	<div class="form-top">
-		                        		<div class="form-top-left">
-		                        			<h3>注册 2 / 2 </h3>
-		                            		<p>密码</p>
-		                        		</div>
-		                        		<div class="form-top-right">
-		                        			<i class="fa fa-twitter"></i>
-		                        		</div>
-		                            </div>
-		                            <div class="form-bottom">
-				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-facebook">密码</label>
-				                        	<input type="text" name="form-facebook" placeholder="密码..." class="form-facebook form-control" id="form-facebook">
+				                        	<input type="password" placeholder="密码..." class="form-control" id="user-password">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-twitter">确认密码</label>
-				                        	<input type="text" name="form-twitter" placeholder="确认密码..." class="form-twitter form-control" id="form-twitter">
+				                        	<input type="password" placeholder="确认密码..." class="form-control" id="user-password-confirm">
 				                        </div>
-				                        <button type="button" class="btn btn-previous">上一步</button>
-				                        <button type="submit" class="btn">注册</button>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-about-yourself">签名</label>
+				                        	<textarea name="form-about-yourself" placeholder="一句对你影响深刻的话....." class="form-control" id="user-signature"></textarea>
+				                        </div>
+
+				                        <button id="registBtn" class="btn btn-default">注册</button>
 				                    </div>
 			                    </fieldset>
 		                    
-		                    </form>
-		                    
-            
 				</article>
 
 				</main>

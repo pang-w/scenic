@@ -11,8 +11,8 @@ public class BaseActiom {
 		}
 		return false;
 	}
-	public UserDto getLogedUser(HttpServletRequest req){
-		UserDto userPo = (UserDto) req.getSession().getAttribute("loggedUser");
+	public UserDto getLogedUser(HttpServletRequest request){
+		UserDto userPo = (UserDto) request.getSession().getAttribute("loggedUser");
 		return userPo;
 	}
 

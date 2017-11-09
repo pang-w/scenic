@@ -16,7 +16,7 @@ import org.apache.commons.lang.StringUtils;
  * 实体类 - 商品
  **/
 
-public class Product extends BaseEntity {
+public class ProductDto extends BaseEntity {
 
 	private static final long serialVersionUID = 4858058186018438872L;
 	

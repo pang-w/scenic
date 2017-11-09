@@ -28,15 +28,19 @@
 	<!-- 全局别名设置，在映射文件中只需写别名，而不必写出整个类路径 -->
 	<typeAliases>
 		<!-- bo -->
-		<typeAlias type="com.itmaoo.scenic.entity.po.Admin" alias="AdminPo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.AdminPo" alias="AdminPo" />
 		<typeAlias type="com.itmaoo.scenic.entity.po.ArticlePo" alias="ArticlePo" />
 		<typeAlias type="com.itmaoo.scenic.entity.po.ImagePo" alias="ImagePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.UserPo" alias="UserPo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.SignatureLikePo" alias="SignatureLikePo" />
 		
 
 		<!-- query -->
 		<typeAlias type="com.itmaoo.scenic.entity.query.AdminQuery" alias="AdminQuery" />
 		<typeAlias type="com.itmaoo.scenic.entity.query.ArticleQuery" alias="ArticleQuery" />
 		<typeAlias type="com.itmaoo.scenic.entity.query.ImageQuery" alias="ImageQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.UserQuery" alias="UserQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.SignatureLikeQuery" alias="SignatureLikeQuery" />
 
 	</typeAliases>
 </configuration>

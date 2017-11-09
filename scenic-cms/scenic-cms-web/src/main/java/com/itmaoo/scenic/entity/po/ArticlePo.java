@@ -2,9 +2,7 @@ package com.itmaoo.scenic.entity.po;
 
 import java.util.Date;
 
-import com.itmaoo.scenic.entity.dto.BaseDto;
-
-public class ArticlePo extends BaseDto{
+public class ArticlePo extends BasePo{
 	private static final long serialVersionUID = -7245370295420963119L;
 	private Integer id;
 	private String title;

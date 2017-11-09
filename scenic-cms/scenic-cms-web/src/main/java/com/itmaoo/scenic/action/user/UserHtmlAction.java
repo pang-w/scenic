@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.entity.dto.ArtilcleDto;
+import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.PagerDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
@@ -41,7 +41,7 @@ public class UserHtmlAction extends BaseActiom{
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUsername(viewuseranme);
 		List<ArticlePo> articles = articleDao.selectList(aq);
-		List<ArtilcleDto> aticleDtos = toArticleDto(articles);
+		List<ArticleDto> aticleDtos = toArticleDto(articles);
 		PagerDto pager = new PagerDto();
 		pager.setCurrentPage(1);
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
@@ -93,7 +93,7 @@ public class UserHtmlAction extends BaseActiom{
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUsername(tag);
 		List<ArticlePo> articles = articleDao.selectList(aq);
-		List<ArtilcleDto> aticleDtos = toArticleDto(articles);
+		List<ArticleDto> aticleDtos = toArticleDto(articles);
 		PagerDto pager = new PagerDto();
 		pager.setCurrentPage(1);
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
@@ -128,13 +128,13 @@ public class UserHtmlAction extends BaseActiom{
 
 	}
 
-	private List<ArtilcleDto> toArticleDto(List<ArticlePo> articles) {
+	private List<ArticleDto> toArticleDto(List<ArticlePo> articles) {
 		if(articles==null){
 			return null;
 		}
-		List<ArtilcleDto> results = Lists.newArrayList();
+		List<ArticleDto> results = Lists.newArrayList();
 		for(ArticlePo apo:articles){
-			ArtilcleDto dto = new ArtilcleDto();
+			ArticleDto dto = new ArticleDto();
 			dto.setContent(apo.getContent());
 			dto.setCreateDate(new Date().toLocaleString());
 			dto.setLastmodify(new Date().toString());

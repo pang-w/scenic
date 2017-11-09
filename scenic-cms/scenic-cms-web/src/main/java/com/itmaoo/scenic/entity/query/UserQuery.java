@@ -1,6 +1,5 @@
-package com.itmaoo.scenic.entity.dto;
+package com.itmaoo.scenic.entity.query;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -8,44 +7,22 @@ import java.util.Date;
  * @author mario
  *
  */
-public class UserDto implements Serializable{
+public class UserQuery extends BaseQuery{
 	private static final long serialVersionUID = 6194632578192753293L;
 	private Integer userid;
 	private String username;
 	private String password; 
-	private String nickname;
-	private String signature;
 	private String email;
 	private String telphone;
 	private String iuCode;
 	private String recCode;
+	private Date createDate; 
 	private Boolean invalid;
 	private Boolean isMale;
 	private Integer loginTryTimes; 
-	private Integer signatureLikedCount;
-	//yyyy-MM-dd HH:mm:ss
-	private String lastLoggedDate;
-	private String createDate; 
+	private Date lastLoggedDate;
 	
 	
-	public Integer getSignatureLikedCount() {
-		return signatureLikedCount;
-	}
-	public void setSignatureLikedCount(Integer signatureLikedCount) {
-		this.signatureLikedCount = signatureLikedCount;
-	}
-	public String getSignature() {
-		return signature;
-	}
-	public void setSignature(String signature) {
-		this.signature = signature;
-	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
 	public String getIuCode() {
 		return iuCode;
 	}
@@ -94,23 +71,25 @@ public class UserDto implements Serializable{
 	public void setLoginTryTimes(Integer loginTryTimes) {
 		this.loginTryTimes = loginTryTimes;
 	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 	public Boolean getInvalid() {
 		return invalid;
 	}
 	public void setInvalid(Boolean invalid) {
 		this.invalid = invalid;
 	}
-	public String getLastLoggedDate() {
+
+	public Date getLastLoggedDate() {
 		return lastLoggedDate;
 	}
-	public void setLastLoggedDate(String lastLoggedDate) {
+	public void setLastLoggedDate(Date lastLoggedDate) {
 		this.lastLoggedDate = lastLoggedDate;
-	}
-	public String getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
 	}
 	public Boolean getIsMale() {
 		return isMale;

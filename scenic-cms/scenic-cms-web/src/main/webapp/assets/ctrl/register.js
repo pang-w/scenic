@@ -12,6 +12,21 @@ jQuery(document).ready(function() {
     $('#top-navbar-1').on('hidden.bs.collapse', function(){
     	$.backstretch("resize");
     });
+    $('#registBtn').click(function(){
+    	var data = {
+    			"recCode" : $("#user-rec-code").val(),
+    			"username" : $("#user-name").val(),
+    			"nickname" : $("#user-nick-name").val(),
+    			"password" : $("#user-password").val(),
+    			"password" : $("#user-password-confirm").val(),
+    			"signature" : $("#user-signature").val()
+    		};
+    		support.ajax("user/auth/regist", data, function(response) {
+    			layer.msg(response.msg);
+    		}, function(response) {
+    			layer.msg(response.msg);
+    		});
+    });
     
     /*
         Form
