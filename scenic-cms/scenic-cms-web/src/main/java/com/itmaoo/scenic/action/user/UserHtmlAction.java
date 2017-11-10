@@ -1,11 +1,11 @@
 package com.itmaoo.scenic.action.user;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +28,12 @@ import com.itmaoo.scenic.entity.support.EntityUtil;
 public class UserHtmlAction extends BaseActiom{
 	@Autowired
 	private IArticleDao articleDao;
-
+	
+	@Value("${base.site.domain}")
+	private String baseDomain;
+	
+	@Value("${base.img.domain}")
+	private String imgDomain;
 	
 	@RequestMapping("/i/{useranme}")
 	@ResponseBody
@@ -61,8 +66,8 @@ public class UserHtmlAction extends BaseActiom{
 		imagePager.setTotalPage(aticleDtos.size()/10 + 1);
 		imagePager.setList(images);
 		
-		map.addAttribute("baseDomain", "http://localhost:8080");
-		map.addAttribute("imgDomain", "http://img.iukiss.com");
+		map.addAttribute("baseDomain", baseDomain);
+		map.addAttribute("imgDomain", imgDomain);
 		map.addAttribute("pager", pager);
 		map.addAttribute("author", author);
 		map.addAttribute("imagePager", imagePager);
