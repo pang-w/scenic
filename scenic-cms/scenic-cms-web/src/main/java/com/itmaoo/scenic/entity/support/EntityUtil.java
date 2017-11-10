@@ -1,5 +1,9 @@
 package com.itmaoo.scenic.entity.support;
 
+import java.util.Date;
+import java.util.List;
+
+import com.google.common.collect.Lists;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
@@ -71,5 +75,15 @@ public class EntityUtil {
 
 		return articleDto;
 
+	}
+	public static  List<ArticleDto> articlePoToDto(List<ArticlePo> articles) {
+		if(articles==null){
+			return null;
+		}
+		List<ArticleDto> results = Lists.newArrayList();
+		for(ArticlePo apo:articles){
+			results.add(articlePoToDto(apo));
+		}
+		return results;
 	}
 }

@@ -22,6 +22,7 @@ import com.itmaoo.scenic.entity.dto.PagerDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.support.EntityUtil;
 
 @Controller
 public class UserHtmlAction extends BaseActiom{
@@ -41,7 +42,7 @@ public class UserHtmlAction extends BaseActiom{
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUsername(viewuseranme);
 		List<ArticlePo> articles = articleDao.selectList(aq);
-		List<ArticleDto> aticleDtos = toArticleDto(articles);
+		List<ArticleDto> aticleDtos = EntityUtil.articlePoToDto(articles);
 		PagerDto pager = new PagerDto();
 		pager.setCurrentPage(1);
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
@@ -93,7 +94,7 @@ public class UserHtmlAction extends BaseActiom{
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUsername(tag);
 		List<ArticlePo> articles = articleDao.selectList(aq);
-		List<ArticleDto> aticleDtos = toArticleDto(articles);
+		List<ArticleDto> aticleDtos = EntityUtil.articlePoToDto(articles);
 		PagerDto pager = new PagerDto();
 		pager.setCurrentPage(1);
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
@@ -105,14 +106,14 @@ public class UserHtmlAction extends BaseActiom{
 		if(loggedUser!=null){
 			map.addAttribute("loggedUser", loggedUser);
 			if(loggedUser.getUsername().equals(tag)){
-				ModelAndView mv = new ModelAndView("iukiss/index");
+				ModelAndView mv = new ModelAndView("iukiss/tags");
 				return mv;
 			}else{
-				ModelAndView mv = new ModelAndView("iukiss/index");
+				ModelAndView mv = new ModelAndView("iukiss/tags");
 				return mv;
 			}
 		}else{
-			ModelAndView mv = new ModelAndView("iukiss/index");
+			ModelAndView mv = new ModelAndView("iukiss/tags");
 			return mv;
 		}
 
@@ -128,24 +129,7 @@ public class UserHtmlAction extends BaseActiom{
 
 	}
 
-	private List<ArticleDto> toArticleDto(List<ArticlePo> articles) {
-		if(articles==null){
-			return null;
-		}
-		List<ArticleDto> results = Lists.newArrayList();
-		for(ArticlePo apo:articles){
-			ArticleDto dto = new ArticleDto();
-			dto.setContent(apo.getContent());
-			dto.setCreateDate(new Date().toLocaleString());
-			dto.setLastmodify(new Date().toString());
-			dto.setTitle(apo.getTitle());
-			dto.setUuid(apo.getUuid());
-			dto.setUsername(apo.getUsername());
-			dto.setDescription("aqwer");
-			results.add(dto);
-		}
-		return results;
-	}
+	
 }
 
 
