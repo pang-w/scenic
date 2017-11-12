@@ -19,18 +19,18 @@
 <link rel="shortcut icon" href="http://www.iukiss.com/favicon.ico">
 <link rel="next" href="http://www.iukiss.com/">
 
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/bootstrap.min.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/font-awesome.min.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/screen.css">
+<link rel="stylesheet" href="../assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/base/css/screen.css">
 
-<script type="text/javascript" src="${baseDomain}/assets/base/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/layer/layer.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/index.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/indexLoad.js"></script>
+<script type="text/javascript" src="../assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../assets/base/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="../assets/ctrl/index.js"></script>
+<script type="text/javascript" src="../assets/ctrl/base.js"></script>
+<script type="text/javascript" src="../assets/ctrl/indexLoad.js"></script>
 
-<script type="text/javascript" src="${baseDomain}/assets/base/js/angular.min.js"></script>
+<script type="text/javascript" src="../assets/base/js/angular.min.js"></script>
 
 </head>
 

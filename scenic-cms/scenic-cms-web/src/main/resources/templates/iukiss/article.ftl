@@ -4,22 +4,22 @@
 <title>${article.title}</title>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/screen.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/bootstrap.min.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/font-awesome.min.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/monokai_sublime.min.css">
-<link href="${baseDomain}/assets/base/summernote/summernote.css" rel="stylesheet">
+<link rel="stylesheet" href="../assets/base/css/screen.css">
+<link rel="stylesheet" href="../assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/base/css/monokai_sublime.min.css">
+<link href="../assets/base/summernote/summernote.css" rel="stylesheet">
 
-<script type="text/javascript" src="${baseDomain}/assets/base/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/summernote/summernote.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="../assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../assets/base/summernote/summernote.js"></script>
+<script type="text/javascript" src="../assets/base/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/base/layer/layer.js"></script>
 
-<link rel="stylesheet" href="${baseDomain}/assets/css/iukiss.css">
+<link rel="stylesheet" href="../assets/css/iukiss.css">
 
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/index.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/editor.js"></script>
+<script type="text/javascript" src="../assets/ctrl/index.js"></script>
+<script type="text/javascript" src="../assets/ctrl/base.js"></script>
+<script type="text/javascript" src="../assets/ctrl/editor.js"></script>
 
 </head>
 <body class="home-template">
@@ -140,16 +140,16 @@
 						<h4 class="title">最新文章</h4>
 						<div class="content recent-post">
 							<div class="recent-single-post">
-								<a href="${baseDomain}custom-excerpts/"
+								<a href="..custom-excerpts/"
 									class="post-title">自定义文章摘要（Excerpt）</a>
 								<div class="date">2017年8月9日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="${baseDomain}primary-tags/" class="post-title">首要“标签”</a>
+								<a href="..primary-tags/" class="post-title">首要“标签”</a>
 								<div class="date">2017年8月3日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="${baseDomain}ghost-1-0-released/"
+								<a href="..ghost-1-0-released/"
 									class="post-title">IUKISS 1.0 版本正式发布</a>
 								<div class="date">2017年7月29日</div>
 							</div>
@@ -161,22 +161,22 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="${baseDomain}/tag/about-ghost/">IUKISS</a> 
-							<a href="${baseDomain}/tag/release/">新版本发布</a>
-							<a href="${baseDomain}/tag/javascript/">JavaScript</a> 
-							<a href="${baseDomain}/tag/promise/">Promise</a> 
-							<a href="${baseDomain}/tag/zhuti/">主题</a> 
-							<a href="${baseDomain}/tag/nodejs/">Node.js</a> 
-							<a href="${baseDomain}/tag/mysql/">MySQL</a>
-							<a href="${baseDomain}/tag/nginx/">Nginx</a> 
-							<a href="${baseDomain}/tag/aliyun-ecs/">阿里云服务器</a> 
-							<a href="${baseDomain}/tag/ubuntu/">Ubuntu</a> 
-							<a href="${baseDomain}/tag/ghost-in-depth/">深度玩转 IUKISS</a>
-							<a href="${baseDomain}/tag/theme/">Theme</a> 
-							<a href="${baseDomain}/tag/zhu-shou-han-shu/">助手函数</a>
-							<a href="${baseDomain}/tag/markdown/">Markdown</a> 
-							<a href="${baseDomain}/tag/proxy/">反向代理</a> 
-							<a href="${baseDomain}/tag-cloud/">...</a>
+							<a href="../tag/about-ghost/">IUKISS</a>
+							<a href="../tag/release/">新版本发布</a>
+							<a href="../tag/javascript/">JavaScript</a>
+							<a href="../tag/promise/">Promise</a>
+							<a href="../tag/zhuti/">主题</a>
+							<a href="../tag/nodejs/">Node.js</a>
+							<a href="../tag/mysql/">MySQL</a>
+							<a href="../tag/nginx/">Nginx</a>
+							<a href="../tag/aliyun-ecs/">阿里云服务器</a>
+							<a href="../tag/ubuntu/">Ubuntu</a>
+							<a href="../tag/ghost-in-depth/">深度玩转 IUKISS</a>
+							<a href="../tag/theme/">Theme</a>
+							<a href="../tag/zhu-shou-han-shu/">助手函数</a>
+							<a href="../tag/markdown/">Markdown</a>
+							<a href="../tag/proxy/">反向代理</a>
+							<a href="../tag-cloud/">...</a>
 						</div>
 					</div>
 				</div>
@@ -222,7 +222,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<span>Copyright © <a href="${baseDomain}">IUKISS中文网</a></span>
+					<span>Copyright © <a href="..">IUKISS中文网</a></span>
 					| <span><a href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备16004342号-2</a></span> |
 				</div>
 			</div>

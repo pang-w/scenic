@@ -21,10 +21,10 @@
 				<article id="108" class="post">
 					<div class="post-head">
 						<h1 class="post-title">
-							<a href="${baseDomain}/article/${articleEntity.uuid}.html">${articleEntity.title}</a>
+							<a href="../../../article/${articleEntity.uuid}.html">${articleEntity.title}</a>
 						</h1>
 						<div class="post-meta">
-							<span class="author">作者：<a href="${baseDomain}/i/${articleEntity.username}">${articleEntity.username}</a></span> •
+							<span class="author">作者：<a href="../../../i/${articleEntity.username}">${articleEntity.username}</a></span> •
 							<time class="post-date" datetime="${articleEntity.createDate}" title="${articleEntity.createDate}">${articleEntity.createDate}</time>
 						</div>
 					</div>

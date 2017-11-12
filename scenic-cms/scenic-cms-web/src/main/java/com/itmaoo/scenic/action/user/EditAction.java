@@ -7,13 +7,16 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +44,12 @@ public class EditAction extends BaseActiom {
 	@Autowired
 	private IArticleDao articleDao;
 
+	@Value("${base.site.domain}")
+	private String baseDomain;
+
+	@Value("${base.img.domain}")
+	private String imgDomain;
+
 	@RequestMapping("article/{articleUuid}")
 	@ResponseBody
 	public ModelAndView createArticle(@PathVariable("articleUuid") String articleUuid, ModelMap map) {
@@ -58,9 +67,8 @@ public class EditAction extends BaseActiom {
 		}
 		ArticleDto editArticle = EntityUtil.articlePoToDto(a);
 		map.addAttribute("editArticle", editArticle);
-		
-		map.addAttribute("baseDomain", "http://localhost:8080");
-		map.addAttribute("imgDomain", "http://img.iukiss.com");
+
+		map.addAttribute("imgDomain", imgDomain);
 		map.addAttribute("articleUuid", articleUuid);
 		
 		ModelAndView mv = new ModelAndView("iukiss/editor");
@@ -120,14 +128,14 @@ public class EditAction extends BaseActiom {
 
 	@RequestMapping("article/publish")
 	@ResponseBody
-	public ResponseData publishArticle(@RequestBody ArticleDto article) {
+	public ResponseData publishArticle(HttpServletRequest request, @RequestBody ArticleDto article) {
 
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(article.getUuid());
 		ArticlePo a = articleDao.selectSingle(aq);
 
 		article.setContent(a.getContent());
-		buildArticleHtml(a);
+		buildArticleHtml(a,request);
 
 		ResponseData rd = new ResponseData();
 		rd.setData(article);
@@ -135,26 +143,30 @@ public class EditAction extends BaseActiom {
 
 	}
 
-	private void buildArticleHtml(ArticlePo entity) {
+	private void buildArticleHtml(ArticlePo entity, HttpServletRequest request) {
 		try {
 			// 创建一个合适的Configration对象
 			Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);
 
-			configuration.setDirectoryForTemplateLoading(new File("src/main/resources/templates"));
+			configuration.//setClassForTemplateLoading(this.getClass(),"templates");
+				setDirectoryForTemplateLoading(new File(this.getClass().getClassLoader().getResource("").getPath()+"templates"));
 
 			// configuration.setDirectoryForTemplateLoading(new
 			// File("/template"));
 			configuration.setDefaultEncoding("UTF-8"); // 这个一定要设置，不然在生成的页面中 会乱码
+			//项目部署路径
+			String path = request.getSession().getServletContext().getRealPath("/");
+
 			// 获取或创建一个模版。
 			Template template = configuration.getTemplate("iukiss/article.ftl");
 
+
 			Writer writer = new OutputStreamWriter(
-					new FileOutputStream("src/main/webapp/article/" + entity.getUuid() + ".html"), "UTF-8");
+					new FileOutputStream(path +"article/" + entity.getUuid() + ".html"), "UTF-8");
 			Map<String, Object> map = new HashMap<String, Object>();
 
 			map.put("article", entity);
-			map.put("baseDomain", "http://localhost:8080");
-			map.put("imgDomain", "http://img.iukiss.com");
+			map.put("imgDomain", imgDomain);
 			map.put("articleUuid", entity.getUuid());
 
 			template.process(map, writer);

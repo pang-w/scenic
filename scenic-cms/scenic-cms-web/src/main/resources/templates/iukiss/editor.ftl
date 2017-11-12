@@ -4,25 +4,25 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/screen.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/bootstrap.min.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/font-awesome.min.css">
-<link rel="stylesheet" href="${baseDomain}/assets/base/css/monokai_sublime.min.css">
-<link href="${baseDomain}/assets/base/summernote/summernote.css" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/base/css/screen.css">
+<link rel="stylesheet" href="../../../assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../assets/base/css/monokai_sublime.min.css">
+<link href="../../../assets/base/summernote/summernote.css" rel="stylesheet">
 
-<script type="text/javascript" src="${baseDomain}/assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../../../assets/base/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"
-	src="${baseDomain}/assets/base/summernote/summernote.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/layer/layer.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/base/js/angular.min.js"></script>
+	src="../../../assets/base/summernote/summernote.js"></script>
+<script type="text/javascript" src="../../../assets/base/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="../../../assets/base/js/angular.min.js"></script>
 
 
-<link rel="stylesheet" href="${baseDomain}/assets/css/iukiss.css">
+<link rel="stylesheet" href="../../../assets/css/iukiss.css">
 
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/editor.js"></script>
-<script type="text/javascript" src="${baseDomain}/assets/ctrl/editorLoad.js"></script>
+<script type="text/javascript" src="../../../assets/ctrl/base.js"></script>
+<script type="text/javascript" src="../../../assets/ctrl/editor.js"></script>
+<script type="text/javascript" src="../../../assets/ctrl/editorLoad.js"></script>
 
 
 </head>

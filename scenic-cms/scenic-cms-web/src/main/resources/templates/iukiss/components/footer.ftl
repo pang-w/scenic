@@ -27,22 +27,22 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/about-ghost/">IUKISS</a> <a
-								href="http://www.iukiss.com/tag/release/">新版本发布</a> <a
-								href="http://www.iukiss.com/tag/javascript/">JavaScript</a> <a
-								href="http://www.iukiss.com/tag/promise/">Promise</a> <a
-								href="http://www.iukiss.com/tag/zhuti/">主题</a> <a
-								href="http://www.iukiss.com/tag/nodejs/">Node.js</a> <a
-								href="http://www.iukiss.com/tag/mysql/">MySQL</a> <a
-								href="http://www.iukiss.com/tag/nginx/">Nginx</a> <a
-								href="http://www.iukiss.com/tag/aliyun-ecs/">阿里云服务器</a> <a
-								href="http://www.iukiss.com/tag/ubuntu/">Ubuntu</a> <a
-								href="http://www.iukiss.com/tag/ghost-in-depth/">深度玩转 IUKISS</a>
-							<a href="http://www.iukiss.com/tag/theme/">Theme</a> <a
-								href="http://www.iukiss.com/tag/zhu-shou-han-shu/">助手函数</a> <a
-								href="http://www.iukiss.com/tag/markdown/">Markdown</a> <a
-								href="http://www.iukiss.com/tag/proxy/">反向代理</a> <a
-								href="http://www.iukiss.com/tag-cloud/">...</a>
+							<a href="/tags/about-ghost">IUKISS</a> <a
+								href="/tags/release">新版本发布</a> <a
+								href="/tags/javascript">JavaScript</a> <a
+								href="/tags/promise">Promise</a> <a
+								href="/tags/zhuti">主题</a> <a
+								href="/tags/nodejs">Node.js</a> <a
+								href="/tags/mysql">MySQL</a> <a
+								href="/tags/nginx">Nginx</a> <a
+								href="/tags/aliyun-ecs">阿里云服务器</a> <a
+								href="/tags/ubuntu">Ubuntu</a> <a
+								href="/tags/ghost-in-depth">深度玩转 IUKISS</a>
+							<a href="/tags/theme">Theme</a> <a
+								href="/tags/zhu-shou-han-shu">助手函数</a> <a
+								href="/tags/markdown">Markdown</a> <a
+								href="/tags/proxy">反向代理</a> <a
+								href="/tags-cloud">...</a>
 						</div>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<span>Copyright © <a href="http://www.iukiss.com/">IUKISS中文网</a></span>
+					<span>Copyright © <a href="http://www.iukiss.com">IUKISS中文网</a></span>
 					| <span><a href="http://www.miibeian.gov.cn/"
 						target="_blank">豫ICP备16004342号-2</a></span> |
 				</div>

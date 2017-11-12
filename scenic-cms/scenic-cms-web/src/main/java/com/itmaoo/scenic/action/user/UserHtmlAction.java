@@ -104,8 +104,6 @@ public class UserHtmlAction extends BaseActiom{
 		pager.setCurrentPage(1);
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
 		pager.setList(aticleDtos);
-		map.addAttribute("baseDomain", "http://localhost:8080");
-		map.addAttribute("imgDomain", "http://img.iukiss.com");
 		map.addAttribute("pager", pager);
 		map.addAttribute("author", author);
 		if(loggedUser!=null){
