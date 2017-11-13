@@ -65,6 +65,7 @@ public class EditAction extends BaseActiom {
 			a.setContent("在这里写点事.....");
 			a.setTitle("填一个标题.....");
 		}
+		
 		ArticleDto editArticle = EntityUtil.articlePoToDto(a);
 		map.addAttribute("editArticle", editArticle);
 

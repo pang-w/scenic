@@ -15,7 +15,9 @@ public class ImagePo {
 	private String type;
 	
 	private Date createDate;
-	private Integer userId;
+	private String username;
+	private String imagename;
+	private String description;
 	
 	public Integer getId() {
 		return id;
@@ -59,14 +61,24 @@ public class ImagePo {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Integer getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
+	public String getImagename() {
+		return imagename;
+	}
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-	
 	
 }

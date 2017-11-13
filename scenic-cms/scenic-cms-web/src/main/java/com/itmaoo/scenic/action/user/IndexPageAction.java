@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,14 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseActiom;
 import com.itmaoo.scenic.dao.IArticleDao;
+import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
 import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
+import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.entity.query.SignatureLikeQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
@@ -34,7 +39,12 @@ public class IndexPageAction extends BaseActiom{
 	private IArticleDao articleDao;
 	
 	@Autowired
+	private IImageDao imageDao;
+	
+	@Autowired
 	private ISignatureLikeDao signatureLikeDao;
+	@Value("${base.img.domain}")
+	private String imgDomain;
 	
 	@ResponseBody
 	@RequestMapping("all")
@@ -65,15 +75,32 @@ public class IndexPageAction extends BaseActiom{
 			}
 		}
 		
+		/**Images **/
+		ImageQuery iQuery = new ImageQuery();
+		//iQuery.se
+		List<ImagePo>imageMenu = imageDao.selectList(iQuery);
+		List<ImageDto> imagesDto = Lists.newArrayList();
+		if(imageMenu!=null){
+			for(ImagePo imagePo:imageMenu){
+				ImageDto imagePoToDto = EntityUtil.imagePoToDto(imagePo);
+				if(!imgDomain.endsWith("/")){
+					imagePoToDto.setUrl(imgDomain+"/"+imagePoToDto.getBaseUri());
+				}else{
+					imagePoToDto.setUrl(imgDomain+imagePoToDto.getBaseUri());
+				}
+				imagesDto.add(imagePoToDto);
+			}
+		}
+		
 		IndexPageDto indexDto = new IndexPageDto();
 		indexDto.setTopUser(userData);
 		indexDto.setArticles(articlesDto);
-		if(getLogedUser(request)!=null){
+	//	if(getLogedUser(request)!=null){
 			indexDto.setArticleMenu(articlesDto);
 			indexDto.setAttentionMenu(articlesDto);
-			//indexDto.setImageMenu(imageMenu);
+			indexDto.setImageMenu(imagesDto);
 			//indexDto.setProductMenu(productMenu);
-		}
+	//	}
 		
 		ResponseData rd = new ResponseData();
 		rd.setData(indexDto);

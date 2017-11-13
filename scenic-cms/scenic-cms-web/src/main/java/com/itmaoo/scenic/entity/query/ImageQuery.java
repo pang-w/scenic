@@ -6,7 +6,7 @@ import java.util.Date;
  * @author mario
  *
  */
-public class ImageQuery {
+public class ImageQuery extends BaseQuery{
 	private Integer id;
 	private String desc;
 	private String baseUri;
@@ -15,7 +15,8 @@ public class ImageQuery {
 	private String type;
 	
 	private Date createDate;
-	private Integer userId;
+	private String username;
+	private String imagename;
 	
 	public Integer getId() {
 		return id;
@@ -59,14 +60,18 @@ public class ImageQuery {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Integer getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
+	public String getImagename() {
+		return imagename;
+	}
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
+	}
 
-	
 	
 }

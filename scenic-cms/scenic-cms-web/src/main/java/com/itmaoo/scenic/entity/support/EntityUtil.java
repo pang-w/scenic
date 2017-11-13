@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
+import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.support.CommonUtil;
 
@@ -85,5 +87,17 @@ public class EntityUtil {
 			results.add(articlePoToDto(apo));
 		}
 		return results;
+	}
+
+	public static ImageDto imagePoToDto(ImagePo imagePo) {
+		ImageDto imageDto = new ImageDto();
+		imageDto.setBaseNum(imagePo.getBaseNum());
+		imageDto.setBaseUri(imagePo.getBaseUri());
+		imageDto.setCreateDate(imagePo.getCreateDate());
+		imageDto.setDescription(imagePo.getDesc());
+		imageDto.setLinkTo(imagePo.getLinkTo());
+		imageDto.setUsername(imagePo.getUsername());
+		imageDto.setImageName(imagePo.getImagename());
+		return imageDto;
 	}
 }

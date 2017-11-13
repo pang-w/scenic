@@ -37,6 +37,7 @@ import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.UserPo;
+import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.service.ImageService;
 
 import freemarker.template.Configuration;
@@ -45,75 +46,111 @@ import freemarker.template.TemplateException;
 
 @Controller
 @RequestMapping(value = "/action/user/article/")
-public class AritcleUserAction extends BaseActiom{
+public class AritcleUserAction extends BaseActiom {
 	@Autowired
-	private IImageDao iamgeDao;
+	private IImageDao imageDao;
 	@Autowired
 	private IArticleDao articleDao;
-	
+
 	private String imagePrefixUrl = "http://img.iukiss.com/";
-	
+
 	private ImageService imageService = new ImageService();
 
 	@RequestMapping("saveImg")
 	@ResponseBody
-	public ResponseData saveImg(HttpServletRequest request, @RequestParam("description") String desc, @RequestParam("file") MultipartFile file) {
+	public ResponseData saveImg(HttpServletRequest request, @RequestParam("description") String desc,
+			@RequestParam("file") MultipartFile file) {
 
 		ResponseData rd = new ResponseData();
 		SavedImage si = new SavedImage();
 		String baseNum = UUID.randomUUID().toString().replaceAll("-", "");
 		String ofn = file.getOriginalFilename().toLowerCase();
 		String imageUri = null;
-		if(ofn.lastIndexOf(".")!=-1 && (ofn.endsWith("jpg")||ofn.endsWith("png"))){
-			String  imageSuffix = ofn.substring(ofn.lastIndexOf(".")+1,ofn.length());
-			imageUri =  "img/user/"+ofn;
-			if(!imagePrefixUrl.endsWith("/")){
-				imagePrefixUrl = imagePrefixUrl +"/";
+		UserDto user = getLogedUser(request);
+		if (user == null) {
+			rd.setMsg("未登录");
+			rd.setStatus("4000");
+		} else {
+			if (ofn.lastIndexOf(".") != -1 && (ofn.endsWith("jpg") || ofn.endsWith("png"))) {
+
+				String imageSuffix = ofn.substring(ofn.lastIndexOf(".") + 1, ofn.length());
+				imageUri = "img/user/" + user.getUsername().toLowerCase() + "/" + ofn;
+				if (!imagePrefixUrl.endsWith("/")) {
+					imagePrefixUrl = imagePrefixUrl + "/";
+				}
+				si.setUrl(imagePrefixUrl + imageUri);
+				ImageQuery imageQuery = new ImageQuery();
+				imageQuery.setImagename(ofn);
+				imageQuery.setUsername(user.getUsername());
+				ImagePo imagePo = imageDao.selectSingleByUserAndImageName(imageQuery);
+				ImagePo image = new ImagePo();
+				image.setBaseNum(baseNum);
+				image.setBaseUri(imageUri);
+				image.setCreateDate(new Date());
+				image.setDesc(desc);
+				image.setLinkTo("");
+				image.setType(imageSuffix);
+				image.setUsername(user.getUsername());
+				image.setImagename(ofn);
+				if(imagePo==null){
+					imageDao.insert(image);
+					try {
+						imageService.saveOssImage(file, imageUri);
+					} catch (OSSException e) {
+						rd.setStatus("0002");
+						rd.setMsg("保存图片失败 [OSSException]");
+						e.printStackTrace();
+					} catch (ClientException e) {
+						rd.setStatus("0003");
+						rd.setMsg("保存图片失败 [ClientException]");
+						e.printStackTrace();
+					} catch (IOException e) {
+						rd.setStatus("0004");
+						rd.setMsg("保存图片失败 [IOException]");
+						e.printStackTrace();
+					}
+				}else if(imagePo.getUsername().equals(user.getUsername())){
+					imageDao.updateByImageName(image);
+					try {
+						imageService.saveOssImage(file, imageUri);
+					} catch (OSSException e) {
+						rd.setStatus("0002");
+						rd.setMsg("保存图片失败 [OSSException]");
+						e.printStackTrace();
+					} catch (ClientException e) {
+						rd.setStatus("0003");
+						rd.setMsg("保存图片失败 [ClientException]");
+						e.printStackTrace();
+					} catch (IOException e) {
+						rd.setStatus("0004");
+						rd.setMsg("保存图片失败 [IOException]");
+						e.printStackTrace();
+					}
+				}else{
+					rd.setStatus("0001");
+					rd.setMsg("无权限");
+				}
+				
+			} else {
+				rd.setStatus("0001");
+				rd.setMsg("仅支持jpg和png格式图片");
 			}
-			si.setUrl(imagePrefixUrl + imageUri);
-			
-			UserDto user = getLogedUser(request);
-			ImagePo image = new ImagePo();
-			image.setBaseNum(baseNum);
-			image.setBaseUri(imageUri);
-			image.setCreateDate(new Date());
-			image.setDesc(desc);
-			image.setLinkTo("");
-			image.setType(imageSuffix);
-			image.setUserId(user.getUserid());
-			iamgeDao.insert(image);
-		}else{
-			rd.setStatus("0001");
-			rd.setMsg("仅支持jpg和png格式图片");
 		}
+
 		
-		try {
-			imageService.saveOssImage(file, imageUri);
-		} catch (OSSException e) {
-			rd.setStatus("0002");
-			rd.setMsg("保存图片失败 [OSSException]");
-			e.printStackTrace();
-		} catch (ClientException e) {
-			rd.setStatus("0003");
-			rd.setMsg("保存图片失败 [ClientException]");
-			e.printStackTrace();
-		} catch (IOException e) {
-			rd.setStatus("0004");
-			rd.setMsg("保存图片失败 [IOException]");
-			e.printStackTrace();
-		}
 		rd.setData(si);
-		return rd;        
+		return rd;
 
 	}
+
 	@RequestMapping("menuList")
 	@ResponseBody
 	public ResponseData menuList(HttpServletRequest request) {
 		ResponseData rd = new ResponseData();
-		if(getLogedUser(request)==null){
+		if (getLogedUser(request) == null) {
 			rd.setMsg("未登录");
 			rd.setStatus("4000");
-		}else{
+		} else {
 			List<ArticleDto> aticleDtos = Lists.newArrayList();
 			ArticleDto dto = new ArticleDto();
 			dto.setTitle("阿斯顿分类阿斯顿非埃及哦；jli");
@@ -125,7 +162,7 @@ public class AritcleUserAction extends BaseActiom{
 			aticleDtos.add(dto);
 			rd.setData(aticleDtos);
 		}
-		return rd;        
+		return rd;
 
 	}
 }

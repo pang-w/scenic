@@ -143,12 +143,14 @@
 								</div>
 							</div>
 							<div class="panel panel-warning">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseImageAction">我的图片</div>
+								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
-									<ul class="list-group panel-body">
-										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="">{{ a.title }}</a>
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in imageMenu">
+											<a href="{{ a.url }}" target="_blank">{{ a.imageName }}</a>
+											<a onclick="insertImage()">
+												<i class="pull-left fa fa-arrow-left"></i>
+											</a>
 										</li>
 									</ul>
 								</div>

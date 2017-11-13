@@ -40,11 +40,22 @@ var support = {
 			  ,content: '/layerLogin.html'
 			});
 	},
+	layerAddProdution : function layerAddProdution() {
+		layer.open({
+			  type:  2//Page层类型
+			  ,area: ['500px', '600px']
+			  ,title: '添加商品'
+			  ,shade: 0.6 //遮罩透明度
+			  ,maxmin: false //允许全屏最小化
+			  ,anim: 1 //0-6的动画形式，-1不开启
+			  ,content: '/layerAddProdution.html'
+			});
+	},
 	layerImage : function layerImage(url) {
 		layer.open({
 			  type:  1//Page层类型
 			  ,area: ['500px', '300px']
-			  ,title: '登录'
+			  ,title: '图片预览'
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: true //允许全屏最小化
 			  ,anim: 1 //0-6的动画形式，-1不开启

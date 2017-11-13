@@ -15,7 +15,11 @@ public class ImageDto {
 	private String type;
 	
 	private Date createDate;
-	private Integer userId;
+	private String username;
+	private String imageName;
+	
+	private String url;
+	
 	
 	public Integer getId() {
 		return id;
@@ -60,14 +64,25 @@ public class ImageDto {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-	public Integer getUserId() {
-		return userId;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
-
 	
 	
 }

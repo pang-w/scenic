@@ -8,7 +8,8 @@
 		baseNum AS basenum,
 		baseUri AS baseuri,
 		description AS description,
-		userid AS userid,
+		username AS username,
+		imagename AS imagename,
 		type AS type,
 		linkTo AS linkto
 	</sql>
@@ -21,9 +22,9 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ImagePo">
 		INSERT INTO image (
-			basenum,baseuri, linkto, type, userid, description
+			basenum,baseuri, linkto, type, username, description, imagename
 		)VALUES	(
-			#{baseNum},#{baseUri}, #{linkTo}, #{type}, #{userId}, #{desc}
+			#{baseNum},#{baseUri}, #{linkTo}, #{type}, #{username}, #{desc}, #{imagename}
 		)
 	</insert>
 	<select id="selectSingle" resultType="ImagePo" parameterType="ImageQuery">
@@ -33,7 +34,30 @@
 		WHERE
 		username = #{username}
 	</select>
-	
+	<select id="selectSingleByUserAndImageName" resultType="ImagePo" parameterType="ImageQuery">
+		SELECT
+		<include refid="cols" />
+		FROM image
+		WHERE
+		username = #{username}
+		AND
+		imagename = #{imagename}
+	</select>
+	<update id="updateByImageName" parameterType="ArticlePo">
+		UPDATE
+		image
+		SET	
+		basenum=#{baseNum},
+		baseuri=#{baseUri},
+		description=#{description},
+		description=#{description},
+		type=#{type},
+		linkto=#{linkTo}
+		WHERE
+		imagename = #{imagename}
+		AND
+		username = #{username}
+	</update>
 	<sql id="collectionList">
 		SELECT
 		<include refid="cols" />

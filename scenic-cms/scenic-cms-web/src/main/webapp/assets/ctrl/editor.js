@@ -198,6 +198,7 @@ jQuery(function($) {
 					}
 				}
 			});
+	
 	function saveAndPreview() {
 		var data = {
 			"title" : $("#articleTitle").val(),
@@ -230,3 +231,12 @@ jQuery(function($) {
 	}
 	
 });
+function insertImage(){
+
+	$('#summernote').summernote('editor.saveRange');
+	$('#summernote').summernote('editor.insertImage',
+			"http://localhost:8080/assets/base/img/iukiss.png", function($image) {
+				$image.css('maxWidth', '80%');
+				$image.css('align', 'center');
+			});
+}
