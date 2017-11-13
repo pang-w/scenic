@@ -232,8 +232,6 @@ jQuery(function($) {
 	
 });
 function insertImage(){
-
-	$('#summernote').summernote('editor.saveRange');
 	$('#summernote').summernote('editor.insertImage',
 			"http://localhost:8080/assets/base/img/iukiss.png", function($image) {
 				$image.css('maxWidth', '80%');
