@@ -117,6 +117,7 @@ public class EntityUtil {
 
 	public static ProductDto productPoToDto(ProductPo productPo) {
 		ProductDto productDto = new ProductDto();
+		productDto.setId(productPo.getId());
 		productDto.setCreateDate(CommonUtil.formatDate(productPo.getCreateDate()));
 		productDto.setDescription(productPo.getDescription());
 		productDto.setImgUrl(productPo.getImgUrl());

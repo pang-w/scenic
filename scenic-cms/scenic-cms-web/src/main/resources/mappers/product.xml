@@ -30,6 +30,13 @@
 			#{baseNum},#{imgUrl}, #{linkTo}, #{type}, #{username}, #{description}, #{name}, #{createDate}, #{lastModifyDate}
 		)
 	</insert>
+	<select id="selectById" resultType="ProductPo" parameterType="ProductQuery">
+		SELECT
+		<include refid="cols" />
+		FROM product
+		WHERE
+		productid = #{id}
+	</select>
 	<select id="selectSingle" resultType="ProductPo" parameterType="ProductQuery">
 		SELECT
 		<include refid="cols" />
@@ -46,20 +53,21 @@
 		AND
 		name = #{name}
 	</select>
-	<update id="updateByProductName" parameterType="ArticlePo">
+	<update id="updateById" parameterType="ProductPo">
 		UPDATE
 		product
 		SET	
+		username=#{username},
+		name=#{name},
+		type=#{type},
 		basenum=#{baseNum},
 		imgurl=#{imgUrl},
 		description=#{description},
-		description=#{description},
 		type=#{type},
-		linkto=#{linkTo}
+		lastmodifydate=#{type},
+		linkto=#{lastModifyDate}
 		WHERE
-		name = #{name}
-		AND
-		username = #{username}
+		productid = #{id}
 	</update>
 	<sql id="collectionList">
 		SELECT

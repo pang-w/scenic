@@ -5,7 +5,7 @@ jQuery(function($) {
 		var data = {
 			"name" : $("#proName").val(),
 			"imgUrl" : $("#proImgUrl").val(),
-			"linkTo" : $("#proThdPatyUrl").val(),
+			"linkTo" : $("#proLinkTo").val(),
 			"price" : $("#proPrice").val(),
 			"description" : $("#proDesc").val()
 		};

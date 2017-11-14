@@ -90,7 +90,7 @@ public class IndexPageAction extends BaseActiom {
 			suerArticleQuery.setUsername(userDto.getUsername());
 			suerArticleQuery.setPageIndex(1);
 			suerArticleQuery.setPageSize(5);
-			List<ArticlePo> userArticlesPo = articleDao.selectList(query);
+			List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
 			if (articlesPo != null) {
 				for (ArticlePo articlePo : userArticlesPo) {
 					userArticlesDto.add(EntityUtil.articlePoToDto(articlePo));

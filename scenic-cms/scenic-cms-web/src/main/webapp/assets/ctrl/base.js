@@ -40,7 +40,9 @@ var support = {
 			  ,content: '/layerLogin.html'
 			});
 	},
-	layerAddProduction : function layerAddProduction() {
+	
+	layerAddProduct : function layerAddProduction() {
+		
 		layer.open({
 			  type:  2//Page层类型
 			  ,area: ['500px', '600px']
@@ -48,8 +50,25 @@ var support = {
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: false //允许全屏最小化
 			  ,anim: 1 //0-6的动画形式，-1不开启
-			  ,content: '/layerAddProduction.html'
+			  ,content: '/layerAddProduct.html'
 			});
+	},
+	layerEditProduct : function layerAddProduction(pid) {
+		support.ajax("user/product/searchById", {id:pid}, function(response) {
+			layer.open({
+				  type:  2//Page层类型
+				  ,area: ['500px', '600px']
+				  ,title: '添加商品'
+				  ,shade: 0.6 //遮罩透明度
+				  ,maxmin: false //允许全屏最小化
+				  ,anim: 1 //0-6的动画形式，-1不开启
+				  ,content: '/layerEditProduct.html' + praseParam(response.data)
+				});
+
+		}, function(response) {
+			layer.msg(response.msg);
+		});
+		
 	},
 	layerImage : function layerImage(url) {
 		layer.open({
@@ -68,7 +87,7 @@ var support = {
 		});
 	},
 	  
-	ajax : function(url, data, callback, errCallback, beforeSend) {
+	ajax : function ajax(url, data, callback, errCallback, beforeSend) {
 		var settings = {
 			url : "/action/" + url,
 			contentType : "application/json;charset=UTF-8",
@@ -123,3 +142,28 @@ var support = {
 		});
 	}
 };
+
+function praseParam(paramList) {
+	var result = '?';
+	for (var key in paramList) {
+		result = result + key + "=" +paramList[key]+"&";
+    }
+    return result;
+}
+
+function urlParam() {
+    var result = {};
+    var url = location.search;
+    url = decodeURI(url);
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(url.indexOf("?") + 1);// 去掉?号
+        var params = str.split("&");
+        for (var i = 0; i < params.length; i++) {
+            var kv = params[i].split("=");
+            var key = kv[0];
+            var value = kv[1];
+            result[key] = value;
+        }
+    }
+    return result;
+}

@@ -203,7 +203,7 @@
 							</div>
 							<div class="panel panel-info">
 								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品
-								<a onclick="support.layerAddProduction()" target="_blank">
+								<a onclick="support.layerAddProduct()">
 									<i class="pull-right fa fa-edit"></i>
 								</a>
 								</div>
@@ -211,10 +211,14 @@
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
 											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a class="btn" ng-click="support.layerEditProduct(3)" >阿斯顿非
+												<i class="pull-right fa fa-edit"></i>
+											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
+							
 							<div class="panel panel-warning">
 								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">

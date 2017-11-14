@@ -8,6 +8,7 @@ public class ProductQuery extends BaseQuery {
 
 	private static final long serialVersionUID = 4858058186018438872L;
 	
+	private Integer id;
 	private String name;
 	private String imgUrl;
 	private String thdPartyUrl;
@@ -15,8 +16,13 @@ public class ProductQuery extends BaseQuery {
 	private String description;
 	
 	private String username;
-
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

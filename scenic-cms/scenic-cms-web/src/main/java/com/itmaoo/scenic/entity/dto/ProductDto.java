@@ -8,12 +8,20 @@ public class ProductDto extends BaseDto {
 
 	private static final long serialVersionUID = 4858058186018438872L;
 	
+	private Integer id;
 	private String name;
 	private String imgUrl;
 	private String price;
 	private String description;
 	private String linkTo;
 	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
