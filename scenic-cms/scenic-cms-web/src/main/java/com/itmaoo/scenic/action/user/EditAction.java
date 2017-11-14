@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -120,10 +122,13 @@ public class EditAction extends BaseActiom {
     		}
     	}
     	String desc =  String.copyValueOf(carr).trim();
-    	if(desc.length()>128){
-    		desc = desc.substring(0, 124) + "...";
+    	Pattern p = Pattern.compile("\\s{2,}|\t");
+    	Matcher m = p.matcher(desc);
+    	String strNoBlank = m.replaceAll(" ");
+    	if(strNoBlank.length()>128){
+    		strNoBlank = strNoBlank.substring(0, 124) + "...";
     	}
-    	return desc;
+    	return strNoBlank;
     	
 	}
 

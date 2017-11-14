@@ -123,8 +123,8 @@ public class HtmlAction {
 		
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.putAll(commonData);
-		data.put("hotProductList", getProductList());
-		data.put("newProductList",  getProductList());
+	//	data.put("hotProductList", getProductList());
+	//	data.put("newProductList",  getProductList());
 
 		
 
@@ -132,21 +132,8 @@ public class HtmlAction {
 	}
 	
 
-	public List<ProductDto> getProductList() {
-		List<ProductDto> pros = Lists.newArrayList();
-		
-		pros.add(createProduct());
-		pros.add(createProduct());
-		return pros;
-	}
-	private ProductDto createProduct(){
-		ProductDto p = new ProductDto();
-		p.setProductOutURL("http://itmaoo.oss-cn-shanghai.aliyuncs.com/1_itmaoo.jpg");
-		p.setProductImageListStore("http://itmaoo.oss-cn-shanghai.aliyuncs.com/1_itmaoo.jpg");
-		p.setHtmlFilePath("htmlFilePath");
-		p.setName("name");
-		return p;
-	}
+
+
 	
 	public List<Navigation> getTopNavigationList() {
 		List<Navigation> topNavigationList = Lists.newArrayList();

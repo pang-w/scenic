@@ -151,14 +151,18 @@ jQuery(function($) {
 	});
 	$(document).ready(function() {
 		$('#summernote').summernote({
-			height : 300
+			placeholder : 'IUKISS....',
+			height : 300,
+			disableDragAndDrop : false
 		});
 	});
 	
 	// onImageUpload callback
 	$('#summernote').summernote(
 			{
+				placeholder : 'IUKISS....',
 				height : 300,
+				disableDragAndDrop : false,
 				callbacks : {
 					onImageUpload : function(files) {
 						var $files = $(files);
@@ -232,9 +236,16 @@ jQuery(function($) {
 	
 });
 function insertImage(){
-	$('#summernote').summernote('editor.insertImage',
+	var range = $('#summernote').summernote('createRange');
+	$('#summernote').summernote('insertImage',
 			"http://localhost:8080/assets/base/img/iukiss.png", function($image) {
 				$image.css('maxWidth', '80%');
 				$image.css('align', 'center');
 			});
+}
+function insertText(){
+	var range = $('#summernote').summernote('createRange');
+	$('#summernote').summernote('focus');
+	$('#summernote').summernote('editor.insertText', 'hello world');
+
 }

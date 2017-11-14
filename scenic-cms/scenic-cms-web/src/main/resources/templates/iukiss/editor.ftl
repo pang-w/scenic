@@ -166,6 +166,9 @@
 												<i class="pull-right fa fa-arrow-left"></i>
 											</a>
 										</li>
+											<a onclick="insertText()">
+												<i class="pull-right fa fa-arrow-left"></i>
+											</a>
 									</ul>
 								</div>
 							</div>

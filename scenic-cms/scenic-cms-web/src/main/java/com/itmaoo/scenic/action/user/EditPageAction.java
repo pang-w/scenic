@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -65,8 +64,6 @@ public class EditPageAction extends BaseActiom{
 		UserDto userData = EntityUtil.userPoToDto(recUser);
 		userData.setSignatureLikedCount(count);
 		
-		
-		
 		/** articles **/
 		ArticleQuery query = new ArticleQuery();
 		query.setPageIndex(1);
@@ -118,7 +115,8 @@ public class EditPageAction extends BaseActiom{
 			editDto.setArticleMenu(articlesDto);
 			editDto.setAttentionMenu(articlesDto);
 			editDto.setImageMenu(imagesDto);
-			//indexDto.setProductMenu(productMenu);
+			//editDto.setProductMenu(productMenu);
+			
 		}
 		
 		ResponseData rd = new ResponseData();

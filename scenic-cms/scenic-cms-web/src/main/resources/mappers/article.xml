@@ -55,8 +55,15 @@
 		SELECT
 		<include refid="cols" />
 		FROM article ad
+		WHERE
+		1=1
+		<if test="#{username}">
+		AND username = #{username}
+		</if>
 		ORDER BY createdate DESC
 	</sql>
+	<!-- 批次信息查询  -->
+
 	<!-- 批次信息查询  -->
 	<select id="selectList" resultType="ArticlePo" parameterType="ArticleQuery">
 		<include refid="pageHead" />

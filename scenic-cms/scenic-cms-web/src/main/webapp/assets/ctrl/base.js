@@ -40,7 +40,7 @@ var support = {
 			  ,content: '/layerLogin.html'
 			});
 	},
-	layerAddProdution : function layerAddProdution() {
+	layerAddProduction : function layerAddProduction() {
 		layer.open({
 			  type:  2//Page层类型
 			  ,area: ['500px', '600px']
@@ -48,7 +48,7 @@ var support = {
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: false //允许全屏最小化
 			  ,anim: 1 //0-6的动画形式，-1不开启
-			  ,content: '/layerAddProdution.html'
+			  ,content: '/layerAddProduction.html'
 			});
 	},
 	layerImage : function layerImage(url) {

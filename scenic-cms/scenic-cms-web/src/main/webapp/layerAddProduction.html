@@ -29,46 +29,51 @@
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="/assets/ctrl/layerLogin.js"></script>
+<script type="text/javascript" src="/assets/ctrl/layerAddProduction.js"></script>
 
 
 </head>
-<section class="content-wrap">
+<section class="content-wrap"  ng-app="iukissApp" ng-controller="iukissCtrl">
 
 	<fieldset style="display: block;">
 		<aside class="col-md-4 sidebar">
 			<div class="form-top">
 				<div class="form-top-left">
-					<h3>用户登录</h3>
+					<h3>添加商品</h3>
 				</div>
 				<div class="form-top-right">
-					<i class="fa fa-user"></i>
+					<i class="fa fa-shopping-cart"></i>
 				</div>
 			</div>
 		</aside>
 		<aside class="col-md-4 sidebar">
 			<div class="form-bottom">
 				<div class="form-group">
-					<label class="sr-only" for="form-first-name">名称</label> <input
-						type="text" placeholder="产品名称..."
-						class="form-control" id="iukusername">
+					<label class="sr-only" >名称</label> <input
+						type="text" placeholder="产品名称..." class="form-control"
+						id="proName">
 				</div>
 				<div class="form-group">
-					<label class="sr-only" for="form-last-name">地址</label> <input
-						 placeholder="网络地址（URL）..."
-						class="form-control" type="password"	id="iukpassword">
+					<label class="sr-only" >图片网络地址</label> <input
+						placeholder="图片网络地址（URL）..." class="form-control"
+						id="proImgUrl">
 				</div>
 				<div class="form-group">
-					<label class="sr-only" for="form-last-name">地址</label> <input
-						 placeholder="价格..."
-						class="form-control" type="password"	id="iukpassword">
+					<label class="sr-only" >商品网络地址</label> <input
+						placeholder="商品网络地址（URL）..." class="form-control"
+						id="proThdPatyUrl">
 				</div>
 				<div class="form-group">
-					<label class="sr-only" for="form-last-name">地址</label> <input
-						 placeholder="描述..."
-						class="form-control" type="password"	id="iukpassword">
+					<label class="sr-only" >价格</label> <input
+						placeholder="价格..." class="form-control" id="proPrice">
 				</div>
-				<button type="button" id="doLayerLogin" class="btn btn-default btn-block">提交</button>
+				<div class="form-group">
+					<label class="sr-only" >商品描述</label>
+					<textarea name="form-about-yourself" placeholder="商品描述....."
+						class="form-control" id="proDesc"></textarea>
+				</div>
+				<button type="button" id="doLayerAddProduction"
+					class="btn btn-default btn-block">提交</button>
 			</div>
 		</aside>
 	</fieldset>

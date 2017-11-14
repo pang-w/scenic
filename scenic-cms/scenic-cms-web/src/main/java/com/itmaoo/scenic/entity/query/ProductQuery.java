@@ -1,18 +1,21 @@
-package com.itmaoo.scenic.entity.dto;
+package com.itmaoo.scenic.entity.query;
 
 /**
  * 实体类 - 商品
  **/
 
-public class ProductDto extends BaseDto {
+public class ProductQuery extends BaseQuery {
 
 	private static final long serialVersionUID = 4858058186018438872L;
 	
 	private String name;
 	private String imgUrl;
+	private String thdPartyUrl;
 	private String price;
 	private String description;
-	private String linkTo;
+	
+	private String username;
+
 	
 	public String getName() {
 		return name;
@@ -26,7 +29,12 @@ public class ProductDto extends BaseDto {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-
+	public String getThdPartyUrl() {
+		return thdPartyUrl;
+	}
+	public void setThdPartyUrl(String thdPartyUrl) {
+		this.thdPartyUrl = thdPartyUrl;
+	}
 	public String getPrice() {
 		return price;
 	}
@@ -39,12 +47,13 @@ public class ProductDto extends BaseDto {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getLinkTo() {
-		return linkTo;
+	public String getUsername() {
+		return username;
 	}
-	public void setLinkTo(String linkTo) {
-		this.linkTo = linkTo;
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
 	
 
 }

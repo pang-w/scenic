@@ -33,6 +33,7 @@
 		<typeAlias type="com.itmaoo.scenic.entity.po.ImagePo" alias="ImagePo" />
 		<typeAlias type="com.itmaoo.scenic.entity.po.UserPo" alias="UserPo" />
 		<typeAlias type="com.itmaoo.scenic.entity.po.SignatureLikePo" alias="SignatureLikePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.ProductPo" alias="ProductPo" />
 		
 
 		<!-- query -->
@@ -41,6 +42,7 @@
 		<typeAlias type="com.itmaoo.scenic.entity.query.ImageQuery" alias="ImageQuery" />
 		<typeAlias type="com.itmaoo.scenic.entity.query.UserQuery" alias="UserQuery" />
 		<typeAlias type="com.itmaoo.scenic.entity.query.SignatureLikeQuery" alias="SignatureLikeQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.ProductQuery" alias="ProductQuery" />
 
 	</typeAliases>
 </configuration>

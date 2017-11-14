@@ -6,9 +6,11 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
+import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
+import com.itmaoo.scenic.entity.po.ProductPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.support.CommonUtil;
 
@@ -99,5 +101,29 @@ public class EntityUtil {
 		imageDto.setUsername(imagePo.getUsername());
 		imageDto.setImageName(imagePo.getImagename());
 		return imageDto;
+	}
+
+	public static ProductPo productDtoToPo(ProductDto productDto) {
+		ProductPo proPo = new ProductPo();
+		proPo.setCreateDate(new Date());
+		proPo.setDescription(productDto.getDescription());
+		proPo.setImgUrl(productDto.getImgUrl());
+		proPo.setLastModifyDate(new Date());
+		proPo.setName(productDto.getName());
+		proPo.setPrice(productDto.getPrice());
+		proPo.setLinkTo(productDto.getLinkTo());
+		return proPo;
+	}
+
+	public static ProductDto productPoToDto(ProductPo productPo) {
+		ProductDto productDto = new ProductDto();
+		productDto.setCreateDate(CommonUtil.formatDate(productPo.getCreateDate()));
+		productDto.setDescription(productPo.getDescription());
+		productDto.setImgUrl(productPo.getImgUrl());
+		productDto.setLastModifyDate(CommonUtil.formatDate(productPo.getLastModifyDate()));
+		productDto.setName(productPo.getName());
+		productDto.setPrice(productPo.getPrice());
+		productDto.setLinkTo(productPo.getLinkTo());
+		return productDto;
 	}
 }
