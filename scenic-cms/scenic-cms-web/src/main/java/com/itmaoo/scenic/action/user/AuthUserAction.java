@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
 import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ResponseData;
@@ -24,7 +24,7 @@ import com.itmaoo.scenic.support.CommonUtil;
 
 @Controller
 @RequestMapping(value = "/action/user/auth")
-public class AuthUserAction extends BaseActiom {
+public class AuthUserAction extends BaseAction {
 
 	@Autowired
 	private IUserDao userDao;

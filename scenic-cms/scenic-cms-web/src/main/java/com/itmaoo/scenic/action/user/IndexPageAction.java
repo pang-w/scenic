@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Lists;
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.IProductDao;
@@ -36,7 +36,7 @@ import com.itmaoo.scenic.entity.support.IndexPageDto;
 
 @Controller
 @RequestMapping(value = "/action/page/index/")
-public class IndexPageAction extends BaseActiom {
+public class IndexPageAction extends BaseAction {
 	@Autowired
 	private IUserDao userDao;
 

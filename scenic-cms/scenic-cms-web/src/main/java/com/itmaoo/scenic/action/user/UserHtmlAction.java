@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.Lists;
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
@@ -25,7 +25,7 @@ import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
 @Controller
-public class UserHtmlAction extends BaseActiom{
+public class UserHtmlAction extends BaseAction{
 	@Autowired
 	private IArticleDao articleDao;
 	

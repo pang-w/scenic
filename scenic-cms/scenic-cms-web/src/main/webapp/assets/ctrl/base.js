@@ -32,7 +32,7 @@ var support = {
 	layerLogin : function layerLogin() {
 		layer.open({
 			  type:  2//Page层类型
-			  ,area: ['500px', '300px']
+			  ,area: ['300px', '300px']
 			  ,title: '登录'
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: true //允许全屏最小化
@@ -45,7 +45,7 @@ var support = {
 		
 		layer.open({
 			  type:  2//Page层类型
-			  ,area: ['500px', '600px']
+			  ,area: ['300px', '450px']
 			  ,title: '添加商品'
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: false //允许全屏最小化
@@ -57,7 +57,7 @@ var support = {
 		support.ajax("user/product/searchById", {id:pid}, function(response) {
 			layer.open({
 				  type:  2//Page层类型
-				  ,area: ['500px', '600px']
+				  ,area: ['300px', '450px']
 				  ,title: '添加商品'
 				  ,shade: 0.6 //遮罩透明度
 				  ,maxmin: false //允许全屏最小化
@@ -73,7 +73,7 @@ var support = {
 	layerImage : function layerImage(url) {
 		layer.open({
 			  type:  1//Page层类型
-			  ,area: ['500px', '300px']
+			  ,area: ['400px', '300px']
 			  ,title: '图片预览'
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: true //允许全屏最小化

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Lists;
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
@@ -32,7 +32,7 @@ import com.itmaoo.scenic.entity.support.EditPageDto;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 @Controller
 @RequestMapping(value = "/action/page/edit/")
-public class EditPageAction extends BaseActiom{
+public class EditPageAction extends BaseAction{
 	@Autowired
 	private IUserDao userDao;
 	

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IArticleMessageDao">
+	<sql id="cols">
+		articlemessageid AS id,
+		actionuser AS actionUser,
+		articleuuid AS articleUuid,
+		message AS message,
+		createdate AS createDate,
+		lastmodifydate AS lastModifyDate
+		
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="ArticleMessagePo">
+		INSERT INTO articlemessage (
+			actionuser,articleuuid, message, createdate, lastmodifydate
+		)VALUES	(
+			#{actionUser},#{articleUuid}, #{message}, #{createDate}, #{lastModifyDate}
+		)
+	</insert>
+	<select id="selectById" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
+		SELECT
+		<include refid="cols" />
+		FROM articlemessage
+		WHERE
+		articlemessageid = #{id}
+	</select>
+	<select id="selectSingle" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
+		SELECT
+		<include refid="cols" />
+		FROM articlemessage
+		WHERE
+		username = #{username}
+	</select>
+	<select id="selectSingleByUserAndArticleMessageName" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
+		SELECT
+		<include refid="cols" />
+		FROM articlemessage
+		WHERE
+		username = #{username}
+		AND
+		name = #{name}
+	</select>
+	<update id="updateById" parameterType="ArticleMessagePo">
+		UPDATE
+		articlemessage
+		SET	
+		username=#{username},
+		name=#{name},
+		type=#{type},
+		basenum=#{baseNum},
+		imgurl=#{imgUrl},
+		description=#{description},
+		type=#{type},
+		lastmodifydate=#{type},
+		linkto=#{lastModifyDate}
+		WHERE
+		articlemessageid = #{id}
+	</update>
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		 ,likedCount as likedCount
+		FROM articlemessage ad
+		
+		left join
+		(SELECT messageid as messageId, count(messageid) as likedCount FROM messagelike group by messageid) ml
+		on ad.articlemessageid = ml.messageid
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="ArticleMessageQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		)
+	</select>
+</mapper>

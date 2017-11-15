@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
@@ -42,7 +42,7 @@ import freemarker.template.TemplateException;
 
 @Controller
 @RequestMapping(value = "/action/edit/")
-public class EditAction extends BaseActiom {
+public class EditAction extends BaseAction {
 	@Autowired
 	private IArticleDao articleDao;
 

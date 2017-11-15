@@ -34,6 +34,9 @@
 		<typeAlias type="com.itmaoo.scenic.entity.po.UserPo" alias="UserPo" />
 		<typeAlias type="com.itmaoo.scenic.entity.po.SignatureLikePo" alias="SignatureLikePo" />
 		<typeAlias type="com.itmaoo.scenic.entity.po.ProductPo" alias="ProductPo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.ArticleLikePo" alias="ArticleLikePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.MessageLikePo" alias="MessageLikePo" />
+		<typeAlias type="com.itmaoo.scenic.entity.po.ArticleMessagePo" alias="ArticleMessagePo" />
 		
 
 		<!-- query -->
@@ -43,6 +46,9 @@
 		<typeAlias type="com.itmaoo.scenic.entity.query.UserQuery" alias="UserQuery" />
 		<typeAlias type="com.itmaoo.scenic.entity.query.SignatureLikeQuery" alias="SignatureLikeQuery" />
 		<typeAlias type="com.itmaoo.scenic.entity.query.ProductQuery" alias="ProductQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.ArticleLikeQuery" alias="ArticleLikeQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.MessageLikeQuery" alias="MessageLikeQuery" />
+		<typeAlias type="com.itmaoo.scenic.entity.query.ArticleMessageQuery" alias="ArticleMessageQuery" />
 
 	</typeAliases>
 </configuration>

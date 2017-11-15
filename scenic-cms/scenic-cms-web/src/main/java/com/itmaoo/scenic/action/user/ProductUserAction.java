@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
@@ -19,7 +19,7 @@ import com.itmaoo.scenic.entity.support.EntityUtil;
 
 @Controller
 @RequestMapping(value = "/action/user/product/")
-public class ProductUserAction extends BaseActiom {
+public class ProductUserAction extends BaseAction {
 	@Autowired
 	private IProductDao proDao;
 

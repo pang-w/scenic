@@ -26,9 +26,15 @@ function loadIndexAll(){
 		$scope.ngEditProduct = function(pid){
 		    support.layerEditProduct(pid);
 		};
-		$scope.ngShowImg = function(url){
-			//alert("Item Id 是 ");
-		    support.layerImage(url);
+		$scope.likeMessage = function(messageId){
+			var data = {
+					"messageId" : messageId
+				};
+			support.ajax("user/article/likeMessage", data,function(response) {
+				if (response.status == "0000") {
+					location.reload();
+				}
+			});
 		};
 		$http.post("/action/page/index/all",null)
 	    .then(function (result) {
@@ -43,7 +49,16 @@ function loadIndexAll(){
 			}
 	    
 	    });
-		
+		var data = {
+				"articleUuid" : $("#articleUuid").val()
+			};
+		support.ajax("page/article/message", data,function(response) {
+			if (response.status == "0000") {
+				$scope.articleMsg = response.data
+			}},
+			function(response) {
+				
+		});
 	});
 }
 function layerLogged(){

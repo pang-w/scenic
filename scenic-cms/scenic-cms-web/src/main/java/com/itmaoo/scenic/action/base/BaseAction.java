@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.itmaoo.scenic.entity.dto.UserDto;
 
-public class BaseActiom {
+public class BaseAction {
 	public boolean islogged(HttpServletRequest req){
 		if(getLogedUser(req)!=null){
 			return true;

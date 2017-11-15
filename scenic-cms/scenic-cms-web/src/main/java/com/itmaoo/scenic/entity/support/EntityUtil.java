@@ -5,9 +5,11 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
+import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
+import com.itmaoo.scenic.entity.po.ArticleMessagePo;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.ProductPo;
@@ -105,6 +107,7 @@ public class EntityUtil {
 
 	public static ProductPo productDtoToPo(ProductDto productDto) {
 		ProductPo proPo = new ProductPo();
+		proPo.setId(productDto.getId());
 		proPo.setCreateDate(new Date());
 		proPo.setDescription(productDto.getDescription());
 		proPo.setImgUrl(productDto.getImgUrl());
@@ -126,5 +129,17 @@ public class EntityUtil {
 		productDto.setPrice(productPo.getPrice());
 		productDto.setLinkTo(productPo.getLinkTo());
 		return productDto;
+	}
+
+	public static ArticleMessageDto articleMessagePoToDto(ArticleMessagePo a) {
+		ArticleMessageDto dto = new ArticleMessageDto();
+		dto.setLikedCount(a.getLikedCount());
+		dto.setActionUser(a.getActionUser());
+		dto.setArticleUuid(a.getArticleUuid());
+		dto.setCreateDate(CommonUtil.formatDate(a.getCreateDate()));
+		dto.setId(a.getId());
+		dto.setLastModifyDate(CommonUtil.formatDate(a.getLastModifyDate()));
+		dto.setMessage(a.getMessage());
+		return dto;
 	}
 }

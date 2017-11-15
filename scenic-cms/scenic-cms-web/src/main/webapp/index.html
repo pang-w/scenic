@@ -76,6 +76,7 @@
 									class="sr-only">(current)</span></a></li>
 							<li><a href="/tags/装修">装修</a></li>
 							<li><a href="/tags/办事流程">办事流程</a></li>
+							<li><a href="/tags/IT技能">IT技能</a></li>
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
@@ -180,10 +181,10 @@
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
 								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
-								<div id="collapseArticle" class="panel-collapse collapse in">
+								<div id="collapseArticle" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
 											<a href="/action/edit/article/{{a.uuid}}">
         											<i class="pull-right fa fa-edit"></i>
         									</a>
@@ -196,7 +197,7 @@
 								<div id="collapseAttention" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="/">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
 										</li>
 									</ul>
 								</div>
@@ -211,7 +212,7 @@
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
 											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
-											<a class="btn" ng-click="support.layerEditProduct(3)" >阿斯顿非
+											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
 												<i class="pull-right fa fa-edit"></i>
 											</a>
 										</li>
@@ -224,10 +225,8 @@
 								<div id="collapseImage" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a href="{{ a.url }}" target="_blank">{{ a.imageName }}</a>
-											<a href="{{ a.url }}" target="_blank">
-												<i class="pull-right fa fa-arrow-right"></i>
-											</a>
+											<a ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a>
+											
 										</li>
 									</ul>
 								</div>

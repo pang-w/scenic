@@ -40,9 +40,7 @@ jQuery(function($) {
 	$("#collapseArticleAction").click(function () {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
-					if(response.status!="0000"){
-						layer.msg(response.msg);
-					}else{
+					if(response.status=="0000"){
 						checkLogged();
 						$('#collapseArticle').slideToggle("slow");
 					}
@@ -55,9 +53,7 @@ jQuery(function($) {
 	$("#collapseAttentionAction").click(function () {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
-					if(response.status!="0000"){
-						layer.msg(response.msg);
-					}else{
+					if(response.status=="0000"){
 						checkLogged();
 						$('#collapseAttention').slideToggle("slow");
 					}
@@ -70,9 +66,7 @@ jQuery(function($) {
 	$("#collapseProductAction").click(function () {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
-					if(response.status!="0000"){
-						layer.msg(response.msg);
-					}else{
+					if(response.status=="0000"){
 						checkLogged();
 						$('#collapseProduct').slideToggle("slow");
 					}
@@ -85,9 +79,7 @@ jQuery(function($) {
 	$("#collapseImageAction").click(function () {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
-					if(response.status!="0000"){
-						layer.msg(response.msg);
-					}else{
+					if(response.status=="0000"){
 						checkLogged();
 						$('#collapseImage').slideToggle("slow");
 					}
@@ -116,6 +108,7 @@ jQuery(function($) {
 		});
 	}
 });
+
 
 
 

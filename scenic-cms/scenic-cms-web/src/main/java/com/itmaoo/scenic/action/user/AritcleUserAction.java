@@ -27,15 +27,26 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSException;
 import com.google.common.collect.Lists;
-import com.itmaoo.scenic.action.base.BaseActiom;
+import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
+import com.itmaoo.scenic.dao.IArticleLikeDao;
+import com.itmaoo.scenic.dao.IArticleMessageDao;
 import com.itmaoo.scenic.dao.IImageDao;
+import com.itmaoo.scenic.dao.IMessageLikeDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
+import com.itmaoo.scenic.entity.dto.ArticleLikeDto;
+import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
+import com.itmaoo.scenic.entity.dto.MessageLikeDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
+import com.itmaoo.scenic.entity.dto.SignatureLikeDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
+import com.itmaoo.scenic.entity.po.ArticleLikePo;
+import com.itmaoo.scenic.entity.po.ArticleMessagePo;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
+import com.itmaoo.scenic.entity.po.MessageLikePo;
+import com.itmaoo.scenic.entity.po.SignatureLikePo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.service.ImageService;
@@ -46,11 +57,16 @@ import freemarker.template.TemplateException;
 
 @Controller
 @RequestMapping(value = "/action/user/article/")
-public class AritcleUserAction extends BaseActiom {
+public class AritcleUserAction extends BaseAction {
 	@Autowired
 	private IImageDao imageDao;
 	@Autowired
-	private IArticleDao articleDao;
+	private IArticleMessageDao articleMessageDao;
+	
+	@Autowired
+	private IArticleLikeDao articleLikeDao;
+	@Autowired
+	private IMessageLikeDao messageLikeDao;
 
 	private String imagePrefixUrl = "http://img.iukiss.com/";
 
@@ -136,33 +152,70 @@ public class AritcleUserAction extends BaseActiom {
 				rd.setMsg("仅支持jpg和png格式图片");
 			}
 		}
-
-		
 		rd.setData(si);
 		return rd;
 
 	}
 
-	@RequestMapping("menuList")
+	@RequestMapping("likeArticle")
 	@ResponseBody
-	public ResponseData menuList(HttpServletRequest request) {
+	public ResponseData likeArticle(HttpServletRequest request, @RequestBody ArticleLikeDto articleLikeDto) {
+		UserDto user = getLogedUser(request);
 		ResponseData rd = new ResponseData();
-		if (getLogedUser(request) == null) {
+		if (user == null) {
+			rd.setStatus("4004");
 			rd.setMsg("未登录");
-			rd.setStatus("4000");
 		} else {
-			List<ArticleDto> aticleDtos = Lists.newArrayList();
-			ArticleDto dto = new ArticleDto();
-			dto.setTitle("阿斯顿分类阿斯顿非埃及哦；jli");
-			dto.setDescription("asdfas");
-			dto.setContent("asdfas");
-			dto.setUuid("asdf");
-			aticleDtos.add(dto);
-			aticleDtos.add(dto);
-			aticleDtos.add(dto);
-			rd.setData(aticleDtos);
+			ArticleLikePo entity = new ArticleLikePo();
+			entity.setArticleUuid(articleLikeDto.getArticleUuid());
+			entity.setActionUser(user.getUsername());
+			entity.setCreateDate(new Date());
+			articleLikeDao.insert(entity);
 		}
-		return rd;
+		rd.setData(user);
+		return rd;    
+
+	}
+	@RequestMapping("addMessage")
+	@ResponseBody
+	public ResponseData addMessage(HttpServletRequest request, @RequestBody ArticleMessageDto articleMessageDto) {
+
+		UserDto user = getLogedUser(request);
+		ResponseData rd = new ResponseData();
+		if (user == null) {
+			rd.setStatus("4004");
+			rd.setMsg("未登录");
+		} else {
+			ArticleMessagePo entity = new ArticleMessagePo();
+			entity.setArticleUuid(articleMessageDto.getArticleUuid());
+			entity.setActionUser(user.getUsername());
+			entity.setMessage(articleMessageDto.getMessage());
+			entity.setCreateDate(new Date());
+			articleMessageDao.insert(entity);
+		}
+		rd.setData(user);
+		return rd;    
+
+	}
+	@RequestMapping("likeMessage")
+	@ResponseBody
+	public ResponseData addMessage(HttpServletRequest request, @RequestBody MessageLikeDto messageLikeDto) {
+
+		UserDto user = getLogedUser(request);
+		ResponseData rd = new ResponseData();
+		if (user == null) {
+			rd.setStatus("4004");
+			rd.setMsg("未登录");
+		} else {
+			MessageLikePo entity = new MessageLikePo();
+			entity.setActionUser(user.getUsername());
+			entity.setMessageId(messageLikeDto.getMessageId());
+			entity.setCreateDate(new Date());
+			entity.setLastModifyDate(new Date());
+			messageLikeDao.insert(entity);
+		}
+		rd.setData(user);
+		return rd;    
 
 	}
 }
