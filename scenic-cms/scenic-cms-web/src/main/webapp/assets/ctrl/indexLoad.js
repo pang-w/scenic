@@ -48,6 +48,7 @@ function loadIndexAll(){
 	    		$scope.topUser = result.data.data.topUser;
 	    		$scope.loggedUser = result.data.data.loggedUser;
 	            $scope.articles = result.data.data.articles;
+	            $scope.products = result.data.data.products;
 	            
 		        $scope.articleMenu = result.data.data.articleMenu;
 		        $scope.imageMenu = result.data.data.imageMenu;

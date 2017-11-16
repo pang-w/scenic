@@ -133,7 +133,13 @@ public class EditAction extends BaseAction {
 	@RequestMapping("article/publish")
 	@ResponseBody
 	public ResponseData publishArticle(HttpServletRequest request, @RequestBody ArticleDto article) {
-
+		//取出数据库中的数生成永久地址页面，保证下次生成的一致性
+		
+		ArticlePo articlePo = new ArticlePo();
+		articlePo.setIsPublished(true);
+		articlePo.setUuid(article.getUuid());
+		Integer count = articleDao.updatePublishStatus(articlePo);
+		System.out.println(count);
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(article.getUuid());
 		ArticlePo a = articleDao.selectSingle(aq);

@@ -63,7 +63,7 @@ public class IndexPageAction extends BaseAction {
 
 		/** articles **/
 		ArticleQuery query = new ArticleQuery();
-		//query.setUsername("ITMAOO");
+		query.setIsPublished(true);
 		query.setPageIndex(1);
 		query.setPageSize(5);
 		List<ArticlePo> articlesPo = articleDao.selectList(query);
@@ -73,12 +73,25 @@ public class IndexPageAction extends BaseAction {
 				articlesDto.add(EntityUtil.articlePoToDto(articlePo));
 			}
 		}
+		/** Products **/
+		ProductQuery proQuery = new ProductQuery();
+		//proQuery.setUsername(loggedUser.getUsername());
+		List<ProductPo> productsPo = productDao.selectList(proQuery);
+		List<ProductDto> products = Lists.newArrayList();
+		if (products != null) {
+			for (ProductPo pPo : productsPo) {
+				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+				products.add(proPoToDto);
+			}
+		}
 		
 		
 
 		IndexPageDto indexDto = new IndexPageDto();
 		indexDto.setTopUser(userData);
 		indexDto.setArticles(articlesDto);
+		indexDto.setProducts(products);
+		
 		UserDto loggedUser = getLogedUser(request);
 		
 		if(loggedUser!=null){
@@ -115,12 +128,12 @@ public class IndexPageAction extends BaseAction {
 			}
 			
 			/** User Product **/
-			ProductQuery proQuery = new ProductQuery();
-			proQuery.setUsername(loggedUser.getUsername());
-			List<ProductPo> productsPo = productDao.selectList(proQuery);
+			ProductQuery uProQuery = new ProductQuery();
+			uProQuery.setUsername(loggedUser.getUsername());
+			List<ProductPo> uProductsPo = productDao.selectList(uProQuery);
 			List<ProductDto> productMenu = Lists.newArrayList();
 			if (productMenu != null) {
-				for (ProductPo pPo : productsPo) {
+				for (ProductPo pPo : uProductsPo) {
 					ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
 					productMenu.add(proPoToDto);
 				}

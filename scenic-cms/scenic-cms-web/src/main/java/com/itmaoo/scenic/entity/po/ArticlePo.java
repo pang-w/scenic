@@ -14,7 +14,14 @@ public class ArticlePo extends BasePo{
 	private String uuid;
 	private Date createDate;
 	private Date lastModifyDate;
+	private Boolean isPublished;
 	
+	public Boolean getIsPublished() {
+		return isPublished;
+	}
+	public void setIsPublished(Boolean isPublished) {
+		this.isPublished = isPublished;
+	}
 	public Integer getId() {
 		return id;
 	}

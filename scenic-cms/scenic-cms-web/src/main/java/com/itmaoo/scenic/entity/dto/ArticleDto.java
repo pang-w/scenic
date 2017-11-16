@@ -15,8 +15,14 @@ public class ArticleDto extends BaseDto{
 	private String lastmodify;
 	private String username;
 	private String description;
+	private Boolean isPublished;
 	
-	
+	public Boolean getIsPublished() {
+		return isPublished;
+	}
+	public void setIsPublished(Boolean isPublished) {
+		this.isPublished = isPublished;
+	}
 	
 	public String getUuid() {
 		return uuid;

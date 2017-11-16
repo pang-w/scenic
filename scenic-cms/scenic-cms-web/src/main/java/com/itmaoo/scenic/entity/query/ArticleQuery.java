@@ -14,7 +14,14 @@ public class ArticleQuery extends BaseQuery {
 	private String content;
 	private String desc;
 	private String uuid;
-
+	private Boolean isPublished;
+	
+	public Boolean getIsPublished() {
+		return isPublished;
+	}
+	public void setIsPublished(Boolean isPublished) {
+		this.isPublished = isPublished;
+	}
 	public String getUuid() {
 		return uuid;
 	}

@@ -11,12 +11,19 @@ public class IndexPageDto {
 	private UserDto topUser;
 	private UserDto loggedUser;
 	private List<ArticleDto> articles;
+	private List<ProductDto> products;
 	private List<ArticleDto> articleMenu;
 	private List<ImageDto> imageMenu;
 	private List<ProductDto> productMenu;
 	private List<ArticleDto> attentionMenu;
 	
 	
+	public List<ProductDto> getProducts() {
+		return products;
+	}
+	public void setProducts(List<ProductDto> products) {
+		this.products = products;
+	}
 	public UserDto getLoggedUser() {
 		return loggedUser;
 	}
