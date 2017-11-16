@@ -59,19 +59,11 @@ public class IndexPageAction extends BaseAction {
 	public ResponseData all(HttpServletRequest request) {
 
 		/** top user **/
-		UserQuery recQuery = new UserQuery();
-		recQuery.setUsername("ITMAOO");
-		UserPo recUser = userDao.selectSingle(recQuery);
-		SignatureLikeQuery squery = new SignatureLikeQuery();
-		squery.setBelikedUser(recUser.getUsername());
-		Integer count = signatureLikeDao.countByLikedUser(squery);
-
-		UserDto userData = EntityUtil.userPoToDto(recUser);
-		userData.setSignatureLikedCount(count);
+		UserDto userData = (UserDto) topUser(request).getData();
 
 		/** articles **/
 		ArticleQuery query = new ArticleQuery();
-		query.setUsername("ITMAOO");
+		//query.setUsername("ITMAOO");
 		query.setPageIndex(1);
 		query.setPageSize(5);
 		List<ArticlePo> articlesPo = articleDao.selectList(query);
@@ -82,61 +74,63 @@ public class IndexPageAction extends BaseAction {
 			}
 		}
 		
-		/** user articles **/
-		List<ArticleDto> userArticlesDto = Lists.newArrayList();
-		UserDto userDto = getLogedUser(request);
-		if (userDto != null) {
-			ArticleQuery suerArticleQuery = new ArticleQuery();
-			suerArticleQuery.setUsername(userDto.getUsername());
-			suerArticleQuery.setPageIndex(1);
-			suerArticleQuery.setPageSize(5);
-			List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
-			if (articlesPo != null) {
-				for (ArticlePo articlePo : userArticlesPo) {
-					userArticlesDto.add(EntityUtil.articlePoToDto(articlePo));
-				}
-			}
-		}
-
-		/** Images **/
-		ImageQuery iQuery = new ImageQuery();
-		// iQuery.se
-		List<ImagePo> imageMenu = imageDao.selectList(iQuery);
-		List<ImageDto> imagesDto = Lists.newArrayList();
-		if (imageMenu != null) {
-			for (ImagePo imagePo : imageMenu) {
-				ImageDto imagePoToDto = EntityUtil.imagePoToDto(imagePo);
-				if (!imgDomain.endsWith("/")) {
-					imagePoToDto.setUrl(imgDomain + "/" + imagePoToDto.getBaseUri());
-				} else {
-					imagePoToDto.setUrl(imgDomain + imagePoToDto.getBaseUri());
-				}
-				imagesDto.add(imagePoToDto);
-			}
-		}
 		
-		/** Product **/
-		ProductQuery proQuery = new ProductQuery();
-		// iQuery.se
-		List<ProductPo> productsPo = productDao.selectList(proQuery);
-		List<ProductDto> productMenu = Lists.newArrayList();
-		if (productMenu != null) {
-			for (ProductPo pPo : productsPo) {
-				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
-
-				productMenu.add(proPoToDto);
-			}
-		}
 
 		IndexPageDto indexDto = new IndexPageDto();
 		indexDto.setTopUser(userData);
 		indexDto.setArticles(articlesDto);
-		//if(getLogedUser(request)!=null){
-		indexDto.setArticleMenu(userArticlesDto);
-		indexDto.setAttentionMenu(articlesDto);
-		indexDto.setImageMenu(imagesDto);
-		indexDto.setProductMenu(productMenu);
-		//}
+		UserDto loggedUser = getLogedUser(request);
+		
+		if(loggedUser!=null){
+			/** user articles **/
+			List<ArticleDto> userArticlesDto = Lists.newArrayList();
+			if (loggedUser != null) {
+				ArticleQuery suerArticleQuery = new ArticleQuery();
+				suerArticleQuery.setUsername(loggedUser.getUsername());
+				suerArticleQuery.setPageIndex(1);
+				suerArticleQuery.setPageSize(5);
+				List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
+				if (articlesPo != null) {
+					for (ArticlePo articlePo : userArticlesPo) {
+						userArticlesDto.add(EntityUtil.articlePoToDto(articlePo));
+					}
+				}
+			}
+
+			/** Images **/
+			ImageQuery iQuery = new ImageQuery();
+			iQuery.setUsername(loggedUser.getUsername());
+			List<ImagePo> imageMenu = imageDao.selectList(iQuery);
+			List<ImageDto> imagesDto = Lists.newArrayList();
+			if (imageMenu != null) {
+				for (ImagePo imagePo : imageMenu) {
+					ImageDto imagePoToDto = EntityUtil.imagePoToDto(imagePo);
+					if (!imgDomain.endsWith("/")) {
+						imagePoToDto.setUrl(imgDomain + "/" + imagePoToDto.getBaseUri());
+					} else {
+						imagePoToDto.setUrl(imgDomain + imagePoToDto.getBaseUri());
+					}
+					imagesDto.add(imagePoToDto);
+				}
+			}
+			
+			/** User Product **/
+			ProductQuery proQuery = new ProductQuery();
+			proQuery.setUsername(loggedUser.getUsername());
+			List<ProductPo> productsPo = productDao.selectList(proQuery);
+			List<ProductDto> productMenu = Lists.newArrayList();
+			if (productMenu != null) {
+				for (ProductPo pPo : productsPo) {
+					ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+					productMenu.add(proPoToDto);
+				}
+			}
+			indexDto.setArticleMenu(userArticlesDto);
+		//	indexDto.setAttentionMenu(articlesDto);
+			indexDto.setImageMenu(imagesDto);
+			indexDto.setProductMenu(productMenu);
+			indexDto.setLoggedUser(loggedUser);
+		}
 
 		ResponseData rd = new ResponseData();
 		rd.setData(indexDto);
@@ -149,10 +143,8 @@ public class IndexPageAction extends BaseAction {
 	public ResponseData topUser(HttpServletRequest request) {
 		ResponseData rd = new ResponseData();
 
-		UserDto loggedUser = getLogedUser(request);
 
 		SignatureLikeQuery query = new SignatureLikeQuery();
-		if (loggedUser == null) {
 			UserQuery recQuery = new UserQuery();
 			recQuery.setUsername("ITMAOO");
 			UserPo recUser = userDao.selectSingle(recQuery);
@@ -161,12 +153,6 @@ public class IndexPageAction extends BaseAction {
 			UserDto userData = EntityUtil.userPoToDto(recUser);
 			userData.setSignatureLikedCount(count);
 			rd.setData(userData);
-		} else {
-			query.setBelikedUser(loggedUser.getUsername());
-			Integer count = signatureLikeDao.countByLikedUser(query);
-			loggedUser.setSignatureLikedCount(count);
-			rd.setData(loggedUser);
-		}
 		return rd;
 
 	}

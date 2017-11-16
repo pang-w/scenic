@@ -57,7 +57,7 @@
 		FROM article ad
 		WHERE
 		1=1
-		<if test="#{username}">
+		<if test="null!= username and '' != username">
 		AND username = #{username}
 		</if>
 		ORDER BY createdate DESC

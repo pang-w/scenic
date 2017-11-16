@@ -9,6 +9,7 @@ import com.itmaoo.scenic.entity.dto.UserDto;
 
 public class IndexPageDto {
 	private UserDto topUser;
+	private UserDto loggedUser;
 	private List<ArticleDto> articles;
 	private List<ArticleDto> articleMenu;
 	private List<ImageDto> imageMenu;
@@ -16,6 +17,12 @@ public class IndexPageDto {
 	private List<ArticleDto> attentionMenu;
 	
 	
+	public UserDto getLoggedUser() {
+		return loggedUser;
+	}
+	public void setLoggedUser(UserDto loggedUser) {
+		this.loggedUser = loggedUser;
+	}
 	public UserDto getTopUser() {
 		return topUser;
 	}

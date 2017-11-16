@@ -4,7 +4,26 @@ loadEditAll();
 function loadEditAll(){
 	var app = angular.module('iukissApp', []);
 	app.controller('iukissCtrl', function($scope,$http) {
-		$http.post("/action/page/edit/all",null)
+		$scope.ngEditProduct = function(pid){
+			support.ajax("user/auth/checkLogged", null,
+					function(response) {
+						if(response.status!="0000"){
+							support.layerEditProduct(pid);
+						}else{
+							layer.msg(response.msg);
+						}
+					},
+					function(response) {
+						layer.msg(response.msg);
+					}
+			);
+		    
+		};
+		$scope.ngShowImg = function(url){
+			//alert("Item Id 是 ");
+		    support.layerImage(url);
+		};
+		$http.post("/action/page/index/all",null)
 	    .then(function (result) {
 	    	if (result.data.status == "0000") {
 	    		$scope.topUser = result.data.data.topUser;
@@ -14,8 +33,6 @@ function loadEditAll(){
 		        $scope.imageMenu = result.data.data.imageMenu;
 		        $scope.productMenu = result.data.data.productMenu;
 		        $scope.attentionMenu = result.data.data.attentionMenu;
-		        
-		        $scope.editArticle = result.data.data.editArticle;
 			}
 	    
 	    });

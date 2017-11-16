@@ -21,8 +21,14 @@ public class UserQuery extends BaseQuery{
 	private Boolean isMale;
 	private Integer loginTryTimes; 
 	private Date lastLoggedDate;
+	private String nickname;
 	
-	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public String getIuCode() {
 		return iuCode;
 	}

@@ -26,45 +26,19 @@
 			#{actionUser},#{articleUuid}, #{message}, #{createDate}, #{lastModifyDate}
 		)
 	</insert>
-	<select id="selectById" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
+	<select id="selectByUuid" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
 		SELECT
 		<include refid="cols" />
-		FROM articlemessage
-		WHERE
-		articlemessageid = #{id}
+		 ,likedCount as likedCount
+		FROM articlemessage ad
+		
+		left join
+		(SELECT messageid as messageId, count(messageid) as likedCount FROM messagelike group by messageid) ml
+		on ad.articlemessageid = ml.messageid
+		WHERE ad.articleuuid = #{articleUuid}
+		ORDER BY createdate DESC
 	</select>
-	<select id="selectSingle" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
-		SELECT
-		<include refid="cols" />
-		FROM articlemessage
-		WHERE
-		username = #{username}
-	</select>
-	<select id="selectSingleByUserAndArticleMessageName" resultType="ArticleMessagePo" parameterType="ArticleMessageQuery">
-		SELECT
-		<include refid="cols" />
-		FROM articlemessage
-		WHERE
-		username = #{username}
-		AND
-		name = #{name}
-	</select>
-	<update id="updateById" parameterType="ArticleMessagePo">
-		UPDATE
-		articlemessage
-		SET	
-		username=#{username},
-		name=#{name},
-		type=#{type},
-		basenum=#{baseNum},
-		imgurl=#{imgUrl},
-		description=#{description},
-		type=#{type},
-		lastmodifydate=#{type},
-		linkto=#{lastModifyDate}
-		WHERE
-		articlemessageid = #{id}
-	</update>
+
 	<sql id="collectionList">
 		SELECT
 		<include refid="cols" />

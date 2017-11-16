@@ -5,15 +5,16 @@
 <mapper namespace="com.itmaoo.scenic.dao.IProductDao">
 	<sql id="cols">
 		productid AS id,
-		baseNum AS basenum,
-		imgUrl AS imgurl,
+		basenum AS baseNum,
+		imgurl AS imgUrl,
 		description AS description,
 		username AS username,
 		name AS name,
 		type AS type,
-		linkTo AS linkto,
+		linkto AS linkTo,
 		createdate AS createDate,
-		lastmodifydate AS lastModifyDate
+		lastmodifydate AS lastModifyDate,
+		price AS price
 		
 	</sql>
 	<sql id="pageHead">
@@ -25,9 +26,9 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ProductPo">
 		INSERT INTO product (
-			basenum,imgurl, linkto, type, username, description, name, createdate, lastmodifydate
+			basenum,imgurl, linkto, type, username, description, name, createdate, lastmodifydate, price
 		)VALUES	(
-			#{baseNum},#{imgUrl}, #{linkTo}, #{type}, #{username}, #{description}, #{name}, #{createDate}, #{lastModifyDate}
+			#{baseNum},#{imgUrl}, #{linkTo}, #{type}, #{username}, #{description}, #{name}, #{createDate}, #{lastModifyDate},#{price}
 		)
 	</insert>
 	<select id="selectById" resultType="ProductPo" parameterType="ProductQuery">
@@ -64,8 +65,9 @@
 		imgurl=#{imgUrl},
 		description=#{description},
 		type=#{type},
-		lastmodifydate=#{type},
-		linkto=#{lastModifyDate}
+		lastmodifydate=#{lastModifyDate},
+		linkto=#{linkTo},
+		price=#{price}
 		WHERE
 		productid = #{id}
 	</update>
@@ -73,6 +75,11 @@
 		SELECT
 		<include refid="cols" />
 		FROM product ad
+		WHERE
+		1=1
+		<if test="#{username}">
+		AND username = #{username}
+		</if>
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

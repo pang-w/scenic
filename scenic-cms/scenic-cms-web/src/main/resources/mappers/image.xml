@@ -62,6 +62,11 @@
 		SELECT
 		<include refid="cols" />
 		FROM image ad
+		WHERE
+		1=1
+		<if test="#{username}">
+		AND username = #{username}
+		</if>
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

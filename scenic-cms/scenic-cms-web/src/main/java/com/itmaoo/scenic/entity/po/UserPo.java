@@ -8,7 +8,7 @@ import java.util.Date;
  * @author mario
  *
  */
-public class UserPo implements Serializable{
+public class UserPo extends BasePo{
 	private static final long serialVersionUID = 6194632578192753293L;
 	private Integer userid;
 	private String username;
@@ -17,14 +17,19 @@ public class UserPo implements Serializable{
 	private String telphone;
 	private String iuCode;
 	private String recCode;
-	private Date createDate; 
 	private Boolean invalid;
 	private Boolean isMale;
 	private Integer loginTryTimes; 
 	private Date lastLoggedDate;
 	private String signature;
+	private String nickname;
 	
-	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public String getIuCode() {
 		return iuCode;
 	}
@@ -74,12 +79,6 @@ public class UserPo implements Serializable{
 		this.loginTryTimes = loginTryTimes;
 	}
 
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
 	public Boolean getInvalid() {
 		return invalid;
 	}

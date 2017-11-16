@@ -6,6 +6,7 @@
 	<sql id="cols">
 		userid AS id,
 		username AS username,
+		nickname AS nickname,
 		password AS password,
 		email AS email,
 		telphone AS telphone,
@@ -25,16 +26,35 @@
 	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
 	</sql>
 	
+	<update id="update" parameterType="UserPo">
+		UPDATE
+		user
+		SET
+		nickname=#{nickname},
+		signature=#{signature},
+		lastmodifydate=#{lastModifyDate}
+		WHERE
+		username = #{username}
+	</update>
+	<update id="updatePassword" parameterType="UserPo">
+		UPDATE
+		user
+		SET
+		password=#{password},
+		lastmodifydate=#{lastModifyDate}
+		WHERE
+		username = #{username}
+	</update>
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="Collection">
 		INSERT INTO user (
 		username, password, email,  telphone, createdate, invalid,
-		logintrytimes, lastloggeddate,ismale,iucode,reccode,signature
+		logintrytimes, lastloggeddate,ismale,iucode,reccode,signature,nickname
 		)
 		VALUES
 		(
 		#{username},#{password},#{email},#{telphone},#{createDate},	#{invalid},
-		#{loginTryTimes},#{createDate},#{lastLoggedDate},#{iuCode},	#{recCode},	#{signature}
+		#{loginTryTimes},#{createDate},#{lastLoggedDate},#{iuCode},	#{recCode},	#{signature},#{nickname}
 		)
 	</insert>
 	<select id="selectSingle" resultType="UserPo" parameterType="UserQuery">

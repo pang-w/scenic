@@ -37,57 +37,59 @@
 
 <body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
 
-<!-- start navigation -->
-<nav class="main-navigation">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="navbar-header">
+	<!-- start navigation -->
+	<nav class="main-navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="navbar-header">
                         <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
                         <span class="sr-only">Toggle navigation</span>
                         <i class="fa fa-bars"></i>
                         </span>
+					</div>
+					<div class="collapse navbar-collapse" id="main-menu">
+						<ul class="nav navbar-nav">
+							<li><a href="/">IUKISS</a></li>
+							<li><a href="/articles.html">文章</a></li>
+							<li><a href="/products.html">商品</a></li>
+						</ul>
+
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/tags/游记">游记 <span
+									class="sr-only">(current)</span></a></li>
+							<li><a href="/tags/装修">装修</a></li>
+							<li><a href="/tags/办事流程">办事流程</a></li>
+							<li><a href="/tags/IT技能">IT技能</a></li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/register.html">注册</a></li>
+							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
+							<li id="loggedDropdown" class="dropdown">
+								<a	id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/profile.html">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a
+											onclick="support.layerLogin()">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a
+											onclick="support.logout()">退出</a></li>
+								</ul></li>
+						</ul>
+						<!-- <form class="navbar-form navbar-right">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-default">搜</button>
+						</form> -->
+					</div>
+
 				</div>
-				<div class="collapse navbar-collapse" id="main-menu">
-					<ul class="nav navbar-nav">
-						<li><a class="navbar-brand"  href="/articles.html">IUKISS</a></li>
-						<li><a href="/articles.html">文章</a></li>
-						<li><a href="/products.html">商品</a></li>
-					</ul>
-
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="/tags/游记">游记 <span
-								class="sr-only">(current)</span></a></li>
-						<li><a href="/tags/装修">装修</a></li>
-						<li><a href="/tags/办事流程">办事流程</a></li>
-					</ul>
-
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/register.html">注册</a></li>
-						<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
-						<li id="loggedDropdown" class="dropdown">
-							<a	id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="/profile.html">个人资料</a></li>
-								<li data-filter-camera-type="Zed"><a
-										onclick="support.layerLogin()">修改密码</a></li>
-								<li data-filter-camera-type="Bravo"><a
-										onclick="support.logout()">退出</a></li>
-							</ul></li>
-					</ul>
-					<form class="navbar-form navbar-right">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">搜</button>
-					</form>
-				</div>
-
 			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 	<!-- end navigation -->
+
 
 
 	<!-- start site's main content area -->
@@ -96,10 +98,9 @@
 			<div class="row">
 				<main class="col-md-8 main-content">
 
-				<article id="108" class="post">
+				<article class="post">
 					<aside class="col-md-4 sidebar">
-						<img alt="user" width="90%"
-							src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
+						<i  class="fa fa-user fa-5x"></i>
 					</aside>
 					<div class="row">
 						<div>
@@ -164,10 +165,10 @@
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
 								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
-								<div id="collapseArticle" class="panel-collapse collapse in">
+								<div id="collapseArticle" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
 											<a href="/action/edit/article/{{a.uuid}}">
         											<i class="pull-right fa fa-edit"></i>
         									</a>
@@ -180,27 +181,36 @@
 								<div id="collapseAttention" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品</div>
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品
+								<a onclick="support.layerAddProduct()">
+									<i class="pull-right fa fa-edit"></i>
+								</a>
+								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
+											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
+												<i class="pull-right fa fa-edit"></i>
+											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
+							
 							<div class="panel panel-warning">
 								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a href="">{{ a.title }}</a>
+											<a ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a>
+											
 										</li>
 									</ul>
 								</div>
@@ -235,12 +245,6 @@
 						</div>
 					</div>
 					<!-- end tag cloud widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
 				</aside>
 
 			</div>

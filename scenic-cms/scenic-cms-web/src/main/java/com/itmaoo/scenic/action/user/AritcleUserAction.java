@@ -1,20 +1,10 @@
 package com.itmaoo.scenic.action.user;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,34 +16,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSException;
-import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
-import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IArticleLikeDao;
 import com.itmaoo.scenic.dao.IArticleMessageDao;
 import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.IMessageLikeDao;
-import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ArticleLikeDto;
 import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
 import com.itmaoo.scenic.entity.dto.MessageLikeDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
-import com.itmaoo.scenic.entity.dto.SignatureLikeDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticleLikePo;
 import com.itmaoo.scenic.entity.po.ArticleMessagePo;
-import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.MessageLikePo;
-import com.itmaoo.scenic.entity.po.SignatureLikePo;
-import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.service.ImageService;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 
 @Controller
 @RequestMapping(value = "/action/user/article/")

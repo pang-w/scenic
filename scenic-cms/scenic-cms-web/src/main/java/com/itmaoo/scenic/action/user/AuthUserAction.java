@@ -39,7 +39,7 @@ public class AuthUserAction extends BaseAction {
 		UserDto userRegested = new UserDto();
 		ResponseData rd = new ResponseData();
 		if (StringUtils.isEmpty(userDto.getUsername())||
-				userDto.getUsername().length()<6) {
+				userDto.getUsername().length()<5) {
 			rd.setStatus("5003");
 			rd.setMsg("用户名必须为5位以上的字符");
 			return rd;
@@ -102,7 +102,63 @@ public class AuthUserAction extends BaseAction {
 		return rd;
 
 	}
+	@ResponseBody
+	@RequestMapping("update")
+	public ResponseData update(HttpServletRequest request, @RequestBody UserDto userDto) {
+		ResponseData rd = new ResponseData();
+		if (StringUtils.isEmpty(userDto.getSignature())||
+				userDto.getSignature().length()<10 ||
+				userDto.getSignature().length()>80) {
+			rd.setStatus("5006");
+			rd.setMsg("签名10到80个字符");
+			return rd;
+		}
+		UserDto logedUser = getLogedUser(request);
+		if(logedUser!=null){
+			UserPo userPo = new UserPo();
+			userPo.setUsername(logedUser.getUsername());
+			userPo.setNickname(userDto.getNickname());
+			userPo.setSignature(userDto.getSignature());
+			userPo.setLastModifyDate(new Date());
+			userDao.update(userPo);
+			resetLogedUser(request, logedUser);
+		}else{
+			rd.setStatus("4001");
+			rd.setMsg("未登录");
+		}
+		return rd;
 
+	}
+	@ResponseBody
+	@RequestMapping("changepassword")
+	public ResponseData changepassword(HttpServletRequest request, @RequestBody UserDto userDto) {
+		ResponseData rd = new ResponseData();
+		if (StringUtils.isEmpty(userDto.getPassword())||
+				userDto.getPassword().length()<5) {
+			rd.setStatus("5004");
+			rd.setMsg("密码必须为5位以上的字符");
+			return rd;
+		}
+		if(!userDto.getPassword().equals(userDto.getConfirmMassword())){
+			rd.setStatus("5004");
+			rd.setMsg("密码不一致");
+			return rd;
+		}
+		UserDto logedUser = getLogedUser(request);
+		if(logedUser!=null){
+			UserPo userPo = new UserPo();
+			userPo.setUsername(logedUser.getUsername());
+			userPo.setPassword(userDto.getPassword());
+			userPo.setLastModifyDate(new Date());
+			userDao.updatePassword(userPo);
+		}else{
+			rd.setStatus("4001");
+			rd.setMsg("未登录");
+		}
+		return rd;
+
+	}
+	
 	@ResponseBody
 	@RequestMapping("login")
 	public ResponseData loginUser(HttpServletRequest request, @RequestBody UserDto userDto) {

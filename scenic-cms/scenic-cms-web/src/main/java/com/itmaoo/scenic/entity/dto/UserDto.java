@@ -1,18 +1,16 @@
 package com.itmaoo.scenic.entity.dto;
 
-import java.io.Serializable;
-import java.util.Date;
-
 /**
  * 
  * @author mario
  *
  */
-public class UserDto implements Serializable{
+public class UserDto extends BaseDto{
 	private static final long serialVersionUID = 6194632578192753293L;
 	private Integer userid;
 	private String username;
-	private String password; 
+	private String password;
+	private String confirmMassword; 
 	private String nickname;
 	private String signature;
 	private String email;
@@ -25,9 +23,14 @@ public class UserDto implements Serializable{
 	private Integer signatureLikedCount;
 	//yyyy-MM-dd HH:mm:ss
 	private String lastLoggedDate;
-	private String createDate; 
 	
 	
+	public String getConfirmMassword() {
+		return confirmMassword;
+	}
+	public void setConfirmMassword(String confirmMassword) {
+		this.confirmMassword = confirmMassword;
+	}
 	public Integer getSignatureLikedCount() {
 		return signatureLikedCount;
 	}
@@ -106,12 +109,7 @@ public class UserDto implements Serializable{
 	public void setLastLoggedDate(String lastLoggedDate) {
 		this.lastLoggedDate = lastLoggedDate;
 	}
-	public String getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
+
 	public Boolean getIsMale() {
 		return isMale;
 	}

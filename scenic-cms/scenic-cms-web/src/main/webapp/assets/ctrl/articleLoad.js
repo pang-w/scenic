@@ -50,7 +50,7 @@ function loadIndexAll(){
 	    
 	    });
 		var data = {
-				"articleUuid" : $("#articleUuid").val()
+				"uuid" : $("#articleUuid").val()
 			};
 		support.ajax("page/article/message", data,function(response) {
 			if (response.status == "0000") {

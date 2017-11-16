@@ -42,44 +42,52 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-
+					<div class="navbar-header">
+                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-bars"></i>
+                        </span>
+					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
-						<a class="navbar-brand" href="">IUKISS</a>
 						<ul class="nav navbar-nav">
+							<li><a href="/">IUKISS</a></li>
 							<li><a href="/articles.html">文章</a></li>
 							<li><a href="/products.html">商品</a></li>
 						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/register.html">注册</a></li>
-							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()" >登录</a></li>
-							<li id="loggedDropdown" class="dropdown">
-								<a id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown" >
-									<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="/profile.html">个人资料</a></li>
-									<li data-filter-camera-type="Zed"><a onclick="support.layerLogin()">修改密码</a></li>
-									<li data-filter-camera-type="Bravo"><a onclick="support.logout()">退出</a></li>
-								</ul>
-							</li>
-						</ul>
+
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="/tags/游记">游记 <span class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="/tags/游记">游记 <span
+									class="sr-only">(current)</span></a></li>
 							<li><a href="/tags/装修">装修</a></li>
 							<li><a href="/tags/办事流程">办事流程</a></li>
+							<li><a href="/tags/IT技能">IT技能</a></li>
 						</ul>
-						<form class="navbar-form navbar-right">
+
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/register.html">注册</a></li>
+							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
+							<li id="loggedDropdown" class="dropdown">
+								<a	id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/profile.html">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a
+											onclick="support.layerLogin()">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a
+											onclick="support.logout()">退出</a></li>
+								</ul></li>
+						</ul>
+						<!-- <form class="navbar-form navbar-right">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Search">
 							</div>
 							<button type="submit" class="btn btn-default">搜</button>
-						</form>
+						</form> -->
 					</div>
 
 				</div>
 			</div>
 		</div>
 	</nav>
-
 	<!-- end navigation -->
 
 
@@ -91,19 +99,18 @@
 
 				<article id="108" class="post">
 					<aside class="col-md-4 sidebar">
-						<img alt="user" width="90%"
-							src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
+						<i  class="fa fa-user fa-5x"></i>
 					</aside>
 					<div class="row">
 						<div>
-							<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
+							<p>{{topUser.signature}}</p>
 						</div>
 						<div class="pull-right">
-							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai">ITMAOO</a></span> •
+							<span class="author"><a id="signatureLikedUsername"
+								href="/i/{{topUser.username}}">{{topUser.username}}</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-								title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-							<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
+								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
+								| {{topUser.signatureLikedCount}}赞<span  class='btn' id="likeSignatureBtn" ><i class="fa fa-heart"></i> 点赞</span> 
 						</div>
 					</div>
 				</article>
@@ -123,8 +130,7 @@
 													</aside>
 						<aside class="col-md-4 sidebar">					
 							<div>
-								<p><span class="author">价格：<a
-										href="http://www.iukiss.com/author/wangsai">{{p.price}}</a></span></p>
+								<p><span class="author">价格：{{p.price}}</span></p>
 								<p><span class="author">
 								<a 	href="{{p.linkTo}}">访问商品链接</a></span></p>
 							</div>
@@ -134,15 +140,14 @@
 										href="{{p.linkTo}}">安抚巍峨若家</a></span>
 								<span class="author">作者：<a
 									href="/author/{{p.username}}">{{p.username}}</a></span> •
-								<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-									  title="2017年10月25日星期三下午4点57分">{{p.lastModifyDate}}</time>
-								<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
+								<time class="post-date">{{p.lastModifyDate}}</time>
+								
 							</div>
 					</article>
 
 
 				<nav class="pagination" role="navigation">
-					<span class="page-number">第 1 页 ⁄ 共 9 页</span> <a
+					<span class="page-number">第 1 页 ⁄ 共 1 页</span> <a
 						class="older-posts" href="http://www.iukiss.com/page/2"><i
 						class="fa fa-angle-right"></i></a>
 				</nav>
@@ -166,10 +171,10 @@
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
 								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
-								<div id="collapseArticle" class="panel-collapse collapse in">
+								<div id="collapseArticle" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
 											<a href="/action/edit/article/{{a.uuid}}">
         											<i class="pull-right fa fa-edit"></i>
         									</a>
@@ -182,28 +187,36 @@
 								<div id="collapseAttention" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品</div>
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品
+								<a onclick="support.layerAddProduct()">
+									<i class="pull-right fa fa-edit"></i>
+								</a>
+								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
-											
+											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
+												<i class="pull-right fa fa-edit"></i>
+											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
+							
 							<div class="panel panel-warning">
 								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a href="">{{ a.title }}</a>
+											<a ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a>
+											
 										</li>
 									</ul>
 								</div>
@@ -212,40 +225,32 @@
 					</div>
 					<!-- end resource widget -->
 
-
-
 					<!-- start tag cloud widget -->
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="http://www.iukiss.com/tag/jquery">jQuery</a> <a
-								href="http://www.iukiss.com/tag/ghost-0-7-ban-ben">IUKISS
-								0.7 版本</a> <a href="http://www.iukiss.com/tag/opensource">开源</a> <a
-								href="http://www.iukiss.com/tag/zhu-shou-han-shu">助手函数</a> <a
-								href="http://www.iukiss.com/tag/tag-cloud">标签云</a> <a
-								href="http://www.iukiss.com/tag/navigation">导航</a> <a
-								href="http://www.iukiss.com/tag/customize-page">自定义页面</a> <a
-								href="http://www.iukiss.com/tag/static-page">静态页面</a> <a
-								href="http://www.iukiss.com/tag/roon-io">Roon.io</a> <a
-								href="http://www.iukiss.com/tag/configuration">配置文件</a> <a
-								href="http://www.iukiss.com/tag/upyun">又拍云存储</a> <a
-								href="http://www.iukiss.com/tag/upload">上传</a> <a
-								href="http://www.iukiss.com/tag/handlebars">Handlebars</a> <a
-								href="http://www.iukiss.com/tag/email">邮件</a> <a
-								href="http://www.iukiss.com/tag/shortcut">快捷键</a> <a
-								href="http://www.iukiss.com/tag/yong-hu-zhi-nan">用户指南</a> <a
-								href="http://www.iukiss.com/tag/theme-market">主题市场</a> <a
-								href="http://www.iukiss.com/tag/release">新版本发布</a> <a
-								href="http://www.iukiss.com/tag-cloud">...</a>
+							<a href="/tags/jquery">jQuery</a> <a
+								href="/tags/ghost-0-7-ban-ben">IUKISS
+								0.7 版本</a> <a href="/tags/opensource">开源</a> <a
+								href="/tags/zhu-shou-han-shu">助手函数</a> <a
+								href="/tags/tag-cloud">标签云</a> <a
+								href="/tags/navigation">导航</a> <a
+								href="/tags/customize-page">自定义页面</a> <a
+								href="/tags/static-page">静态页面</a> <a
+								href="/tags/roon-io">Roon.io</a> <a
+								href="/tags/configuration">配置文件</a> <a
+								href="/tags/upyun">又拍云存储</a> <a
+								href="/tags/upload">上传</a> <a
+								href="/tags/handlebars">Handlebars</a> <a
+								href="/tags/email">邮件</a> <a
+								href="/tags/shortcut">快捷键</a> <a
+								href="/tags/yong-hu-zhi-nan">用户指南</a> <a
+								href="/tags/theme-market">主题市场</a> <a
+								href="/tags/release">新版本发布</a> <a
+								href="/tag-cloud">...</a>
 						</div>
 					</div>
 					<!-- end tag cloud widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
 				</aside>
 
 			</div>

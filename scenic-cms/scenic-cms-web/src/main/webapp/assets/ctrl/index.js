@@ -26,7 +26,7 @@ jQuery(function($) {
 	});
 	$("#likeSignatureBtn").click(function() {
 		var data = {
-				"belikedUser" : $("#signatureLikedUsername").text()
+				"belikedUser" : $("#signatureLikedUsername").val()
 			};
 		support.ajax("user/signature/likeSignature", data,function(response) {
 			if (response.status == "0000") {

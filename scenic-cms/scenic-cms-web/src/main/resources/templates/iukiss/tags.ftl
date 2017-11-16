@@ -55,7 +55,7 @@
 						</div>
 					</div>
 					<!-- end widget -->
-							
+					
 					<#include "components/userResourceLoop.ftl">
 					
 					<!-- start tag cloud widget -->

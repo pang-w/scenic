@@ -40,6 +40,17 @@ var support = {
 			  ,content: '/layerLogin.html'
 			});
 	},
+	layerChangePassword : function layerLogin() {
+		layer.open({
+			  type:  2//Page层类型
+			  ,area: ['300px', '300px']
+			  ,title: '修改密码'
+			  ,shade: 0.6 //遮罩透明度
+			  ,maxmin: true //允许全屏最小化
+			  ,anim: 1 //0-6的动画形式，-1不开启
+			  ,content: '/layerChangePassword.html'
+			});
+	},
 	
 	layerAddProduct : function layerAddProduction() {
 		
@@ -78,7 +89,7 @@ var support = {
 			  ,shade: 0.6 //遮罩透明度
 			  ,maxmin: true //允许全屏最小化
 			  ,anim: 1 //0-6的动画形式，-1不开启
-			  ,content: '<img alt="user" width="90%" src="'+ url +'">'
+			  ,content: url+'<img alt="user" width="90%" src="'+ url +'">'
 			});
 	},
 	logout : function logout() {

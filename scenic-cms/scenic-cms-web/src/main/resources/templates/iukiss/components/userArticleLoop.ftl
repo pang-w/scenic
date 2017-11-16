@@ -1,19 +1,18 @@
 			<main class="col-md-8 main-content">
 				<article id="108" class="post">
 					<aside class="col-md-4 sidebar">
-						<img alt="user" width="90%"
-							src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
+						<i  class="fa fa-user fa-5x"></i>
 					</aside>
 					<div class="row">
 						<div>
-							<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
+							<p>{{loggedUser.signature}}</p>
 						</div>
 						<div class="pull-right">
-							<span class="author">作者：<a
-								href="http://www.iukiss.com/author/wangsai/">${author.username}</a></span> •
+							<input id="signatureLikedUsername" type="hidden" value="{{loggedUser.username}}"/>
+							<span class="author"><a href="/i/{{loggedUser.username}}">{{loggedUser.nickname||loggedUser.username}}</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-								title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-							<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
+								title="2017年10月25日星期三下午4点57分">{{loggedUser.createDate}}</time>
+								| {{loggedUser.signatureLikedCount}}赞<span  class='btn' id="likeSignatureBtn" ><i class="fa fa-heart"></i> 点赞</span> 
 						</div>
 					</div>
 				</article>
@@ -35,7 +34,6 @@
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
 							<i class="fa fa-folder-open-o"></i>
-
 						</div>
 						<div class="pull-right share"></div>
 					</footer>

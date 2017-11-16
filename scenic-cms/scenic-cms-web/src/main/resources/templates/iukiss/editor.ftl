@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -11,12 +10,11 @@
 <link href="../../../assets/base/summernote/summernote.css" rel="stylesheet">
 
 <script type="text/javascript" src="../../../assets/base/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript"
-	src="../../../assets/base/summernote/summernote.js"></script>
+<script type="text/javascript" src="../../../assets/base/summernote/summernote.js"></script>
 <script type="text/javascript" src="../../../assets/base/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../../assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="../../../assets/base/js/angular.min.js"></script>
-
+<script type="text/javascript" src="../../../assets/ctrl/base.js"></script>
 
 <link rel="stylesheet" href="../../../assets/css/iukiss.css">
 
@@ -29,49 +27,9 @@
 
 <body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
 
-	<nav class="main-navigation">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-
-					<div class="collapse navbar-collapse" id="main-menu">
-						<a class="navbar-brand" href="/">IUKISS</a>
-						<ul class="nav navbar-nav">
-							<li><a href="/articles.html">文章</a></li>
-							<li><a href="/products.html">商品</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/register.html">注册</a></li>
-							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
-							<li id="loggedDropdown" class="dropdown"><a
-								id="loggedUesername" class="dropdown-toggle"
-								data-toggle="dropdown"> <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="/profile.html">个人资料</a></li>
-									<li data-filter-camera-type="Zed"><a
-										onclick="support.layerLogin()">修改密码</a></li>
-									<li data-filter-camera-type="Bravo"><a
-										onclick="support.logout()">退出</a></li>
-								</ul></li>
-						</ul>
-						<ul class="nav navbar-nav">
-							<li class="active"><a href="/tags/游记">游记 <span
-									class="sr-only">(current)</span></a></li>
-							<li><a href="/tags/装修">装修</a></li>
-							<li><a href="/tags/办事流程">办事流程</a></li>
-						</ul>
-						<form class="navbar-form navbar-right">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">搜</button>
-						</form>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</nav>
+	<!-- start navigation -->
+	<#include "components/bodyNav.ftl">
+	<!-- end navigation -->
 	<section class="content-wrap">
 		<div class="container">
 			<div class="row">
@@ -116,15 +74,15 @@
 				</main>
 
 				<aside class="col-md-4 sidebar">
-					<!-- start tag cloud widget -->
+	
+					<!-- start resource widget -->
 					<div id="loggedInfo" class="widget">
 						<h4 class="title">我的资源</h4>
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseArticleAction">我的文章</div>
+								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
 								<div id="collapseArticle" class="panel-collapse collapse in">
-									<ul class="list-group panel-body">
+									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in articleMenu">
 											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
 											<a href="/action/edit/article/{{a.uuid}}">
@@ -135,23 +93,28 @@
 								</div>
 							</div>
 							<div class="panel panel-success">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseAttentionAction">我的收藏</div>
-								<div id="collapseAttention" class="panel-collapse collapse">
-									<ul class="list-group panel-body">
-										<li class="list-group-item" ng-repeat="a in articleMenu">
+								<div class='btn-block panel-heading panel-title' id="collapseAttentionAction">我的收藏</div>
+								<div class="panel-collapse collapse">
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in attentionMenu">
 											<a href="/">{{ a.title }}</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseProductAction">我的商品</div>
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品
+								<a onclick="support.layerAddProduct()">
+									<i class="pull-right fa fa-edit"></i>
+								</a>
+								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
-									<ul class="list-group panel-body">
-										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/">{{ a.title }}</a>
+									<ul class="list-group panel-body" >
+										<li class="list-group-item" ng-repeat="a in productMenu">
+											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
+												<i class="pull-right fa fa-edit"></i>
+											</a>
 										</li>
 									</ul>
 								</div>
@@ -159,35 +122,18 @@
 							<div class="panel panel-warning">
 								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a href="{{ a.url }}" target="_blank">{{ a.imageName }}</a>
-											<a onclick="insertImage()">
-												<i class="pull-right fa fa-arrow-left"></i>
-											</a>
-										</li>
-											<a onclick="insertText()">
-												<i class="pull-right fa fa-arrow-left"></i>
-											</a>
-									</ul>
+									<li class="list-group-item" ng-repeat="a in imageMenu">
+										<a href="{{ a.url }}" target="_blank">{{ a.imageName }}</a>
+										<a onclick="insertImage()">
+											<i class="pull-right fa fa-arrow-left"></i>
+										</a>
+									</li>
 								</div>
 							</div>
-
 						</div>
-
-
 					</div>
-					<!-- end tag cloud widget -->
+					<!-- end resource widget -->
 
-
-
-				
-
-					<!-- start widget -->
-					<!-- end widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
 				</aside>
 
 			</div>
