@@ -45,7 +45,7 @@ public class IndexPageAction extends BaseAction {
 
 	@Autowired
 	private IImageDao imageDao;
-	
+
 	@Autowired
 	private IProductDao productDao;
 
@@ -75,7 +75,7 @@ public class IndexPageAction extends BaseAction {
 		}
 		/** Products **/
 		ProductQuery proQuery = new ProductQuery();
-		//proQuery.setUsername(loggedUser.getUsername());
+		// proQuery.setUsername(loggedUser.getUsername());
 		List<ProductPo> productsPo = productDao.selectList(proQuery);
 		List<ProductDto> products = Lists.newArrayList();
 		if (products != null) {
@@ -84,17 +84,15 @@ public class IndexPageAction extends BaseAction {
 				products.add(proPoToDto);
 			}
 		}
-		
-		
 
 		IndexPageDto indexDto = new IndexPageDto();
 		indexDto.setTopUser(userData);
 		indexDto.setArticles(articlesDto);
 		indexDto.setProducts(products);
-		
+
 		UserDto loggedUser = getLogedUser(request);
-		
-		if(loggedUser!=null){
+
+		if (loggedUser != null) {
 			/** user articles **/
 			List<ArticleDto> userArticlesDto = Lists.newArrayList();
 			if (loggedUser != null) {
@@ -126,7 +124,7 @@ public class IndexPageAction extends BaseAction {
 					imagesDto.add(imagePoToDto);
 				}
 			}
-			
+
 			/** User Product **/
 			ProductQuery uProQuery = new ProductQuery();
 			uProQuery.setUsername(loggedUser.getUsername());
@@ -139,7 +137,7 @@ public class IndexPageAction extends BaseAction {
 				}
 			}
 			indexDto.setArticleMenu(userArticlesDto);
-		//	indexDto.setAttentionMenu(articlesDto);
+			// indexDto.setAttentionMenu(articlesDto);
 			indexDto.setImageMenu(imagesDto);
 			indexDto.setProductMenu(productMenu);
 			indexDto.setLoggedUser(loggedUser);
@@ -156,16 +154,15 @@ public class IndexPageAction extends BaseAction {
 	public ResponseData topUser(HttpServletRequest request) {
 		ResponseData rd = new ResponseData();
 
-
 		SignatureLikeQuery query = new SignatureLikeQuery();
-			UserQuery recQuery = new UserQuery();
-			recQuery.setUsername("ITMAOO");
-			UserPo recUser = userDao.selectSingle(recQuery);
-			query.setBelikedUser(recUser.getUsername());
-			Integer count = signatureLikeDao.countByLikedUser(query);
-			UserDto userData = EntityUtil.userPoToDto(recUser);
-			userData.setSignatureLikedCount(count);
-			rd.setData(userData);
+		UserQuery recQuery = new UserQuery();
+		recQuery.setUsername("ITMAOO");
+		UserPo recUser = userDao.selectSingle(recQuery);
+		query.setBelikedUser(recUser.getUsername());
+		Integer count = signatureLikeDao.countByLikedUser(query);
+		UserDto userData = EntityUtil.userPoToDto(recUser);
+		userData.setSignatureLikedCount(count);
+		rd.setData(userData);
 		return rd;
 
 	}

@@ -53,7 +53,9 @@
 									value="保存" /> <input class="btn btn-default"
 									id="saveAndPreview" type="submit" value="保存并预览" /> <input
 									class="btn btn-default" id="publishArticle" type="submit"
-									value="发布" /> <a class="btn btn-default" target="_blank"
+									value="发布" />
+									<input class="btn btn-default" id="unpublishArticle" type="submit" value="取消发布" />
+									 <a class="btn btn-default" target="_blank"
 									href="/article/${articleUuid}.html">访问文章</a>
 							</div>
 						</div>

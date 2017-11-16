@@ -149,6 +149,21 @@ jQuery(function($) {
 		);
 		
 	});
+	$("#unpublishArticle").click(function() {
+		support.ajax("user/auth/checkLogged", null,
+				function(response) {
+					if(response.status!="0000"){
+						layer.msg(response.msg);
+					}else{
+						unpublish();
+					}
+				},
+				function(response) {
+					layer.msg(response.msg);
+				}
+		);
+		
+	});
 	$(document).ready(function() {
 		$('#summernote').summernote({
 			placeholder : 'IUKISS....',
@@ -229,7 +244,14 @@ jQuery(function($) {
 			"uuid" : $("#articleUuid").val()
 		};
 		support.ajax("edit/article/publish", data, function(response) {
-			var uri = "/article/" + $("#articleUuid").val() + ".html";
+			layer.msg(response.msg);
+		});
+	}
+	function unpublish() {
+		var data = {
+			"uuid" : $("#articleUuid").val()
+		};
+		support.ajax("edit/article/unpublish", data, function(response) {
 			layer.msg(response.msg);
 		});
 	}

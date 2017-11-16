@@ -152,6 +152,24 @@ public class EditAction extends BaseAction {
 		return rd;
 
 	}
+	@RequestMapping("article/unpublish")
+	@ResponseBody
+	public ResponseData unpublishArticle(HttpServletRequest request, @RequestBody ArticleDto article) {
+		//取出数据库中的数生成永久地址页面，保证下次生成的一致性
+		
+		ArticlePo articlePo = new ArticlePo();
+		articlePo.setIsPublished(false);
+		articlePo.setUuid(article.getUuid());
+		Integer count = articleDao.updatePublishStatus(articlePo);
+		ResponseData rd = new ResponseData();
+		if(count!=1){
+			rd.setStatus("5001");
+			rd.setMsg("更改失败");
+		}
+		rd.setData(article);
+		return rd;
+
+	}
 
 	private void buildArticleHtml(ArticlePo entity, HttpServletRequest request) {
 		try {
