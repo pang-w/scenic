@@ -22,7 +22,14 @@ public class UserQuery extends BaseQuery{
 	private Integer loginTryTimes; 
 	private Date lastLoggedDate;
 	private String nickname;
+	private Integer signatureLikedCount;
 	
+	public Integer getSignatureLikedCount() {
+		return signatureLikedCount;
+	}
+	public void setSignatureLikedCount(Integer signatureLikedCount) {
+		this.signatureLikedCount = signatureLikedCount;
+	}
 	public String getNickname() {
 		return nickname;
 	}

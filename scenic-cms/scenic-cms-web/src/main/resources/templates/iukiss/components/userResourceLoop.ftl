@@ -34,7 +34,7 @@
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a href="#">{{ a.name }}</a>
 											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
 												<i class="pull-right fa fa-edit"></i>
 											</a>

@@ -75,6 +75,7 @@
 		SELECT
 		<include refid="cols" />
 		FROM product ad
+		
 		WHERE
 		1=1
 		<if test="null!= username and '' != username">

@@ -32,7 +32,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="/profile.html">个人资料</a></li>
 									<li data-filter-camera-type="Zed"><a
-											onclick="support.layerLogin()">修改密码</a></li>
+											onclick="support.layerChangePassword()">修改密码</a></li>
 									<li data-filter-camera-type="Bravo"><a
 											onclick="support.logout()">退出</a></li>
 								</ul></li>
@@ -44,7 +44,6 @@
 							<button type="submit" class="btn btn-default">搜</button>
 						</form> -->
 					</div>
-
 				</div>
 			</div>
 		</div>

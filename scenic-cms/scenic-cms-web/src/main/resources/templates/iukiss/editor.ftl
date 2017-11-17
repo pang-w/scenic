@@ -22,7 +22,6 @@
 <script type="text/javascript" src="../../../assets/ctrl/editor.js"></script>
 <script type="text/javascript" src="../../../assets/ctrl/editorLoad.js"></script>
 
-
 </head>
 
 <body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
@@ -113,7 +112,7 @@
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a href="#">{{ a.name }}</a>
 											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
 												<i class="pull-right fa fa-edit"></i>
 											</a>
@@ -152,15 +151,15 @@
 						<h4 class="title">最新文章</h4>
 						<div class="content recent-post">
 							<div class="recent-single-post">
-								<a href="custom-excerpts/" class="post-title">自定义文章摘要（Excerpt）</a>
+								<a href="/" class="post-title">自定义文章摘要（Excerpt）</a>
 								<div class="date">2017年8月9日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="primary-tags/" class="post-title">首要“标签”</a>
+								<a href="/" class="post-title">首要“标签”</a>
 								<div class="date">2017年8月3日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="ghost-1-0-released/" class="post-title">IUKISS 1.0
+								<a href="/" class="post-title">IUKISS 1.0
 									版本正式发布</a>
 								<div class="date">2017年7月29日</div>
 							</div>

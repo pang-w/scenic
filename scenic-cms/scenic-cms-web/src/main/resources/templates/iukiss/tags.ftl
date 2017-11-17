@@ -44,7 +44,7 @@
 	<section class="content-wrap">
 		<div class="container">
 			<div class="row">
-				<#include "components/userArticleLoop.ftl">
+				<#include "components/userTagsArticleLoop.ftl">
 				<aside class="col-md-4 sidebar">
 					<!-- start widget -->
 					<div class="widget">

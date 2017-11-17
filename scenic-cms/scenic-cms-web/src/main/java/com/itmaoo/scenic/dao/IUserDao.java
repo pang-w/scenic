@@ -7,6 +7,8 @@ public interface IUserDao extends IBaseDao<UserPo>{
 
 	UserPo selectSingleByIucode(UserQuery iucode);
 	UserPo selectSingleLogin(UserQuery iucode);
+	UserPo selectByUsername(UserQuery iucode);
+	
 	int update(UserPo iucode);
 	int updatePassword(UserPo userPo);
 	

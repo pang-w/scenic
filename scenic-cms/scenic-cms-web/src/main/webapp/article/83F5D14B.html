@@ -19,24 +19,25 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="next" href="/">
 
-<link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
-<link rel="stylesheet" href="/assets/base/css/screen.css">
-<link rel="stylesheet" href="/assets/css/iukiss.css">
+<link rel="stylesheet" href="../assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/base/css/screen.css">
+<link rel="stylesheet" href="../assets/css/iukiss.css">
 
-<script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/assets/base/layer/layer.js"></script>
-<script type="text/javascript" src="/assets/ctrl/index.js"></script>
-<script type="text/javascript" src="/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="/assets/ctrl/articleLoad.js"></script>
-<script type="text/javascript" src="/assets/base/js/angular.min.js"></script>
-<script type="text/javascript" src="/assets/ctrl/article.js"></script>
+<script type="text/javascript" src="../assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../assets/base/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="../assets/ctrl/index.js"></script>
+<script type="text/javascript" src="../assets/ctrl/base.js"></script>
+<script type="text/javascript" src="../assets/ctrl/articleLoad.js"></script>
+<script type="text/javascript" src="../assets/base/js/angular.min.js"></script>
+<script type="text/javascript" src="../assets/ctrl/article.js"></script>
 
 
 </head>
 
 <body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
+	<!-- start navigation -->
 	<!-- start navigation -->
 	<nav class="main-navigation">
 		<div class="container">
@@ -49,8 +50,8 @@
                         </span>
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
-						<a class="navbar-brand" href="/">IUKISS</a>
 						<ul class="nav navbar-nav">
+							<li><a href="/">IUKISS</a></li>
 							<li><a href="/articles.html">文章</a></li>
 							<li><a href="/products.html">商品</a></li>
 						</ul>
@@ -76,19 +77,19 @@
 											onclick="support.logout()">退出</a></li>
 								</ul></li>
 						</ul>
-						<form class="navbar-form navbar-right">
+						<!-- <form class="navbar-form navbar-right">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Search">
 							</div>
 							<button type="submit" class="btn btn-default">搜</button>
-						</form>
+						</form> -->
 					</div>
 
 				</div>
 			</div>
 		</div>
 	</nav>
-	<!-- end navigation -->
+	<!-- end navigation -->	<!-- end navigation -->
 
 
 	<!-- start site's main content area -->
@@ -102,13 +103,13 @@
 				<article class="post">
 					<div class="row">
 						<div class="titleInputForm">
-							<label >${article.title}</label>
-							<input id="articleUuid" type="hidden" value="${articleUuid}"/>
+							<label >偏远郊区房子是否应该装修</label>
+							<input id="articleUuid" type="hidden" value="83F5D14B"/>
 						</div>
 						<hr />
 					</div>
 					<div class="row">
-						<div >${article.content}</div>
+						<div ><p>我是一个在上海的外地人，现在一个人在市区租房，没有买房的时候，担心房价上涨吞噬自己的血汗钱，买了偏远郊区的房子，如今房子还有三个月就交房了，不装修吧，已经买了为什么不给自安个家，装修吧，太偏不适合上班的年轻人，到底要不要装修成了令我头疼的问题。</p><p>我是不是优柔寡断的人，但这件事让我很纠结。我想有个自己的家，不想再过租房的生活，最近找了一家装修公司，正在帮我设计，我想知道有没有令我一下就决定的装修设计。目前为止，他们还没有拿出令我眼前一亮的设计，我开始打退堂鼓，又不想装修。偏远郊区上班要两个小时，时间都花再交通上了，还是租房吧，上下班方便。</p><p>现在装修的选择已经不是简单的房子问题，而是我要选择哪种生活状态。一种是住在郊区的踏实，一种是住在市区的小资。</p><p>现在真的和纠结。</p></div>
 					</div>
 				</article>
 

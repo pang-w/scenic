@@ -35,13 +35,20 @@ public class AuthUserAction extends BaseAction {
 	public ResponseData regest(HttpServletRequest request, @RequestBody UserDto userDto) {
 		UserQuery query = new UserQuery();
 		query.setUsername(userDto.getUsername());
-		UserPo userDb = userDao.selectSingle(query);
+		UserPo userDb = userDao.selectByUsername(query);
 		UserDto userRegested = new UserDto();
 		ResponseData rd = new ResponseData();
+		
 		if (StringUtils.isEmpty(userDto.getUsername())||
 				userDto.getUsername().length()<5) {
 			rd.setStatus("5003");
 			rd.setMsg("用户名必须为5位以上的字符");
+			return rd;
+		}
+		if (StringUtils.isEmpty(userDto.getNickname())||
+				userDto.getPassword().length()<6) {
+			rd.setStatus("5004");
+			rd.setMsg("昵称不能为空");
 			return rd;
 		}
 		if (StringUtils.isEmpty(userDto.getPassword())||
@@ -49,6 +56,9 @@ public class AuthUserAction extends BaseAction {
 			rd.setStatus("5004");
 			rd.setMsg("密码必须为5位以上的字符");
 			return rd;
+		}else if(!userDto.getPassword().equals(userDto.getConfirmMassword())){
+			rd.setStatus("5004");
+			rd.setMsg("两次密码输入不一致");
 		}
 		if (StringUtils.isEmpty(userDto.getRecCode())||
 				userDto.getRecCode().length()!=8) {
@@ -190,10 +200,6 @@ public class AuthUserAction extends BaseAction {
 		}else{
 			UserDto userInfo = EntityUtil.userPoToDto(loggedUser);
 			userInfo.setPassword(null);
-			SignatureLikeQuery query = new SignatureLikeQuery();
-			query.setBelikedUser(loggedUser.getUsername());
-			Integer count = signatureLikeDao.countByLikedUser(query);
-			userInfo.setSignatureLikedCount(count);
 			request.getSession().setAttribute("loggedUser", userInfo);
 			rd.setData(userInfo);
 			return rd;

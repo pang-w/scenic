@@ -6,8 +6,8 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>IUKISS</title>
-<meta name="description" content="我的消费，我的故事。">
+<title>${article.title}</title>
+<meta name="description" content="${article.description}">
 <meta name="keywords" content="文章,商品,旅行，装修，办事流程">
 
 <meta name="HandheldFriendly" content="True">

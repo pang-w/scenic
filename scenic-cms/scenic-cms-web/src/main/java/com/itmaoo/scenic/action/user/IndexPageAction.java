@@ -157,7 +157,7 @@ public class IndexPageAction extends BaseAction {
 		SignatureLikeQuery query = new SignatureLikeQuery();
 		UserQuery recQuery = new UserQuery();
 		recQuery.setUsername("ITMAOO");
-		UserPo recUser = userDao.selectSingle(recQuery);
+		UserPo recUser = userDao.selectByUsername(recQuery);
 		query.setBelikedUser(recUser.getUsername());
 		Integer count = signatureLikeDao.countByLikedUser(query);
 		UserDto userData = EntityUtil.userPoToDto(recUser);

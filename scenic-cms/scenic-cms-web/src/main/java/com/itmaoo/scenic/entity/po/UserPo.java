@@ -1,6 +1,5 @@
 package com.itmaoo.scenic.entity.po;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -23,7 +22,14 @@ public class UserPo extends BasePo{
 	private Date lastLoggedDate;
 	private String signature;
 	private String nickname;
+	private Integer signatureLikedCount;
 	
+	public Integer getSignatureLikedCount() {
+		return signatureLikedCount;
+	}
+	public void setSignatureLikedCount(Integer signatureLikedCount) {
+		this.signatureLikedCount = signatureLikedCount;
+	}
 	public String getNickname() {
 		return nickname;
 	}

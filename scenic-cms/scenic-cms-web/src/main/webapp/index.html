@@ -7,8 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>IUKISS</title>
-<meta name="description" content="我的消费，我的故事。">
-<meta name="keywords" content="文章,商品,旅行，装修，办事流程">
+<meta name="description" content="IUKISS是一个简洁、强大的消费故事写作分享平台。在IUKISS可以方便的记录物品给你带来的便捷，也可以看到同一个物品鲜为人知的价值，IUKISS只求事情和物品完美的结合。">
+<meta name="keywords" content="IUKISS 写作 记录 商品 消费故事">
 
 <meta name="HandheldFriendly" content="True">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,15 +34,17 @@
 
 </head>
 
-<body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
+<body class="home-template" ng-app="iukissApp"
+	ng-controller="iukissCtrl">
 	<!-- start header -->
-	<header class="main-header"	style="background-image: url(http://img.iukiss.com/bg/head_bg_fang.JPG)">
+	<header class="main-header"
+		style="background-image: url(http://img.iukiss.com/bg/head_bg_fang.JPG)">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
 					<!-- start logo -->
-					<a class="branding" href="/" title="IUKISS 消费记录平台">
-						<img src="/assets/base/img/iukiss.png" alt="IUKISS 开源博客平台">
+					<a class="branding" href="/" title="IUKISS 消费记录平台"> <img
+						src="/assets/base/img/iukiss.png" alt="IUKISS 开源博客平台">
 					</a>
 					<!-- end logo -->
 					<h2 class="text-hide">IUKISS
@@ -59,10 +61,10 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="navbar-header">
-                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <i class="fa fa-bars"></i>
-                        </span>
+						<span class="nav-toggle-button collapsed" data-toggle="collapse"
+							data-target="#main-menu"> <span class="sr-only">Toggle
+								navigation</span> <i class="fa fa-bars"></i>
+						</span>
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
 						<ul class="nav navbar-nav">
@@ -82,14 +84,15 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/register.html">注册</a></li>
 							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
-							<li id="loggedDropdown" class="dropdown">
-								<a	id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
+							<li id="loggedDropdown" class="dropdown"><a
+								id="loggedUesername" class="dropdown-toggle"
+								data-toggle="dropdown"> <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="/profile.html">个人资料</a></li>
 									<li data-filter-camera-type="Zed"><a
-											onclick="support.layerChangePassword()">修改密码</a></li>
+										onclick="support.layerChangePassword()">修改密码</a></li>
 									<li data-filter-camera-type="Bravo"><a
-											onclick="support.logout()">退出</a></li>
+										onclick="support.logout()">退出</a></li>
 								</ul></li>
 						</ul>
 						<!-- <form class="navbar-form navbar-right">
@@ -115,7 +118,7 @@
 
 				<article id="108" class="post">
 					<aside class="col-md-4 sidebar">
-						<i  class="fa fa-user fa-5x"></i>
+						<i class="fa fa-user fa-5x"></i>
 					</aside>
 					<div class="row">
 						<div>
@@ -123,22 +126,25 @@
 						</div>
 						<div class="pull-right">
 							<span class="author"><a id="signatureLikedUsername"
-								href="/i/{{topUser.username}}">{{topUser.username}}</a></span> •
+								href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
 								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
-								| {{topUser.signatureLikedCount}}赞<span  class='btn' id="likeSignatureBtn" ><i class="fa fa-heart"></i> 点赞</span> 
+							| {{topUser.signatureLikedCount}}赞<span class='btn'
+								id="likeSignatureBtn"><i class="fa fa-heart"></i> 点赞</span>
 						</div>
 					</div>
 				</article>
-				
-				<article id="108" class="post" ng-repeat="atc in articles" >
+
+				<article id="108" class="post" ng-repeat="atc in articles">
 					<div class="post-head">
 						<h1 class="post-title">
 							<a href="/article/{{atc.uuid}}.html">{{atc.title}}</a>
 						</h1>
 						<div class="post-meta">
-							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.username}}</a></span> •
-							<time class="post-date" datetime="{{atc.lastmodify}}" title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
+							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.nickname}}</a></span>
+							•
+							<time class="post-date" datetime="{{atc.lastmodify}}"
+								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
 						</div>
 					</div>
 					<div class="post-content">
@@ -157,8 +163,7 @@
 
 				<nav class="pagination" role="navigation">
 					<span class="page-number">第 1 页 ⁄ 共 1 页</span> <a
-						class="older-posts" href="/"><i
-						class="fa fa-angle-right"></i></a>
+						class="older-posts" href="/"><i class="fa fa-angle-right"></i></a>
 				</nav>
 
 				</main>
@@ -179,54 +184,57 @@
 						<h4 class="title">我的资源</h4>
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
-								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseArticleAction">我的文章</div>
 								<div id="collapseArticle" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
-											<a href="/action/edit/article/{{a.uuid}}">
-        											<i class="pull-right fa fa-edit"></i>
-        									</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{
+												a.title }}</a> <a href="/action/edit/article/{{a.uuid}}"> <i
+												class="pull-right fa fa-edit"></i>
+										</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-success">
-								<div class='btn-block panel-heading panel-title' id="collapseAttentionAction">我的收藏</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseAttentionAction">我的收藏</div>
 								<div id="collapseAttention" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{
+												a.title }}</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品
-								<a onclick="support.layerAddProduct()">
-									<i class="pull-right fa fa-edit"></i>
-								</a>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseProductAction">
+									我的商品 <a onclick="support.layerAddProduct()"> <i
+										class="pull-right fa fa-edit"></i>
+									</a>
 								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
-											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
-												<i class="pull-right fa fa-edit"></i>
-											</a>
+											<a href="#">{{ a.name }}</a> <a
+											class='btn pull-right' ng-click="ngEditProduct(a.id)"> <i
+												class="pull-right fa fa-edit"></i>
+										</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-							
+
 							<div class="panel panel-warning">
-								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a>
-											
-										</li>
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in imageMenu"><a
+											ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a></li>
 									</ul>
 								</div>
 							</div>
@@ -239,24 +247,17 @@
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
 							<a href="/tags/jquery">jQuery</a> <a
-								href="/tags/ghost-0-7-ban-ben">IUKISS
-								0.7 版本</a> <a href="/tags/opensource">开源</a> <a
-								href="/tags/zhu-shou-han-shu">助手函数</a> <a
-								href="/tags/tag-cloud">标签云</a> <a
-								href="/tags/navigation">导航</a> <a
-								href="/tags/customize-page">自定义页面</a> <a
-								href="/tags/static-page">静态页面</a> <a
-								href="/tags/roon-io">Roon.io</a> <a
-								href="/tags/configuration">配置文件</a> <a
-								href="/tags/upyun">又拍云存储</a> <a
-								href="/tags/upload">上传</a> <a
-								href="/tags/handlebars">Handlebars</a> <a
-								href="/tags/email">邮件</a> <a
-								href="/tags/shortcut">快捷键</a> <a
+								href="/tags/ghost-0-7-ban-ben">IUKISS 0.7 版本</a> <a
+								href="/tags/opensource">开源</a> <a href="/tags/zhu-shou-han-shu">助手函数</a>
+							<a href="/tags/tag-cloud">标签云</a> <a href="/tags/navigation">导航</a>
+							<a href="/tags/customize-page">自定义页面</a> <a
+								href="/tags/static-page">静态页面</a> <a href="/tags/roon-io">Roon.io</a>
+							<a href="/tags/configuration">配置文件</a> <a href="/tags/upyun">又拍云存储</a>
+							<a href="/tags/upload">上传</a> <a href="/tags/handlebars">Handlebars</a>
+							<a href="/tags/email">邮件</a> <a href="/tags/shortcut">快捷键</a> <a
 								href="/tags/yong-hu-zhi-nan">用户指南</a> <a
-								href="/tags/theme-market">主题市场</a> <a
-								href="/tags/release">新版本发布</a> <a
-								href="/tag-cloud">...</a>
+								href="/tags/theme-market">主题市场</a> <a href="/tags/release">新版本发布</a>
+							<a href="/tag-cloud">...</a>
 						</div>
 					</div>
 					<!-- end tag cloud widget -->
@@ -280,17 +281,12 @@
 						<h4 class="title">最新文章</h4>
 						<div class="content recent-post">
 							<div class="recent-single-post">
-								<a href="/custom-excerpts/"
-									class="post-title">自定义文章摘要（Excerpt）</a>
-								<div class="date">2017年8月9日</div>
+								<a href="/article/FBDF1D49.html" class="post-title">顺应时代才能缔造时代</a>
+								<div class="date">2017年11月16日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="/primary-tags/" class="post-title">首要“标签”</a>
-								<div class="date">2017年8月3日</div>
-							</div>
-							<div class="recent-single-post">
-								<a href="/ghost-1-0-released/"
-									class="post-title">IUKISS 1.0 版本正式发布</a>
+								<a href="/article/B7F48C3D.html" class="post-title">IUKISS
+									1.0 版本正式发布</a>
 								<div class="date">2017年7月29日</div>
 							</div>
 						</div>
@@ -301,22 +297,14 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="/tags/about-ghost">IUKISS</a> <a
-								href="/tags/release">新版本发布</a> <a
-								href="/tags/javascript">JavaScript</a> <a
-								href="/tags/promise">Promise</a> <a
-								href="/tags/zhuti">主题</a> <a
-								href="/tags/nodejs">Node.js</a> <a
-								href="/tags/mysql">MySQL</a> <a
-								href="/tags/nginx">Nginx</a> <a
-								href="/tags/aliyun-ecs">阿里云服务器</a> <a
-								href="/tags/ubuntu">Ubuntu</a> <a
-								href="/tags/ghost-in-depth">深度玩转 IUKISS</a>
-							<a href="/tags/theme">Theme</a> <a
-								href="/tags/zhu-shou-han-shu">助手函数</a> <a
-								href="/tags/markdown">Markdown</a> <a
-								href="/tags/proxy">反向代理</a> <a
-								href="/tag-cloud">...</a>
+							<a href="/tags/about-ghost">IUKISS</a> <a href="/tags/release">新版本发布</a>
+							<a href="/tags/javascript">JavaScript</a> <a href="/tags/promise">Promise</a>
+							<a href="/tags/zhuti">主题</a> <a href="/tags/nodejs">Node.js</a> <a
+								href="/tags/mysql">MySQL</a> <a href="/tags/nginx">Nginx</a> <a
+								href="/tags/aliyun-ecs">阿里云服务器</a> <a href="/tags/ubuntu">Ubuntu</a>
+							<a href="/tags/ghost-in-depth">深度玩转 IUKISS</a> <a
+								href="/tags/theme">Theme</a> <a href="/tags/zhu-shou-han-shu">助手函数</a>
+							<a href="/tags/markdown">Markdown</a> <a href="/tags/proxy">反向代理</a>
 						</div>
 					</div>
 				</div>
@@ -337,9 +325,6 @@
 								target="_blank">jQuery中文文档</a>
 							<hr>
 							<a href="http://www.aliyun.com/" title="阿里云" target="_blank">阿里云</a>
-							<hr>
-							<a href="https://www.upyun.com/" title="又拍云" target="_blank">又拍云</a>
-							<a href="http://www.qiniu.com/" title="七牛云存储" target="_blank">七牛云存储</a>
 						</div>
 					</div>
 				</div>
@@ -351,16 +336,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<span>Copyright © <a href="/">IUKISS中文网</a></span>
-					| <span><a href="http://www.miibeian.gov.cn/"
-						target="_blank">豫ICP备16004342号-2</a></span> |
+					<span>Copyright © <a href="/">IUKISS</a></span> | <span><a
+						href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备16004342号-2</a></span>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<a href="/#" id="back-to-top"
-		style="display: none;"><i class="fa fa-angle-up"></i></a>
+	<a href="/#" id="back-to-top" style="display: none;"><i
+		class="fa fa-angle-up"></i></a>
 
 </body>
 </html>

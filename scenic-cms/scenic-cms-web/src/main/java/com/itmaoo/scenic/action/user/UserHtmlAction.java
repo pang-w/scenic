@@ -21,7 +21,9 @@ import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.PagerDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
 @Controller
@@ -37,15 +39,20 @@ public class UserHtmlAction extends BaseAction{
 	
 	@RequestMapping("/i/{useranme}")
 	@ResponseBody
-	public ModelAndView index(HttpServletRequest request,@PathVariable("useranme") String viewuseranme, ModelMap map) {
+	public ModelAndView index(HttpServletRequest request,@PathVariable("useranme") String viewusername, ModelMap map) {
 		
-		UserDto author = new UserDto();
-		author.setUsername(viewuseranme);
 		
-		UserDto loggedUser = getLogedUser(request);
+		UserQuery userQuery = new UserQuery();
+		userQuery.setUsername(viewusername);
+		UserPo userAuthor = getUserDao().selectByUsername(userQuery);
+		
+		if(userAuthor==null){
+			return null;
+		}
+		UserDto userPoToDto = EntityUtil.userPoToDto(userAuthor);
 		
 		ArticleQuery aq = new ArticleQuery();
-		aq.setUsername(viewuseranme);
+		aq.setUsername(viewusername);
 		List<ArticlePo> articles = articleDao.selectList(aq);
 		List<ArticleDto> aticleDtos = EntityUtil.articlePoToDto(articles);
 		PagerDto pager = new PagerDto();
@@ -53,38 +60,14 @@ public class UserHtmlAction extends BaseAction{
 		pager.setTotalPage(aticleDtos.size()/10 + 1);
 		pager.setList(aticleDtos);
 		
-		ImageDto iDto = new ImageDto();
-		iDto.setBaseNum("ABC");
-		iDto.setDescription("阿斯顿非阿斯顿非");
-		
-		List<ImageDto> images = Lists.newArrayList();
-		images.add(iDto);
-		images.add(iDto);
-		
-		PagerDto imagePager = new PagerDto();
-		imagePager.setCurrentPage(1);
-		imagePager.setTotalPage(aticleDtos.size()/10 + 1);
-		imagePager.setList(images);
-		
 		map.addAttribute("baseDomain", baseDomain);
 		map.addAttribute("imgDomain", imgDomain);
 		map.addAttribute("pager", pager);
-		map.addAttribute("author", author);
-		map.addAttribute("imagePager", imagePager);
+		map.addAttribute("author", userPoToDto);
 		
-		if(loggedUser!=null){
-			map.addAttribute("loggedUser", loggedUser);
-			if(loggedUser.getUsername().equals(viewuseranme)){
-				ModelAndView mv = new ModelAndView("iukiss/index");
-				return mv;
-			}else{
-				ModelAndView mv = new ModelAndView("iukiss/index");
-				return mv;
-			}
-		}else{
-			ModelAndView mv = new ModelAndView("iukiss/index");
-			return mv;
-		}
+		
+		ModelAndView mv = new ModelAndView("iukiss/blog");
+		return mv;
 
 	}
 	@RequestMapping("/tags/{tag}")

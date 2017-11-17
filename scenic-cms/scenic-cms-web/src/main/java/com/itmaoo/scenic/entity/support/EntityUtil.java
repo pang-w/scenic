@@ -32,6 +32,7 @@ public class EntityUtil {
 		userDto.setIuCode(userPo.getIuCode());
 		userDto.setRecCode(userPo.getRecCode());
 		userDto.setSignature(userPo.getSignature());
+		userDto.setSignatureLikedCount(userPo.getSignatureLikedCount());
 		return userDto;
 
 	}
@@ -49,6 +50,7 @@ public class EntityUtil {
 		userPo.setIuCode(userPo.getIuCode());
 		userPo.setRecCode(userDto.getRecCode());
 		userPo.setSignature(userDto.getSignature());
+		
 		return userPo;
 
 	}

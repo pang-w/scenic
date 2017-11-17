@@ -57,24 +57,36 @@
 		#{loginTryTimes},#{createDate},#{lastLoggedDate},#{iuCode},	#{recCode},	#{signature},#{nickname}
 		)
 	</insert>
-	<select id="selectSingle" resultType="UserPo" parameterType="UserQuery">
+	<select id="selectByUsername" resultType="UserPo" parameterType="UserQuery">
 		SELECT
 		<include refid="cols" />
-		FROM user
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
 		WHERE
 		username = #{username}
 	</select>
 	<select id="selectSingleByIucode" resultType="UserPo" parameterType="UserQuery">
 		SELECT
 		<include refid="cols" />
-		FROM user
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
 		WHERE
 		iucode = #{iuCode}
 	</select>
 	<select id="selectSingleLogin" resultType="UserPo" parameterType="UserQuery">
 		SELECT
 		<include refid="cols" />
-		FROM user
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
 		WHERE
 		username = #{username}
 		AND
@@ -84,7 +96,11 @@
 	<sql id="collectionList">
 		SELECT
 		<include refid="cols" />
-		FROM user ad
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
-import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SignatureLikeDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
@@ -21,8 +20,6 @@ import com.itmaoo.scenic.entity.po.SignatureLikePo;
 @Controller
 @RequestMapping(value = "/action/user/signature/")
 public class SignatureUserAction extends BaseAction{
-	@Autowired
-	private IUserDao userDao;
 	
 	@Autowired
 	private ISignatureLikeDao signatureLikeDao;
@@ -42,6 +39,7 @@ public class SignatureUserAction extends BaseAction{
 			entity.setActionUser(user.getUsername());
 			entity.setCreateDate(new Date());
 			signatureLikeDao.insert(entity);
+			resetLogedUser(request, user);
 		}
 		rd.setData(user);
 		return rd;    

@@ -6,9 +6,9 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>消费的故事_哎呦KISS_IUKISS</title>
-<meta name="description" content="我的消费，我的故事。">
-<meta name="keywords" content="文章,商品,旅行，装修，办事流程">
+<title>文章_IUKISS</title>
+<meta name="description" content="IUKISS是一个简洁、强大的消费故事写作分享平台。在IUKISS可以方便的记录物品给你带来的便捷，也可以看到同一个物品鲜为人知的价值，IUKISS只求事情和物品完美的结合。">
+<meta name="keywords" content="IUKISS 写作 记录 商品 消费故事">
 
 <meta name="HandheldFriendly" content="True">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,7 +71,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="/profile.html">个人资料</a></li>
 									<li data-filter-camera-type="Zed"><a
-											onclick="support.layerLogin()">修改密码</a></li>
+											onclick="support.layerChangePassword()">修改密码</a></li>
 									<li data-filter-camera-type="Bravo"><a
 											onclick="support.logout()">退出</a></li>
 								</ul></li>
@@ -108,7 +108,7 @@
 						</div>
 						<div class="pull-right">
 							<span class="author"><a id="signatureLikedUsername"
-								href="/i/{{topUser.username}}">{{topUser.username}}</a></span> •
+								href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
 								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
 								| {{topUser.signatureLikedCount}}赞<span  class='btn' id="likeSignatureBtn" ><i class="fa fa-heart"></i> 点赞</span> 
@@ -122,7 +122,7 @@
 							<a href="/article/{{atc.uuid}}.html">{{atc.title}}</a>
 						</h1>
 						<div class="post-meta">
-							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.username}}</a></span> •
+							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.nickname}}</a></span> •
 							<time class="post-date" datetime="{{atc.lastmodify}}" title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
 						</div>
 					</div>
@@ -195,7 +195,7 @@
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body" >
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/i/product/{{a.name}}">{{ a.name }}</a>
+											<a href="#">{{ a.name }}</a>
 											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
 												<i class="pull-right fa fa-edit"></i>
 											</a>

@@ -6,16 +6,16 @@
 						<h4 class="title">最新文章</h4>
 						<div class="content recent-post">
 							<div class="recent-single-post">
-								<a href="http://www.iukiss.com/custom-excerpts/"
+								<a href="/tags/最新文章"
 									class="post-title">自定义文章摘要（Excerpt）</a>
 								<div class="date">2017年8月9日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="http://www.iukiss.com/primary-tags/" class="post-title">首要“标签”</a>
+								<a href="/tags/fisrtTag" class="post-title">首要“标签”</a>
 								<div class="date">2017年8月3日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="http://www.iukiss.com/ghost-1-0-released/"
+								<a href="/article/B7F48C3D.html"
 									class="post-title">IUKISS 1.0 版本正式发布</a>
 								<div class="date">2017年7月29日</div>
 							</div>
