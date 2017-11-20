@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
 <link rel="stylesheet" href="/assets/base/css/monokai_sublime.min.css">
-<link href="/assets/base/summernote/summernote.css" rel="stylesheet">
 
 <script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript"	src="/assets/base/summernote/summernote.js"></script>
@@ -84,28 +83,7 @@
 				<main class="col-md-8 main-content">
 
 				<section class="content-wrap">
-					<div class="form-group">
-						<div class="row">
-							<div class="titleInputForm">
-
-								<input class="post-title form-control" id="articleTitle" placeholder="标题..."
-									value="{{article.title}}" type="text" />
-								<input id="articleUuid" type="hidden" value="${articleUuid}" />
-							</div>
-							<hr />
-						</div>
-						<div class="row">
-							<div id="summernote">{{article.content}}</div>
-							<div id="editBtns" class="post-permalink">
-								<input class="btn btn-default" id="saveArticle" type="submit"
-									value="保存" /> <input class="btn btn-default"
-									id="saveAndPreview" type="submit" value="保存并预览" /> <input
-									class="btn btn-default" id="publishArticle" type="submit"
-									value="发布" /> <a class="btn btn-default" target="_blank"
-									href="/article/{{articleUuid}}.html">访问文章</a>
-							</div>
-						</div>
-					</div>
+					
 				</section>
 
 				</main>
@@ -187,17 +165,7 @@
 	</section>
 
 	<hr>
-	<section class="content-wrap">
-		<div class="container">
-			<div id="previewTitleFormat" class="row">
-				<div class="post-title" id="previewTitle"></div>
-				<hr />
-			</div>
-			<div class="row">
-				<div id="previewContent"></div>
-			</div>
-		</div>
-	</section>
+
 
 	<footer class="main-footer">
 		<div class="container">

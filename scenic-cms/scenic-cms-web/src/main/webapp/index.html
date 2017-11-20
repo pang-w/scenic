@@ -125,8 +125,8 @@
 							<p>{{topUser.signature}}</p>
 						</div>
 						<div class="pull-right">
-							<span class="author"><a id="signatureLikedUsername"
-								href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
+							<input id="signatureLikedUsername" type="hidden" value="{{topUser.username}}"/>
+							<span class="author"><a	href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
 								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
 							| {{topUser.signatureLikedCount}}赞<span class='btn'
@@ -141,7 +141,7 @@
 							<a href="/article/{{atc.uuid}}.html">{{atc.title}}</a>
 						</h1>
 						<div class="post-meta">
-							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.nickname}}</a></span>
+							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.username}}</a></span>
 							•
 							<time class="post-date" datetime="{{atc.lastmodify}}"
 								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>

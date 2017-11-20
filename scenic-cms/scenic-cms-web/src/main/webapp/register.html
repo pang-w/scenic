@@ -100,19 +100,19 @@
 
 				<article id="108" class="post">
 					<aside class="col-md-4 sidebar">
-						<img alt="user" width="90%"
-							src="http://iukiss.oss-cn-shanghai.aliyuncs.com/bg/head_bg.jpg">
+						<i class="fa fa-user fa-5x"></i>
 					</aside>
 					<div class="row">
 						<div>
-							<p>人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播，人生没有彩排每天都是现场直播。</p>
+							<p>{{topUser.signature}}</p>
 						</div>
 						<div class="pull-right">
-							<span class="author">作者：<a
-								href="./author/wangsai">ITMAOO</a></span> •
+							<input id="signatureLikedUsername" type="hidden" value="{{topUser.username}}"/>
+							<span class="author"><a	href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
 							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-								title="2017年10月25日星期三下午4点57分">2017-8-9</time>
-							<a onclick=""><i class="fa fa-heart"></i> 点赞</a> 108赞
+								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
+							| {{topUser.signatureLikedCount}}赞<span class='btn'
+								id="likeSignatureBtn"><i class="fa fa-heart"></i> 点赞</span>
 						</div>
 					</div>
 				</article>
@@ -178,45 +178,57 @@
 						<h4 class="title">我的资源</h4>
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
-								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
-								<div id="collapseArticle" class="panel-collapse collapse in">
-									<ul class="list-group panel-body" >
+								<div class='btn-block panel-heading panel-title'
+									id="collapseArticleAction">我的文章</div>
+								<div id="collapseArticle" class="panel-collapse collapse">
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
-											<a href="/action/edit/article/{{a.uuid}}">
-        											<i class="pull-right fa fa-edit"></i>
-        									</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{
+												a.title }}</a> <a href="/action/edit/article/{{a.uuid}}"> <i
+												class="pull-right fa fa-edit"></i>
+										</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-success">
-								<div class='btn-block panel-heading panel-title' id="collapseAttentionAction">我的收藏</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseAttentionAction">我的收藏</div>
 								<div id="collapseAttention" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{
+												a.title }}</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseProductAction">
+									我的商品 <a onclick="support.layerAddProduct()"> <i
+										class="pull-right fa fa-edit"></i>
+									</a>
+								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
+											<a href="#">{{ a.name }}</a> <a
+											class='btn pull-right' ng-click="ngEditProduct(a.id)"> <i
+												class="pull-right fa fa-edit"></i>
+										</a>
 										</li>
 									</ul>
 								</div>
 							</div>
+
 							<div class="panel panel-warning">
-								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a href="">{{ a.title }}</a>
-										</li>
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in imageMenu"><a
+											ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a></li>
 									</ul>
 								</div>
 							</div>

@@ -8,11 +8,13 @@ import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.ProductDto;
+import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticleMessagePo;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.ProductPo;
+import com.itmaoo.scenic.entity.po.TagPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.support.CommonUtil;
 
@@ -144,5 +146,18 @@ public class EntityUtil {
 		dto.setLastModifyDate(CommonUtil.formatDate(a.getLastModifyDate()));
 		dto.setMessage(a.getMessage());
 		return dto;
+	}
+
+	public static TagDto tagPoToDto(TagPo tagPo) {
+		TagDto tagDto = new TagDto();
+		tagDto.setCreateBy(tagPo.getCreateBy());
+		tagDto.setCreateDate(CommonUtil.formatDate(tagPo.getCreateDate()));
+		tagDto.setDescription(tagPo.getDescription());
+		tagDto.setType(tagPo.getType());
+		tagDto.setId(tagPo.getId());
+		tagDto.setLastModifyDate(CommonUtil.formatDate(tagPo.getLastModifyDate()));
+		tagDto.setParentId(tagPo.getParentId());
+		tagDto.setValue(tagPo.getValue());
+		return tagDto;
 	}
 }
