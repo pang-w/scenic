@@ -162,7 +162,6 @@ jQuery(function($) {
 					layer.msg(response.msg);
 				}
 		);
-		
 	});
 	$(document).ready(function() {
 		$('#summernote').summernote({
@@ -265,6 +264,19 @@ function insertImage(){
 				$image.css('align', 'center');
 			});
 }
+function insertProduct(){
+	var range = $('#summernote').summernote('createRange');
+	
+	var e3 = document.createElement("aside");
+	e3.innerText="产品";
+	  
+	var node = document.createElement('article');
+	node.appendChild(e3);
+	node.setAttribute("class","psot");
+	
+	$('#summernote').summernote('insertNode',node);
+}
+
 function insertText(){
 	var range = $('#summernote').summernote('createRange');
 	$('#summernote').summernote('focus');
