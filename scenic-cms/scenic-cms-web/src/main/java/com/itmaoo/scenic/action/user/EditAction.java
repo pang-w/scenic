@@ -86,13 +86,14 @@ public class EditAction extends BaseAction {
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(articleUuid);
 		ArticlePo articlePo = articleDao.selectSingle(aq);
-		ArticleDto editArticle = EntityUtil.articlePoToDto(articlePo);
+		ArticleDto editArticle = null;
 		if (articlePo == null) {
-			articlePo = new ArticlePo();
-			articlePo.setUuid(articleUuid);
-			articlePo.setContent("在这里写点事.....");
-			articlePo.setTitle("填一个标题.....");
+			editArticle = new ArticleDto();
+			editArticle.setUuid(articleUuid);
+			editArticle.setContent("");
+			editArticle.setTitle("");
 		}else{
+			editArticle = EntityUtil.articlePoToDto(articlePo);
 			TagQuery tagQuery = new TagQuery();
 			tagQuery.setArticleUuid(articlePo.getUuid());
 			List<TagPo> tags = tagDao.selectList(tagQuery);
@@ -113,7 +114,6 @@ public class EditAction extends BaseAction {
 			}
 			editArticle.setTags(tagsDto);
 			editArticle.setProducts(productsDto);
-			
 		}
 		
 		map.addAttribute("editArticle", editArticle);

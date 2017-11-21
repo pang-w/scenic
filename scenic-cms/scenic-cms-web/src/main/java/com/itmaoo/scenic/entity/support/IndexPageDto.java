@@ -20,25 +20,26 @@ public class IndexPageDto {
 	
 	private List<TagDto> userTags;
 	private List<TagDto> asideTags;
-	
 	private List<ProductDto> linkedProducts;
+	
 	private List<TagDto> selectedTags;
 	
 	private ArticleDto editArticle;
 	
 	
-	public ArticleDto getEditArticle() {
-		return editArticle;
-	}
-	public void setEditArticle(ArticleDto editArticle) {
-		this.editArticle = editArticle;
-	}
 	public List<ProductDto> getLinkedProducts() {
 		return linkedProducts;
 	}
 	public void setLinkedProducts(List<ProductDto> linkedProducts) {
 		this.linkedProducts = linkedProducts;
 	}
+	public ArticleDto getEditArticle() {
+		return editArticle;
+	}
+	public void setEditArticle(ArticleDto editArticle) {
+		this.editArticle = editArticle;
+	}
+
 	public List<TagDto> getUserTags() {
 		return userTags;
 	}

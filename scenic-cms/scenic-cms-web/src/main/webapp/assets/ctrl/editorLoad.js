@@ -114,19 +114,41 @@ function loadEditAll(){
 		$scope.insertProduct =function (pro){
 			$scope.selectProduct(pro);
 			var range = $('#summernote').summernote('createRange');
-			var e3 = document.createElement("aside");
-			e3.innerText="产品";
+			var imageElement = document.createElement("img");
+			imageElement.setAttribute("src",pro.imgUrl);
+			imageElement.setAttribute("alt",pro.description);
+			
+			var labelElement = document.createElement("div");
+			
+			var a = document.createElement("a");
+			a.setAttribute("href",pro.linkTo);
+			a.setAttribute("target","_blank");
+			a.setAttribute("class","title");
+			a.innerText = pro.name;
+			labelElement.appendChild(a);
+			var priceElement = document.createElement("div");
+			priceElement.setAttribute("class","title");
+			priceElement.innerText = "价格："+pro.price;
+			
+			
+			var asideElement = document.createElement("aside");
+			asideElement.setAttribute("style","text-align: center");
+			asideElement.appendChild(imageElement);
+			asideElement.appendChild(labelElement);
+			asideElement.appendChild(priceElement);
+			
 			var node = document.createElement('article');
-			node.appendChild(e3);
-			node.setAttribute("class","psot");
+			node.appendChild(asideElement);
+			node.setAttribute("class","post");
+			
 			$('#summernote').summernote('insertNode',node);
 		};
 		$scope.insertImage =function (img){
 			var range = $('#summernote').summernote('createRange');
 			$('#summernote').summernote('insertImage',
-					"http://localhost:8080/assets/base/img/iukiss.png", function($image) {
+					img.url, function($image) {
 						$image.css('maxWidth', '80%');
-						$image.css('align', 'center');
+						$image.css('text-align', 'center');
 					});
 		};
 		
@@ -142,7 +164,7 @@ function loadEditAll(){
 		        $scope.productMenu = result.data.data.productMenu;
 		        $scope.attentionMenu = result.data.data.attentionMenu;
 		        
-		        $scope.topTags = result.data.data.topTags;
+		        $scope.asideTags = result.data.data.asideTags;
 		        $scope.userTags = result.data.data.userTags;
 		        $scope.linkedProduct = result.data.data.linkedProducts;
 		        if(result.data.data.editArticle!=null){

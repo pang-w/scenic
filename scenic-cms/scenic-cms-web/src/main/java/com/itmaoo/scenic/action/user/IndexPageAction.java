@@ -120,8 +120,8 @@ public class IndexPageAction extends BaseAction {
 		indexDto.setTopUser(userData);
 		indexDto.setArticles(articlesDto);
 		indexDto.setProducts(products);
-		indexDto.setLinkedProducts(products);
-
+		
+		
 		UserDto loggedUser = getLogedUser(request);
 
 		if (loggedUser != null) {

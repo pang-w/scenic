@@ -57,14 +57,16 @@ function loadIndexAll(){
 	    .then(function (result) {
 	    	if (result.data.status == "0000") {
 	    		$scope.topUser = result.data.data.topUser;
-	    		$scope.loggedUser = result.data.data.loggedUser;
 	            $scope.articles = result.data.data.articles;
-	            $scope.products = result.data.data.products;
 	            
 		        $scope.articleMenu = result.data.data.articleMenu;
 		        $scope.imageMenu = result.data.data.imageMenu;
 		        $scope.productMenu = result.data.data.productMenu;
 		        $scope.attentionMenu = result.data.data.attentionMenu;
+		        
+		        $scope.asideTags = result.data.data.asideTags;
+		        $scope.userTags = result.data.data.userTags;
+		        $scope.linkedProduct = result.data.data.linkedProducts;
 		        
 			}
 	    

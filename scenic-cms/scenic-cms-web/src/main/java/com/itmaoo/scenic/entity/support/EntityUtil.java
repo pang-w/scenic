@@ -160,4 +160,15 @@ public class EntityUtil {
 		tagDto.setValue(tagPo.getValue());
 		return tagDto;
 	}
+
+	public static List<TagDto> tagPoToDtoList(List<TagPo> tagsPo) {
+		if(tagsPo==null){
+			return null;
+		}
+		List<TagDto> tagDto = Lists.newArrayList();
+		for(TagPo tag:tagsPo){
+			tagDto.add(tagPoToDto(tag));
+		}
+		return tagDto;
+	}
 }
