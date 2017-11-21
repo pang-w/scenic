@@ -23,6 +23,17 @@ function loadTopUser(){
 function loadIndexAll(){
 	var app = angular.module('iukissApp', []);
 	app.controller('iukissCtrl', function($scope,$http) {
+		$scope.layerViewProduct = function (data) {
+			layer.open({
+				  type:  2//Page层类型
+				  ,area: ['500px', '450px']
+				  ,title: '查看商品'
+				  ,shade: 0.6 //遮罩透明度
+				  ,maxmin: false //允许全屏最小化
+				  ,anim: 1 //0-6的动画形式，-1不开启
+				  ,content: '/layerViewProduct.html' + praseParam(data)
+				});
+		};
 		$scope.ngEditProduct = function(pid){
 			support.ajax("user/auth/checkLogged", null,
 					function(response) {

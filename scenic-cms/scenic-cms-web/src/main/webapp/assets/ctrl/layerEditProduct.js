@@ -3,6 +3,9 @@ jQuery(function($) {
 	app.controller('iukissCtrl', function($scope,$location) {
 		$scope.editPro = urlParam();
 		
+		
+		
+		
 		$("#doLayerEditProduction").click(function() {
 
 			support.ajax("user/product/update", $scope.editPro, function(response) {

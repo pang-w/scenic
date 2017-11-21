@@ -5,7 +5,7 @@ public class ArticleTagLinkQuery extends BaseQuery {
 	private static final long serialVersionUID = 6365091150016172187L;
 	
 	private String articleUuid;
-	private String tagId;
+	private Integer tagId;
 	private String createBy;
 	
 	public String getArticleUuid() {
@@ -14,10 +14,11 @@ public class ArticleTagLinkQuery extends BaseQuery {
 	public void setArticleUuid(String articleUuid) {
 		this.articleUuid = articleUuid;
 	}
-	public String getTagId() {
+
+	public Integer getTagId() {
 		return tagId;
 	}
-	public void setTagId(String tagId) {
+	public void setTagId(Integer tagId) {
 		this.tagId = tagId;
 	}
 	public String getCreateBy() {

@@ -16,20 +16,25 @@ import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
+import com.itmaoo.scenic.dao.ITagDao;
 import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
+import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.ProductPo;
+import com.itmaoo.scenic.entity.po.TagPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.query.BaseQuery;
 import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.query.SignatureLikeQuery;
+import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 import com.itmaoo.scenic.entity.support.IndexPageDto;
@@ -48,6 +53,8 @@ public class IndexPageAction extends BaseAction {
 
 	@Autowired
 	private IProductDao productDao;
+	@Autowired
+	private ITagDao tagDao;
 
 	@Autowired
 	private ISignatureLikeDao signatureLikeDao;
@@ -70,7 +77,29 @@ public class IndexPageAction extends BaseAction {
 		List<ArticleDto> articlesDto = Lists.newArrayList();
 		if (articlesPo != null) {
 			for (ArticlePo articlePo : articlesPo) {
-				articlesDto.add(EntityUtil.articlePoToDto(articlePo));
+
+				TagQuery tagQuery = new TagQuery();
+				tagQuery.setArticleUuid(articlePo.getUuid());
+				List<TagPo> tags = tagDao.selectList(tagQuery);
+				List<TagDto> tagsDto = Lists.newArrayList(); 
+				if(tags!=null){
+					for(TagPo tag:tags){
+						tagsDto.add(EntityUtil.tagPoToDto(tag));
+					}
+				}
+				ProductQuery productQuery = new ProductQuery();
+				productQuery.setArticleUuid(articlePo.getUuid());
+				List<ProductPo> productDb = productDao.selectList(productQuery);
+				List<ProductDto> productsDto = Lists.newArrayList(); 
+				if(productDb!=null){
+					for( ProductPo p:productDb){
+						productsDto.add(EntityUtil.productPoToDto(p));
+					}
+				}
+				ArticleDto articlePoToDto = EntityUtil.articlePoToDto(articlePo);
+				articlePoToDto.setProducts(productsDto);
+				articlePoToDto.setTags(tagsDto);
+				articlesDto.add(articlePoToDto);
 			}
 		}
 		/** Products **/
@@ -80,7 +109,9 @@ public class IndexPageAction extends BaseAction {
 		List<ProductDto> products = Lists.newArrayList();
 		if (products != null) {
 			for (ProductPo pPo : productsPo) {
+				
 				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+				
 				products.add(proPoToDto);
 			}
 		}
@@ -89,6 +120,7 @@ public class IndexPageAction extends BaseAction {
 		indexDto.setTopUser(userData);
 		indexDto.setArticles(articlesDto);
 		indexDto.setProducts(products);
+		indexDto.setLinkedProducts(products);
 
 		UserDto loggedUser = getLogedUser(request);
 
@@ -103,7 +135,29 @@ public class IndexPageAction extends BaseAction {
 				List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
 				if (articlesPo != null) {
 					for (ArticlePo articlePo : userArticlesPo) {
-						userArticlesDto.add(EntityUtil.articlePoToDto(articlePo));
+						
+						TagQuery tagQuery = new TagQuery();
+						tagQuery.setArticleUuid(articlePo.getUuid());
+						List<TagPo> tags = tagDao.selectList(tagQuery);
+						List<TagDto> tagsDto = Lists.newArrayList(); 
+						if(tags!=null){
+							for(TagPo tag:tags){
+								tagsDto.add(EntityUtil.tagPoToDto(tag));
+							}
+						}
+						ProductQuery productQuery = new ProductQuery();
+						productQuery.setArticleUuid(articlePo.getUuid());
+						List<ProductPo> productDb = productDao.selectList(productQuery);
+						List<ProductDto> productsDto = Lists.newArrayList(); 
+						if(tags!=null){
+							for( ProductPo p:productDb){
+								productsDto.add(EntityUtil.productPoToDto(p));
+							}
+						}
+						ArticleDto articlePoToDto = EntityUtil.articlePoToDto(articlePo);
+						articlePoToDto.setTags(tagsDto);
+						articlePoToDto.setProducts(productsDto);
+						userArticlesDto.add(articlePoToDto);
 					}
 				}
 			}
@@ -133,6 +187,7 @@ public class IndexPageAction extends BaseAction {
 			if (productMenu != null) {
 				for (ProductPo pPo : uProductsPo) {
 					ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+					 
 					productMenu.add(proPoToDto);
 				}
 			}
@@ -143,6 +198,19 @@ public class IndexPageAction extends BaseAction {
 			indexDto.setLoggedUser(loggedUser);
 		}
 
+		List<TagDto> userTags = Lists.newArrayList();
+		for (int i = 0; i <3; i++) {
+			TagDto tagDto = new TagDto();
+			tagDto.setCreateBy("ITMAOO");
+			tagDto.setId(i);
+			tagDto.setValue("标签"+i);
+			userTags.add(tagDto);
+		}
+		indexDto.setAsideTags(userTags);
+		indexDto.setUserTags(userTags);
+		
+		
+		
 		ResponseData rd = new ResponseData();
 		rd.setData(indexDto);
 		return rd;

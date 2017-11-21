@@ -9,7 +9,7 @@
 		tagid AS tagId,
 		createby AS createBy,
 		createdate AS createDate,
-		lastmodify AS lastModifyDate
+		lastmodifydate AS lastModifyDate
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -20,7 +20,7 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ArticleTagLinkPo">
 		INSERT INTO articletaglink (
-		articletaglinkid, articleuuid, tagid, createby,createdate,lastmodify
+		articletaglinkid, articleuuid, tagid, createby,createdate,lastmodifydate
 		)
 		VALUES
 		(
@@ -32,7 +32,9 @@
 		<include refid="cols" />
 		FROM articletaglink
 		WHERE
-		articletaglinkid = #{id}
+		articleuuid = #{articleUuid}
+		AND
+		tagid = #{tagId}
 	</select>
 
 	

@@ -16,7 +16,14 @@ public class ProductQuery extends BaseQuery {
 	private String description;
 	
 	private String username;
+	private String articleUuid;
 	
+	public String getArticleUuid() {
+		return articleUuid;
+	}
+	public void setArticleUuid(String articleUuid) {
+		this.articleUuid = articleUuid;
+	}
 	public Integer getId() {
 		return id;
 	}

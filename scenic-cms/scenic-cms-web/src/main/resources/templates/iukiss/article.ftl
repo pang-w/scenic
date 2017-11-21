@@ -56,11 +56,30 @@
 							<label >${article.title}</label>
 							<input id="articleUuid" type="hidden" value="${articleUuid}"/>
 						</div>
-						<hr />
 					</div>
+					<hr />
 					<div class="row">
 						<div >${article.content}</div>
 					</div>
+					<hr />
+					<div class="row">
+							<div class="widget">
+								<div class="content tag-cloud">
+									<i class="fa fa-tag"></i>标签 
+									<#list article.tags as tag>
+										<a href="../tags/${tag.value}">${tag.value}</a>
+									</#list>
+								</div>
+							</div>
+							<div class="widget">
+								<div class="content tag-cloud">
+									<i class="fa fa-tag"></i>关联商品 
+									<#list article.products as product>
+										<a >${product.name}</a>
+									</#list>
+								</div>
+							</div>
+						</div>
 				</article>
 
 							<div class="panel panel-warning">

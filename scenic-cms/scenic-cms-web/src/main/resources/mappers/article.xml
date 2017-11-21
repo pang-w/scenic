@@ -72,6 +72,10 @@
 		<if test="null!= isPublished and '' != isPublished">
 		AND ispublished = #{isPublished}
 		</if>
+		<if test="null!= articleUuid and '' != articleUuid">
+		AND tagid in ( SELECT tagid FROM articletaglink where articleuuid=#{articleUuid})
+		</if>
+		
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

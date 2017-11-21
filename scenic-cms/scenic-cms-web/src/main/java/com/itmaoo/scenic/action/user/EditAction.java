@@ -9,6 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,13 +26,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
+import com.itmaoo.scenic.dao.IArticleProductLinkDao;
+import com.itmaoo.scenic.dao.IArticleTagLinkDao;
+import com.itmaoo.scenic.dao.IProductDao;
+import com.itmaoo.scenic.dao.ITagDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
+import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
+import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.po.ArticleProductLinkPo;
+import com.itmaoo.scenic.entity.po.ArticleTagLinkPo;
+import com.itmaoo.scenic.entity.po.ProductPo;
+import com.itmaoo.scenic.entity.po.TagPo;
+import com.itmaoo.scenic.entity.po.UserPo;
+import com.itmaoo.scenic.entity.query.ArticleProductLinkQuery;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.query.ArticleTagLinkQuery;
+import com.itmaoo.scenic.entity.query.BaseQuery;
+import com.itmaoo.scenic.entity.query.ProductQuery;
+import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
 import freemarker.template.Configuration;
@@ -43,9 +61,18 @@ import freemarker.template.TemplateException;
 public class EditAction extends BaseAction {
 	@Autowired
 	private IArticleDao articleDao;
-
-	@Value("${base.site.domain}")
-	private String baseDomain;
+	
+	@Autowired
+	private ITagDao tagDao;
+	
+	@Autowired
+	private IArticleTagLinkDao articleTagLinkDao;
+	
+	@Autowired
+	private IProductDao productDao;
+	
+	@Autowired
+	private IArticleProductLinkDao articleProductLinkDao;
 
 	@Value("${base.img.domain}")
 	private String imgDomain;
@@ -58,15 +85,37 @@ public class EditAction extends BaseAction {
 		}
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(articleUuid);
-		ArticlePo a = articleDao.selectSingle(aq);
-		if (a == null) {
-			a = new ArticlePo();
-			a.setUuid(articleUuid);
-			a.setContent("在这里写点事.....");
-			a.setTitle("填一个标题.....");
+		ArticlePo articlePo = articleDao.selectSingle(aq);
+		ArticleDto editArticle = EntityUtil.articlePoToDto(articlePo);
+		if (articlePo == null) {
+			articlePo = new ArticlePo();
+			articlePo.setUuid(articleUuid);
+			articlePo.setContent("在这里写点事.....");
+			articlePo.setTitle("填一个标题.....");
+		}else{
+			TagQuery tagQuery = new TagQuery();
+			tagQuery.setArticleUuid(articlePo.getUuid());
+			List<TagPo> tags = tagDao.selectList(tagQuery);
+			List<TagDto> tagsDto = Lists.newArrayList(); 
+			if(tags!=null){
+				for(TagPo tag:tags){
+					tagsDto.add(EntityUtil.tagPoToDto(tag));
+				}
+			}
+			ProductQuery productQuery = new ProductQuery();
+			productQuery.setArticleUuid(articlePo.getUuid());
+			List<ProductPo> productDb = productDao.selectList(productQuery);
+			List<ProductDto> productsDto = Lists.newArrayList(); 
+			if(productDb!=null){
+				for( ProductPo p:productDb){
+					productsDto.add(EntityUtil.productPoToDto(p));
+				}
+			}
+			editArticle.setTags(tagsDto);
+			editArticle.setProducts(productsDto);
+			
 		}
 		
-		ArticleDto editArticle = EntityUtil.articlePoToDto(a);
 		map.addAttribute("editArticle", editArticle);
 
 		map.addAttribute("imgDomain", imgDomain);
@@ -83,6 +132,65 @@ public class EditAction extends BaseAction {
 		ResponseData rd = new ResponseData();
 		UserDto loggeduser = getLogedUser(request);
 		if(loggeduser!=null){
+			
+			List<TagDto> selectedTags = article.getSelectedTags();
+			if(selectedTags!=null){
+			for(TagDto st:selectedTags){
+				TagQuery tagQuery = new TagQuery();
+				tagQuery.setValue(st.getValue());
+				TagPo ssv = tagDao.selectSingleByValue(tagQuery);
+				if(ssv==null){
+					TagPo tagPo = new TagPo();
+					tagPo.setCreateBy(loggeduser.getUsername());
+					tagPo.setCreateDate(new Date());
+					tagPo.setLastModifyDate(new Date());
+					tagPo.setValue(st.getValue());
+					tagPo.setType("USER");
+					tagDao.insert(tagPo);
+					ssv = tagDao.selectSingleByValue(tagQuery);
+				}
+				ArticleTagLinkQuery atlq = new ArticleTagLinkQuery();
+				atlq.setArticleUuid(article.getUuid());
+				atlq.setTagId(ssv.getId());
+				ArticleTagLinkPo articleTagLinkPo = articleTagLinkDao.selectSingle(atlq);
+				if(articleTagLinkPo==null){
+					ArticleTagLinkPo atlp = new ArticleTagLinkPo();
+					atlp.setArticleUuid(article.getUuid());
+					atlp.setCreateBy(loggeduser.getUsername());
+					atlp.setCreateDate(new Date());
+					atlp.setLastModifyDate(new Date());
+					atlp.setTagId(ssv.getId());
+					articleTagLinkDao.insert(atlp);
+				}
+				
+				
+			}
+			}
+			
+			List<ProductDto> selectedProducts = article.getSelectedProducts();
+			if(selectedProducts!=null){
+			for( ProductDto sp:selectedProducts){
+				ProductQuery productQuery = new ProductQuery();
+				productQuery.setId(sp.getId());
+				ProductPo ssv = productDao.selectById(productQuery);
+				if(ssv!=null){
+					ArticleProductLinkQuery atlq = new ArticleProductLinkQuery();
+					atlq.setArticleUuid(article.getUuid());
+					atlq.setProductId(ssv.getId());
+					ArticleProductLinkPo articleTagLinkPo = articleProductLinkDao.selectSingle(atlq);
+					if(articleTagLinkPo==null){
+						ArticleProductLinkPo aplp = new ArticleProductLinkPo();
+						aplp.setArticleUuid(article.getUuid());
+						aplp.setEffected(true);
+						aplp.setProductId(ssv.getId());
+						aplp.setCreateDate(new Date());
+						aplp.setLastModifyDate(new Date());
+						articleProductLinkDao.insert(aplp);
+					}
+				}
+				
+			}
+			}
 			ArticlePo entity = new ArticlePo();
 			entity.setContent(checkTextDanger(article.getContent()));
 			entity.setLastModifyDate(new Date());
@@ -133,7 +241,7 @@ public class EditAction extends BaseAction {
 	@RequestMapping("article/publish")
 	@ResponseBody
 	public ResponseData publishArticle(HttpServletRequest request, @RequestBody ArticleDto article) {
-		//取出数据库中的数生成永久地址页面，保证下次生成的一致性
+		//取出数据库中的数生成永久地址页面，不要直接生成，保证下次生成的一致性
 		
 		ArticlePo articlePo = new ArticlePo();
 		articlePo.setIsPublished(true);
@@ -143,9 +251,31 @@ public class EditAction extends BaseAction {
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(article.getUuid());
 		ArticlePo a = articleDao.selectSingle(aq);
-
-		article.setContent(a.getContent());
-		buildArticleHtml(a,request);
+		//获取标签
+		TagQuery tagQuery = new TagQuery();
+		tagQuery.setArticleUuid(articlePo.getUuid());
+		List<TagPo> tags = tagDao.selectList(tagQuery);
+		List<TagDto> tagsDto = Lists.newArrayList(); 
+		if(tags!=null){
+			for(TagPo tag:tags){
+				tagsDto.add(EntityUtil.tagPoToDto(tag));
+			}
+		}
+		//获取商品
+		ProductQuery productQuery = new ProductQuery();
+		productQuery.setArticleUuid(articlePo.getUuid());
+		List<ProductPo> productDb = productDao.selectList(productQuery);
+		List<ProductDto> productsDto = Lists.newArrayList(); 
+		if(productDb!=null){
+			for( ProductPo p:productDb){
+				productsDto.add(EntityUtil.productPoToDto(p));
+			}
+		}
+		ArticleDto articlePoToDto = EntityUtil.articlePoToDto(a);
+		articlePoToDto.setProducts(productsDto);
+		articlePoToDto.setTags(tagsDto);
+		
+		buildArticleHtml(articlePoToDto,request);
 
 		ResponseData rd = new ResponseData();
 		rd.setData(article);
@@ -171,7 +301,7 @@ public class EditAction extends BaseAction {
 
 	}
 
-	private void buildArticleHtml(ArticlePo entity, HttpServletRequest request) {
+	private void buildArticleHtml(ArticleDto entity, HttpServletRequest request) {
 		try {
 			// 创建一个合适的Configration对象
 			Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);

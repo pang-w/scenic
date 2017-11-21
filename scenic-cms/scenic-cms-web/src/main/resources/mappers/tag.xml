@@ -5,14 +5,13 @@
 <mapper namespace="com.itmaoo.scenic.dao.ITagDao">
 	<sql id="cols">
 		tagid AS id,
-		title AS title,
-		keyword AS keyword,
-		username AS username,
-		uuid AS uuid,
-		content AS content,
+		value AS value,
+		createby AS createby,
+		type AS type,
 		description AS description,
+		parentid AS parentId,
 		createdate AS createDate,
-		lastmodify AS lastModifyDate
+		lastmodifydate AS lastModifyDate
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -23,14 +22,21 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="TagPo">
 		INSERT INTO tag (
-		tagid, value, description, createdate,lastmodify,type,parentid
+		tagid, value, description, createdate,lastmodifydate,type,parentid,createby
 		)
 		VALUES
 		(
-		#{id}, #{value}, #{description},#{createDate},#{lastModifyDate},#{type},#{parentId}
+		#{id}, #{value}, #{description},#{createDate},#{lastModifyDate},#{type},#{parentId},#{createBy}
 		)
 	</insert>
-	<select id="selectSingle" resultType="TagPo" parameterType="TagQuery">
+	<select id="selectSingleByValue" resultType="TagPo" parameterType="TagQuery">
+		SELECT
+		<include refid="cols" />
+		FROM tag
+		WHERE
+		value = #{value}
+	</select>
+	<select id="selectListByArticleUuid" resultType="TagPo" parameterType="TagQuery">
 		SELECT
 		<include refid="cols" />
 		FROM tag
@@ -44,7 +50,7 @@
 		SET
 		ispublished=#{isPublished}
 		WHERE
-		uuid = #{uuid}
+		type = #{type}
 	</update>
 	
 	<sql id="collectionList">
@@ -53,12 +59,13 @@
 		FROM tag ad
 		WHERE
 		1=1
-		<if test="null!= username and '' != username">
-		AND username = #{username}
+		<if test="null!= createBy and '' != createBy">
+		AND createBy = #{createBy}
 		</if>
-		<if test="null!= isPublished and '' != isPublished">
-		AND ispublished = #{isPublished}
+		<if test="null!= articleUuid and '' != articleUuid">
+		AND tagid in ( SELECT tagid FROM articletaglink where articleuuid=#{articleUuid})
 		</if>
+
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

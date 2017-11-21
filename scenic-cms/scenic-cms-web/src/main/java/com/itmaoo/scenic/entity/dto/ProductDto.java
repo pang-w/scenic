@@ -1,5 +1,7 @@
 package com.itmaoo.scenic.entity.dto;
 
+import java.util.List;
+
 /**
  * 实体类 - 商品
  **/
@@ -15,7 +17,7 @@ public class ProductDto extends BaseDto {
 	private String description;
 	private String linkTo;
 	
-	
+
 	public Integer getId() {
 		return id;
 	}

@@ -104,21 +104,6 @@ jQuery(function($) {
 	
 	
 	
-	$("#saveArticle").click(function() {
-		support.ajax("user/auth/checkLogged", null,
-				function(response) {
-					if(response.status!="0000"){
-						layer.msg(response.msg);
-					}else{
-						save();
-					}
-				},
-				function(response) {
-					layer.msg(response.msg);
-				}
-		);
-		
-	});
 	$("#saveAndPreview").click(function() {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
@@ -228,16 +213,7 @@ jQuery(function($) {
 			$("#previewContent").html(response.data.content);
 		});
 	}
-	function save() {
-		var data = {
-			"title" : $("#articleTitle").val(),
-			"content" : $("#summernote").summernote('code'),
-			"uuid" : $("#articleUuid").val()
-		};
-		support.ajax("edit/article/save", data, function(response) {
-			layer.msg(response.msg);
-		});
-	}
+
 	function publish() {
 		var data = {
 			"uuid" : $("#articleUuid").val()
@@ -256,26 +232,8 @@ jQuery(function($) {
 	}
 	
 });
-function insertImage(){
-	var range = $('#summernote').summernote('createRange');
-	$('#summernote').summernote('insertImage',
-			"http://localhost:8080/assets/base/img/iukiss.png", function($image) {
-				$image.css('maxWidth', '80%');
-				$image.css('align', 'center');
-			});
-}
-function insertProduct(){
-	var range = $('#summernote').summernote('createRange');
-	
-	var e3 = document.createElement("aside");
-	e3.innerText="产品";
-	  
-	var node = document.createElement('article');
-	node.appendChild(e3);
-	node.setAttribute("class","psot");
-	
-	$('#summernote').summernote('insertNode',node);
-}
+
+
 
 function insertText(){
 	var range = $('#summernote').summernote('createRange');

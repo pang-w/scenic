@@ -36,25 +36,6 @@
 
 <body class="home-template" ng-app="iukissApp"
 	ng-controller="iukissCtrl">
-	<!-- start header -->
-	<header class="main-header"
-		style="background-image: url(http://img.iukiss.com/bg/head_bg_fang.JPG)">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<!-- start logo -->
-					<a class="branding" href="/" title="IUKISS 消费记录平台"> <img
-						src="/assets/base/img/iukiss.png" alt="IUKISS 开源博客平台">
-					</a>
-					<!-- end logo -->
-					<h2 class="text-hide">IUKISS
-						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKISS 来帮你处理吧。</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- end header -->
-
 	<!-- start navigation -->
 	<nav class="main-navigation">
 		<div class="container">
@@ -127,8 +108,7 @@
 						<div class="pull-right">
 							<input id="signatureLikedUsername" type="hidden" value="{{topUser.username}}"/>
 							<span class="author"><a	href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
-							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
-								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
+							<time class="post-date">{{topUser.createDate}}</time>
 							| {{topUser.signatureLikedCount}}赞<span class='btn'
 								id="likeSignatureBtn"><i class="fa fa-heart"></i> 点赞</span>
 						</div>
@@ -136,6 +116,7 @@
 				</article>
 
 				<article id="108" class="post" ng-repeat="atc in articles">
+				
 					<div class="post-head">
 						<h1 class="post-title">
 							<a href="/article/{{atc.uuid}}.html">{{atc.title}}</a>
@@ -146,15 +127,24 @@
 							<time class="post-date" datetime="{{atc.lastmodify}}"
 								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
 						</div>
+						<div class="col-sm-4">
+					
+				</div>
 					</div>
+					
 					<div class="post-content">
 						<p>{{atc.description}}</p>
 					</div>
 
 					<footer class="post-footer clearfix">
+					
 						<div class="pull-left tag-list">
-							<i class="fa fa-folder-open-o"></i>
-
+			<div class="widget">
+								<div class="content tag-cloud">
+									<i class="fa fa-tag"></i>标签
+									<a ng-click="selectTag(ut.value)" ng-repeat="ut in atc.tags" >{{ut.value}}</a>
+								</div>
+							</div>
 						</div>
 						<div class="pull-right share"></div>
 					</footer>
@@ -219,7 +209,7 @@
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="#">{{ a.name }}</a> <a
+											<a ng-click="layerViewProduct(a)">{{ a.name }}</a> <a
 											class='btn pull-right' ng-click="ngEditProduct(a.id)"> <i
 												class="pull-right fa fa-edit"></i>
 										</a>

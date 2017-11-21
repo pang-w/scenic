@@ -1,5 +1,7 @@
 package com.itmaoo.scenic.entity.dto;
 
+import java.util.List;
+
 /**
  * 
  * @author mario
@@ -17,6 +19,38 @@ public class ArticleDto extends BaseDto{
 	private String description;
 	private Boolean isPublished;
 	
+	private List<TagDto> selectedTags;
+	private List<ProductDto> selectedProducts;
+	
+	private List<ProductDto> products;
+	private List<TagDto> tags;
+	
+	public List<ProductDto> getProducts() {
+		return products;
+	}
+	public void setProducts(List<ProductDto> products) {
+		this.products = products;
+	}
+	public List<TagDto> getTags() {
+		return tags;
+	}
+	public void setTags(List<TagDto> tags) {
+		this.tags = tags;
+	}
+	
+
+	public List<TagDto> getSelectedTags() {
+		return selectedTags;
+	}
+	public void setSelectedTags(List<TagDto> selectedTags) {
+		this.selectedTags = selectedTags;
+	}
+	public List<ProductDto> getSelectedProducts() {
+		return selectedProducts;
+	}
+	public void setSelectedProducts(List<ProductDto> selectedProducts) {
+		this.selectedProducts = selectedProducts;
+	}
 	public Boolean getIsPublished() {
 		return isPublished;
 	}

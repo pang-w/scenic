@@ -5,7 +5,7 @@ public class ArticleProductLinkPo extends BasePo {
 	private static final long serialVersionUID = 6365091150016172187L;
 	
 	private String articleUuid;
-	private String productId;
+	private Integer productId;
 	private Boolean effected;
 	
 	public String getArticleUuid() {
@@ -14,10 +14,11 @@ public class ArticleProductLinkPo extends BasePo {
 	public void setArticleUuid(String articleUuid) {
 		this.articleUuid = articleUuid;
 	}
-	public String getProductId() {
+
+	public Integer getProductId() {
 		return productId;
 	}
-	public void setProductId(String productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 	public Boolean getEffected() {

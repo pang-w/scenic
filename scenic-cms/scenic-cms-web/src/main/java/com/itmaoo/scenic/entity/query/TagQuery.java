@@ -9,6 +9,15 @@ public class TagQuery extends BaseQuery{
 	private String type;
 	private Integer parentId;
 	
+	private String articleUuid;
+	
+	
+	public String getArticleUuid() {
+		return articleUuid;
+	}
+	public void setArticleUuid(String articleUuid) {
+		this.articleUuid = articleUuid;
+	}
 	public String getValue() {
 		return value;
 	}

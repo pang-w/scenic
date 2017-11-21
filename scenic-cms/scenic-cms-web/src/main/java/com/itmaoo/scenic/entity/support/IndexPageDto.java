@@ -5,6 +5,7 @@ import java.util.List;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.ProductDto;
+import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 
 public class IndexPageDto {
@@ -17,7 +18,46 @@ public class IndexPageDto {
 	private List<ProductDto> productMenu;
 	private List<ArticleDto> attentionMenu;
 	
+	private List<TagDto> userTags;
+	private List<TagDto> asideTags;
 	
+	private List<ProductDto> linkedProducts;
+	private List<TagDto> selectedTags;
+	
+	private ArticleDto editArticle;
+	
+	
+	public ArticleDto getEditArticle() {
+		return editArticle;
+	}
+	public void setEditArticle(ArticleDto editArticle) {
+		this.editArticle = editArticle;
+	}
+	public List<ProductDto> getLinkedProducts() {
+		return linkedProducts;
+	}
+	public void setLinkedProducts(List<ProductDto> linkedProducts) {
+		this.linkedProducts = linkedProducts;
+	}
+	public List<TagDto> getUserTags() {
+		return userTags;
+	}
+	public void setUserTags(List<TagDto> userTags) {
+		this.userTags = userTags;
+	}
+	
+	public List<TagDto> getAsideTags() {
+		return asideTags;
+	}
+	public void setAsideTags(List<TagDto> asideTags) {
+		this.asideTags = asideTags;
+	}
+	public List<TagDto> getSelectedTags() {
+		return selectedTags;
+	}
+	public void setSelectedTags(List<TagDto> selectedTags) {
+		this.selectedTags = selectedTags;
+	}
 	public List<ProductDto> getProducts() {
 		return products;
 	}

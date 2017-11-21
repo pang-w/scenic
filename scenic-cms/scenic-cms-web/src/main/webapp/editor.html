@@ -4,26 +4,30 @@
 <head>
 <meta charset="UTF-8">
 
-<link rel="stylesheet" href="/assets/base/css/screen.css">
-<link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
-<link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
-<link rel="stylesheet" href="/assets/base/css/monokai_sublime.min.css">
+<link rel="stylesheet" href="assets/base/css/screen.css">
+<link rel="stylesheet" href="assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/base/css/monokai_sublime.min.css">
+<link href="assets/base/summernote/summernote.css" rel="stylesheet">
 
-<script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript"	src="/assets/base/summernote/summernote.js"></script>
-<script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/assets/base/layer/layer.js"></script>
-<script type="text/javascript" src="/assets/base/js/angular.min.js"></script>
+<script type="text/javascript" src="assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript"
+	src="assets/base/summernote/summernote.js"></script>
+<script type="text/javascript" src="assets/base/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="assets/base/js/angular.min.js"></script>
+<script type="text/javascript" src="assets/ctrl/base.js"></script>
 
-<link rel="stylesheet" href="/assets/css/iukiss.css">
+<link rel="stylesheet" href="assets/css/iukiss.css">
 
-<script type="text/javascript" src="/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="/assets/ctrl/editor.js"></script>
-<script type="text/javascript" src="/assets/ctrl/editorLoad.js"></script>
+<script type="text/javascript" src="assets/ctrl/base.js"></script>
+<script type="text/javascript" src="assets/ctrl/editor.js"></script>
+<script type="text/javascript" src="assets/ctrl/editorLoad.js"></script>
 
 
 </head>
-<body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
+<body class="home-template" ng-app="iukissApp"
+	ng-controller="iukissCtrl">
 
 	<!-- start navigation -->
 	<nav class="main-navigation">
@@ -31,10 +35,10 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="navbar-header">
-                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
-                        <span class="sr-only">Toggle navigation</span>
-                        <i class="fa fa-bars"></i>
-                        </span>
+						<span class="nav-toggle-button collapsed" data-toggle="collapse"
+							data-target="#main-menu"> <span class="sr-only">Toggle
+								navigation</span> <i class="fa fa-bars"></i>
+						</span>
 					</div>
 					<div class="collapse navbar-collapse" id="main-menu">
 						<ul class="nav navbar-nav">
@@ -54,14 +58,15 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/register.html">注册</a></li>
 							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
-							<li id="loggedDropdown" class="dropdown">
-								<a	id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
+							<li id="loggedDropdown" class="dropdown"><a
+								id="loggedUesername" class="dropdown-toggle"
+								data-toggle="dropdown"> <b class="caret"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="/profile.html">个人资料</a></li>
 									<li data-filter-camera-type="Zed"><a
-											onclick="support.layerChangePassword()">修改密码</a></li>
+										onclick="support.layerChangePassword()">修改密码</a></li>
 									<li data-filter-camera-type="Bravo"><a
-											onclick="support.logout()">退出</a></li>
+										onclick="support.logout()">退出</a></li>
 								</ul></li>
 						</ul>
 						<!-- <form class="navbar-form navbar-right">
@@ -83,7 +88,64 @@
 				<main class="col-md-8 main-content">
 
 				<section class="content-wrap">
-					
+					<div class="form-group">
+						<div class="row">
+							<div class="titleInputForm">
+
+								<input class="post-title form-control" id="articleTitle"
+									placeholder="标题..." type="text" /> <input id="articleUuid"
+									type="hidden" value="${articleUuid}" />
+
+							</div>
+							<hr />
+						</div>
+
+						<div class="row">
+							<div id="summernote">${editArticle.content}</div>
+							<input class="post-title form-control" id="articleTitle"
+								placeholder="标签..." type="text" />
+							<hr />
+							<div class="widget">
+								<div class="content tag-cloud">
+
+									<i class="fa fa-tag"></i>选择标签 <a href="/tags/about-ghost">IUKISS</a>
+									<a href="/tags/release">新版本发布</a> <a href="/tags/javascript">JavaScript</a>
+									<a href="/tags/javascript">换一批</a>
+								</div>
+							</div>
+							<hr />
+
+							<div class="widget">
+								<div class="content tag-cloud">
+
+									<i class="fa fa-shopping-cart"></i>关联商品 <a
+										href="/tags/about-ghost">IUKISS</a> <a href="/tags/release">新版本发布</a>
+									<a href="/tags/javascript">JavaScript</a> <a
+										href="/tags/javascript">换一批</a>
+								</div>
+							</div>
+							<div id="editBtns" class="post-permalink">
+								<input class="btn btn-default" id="saveArticle" type="submit"
+									value="保存" /> <input class="btn btn-default"
+									id="saveAndPreview" type="submit" value="保存并预览" /> <input
+									class="btn btn-default" id="publishArticle" type="submit"
+									value="发布" /> <input class="btn btn-default"
+									id="unpublishArticle" type="submit" value="取消发布" /> <a
+									class="btn btn-default" target="_blank"
+									href="/article/${articleUuid}.html">访问文章</a>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div id="previewTitleFormat" class="row">
+								<div class="post-title" id="previewTitle"></div>
+								<hr />
+							</div>
+							<div class="row">
+								<div id="previewContent"></div>
+							</div>
+						</div>
+					</div>
 				</section>
 
 				</main>
@@ -99,10 +161,10 @@
 								<div id="collapseArticle" class="panel-collapse collapse in">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a>
-											<a href="/action/edit/article/{{a.uuid}}">
-        											<i class="pull-right fa fa-edit"></i>
-        									</a>
+											<a href="/article/{{a.uuid}}.html">{{ a.title }}</a> <a
+											href="/action/edit/article/{{a.uuid}}"> <i
+												class="pull-right fa fa-edit"></i>
+										</a>
 										</li>
 									</ul>
 								</div>
@@ -130,15 +192,15 @@
 								</div>
 							</div>
 							<div class="panel panel-warning">
-								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a href="{{ a.url }}" target="_blank">{{ a.imageName }}</a>
-											<a onclick="insertImage()">
-												<i class="pull-left fa fa-arrow-left"></i>
-											</a>
-										</li>
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in imageMenu"><a
+											href="{{ a.url }}" target="_blank">{{ a.imageName }}</a> <a
+											onclick="insertImage()"> <i
+												class="pull-left fa fa-arrow-left"></i>
+										</a></li>
 									</ul>
 								</div>
 							</div>
@@ -151,7 +213,7 @@
 
 
 
-				
+
 
 					<!-- start widget -->
 					<!-- end widget -->

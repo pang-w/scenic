@@ -9,7 +9,7 @@
 		productid AS productId,
 		effected AS effected,
 		createdate AS createDate,
-		lastmodify AS lastModifyDate
+		lastmodifydate AS lastModifyDate
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -20,7 +20,7 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ArticleProductLinkPo">
 		INSERT INTO articleproductlink (
-		articleproductlinkid, articleuuid, productid, effected,createdate,lastmodify
+		articleproductlinkid, articleuuid, productid, effected,createdate,lastmodifydate
 		)
 		VALUES
 		(
@@ -32,7 +32,9 @@
 		<include refid="cols" />
 		FROM articleproductlink
 		WHERE
-		articleproductlinkid = #{id}
+		articleuuid = #{articleUuid}
+		AND
+		productid = #{productId}
 	</select>
 
 	

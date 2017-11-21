@@ -64,7 +64,7 @@ var support = {
 			  ,content: '/layerAddProduct.html'
 			});
 	},
-	layerEditProduct : function layerAddProduction(pid) {
+	layerEditProduct : function layerEditProduct(pid) {
 		support.ajax("user/product/searchById", {id:pid}, function(response) {
 			layer.open({
 				  type:  2//Page层类型
@@ -81,6 +81,7 @@ var support = {
 		});
 		
 	},
+	
 	layerImage : function layerImage(url) {
 		layer.open({
 			  type:  1//Page层类型

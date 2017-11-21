@@ -60,6 +60,7 @@ public class TagUserAction extends BaseAction {
 		} else {
 			TagQuery query = new TagQuery();
 			query.setValue(tageDto.getValue());
+			query.setCreateBy(tageDto.getCreateBy());
 			List<TagDto> tagsDto = Lists.newArrayList();
 			
 			List<TagPo> tagsPo = tagDao.selectList(query);

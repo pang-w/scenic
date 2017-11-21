@@ -119,30 +119,32 @@
 
 						<div class="row">
 							<div id="summernote">${editArticle.content}</div>
-							<div >
-								<span class='label label-success'>asdf</span>
-								<span class="label label-success">默认标签</span>
+							<div class="widget">
+							<div class="content tag-cloud">
+								<a ng-click="deselectTag(st.value)" ng-repeat="st in selectedTags" >{{st.value}}</a>
+							</div>
 							</div>
 							
 							<hr />
 							<div class="widget">
 								<div class="content tag-cloud">
-
-									<i class="fa fa-tag"></i>选择标签 <a href="/tags/about-ghost">IUKISS</a>
-									<a href="/tags/release">新版本发布</a> <a href="/tags/javascript">JavaScript</a>
-									<a href="/tags/javascript">换一批</a>
-									<input class="post-title form-control" id="articleTitle" placeholder="自定义标签..." type="text" />
+									<i class="fa fa-tag"></i>选择标签 
+									<a ng-click="selectTag(ut.value)" ng-repeat="ut in userTags" >{{ut.value}}</a>
+									
+									<a ng-click="refreshUserTag()">换一批</a>
+									<input class="post-title form-control" id="addSelfTagBtn" placeholder="自定义标签..." onen type="text" />
 								</div>
 							</div>
 							<hr />
-
+							<div class="widget">
+							<div class="content tag-cloud">
+								<a ng-click="deselectProduct(sp)" ng-repeat="sp in selectedProducts" >{{sp.name}}</a>
+							</div>
+							</div>
 							<div class="widget">
 								<div class="content tag-cloud">
-
-									<i class="fa fa-shopping-cart"></i>关联商品 <a
-										href="/tags/about-ghost">IUKISS</a> <a href="/tags/release">新版本发布</a>
-									<a href="/tags/javascript">JavaScript</a> <a
-										href="/tags/javascript">换一批</a>
+									<i class="fa fa-shopping-cart"></i>关联商品
+									<a ng-click="selectProduct(lp)" ng-repeat="lp in linkedProduct" >{{lp.name}}</a>
 								</div>
 							</div>
 							<div id="editBtns" class="post-permalink">
@@ -225,7 +227,7 @@
 											class='btn pull-right' ng-click="ngEditProduct(a.id)"> <i
 												class="pull-right fa fa-edit"></i>								
 										</a>
-										<a class='btn pull-right' onclick="insertProduct()">
+										<a class='btn pull-right' ng-click="insertProduct(a)">
 												<i class="pull-right fa fa-arrow-left"></i>
 											</a>
 										</li>
@@ -240,7 +242,7 @@
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in imageMenu"><a
 											ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a>
-											<a class='btn pull-right' onclick="insertImage()">
+											<a class='btn pull-right' ng-click="insertImage(a)">
 												<i class="pull-right fa fa-arrow-left"></i>
 											</a>
 										</li>
@@ -255,27 +257,11 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="/tags/jquery">jQuery</a> <a
-								href="/tags/ghost-0-7-ban-ben">IUKISS 0.7 版本</a> <a
-								href="/tags/opensource">开源</a> <a href="/tags/zhu-shou-han-shu">助手函数</a>
-							<a href="/tags/tag-cloud">标签云</a> <a href="/tags/navigation">导航</a>
-							<a href="/tags/customize-page">自定义页面</a> <a
-								href="/tags/static-page">静态页面</a> <a href="/tags/roon-io">Roon.io</a>
-							<a href="/tags/configuration">配置文件</a> <a href="/tags/upyun">又拍云存储</a>
-							<a href="/tags/upload">上传</a> <a href="/tags/handlebars">Handlebars</a>
-							<a href="/tags/email">邮件</a> <a href="/tags/shortcut">快捷键</a> <a
-								href="/tags/yong-hu-zhi-nan">用户指南</a> <a
-								href="/tags/theme-market">主题市场</a> <a href="/tags/release">新版本发布</a>
-							<a href="/tag-cloud">...</a>
+							<a ng-click="selectTag(ut.value)" ng-repeat="ut in topTags" >{{ut.value}}</a>
+							
 						</div>
 					</div>
 					<!-- end tag cloud widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
-
-					<!-- start widget -->
-					<!-- end widget -->
 				</aside>
 			</div>
 	</section>
