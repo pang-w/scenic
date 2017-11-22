@@ -58,6 +58,7 @@ function loadIndexAll(){
 	    	if (result.data.status == "0000") {
 	    		$scope.topUser = result.data.data.topUser;
 	            $scope.articles = result.data.data.articles;
+	            $scope.products = result.data.data.products;
 	            
 		        $scope.articleMenu = result.data.data.articleMenu;
 		        $scope.imageMenu = result.data.data.imageMenu;

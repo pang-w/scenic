@@ -11,8 +11,15 @@ public class TagQuery extends BaseQuery{
 	
 	private String articleUuid;
 	private String username;
+	private Boolean effected;
 	
 	
+	public Boolean getEffected() {
+		return effected;
+	}
+	public void setEffected(Boolean effected) {
+		this.effected = effected;
+	}
 	public String getUsername() {
 		return username;
 	}

@@ -81,6 +81,13 @@
 		<if test="null!= username and '' != username">
 		AND username = #{username}
 		</if>
+		<if test="null!= articleUuid and '' != articleUuid">
+		AND productid in ( SELECT productid FROM articleproductlink where
+		 <if test="null!= effected and '' != effected">
+		 	effected = #{effected} AND 
+		 </if>
+		 articleuuid=#{articleUuid})
+		</if>
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

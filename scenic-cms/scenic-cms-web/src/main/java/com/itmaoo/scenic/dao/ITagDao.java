@@ -14,4 +14,5 @@ public interface ITagDao extends IBaseDao<TagPo>{
 	TagPo selectSingleByValue(TagQuery tagQuery);
 	List<TagPo> selectListByArticleUuid(TagQuery tagQuery);
 	
+	
 }

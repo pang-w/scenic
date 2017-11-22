@@ -7,7 +7,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>IUKISS</title>
-<meta name="description" content="IUKISS是一个简洁、强大的消费故事写作分享平台。在IUKISS可以方便的记录物品给你带来的便捷，也可以看到同一个物品鲜为人知的价值，IUKISS只求事情和物品完美的结合。">
+<meta name="description"
+	content="IUKISS是一个简洁、强大的消费故事写作分享平台。在IUKISS可以方便的记录物品给你带来的便捷，也可以看到同一个物品鲜为人知的价值，IUKISS只求事情和物品完美的结合。">
 <meta name="keywords" content="IUKISS 写作 记录 商品 消费故事">
 
 <meta name="HandheldFriendly" content="True">
@@ -36,6 +37,24 @@
 
 <body class="home-template" ng-app="iukissApp"
 	ng-controller="iukissCtrl">
+	<!-- start header -->
+	<header class="main-header"
+		style="background-image: url(http://img.iukiss.com/bg/head_bg_fang.JPG)">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<!-- start logo -->
+					<a class="branding" href="/" title="IUKISS 消费记录平台"> <img
+						src="/assets/base/img/iukiss.png" alt="IUKISS 开源博客平台">
+					</a>
+					<!-- end logo -->
+					<h2 class="text-hide">IUKISS
+						是一个简洁、强大的写作平台。你只须专注于用文字表达你的想法就好，其余的事情就让 IUKISS 来帮你处理吧。</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- end header -->
 	<!-- start navigation -->
 	<nav class="main-navigation">
 		<div class="container">
@@ -106,8 +125,9 @@
 							<p>{{topUser.signature}}</p>
 						</div>
 						<div class="pull-right">
-							<input id="signatureLikedUsername" type="hidden" value="{{topUser.username}}"/>
-							<span class="author"><a	href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
+							<input id="signatureLikedUsername" type="hidden"
+								value="{{topUser.username}}" /> <span class="author"><a
+								href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
 							<time class="post-date">{{topUser.createDate}}</time>
 							| {{topUser.signatureLikedCount}}赞<span class='btn'
 								id="likeSignatureBtn"><i class="fa fa-heart"></i> 点赞</span>
@@ -116,7 +136,6 @@
 				</article>
 
 				<article id="108" class="post" ng-repeat="atc in articles">
-				
 					<div class="post-head">
 						<h1 class="post-title">
 							<a href="/article/{{atc.uuid}}.html">{{atc.title}}</a>
@@ -127,29 +146,25 @@
 							<time class="post-date" datetime="{{atc.lastmodify}}"
 								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
 						</div>
-						<div class="col-sm-4">
-					
-				</div>
+						<div class="col-sm-4"></div>
 					</div>
-					
+
 					<div class="post-content">
 						<p>{{atc.description}}</p>
 					</div>
 
 					<footer class="post-footer clearfix">
-					
 						<div class="pull-left tag-list">
-			<div class="widget">
+							<div class="widget">
 								<div class="content tag-cloud">
-									<i class="fa fa-tag"></i>标签
-									<a ng-click="selectTag(ut.value)" ng-repeat="ut in atc.tags" >{{ut.value}}</a>
+									<i class="fa fa-tag"></i>标签 <a ng-click="selectTag(ut.value)"
+										ng-repeat="ut in atc.tags">{{ut.value}}</a>
 								</div>
 							</div>
 						</div>
 						<div class="pull-right share"></div>
 					</footer>
 				</article>
-
 
 				<nav class="pagination" role="navigation">
 					<span class="page-number">第 1 页 ⁄ 共 1 页</span> <a
@@ -179,10 +194,8 @@
 								<div id="collapseArticle" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{
-												a.title }}</a> <a href="/action/edit/article/{{a.uuid}}"> <i
-												class="pull-right fa fa-edit"></i>
-										</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
+											<a href="/action/edit/article/{{a.uuid}}"> <i class="pull-right fa fa-edit"></i></a>
 										</li>
 									</ul>
 								</div>
@@ -193,18 +206,14 @@
 								<div id="collapseAttention" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{
-												a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title'
-									id="collapseProductAction">
-									我的商品 <a onclick="support.layerAddProduct()"> <i
-										class="pull-right fa fa-edit"></i>
-									</a>
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">
+									我的商品 <a onclick="support.layerAddProduct()"> <i class="pull-right fa fa-edit"></i></a>
 								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
@@ -236,8 +245,8 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="tags/{{st.value}}" ng-repeat="at in asideTags" >{{at.value}}</a>
-							
+							<a href="tags/{{st.value}}" ng-repeat="at in asideTags">{{at.value}}</a>
+
 						</div>
 					</div>
 					<!-- end tag cloud widget -->
@@ -260,9 +269,8 @@
 								<div class="date">2017年11月16日</div>
 							</div>
 							<div class="recent-single-post">
-								<a href="/article/B7F48C3D.html" class="post-title">IUKISS
-									1.0 版本正式发布</a>
-								<div class="date">2017年7月29日</div>
+								<a href="/article/B7F48C3D.html" class="post-title">IUKISS 1.0 版本正式发布</a>
+								<div class="date">2017年11月11日</div>
 							</div>
 						</div>
 					</div>

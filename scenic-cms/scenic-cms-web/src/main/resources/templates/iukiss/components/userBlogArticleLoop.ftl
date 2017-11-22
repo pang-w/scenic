@@ -9,30 +9,38 @@
 						</div>
 						<div class="pull-right">
 							<input id="signatureLikedUsername" type="hidden" value="${author.username}"/>
-							<span class="author"><a href="/i/${author.username}">${author.username}</a></span> •
+							<span class="author"><a href="../../../i/${author.username}">${author.username}</a></span> •
 							<time class="post-date" >${author.createDate}</time>
 								| ${author.signatureLikedCount}赞<span class='btn' id="likeSignatureBtn" ><i class="fa fa-heart"></i> 点赞</span> 
 						</div>
 					</div>
 				</article>
-				<article id="108" class="post" ng-repeat="atc in articles" >
+				<article id="108" class="post" ng-repeat="atc in articles">
 					<div class="post-head">
 						<h1 class="post-title">
 							<a href="../../../article/{{atc.uuid}}.html">{{atc.title}}</a>
 						</h1>
 						<div class="post-meta">
-							<span class="author">作者：<a href="../../../i/{{atc.username}}">{{atc.username}}</a></span> •
-							<time class="post-date" datetime="{{atc.lastmodify}}" title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
+							<span class="author">作者：<a href="../../../i/{{atc.username}}">{{atc.username}}</a></span>
+							•
+							<time class="post-date" datetime="{{atc.lastmodify}}"
+								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
 						</div>
+						<div class="col-sm-4"></div>
 					</div>
+
 					<div class="post-content">
 						<p>{{atc.description}}</p>
 					</div>
 
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
-							<i class="fa fa-folder-open-o"></i>
-
+							<div class="widget">
+								<div class="content tag-cloud">
+									<i class="fa fa-tag"></i>标签 <a ng-click="selectTag(ut.value)"
+										ng-repeat="ut in atc.tags">{{ut.value}}</a>
+								</div>
+							</div>
 						</div>
 						<div class="pull-right share"></div>
 					</footer>

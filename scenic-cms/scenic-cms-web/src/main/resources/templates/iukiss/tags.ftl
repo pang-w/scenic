@@ -55,14 +55,10 @@
 						</div>
 					</div>
 					<!-- end widget -->
-					
 					<#include "components/userResourceLoop.ftl">
-					
 					<!-- start tag cloud widget -->
-					<#include "components/tags.ftl">
-
+					<#include "components/asideTags.ftl">
 				</aside>
-
 			</div>
 		</div>
 	</section>

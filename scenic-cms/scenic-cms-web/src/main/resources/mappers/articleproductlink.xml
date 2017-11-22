@@ -27,6 +27,22 @@
 		#{id}, #{articleUuid}, #{productId}, #{effected},#{createDate},#{lastModifyDate}
 		)
 	</insert>
+	<update id="disableTagsByArticleUuid" parameterType="java.lang.String">
+		UPDATE
+		articleproductlink
+		SET
+		effected=false
+		WHERE
+		articleuuid = #{_parameter}
+	</update>
+	<update id="enableTagById" parameterType="java.lang.Integer">
+		UPDATE
+		articleproductlink
+		SET
+		effected=true
+		WHERE
+		articleproductlinkid = #{_parameter}
+	</update>
 	<select id="selectSingle" resultType="ArticleProductLinkPo" parameterType="ArticleProductLinkQuery">
 		SELECT
 		<include refid="cols" />
@@ -37,8 +53,6 @@
 		productid = #{productId}
 	</select>
 
-	
-	
 	
 	<sql id="collectionList">
 		SELECT

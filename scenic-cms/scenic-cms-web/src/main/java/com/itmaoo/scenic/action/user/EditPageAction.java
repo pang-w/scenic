@@ -106,7 +106,7 @@ public class EditPageAction extends BaseAction {
 		List<ProductPo> linkedProductsPo = productDao.selectList(linkProQuery);
 		List<ProductDto> linkedProductsDto = Lists.newArrayList();
 		if (linkedProductsPo != null) {
-			for (ProductPo pPo : productsPo) {
+			for (ProductPo pPo : linkedProductsPo) {
 				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
 				linkedProductsDto.add(proPoToDto);
 			}
@@ -199,6 +199,7 @@ public class EditPageAction extends BaseAction {
 	private ArticleDto makeupTagAndProductForArticle(ArticlePo articlePo) {
 		TagQuery tagQuery = new TagQuery();
 		tagQuery.setArticleUuid(articlePo.getUuid());
+		tagQuery.setEffected(true); 
 		List<TagPo> tags = tagDao.selectList(tagQuery);
 		List<TagDto> tagsDto = Lists.newArrayList();
 		if (tags != null) {
@@ -208,6 +209,7 @@ public class EditPageAction extends BaseAction {
 		}
 		ProductQuery productQuery = new ProductQuery();
 		productQuery.setArticleUuid(articlePo.getUuid());
+		productQuery.setEffected(true);
 		List<ProductPo> productDb = productDao.selectList(productQuery);
 		List<ProductDto> productsDto = Lists.newArrayList();
 		if (productDb != null) {

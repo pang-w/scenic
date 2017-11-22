@@ -7,7 +7,15 @@ public class ArticleTagLinkPo extends BasePo {
 	private String articleUuid;
 	private Integer tagId;
 	private String createBy;
+	private Boolean effected;
 	
+
+	public Boolean getEffected() {
+		return effected;
+	}
+	public void setEffected(Boolean effected) {
+		this.effected = effected;
+	}
 	public String getArticleUuid() {
 		return articleUuid;
 	}

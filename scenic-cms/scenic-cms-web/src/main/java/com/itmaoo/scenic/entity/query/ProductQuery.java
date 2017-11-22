@@ -17,7 +17,14 @@ public class ProductQuery extends BaseQuery {
 	
 	private String username;
 	private String articleUuid;
+	private Boolean effected;
 	
+	public Boolean getEffected() {
+		return effected;
+	}
+	public void setEffected(Boolean effected) {
+		this.effected = effected;
+	}
 	public String getArticleUuid() {
 		return articleUuid;
 	}

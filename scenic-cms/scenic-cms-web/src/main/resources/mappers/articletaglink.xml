@@ -8,6 +8,7 @@
 		articleuuid AS articleUuid,
 		tagid AS tagId,
 		createby AS createBy,
+		effected AS effected,
 		createdate AS createDate,
 		lastmodifydate AS lastModifyDate
 	</sql>
@@ -20,13 +21,29 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ArticleTagLinkPo">
 		INSERT INTO articletaglink (
-		articletaglinkid, articleuuid, tagid, createby,createdate,lastmodifydate
+		articletaglinkid, articleuuid, tagid, createby,createdate,lastmodifydate,effected
 		)
 		VALUES
 		(
-		#{id}, #{articleUuid}, #{tagId}, #{createBy},#{createDate},#{lastModifyDate}
+		#{id}, #{articleUuid}, #{tagId}, #{createBy},#{createDate},#{lastModifyDate},#{effected}
 		)
 	</insert>
+	<update id="disableTagsByArticleUuid" parameterType="java.lang.String">
+		UPDATE
+		articletaglink
+		SET
+		effected=false
+		WHERE
+		articleuuid = #{_parameter}
+	</update>
+	<update id="enableTagById" parameterType="java.lang.Integer">
+		UPDATE
+		articletaglink
+		SET
+		effected=true
+		WHERE
+		articletaglinkid = #{_parameter}
+	</update>
 	<select id="selectSingle" resultType="ArticleTagLinkPo" parameterType="ArticleTagLinkQuery">
 		SELECT
 		<include refid="cols" />
