@@ -37,7 +37,7 @@ public class BaseAction {
     UserQuery uquery = new UserQuery();
     uquery.setUsername(loggedUser.getUsername());
     UserPo userDb = userDao.selectByUsername(uquery);
-    UserVo userInfo = EntityUtil.userPoToDto(userDb);
+    UserVo userInfo = EntityUtil.userPoToVo(userDb);
 
     request.getSession().setAttribute("loggedUser", userInfo);
   }

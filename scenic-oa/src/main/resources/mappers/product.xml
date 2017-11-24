@@ -2,20 +2,22 @@
 <!DOCTYPE mapper PUBLIC 
 	"-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itmaoo.scenic.dao.IProductDao">
+<mapper namespace="com.itmaoo.oa.dao.IProductDao">
 	<sql id="cols">
 		productid AS id,
-		basenum AS baseNum,
-		imgurl AS imgUrl,
-		description AS description,
-		username AS username,
 		name AS name,
-		type AS type,
-		linkto AS linkTo,
+		sex AS sex,
+		age AS age,
+		testresault AS testResault,
+		caseid AS caseId,
+		doctor AS doctor,
+		department AS department,
+		testtype AS testType,
+		senddate AS sendDate,
+		reportdate AS reportDate,
 		createdate AS createDate,
 		lastmodifydate AS lastModifyDate,
 		price AS price
-		
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -26,9 +28,10 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ProductPo">
 		INSERT INTO product (
-			basenum,imgurl, linkto, type, username, description, name, createdate, lastmodifydate, price
+			name,sex, age, testresault, caseid, doctor, department, testtype, senddate, reportdate, createdate, lastmodifydate,description
 		)VALUES	(
-			#{baseNum},#{imgUrl}, #{linkTo}, #{type}, #{username}, #{description}, #{name}, #{createDate}, #{lastModifyDate},#{price}
+			#{name},#{sex}, #{age}, #{testResault}, #{caseId}, #{doctor}, #{department}, #{testType}, #{sendDate},#{reportDate},
+			 #{createDate},#{lastModifyDate},#{description}
 		)
 	</insert>
 	<select id="selectById" resultType="ProductPo" parameterType="ProductQuery">
@@ -38,12 +41,12 @@
 		WHERE
 		productid = #{id}
 	</select>
-	<select id="selectSingle" resultType="ProductPo" parameterType="ProductQuery">
+	<select id="selectSingleByCaseId" resultType="ProductPo" parameterType="java.lang.String">
 		SELECT
 		<include refid="cols" />
 		FROM product
 		WHERE
-		username = #{username}
+		caseid = #{_parameter}
 	</select>
 	<select id="selectSingleByUserAndProductName" resultType="ProductPo" parameterType="ProductQuery">
 		SELECT

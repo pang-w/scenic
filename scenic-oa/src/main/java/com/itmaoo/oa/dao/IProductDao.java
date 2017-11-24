@@ -10,4 +10,6 @@ public interface IProductDao extends IBaseDao<ProductPo>{
 
 	int updateById(ProductPo proPo);
 
+	ProductPo selectSingleByCaseId(String caseId);
+
 }

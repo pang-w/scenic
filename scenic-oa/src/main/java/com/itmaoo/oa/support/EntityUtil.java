@@ -9,68 +9,83 @@ import com.itmaoo.oa.entity.vo.UserVo;
 
 
 public class EntityUtil {
-	public static UserVo userPoToDto(UserPo userPo) {
+	public static UserVo userPoToVo(UserPo userPo) {
 
-		UserVo userDto = new UserVo();
-		userDto.setNickname(userPo.getNickname());
-		userDto.setTelphone(userPo.getTelphone());
-		userDto.setCreateDate(CommonUtil.formatDate(userPo.getCreateDate()));
-		userDto.setEmail(userPo.getEmail());
-		userDto.setInvalid(userPo.getInvalid());
-		userDto.setIsMale(userPo.getIsMale());
-		userDto.setLastLoggedDate(CommonUtil.formatDate(userPo.getLastLoggedDate()));
-		userDto.setPassword(userPo.getPassword());
-		userDto.setUsername(userPo.getUsername());
-		userDto.setIuCode(userPo.getIuCode());
-		userDto.setRecCode(userPo.getRecCode());
-		userDto.setSignature(userPo.getSignature());
-		userDto.setSignatureLikedCount(userPo.getSignatureLikedCount());
-		return userDto;
+		UserVo userVo = new UserVo();
+		userVo.setNickname(userPo.getNickname());
+		userVo.setTelphone(userPo.getTelphone());
+		userVo.setCreateDate(CommonUtil.formatDate(userPo.getCreateDate()));
+		userVo.setEmail(userPo.getEmail());
+		userVo.setInvalid(userPo.getInvalid());
+		userVo.setIsMale(userPo.getIsMale());
+		userVo.setLastLoggedDate(CommonUtil.formatDate(userPo.getLastLoggedDate()));
+		userVo.setPassword(userPo.getPassword());
+		userVo.setUsername(userPo.getUsername());
+		userVo.setIuCode(userPo.getIuCode());
+		userVo.setRecCode(userPo.getRecCode());
+		userVo.setSignature(userPo.getSignature());
+		userVo.setSignatureLikedCount(userPo.getSignatureLikedCount());
+		return userVo;
 
 	}
 
-	public static UserPo userDtoToPo(UserVo userDto) {
+	public static UserPo userVooToPo(UserVo userVo) {
 
 		UserPo userPo = new UserPo();
-		userPo.setTelphone(userDto.getTelphone());
-		userPo.setEmail(userDto.getEmail());
+		userPo.setTelphone(userVo.getTelphone());
+		userPo.setEmail(userVo.getEmail());
 		userPo.setInvalid(userPo.getInvalid());
-		userPo.setIsMale(userDto.getIsMale());
+		userPo.setIsMale(userVo.getIsMale());
 		userPo.setLastLoggedDate(userPo.getLastLoggedDate());
-		userPo.setPassword(userDto.getPassword());
-		userPo.setUsername(userDto.getUsername());
+		userPo.setPassword(userVo.getPassword());
+		userPo.setUsername(userVo.getUsername());
 		userPo.setIuCode(userPo.getIuCode());
-		userPo.setRecCode(userDto.getRecCode());
-		userPo.setSignature(userDto.getSignature());
+		userPo.setRecCode(userVo.getRecCode());
+		userPo.setSignature(userVo.getSignature());
 		
 		return userPo;
 
 	}
 
-	public static ProductPo productDtoToPo(ProductVo productDto) {
+	public static ProductPo productVoToPo(ProductVo productVo) {
 		ProductPo proPo = new ProductPo();
-		proPo.setId(productDto.getId());
-		proPo.setCreateDate(new Date());
-		proPo.setDescription(productDto.getDescription());
-		proPo.setImgUrl(productDto.getImgUrl());
+		proPo.setId(productVo.getId());
+		proPo.setDescription(productVo.getDescription());
 		proPo.setLastModifyDate(new Date());
-		proPo.setName(productDto.getName());
-		proPo.setPrice(productDto.getPrice());
-		proPo.setLinkTo(productDto.getLinkTo());
+		
+		proPo.setAge(productVo.getAge());
+		proPo.setCaseId(productVo.getCaseId());
+		proPo.setDoctor(productVo.getDoctor());
+		proPo.setName(productVo.getName());
+		proPo.setDepartment(productVo.getDepartment());
+		//
+		proPo.setReportDate(new Date());
+		proPo.setSendDate(new Date());
+		proPo.setSex(productVo.getSex());
+		proPo.setTestResault(productVo.getTestResault());
+		proPo.setTestType(productVo.getTestType());
 		return proPo;
 	}
 
-	public static ProductVo productPoToDto(ProductPo productPo) {
-	  ProductVo productDto = new ProductVo();
-		productDto.setId(productPo.getId());
-		productDto.setCreateDate(CommonUtil.formatDate(productPo.getCreateDate()));
-		productDto.setDescription(productPo.getDescription());
-		productDto.setImgUrl(productPo.getImgUrl());
-		productDto.setLastModifyDate(CommonUtil.formatDate(productPo.getLastModifyDate()));
-		productDto.setName(productPo.getName());
-		productDto.setPrice(productPo.getPrice());
-		productDto.setLinkTo(productPo.getLinkTo());
-		return productDto;
+	public static ProductVo productPoToVo(ProductPo productPo) {
+	  ProductVo proVo = new ProductVo();
+	  proVo.setId(productPo.getId());
+	//  proVo.setCreateDate(new Date());
+	  proVo.setDescription(productPo.getDescription());
+	 // proVo.setLastModifyDate(new Date());
+    
+	  proVo.setAge(productPo.getAge());
+	  proVo.setCaseId(productPo.getCaseId());
+	  proVo.setDoctor(productPo.getDoctor());
+	  proVo.setName(productPo.getName());
+	  proVo.setDepartment(productPo.getDepartment());
+    //
+	//  proVo.setReportDate(reportDate);
+	  proVo.setSendDate(new Date());
+	  proVo.setSex(productPo.getSex());
+	  proVo.setTestResault(productPo.getTestResault());
+	  proVo.setTestType(productPo.getTestType());
+		return proVo;
 	}
 
 }

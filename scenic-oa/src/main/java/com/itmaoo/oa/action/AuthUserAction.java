@@ -184,7 +184,7 @@ public class AuthUserAction extends BaseAction {
 			rd.setMsg("用户名与密码不匹配");
 			return rd;
 		}else{
-			UserVo userInfo = EntityUtil.userPoToDto(loggedUser);
+			UserVo userInfo = EntityUtil.userPoToVo(loggedUser);
 			userInfo.setPassword(null);
 			request.getSession().setAttribute("loggedUser", userInfo);
 			rd.setData(userInfo);
