@@ -180,7 +180,7 @@ public class AuthUserAction extends BaseAction {
 		
 		UserPo loggedUser = userDao.selectSingleLogin(recQuery);
 		if(loggedUser==null){
-			rd.setStatus("5021");
+			rd.setStatus("3001");
 			rd.setMsg("用户名与密码不匹配");
 			return rd;
 		}else{
@@ -208,7 +208,7 @@ public class AuthUserAction extends BaseAction {
 		UserVo user = getLogedUser(request);
 		ResponseData rd = new ResponseData();
 		if (user == null) {
-			rd.setStatus("4004");
+			rd.setStatus("3001");
 			rd.setMsg("未登录");
 		} else {
 			request.getSession().setAttribute("loggedUser", user);

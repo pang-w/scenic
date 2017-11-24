@@ -1,3 +1,5 @@
+
+
 var support = {
 
 	uuid : function uuid(len, radix) {
@@ -115,7 +117,7 @@ var support = {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.status == "4003") {
+				} else if (data.status == "3001") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
@@ -142,7 +144,7 @@ var support = {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.status == "4003") {
+				} else if (data.status == "3001") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
@@ -169,7 +171,7 @@ var support = {
 					if (callback && typeof callback == "function") {
 						callback(data);
 					}
-				} else if (data.status == "4003") {
+				} else if (data.status == "3001") {
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {

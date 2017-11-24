@@ -29,7 +29,6 @@ public class BaseDto implements Serializable {
 	}
 
 
-
 	public String getLastModifyDate() {
 		return lastModifyDate;
 	}

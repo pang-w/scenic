@@ -20,7 +20,7 @@ function showLoginUser() {
     support.ajax("user/loginUser", {}, function (data) {
         $("#loginUsr").html(data.data.username);
     }, function () {
-        layer.msg("注销失败,请稍后重试!");
+        layer.msg(data.msg);
     });
 }
 function logout() {

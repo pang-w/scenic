@@ -51,38 +51,73 @@
 										<div class="widget-main">
 											<div id="fuelux-wizard-container">
 												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right">
-														方案编号： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 姓名： </label>
 													<div class="col-sm-2">
-														<input type="text" id="sno" placeholder="方案编号"
-															class="col-xs-12" />
+														<input type="text" id="name" placeholder="如 张三" class="col-xs-12"/>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right">
-														系统编号： </label>
+													<label class="col-sm-1 control-label no-padding-right">ID：</label>
 													<div class="col-sm-2">
-														<input type="text" id="sysGroup" placeholder="系统编号"
-															class="col-xs-12" />
+														<input type="text" id="caseId" placeholder="病例唯一编号" class="col-xs-12"/>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right">
-														修复接口： </label>
+
+													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
 													<div class="col-sm-2">
-														<input type="text" id="isuCode" placeholder="修复处理名"
-															class="col-xs-12" />
+														<select id="sex">
+															<option value="男">男</option>
+															<option value="女">女</option>
+														</select>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 年龄： </label>
+													<div class="col-sm-2">
+														<input type="text" id="age" placeholder="如 28" class="col-xs-12"/>
 													</div>
 												</div>
-												<div class="wizard-actions">
-													<button class="btn btn-primary" id="btnSearch"
-														type="button">
-														<i class="ace-icon fa fa-search icon-on-right"></i> 查询
-													</button>
 
-													<button class="btn btn-grey" type="reset">
-														重置 <i class="ace-icon fa fa-undo icon-on-right"></i>
-													</button>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 检测结果： </label>
+													<div class="col-sm-2">
+														<input type="text" id="testResault" placeholder="检测结果" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 送检医生： </label>
+													<div class="col-sm-2">
+														<input type="text" id="doctor" placeholder="送检医生" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 送检科室： </label>
+													<div class="col-sm-2">
+														<input type="text" id="department" placeholder="送检科室" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
+													<div class="col-sm-2">
+														<input type="date" id="sendDate" placeholder="送检日期" class="col-xs-12"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
+													<div class="col-sm-2">
+														<input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 报告日期： </label>
+													<div class="col-sm-2">
+														<input type="date" id="reportDate" placeholder="报告日期" class="col-xs-12"/>
+													</div>
+
+
+													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
+													<div class="col-sm-4">
+														<input type="text" id="description" placeholder="描述信息" class="col-xs-12"/>
+													</div>
 												</div>
 											</div>
-										</div>
-										<!-- /.widget-main -->
+											<hr/>
+											<div class="wizard-actions">
+												<button class="btn btn-block btn-primary" id="btnSearch" type="button">
+													<i class="ace-icon fa fa-search icon-on-right"></i>
+													查询
+												</button>
+											</div>
+										</div><!-- /.widget-main -->
 									</form>
 								</div>
 								<!-- /.widget-body -->
@@ -91,16 +126,20 @@
 							<table class="table  table-bordered table-hover">
 								<thead>
 									<tr>
-										<th>方案编号</th>
-										<th>系统编号</th>
-										<th>修复接口</th>
-										<th>最大重试次数</th>
-										<th>重试间隔</th>
-										<th>执行方式</th>
-										<th>方案状态</th>
-										<th>方案等级</th>
-										<th>描述</th>
-										<th>操作</th>
+
+										<td>系统编号</td>
+										<td>姓名</td>
+										<td>性别</td>
+										<td>年龄</td>
+										<td>检测结果</td>
+										<td>ID</td>
+										<td>送检医生</td>
+										<td>送检科室</td>
+										<td>送检日期</td>
+										<td>报告日期</td>
+										<td>样本类型</td>
+										<td>描述</td>
+										<td>
 
 									</tr>
 								</thead>
@@ -137,17 +176,6 @@
 	<script src="../assets/js/pagination.js"></script>
 	<script src="../assets/ctrl/SolutionListCtrl.js"></script>
 	<script id="dataList" type="text/x-jsrender">
-"name": $("#name").val(),
-            "sex": $("#sex").val(),
-            "age": $("#age").val(),
-            "testResault": $("#testResault").val(),
-            "caseId": $("#caseId").val(),
-            "doctor": $("#doctor").val(),
-            "department": $("#department").val(),
-            "sendDate": $("#sendDate").val(),
-            "reportDate": $("#reportDate").val(),
-            "testType": $("#testType").val(),
-            "description": $("#description").val(),
 			<tr>
 				<td>{{:id}}</td>
 				<td>{{:name}}</td>
@@ -183,79 +211,78 @@
                             </div>
                             <div class="widget-body">
                                 <form class="form-horizontal" role="form">
-                                    <div class="widget-main">
-                                        <div id="fuelux-wizard-container">
-                                            <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 系统组别： </label>
-                                                <div class="col-sm-2">
-                                                    <input type="text" id="ch_sysGroup" value="{{:sysGroup}}"  class="col-xs-12"/>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 最大重试次数： </label>
-                                                <div class="col-sm-2">
-                                                       <input type="number" id="ch_maxTryTime" value="{{:maxTryTime}}" class="col-xs-12"/>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right"> 重试间隔： </label>
-                                                <div class="col-sm-2">
-                                                     <input type="text" id="ch_exeCron" value="{{:exeCron}}" class="col-xs-12"/>
-                                                </div>
-                                            </div>
-                                             <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 执行方式： </label>
-                                                <div class="col-sm-2">
-                                                    <select id="ch_exeType" value="{{:exeType}}">
-														{{if exeType=="Auto"}}
-                                                       		<option value="Auto" selected="selected">自动</option>
- 															<option value="Manual">手动</option>
-														{{/if}}
-														{{if exeType=="Manual"}}
-                                                       		<option value="Auto" >自动</option>
- 															<option value="Manual" selected="selected">手动</option>
-														{{/if}}
-                                                    </select>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right"> 方案状态： </label>
-                                                <div class="col-sm-2">
-                                                	<select id="ch_solStatus">
-                                                		{{if solStatus=="Enable"}}
-                                                        	<option value="Enable" selected="selected">正常</option>
-                                                        	<option value="Disable">失效</option>
-                                                		{{/if}}
-                                                		{{if solStatus=="Disable"}}
-                                                        	<option value="Enable">正常</option>
-                                                        	<option value="Disable" selected="selected">失效</option>
-                                                		{{/if}}
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 方案等级： </label>
-                                                <div class="col-sm-2">
-                                                	<select id="ch_solLevel">
-                                                       	<option value="Low" {{if solLevel=="Low"}} selected="selected" {{/if}}>不重要</option>
-                                                        <option value="Middle" {{if solLevel=="Middle"}} selected="selected" {{/if}}>一般</option>
-                                                        <option value="Hight" {{if solLevel=="Hight"}} selected="selected" {{/if}}>重要</option>
-                                                        <option value="Critical" {{if solLevel=="Critical"}} selected="selected" {{/if}}>非常重要</option>
-                                                    </select>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right"> 描述： </label>
-                                                <div class="col-sm-4">
-                                                     <input type="text" id="ch_solDes" value="{{:solDes}}" class="col-xs-12"/>
-                                                </div>
-                                            </div>
-											<input type="text" id="ch_isuCode" value="{{:isuCode}}"  hidden/>
-											<input type="text" id="ch_sno" value="{{:sno}}"  hidden/>
-                                        </div>
-                                        <hr/>
-                                        <div class="wizard-actions">
-                                            <button class="btn btn-primary" onclick="doChangeSol()" type="button">
-                                                <i class="ace-icon fa fa-search icon-on-right"></i>
-                                                提交
-                                            </button>
-                                        </div>
-                                    </div><!-- /.widget-main -->
-                                </form>
+										<div class="widget-main">
+											<div id="fuelux-wizard-container">
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 姓名： </label>
+													<div class="col-sm-2">
+														<input type="text" id="name" placeholder="如 张三" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right">ID：</label>
+													<div class="col-sm-2">
+														<input type="text" id="caseId" placeholder="病例唯一编号" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
+													<div class="col-sm-2">
+														<select id="sex">
+															<option value="男">男</option>
+															<option value="女">女</option>
+														</select>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 年龄： </label>
+													<div class="col-sm-2">
+														<input type="text" id="age" placeholder="如 28" class="col-xs-12"/>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 检测结果： </label>
+													<div class="col-sm-2">
+														<input type="text" id="testResault" placeholder="检测结果" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 送检医生： </label>
+													<div class="col-sm-2">
+														<input type="text" id="doctor" placeholder="送检医生" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 送检科室： </label>
+													<div class="col-sm-2">
+														<input type="text" id="department" placeholder="送检科室" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
+													<div class="col-sm-2">
+														<input type="date" id="sendDate" placeholder="送检日期" class="col-xs-12"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
+													<div class="col-sm-2">
+														<input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 报告日期： </label>
+													<div class="col-sm-2">
+														<input type="date" id="reportDate" placeholder="报告日期" class="col-xs-12"/>
+													</div>
+
+
+													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
+													<div class="col-sm-4">
+														<input type="text" id="description" placeholder="描述信息" class="col-xs-12"/>
+													</div>
+												</div>
+											</div>
+											<hr/>
+											<div class="wizard-actions">
+												<button class="btn btn-block btn-primary"onclick="doChangeSol()"" type="button">
+													<i class="ace-icon fa fa-search icon-on-right"></i>
+													提交
+												</button>
+											</div>
+										</div><!-- /.widget-main -->
+									</form>
+
                             </div><!-- /.widget-body -->
                         </div>
                         <div class="row" id="pagination" style="display: none"></div>

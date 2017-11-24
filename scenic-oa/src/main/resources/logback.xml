@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="log.root" value="/dockerv/private/logs" />
+	<property name="log.root" value="oalogs/logs" />
 
 	<property name="pattern"
 		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{sessionId}] %-5level [%thread] %logger{80} :%msg%n" />
@@ -113,8 +113,6 @@
 
 	<!-- root级别控制 -->
 	<root level="debug">
-		<appender-ref ref="GEHC" />
-		<appender-ref ref="ERROR" />
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>  
