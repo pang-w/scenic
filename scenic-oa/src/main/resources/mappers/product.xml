@@ -17,7 +17,7 @@
 		reportdate AS reportDate,
 		createdate AS createDate,
 		lastmodifydate AS lastModifyDate,
-		price AS price
+		description AS description
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(

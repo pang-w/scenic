@@ -9,29 +9,30 @@ jQuery(function ($) {
 });
 function search(page) {
     var data = {
-    		"sno": $("#sno").val(),
-    		"ino": $("#ino").val(),
-    		"isuNum": $("#isuNum").val(),
-            "sysGroup": $("#sysGroup").val(),
-            "isuCode": $("#isuCode").val(),
-            "solStatus": $("#solStatus").val(),
-            "excType": $("#excType").val(),
-            "solLevel": $("#solLevel").val(),
-            "solDes": $("#solDes").val(),
+    		"name": $("#name").val(),
+            "sex": $("#sex").val(),
+            "age": $("#age").val(),
+            "testResault": $("#testResault").val(),
+            "caseId": $("#caseId").val(),
+            "doctor": $("#doctor").val(),
+            "department": $("#department").val(),
+            "sendDate": $("#sendDate").val(),
+            "reportDate": $("#reportDate").val(),
+            "testType": $("#testType").val(),
+            "description": $("#description").val(),
             "pageSize": "10",
             "pageIndex": page
     };
-    support.ajax("procession/solution", data, function (data) {
-        var info = data.respInfo.info;
-        if (!info.totalPage) {
+    support.ajax("pro/list", data, function (data) {
+        if (!data.data) {
             $("#dataInfo").html("");
             $("#pagination").attr("style", "display: none");
             layer.msg("未找到符合条件的数据");
             return;
         }
         $("#pagination").attr("style", "");
-        $("#dataInfo").html($("#dataList").render(info.dataList));
-        loadPagination(info);
+        $("#dataInfo").html($("#dataList").render(data.data));
+      //  loadPagination(info);
     });
 }
 function doChangeSol() {

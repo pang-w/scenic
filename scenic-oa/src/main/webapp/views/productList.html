@@ -137,16 +137,30 @@
 	<script src="../assets/js/pagination.js"></script>
 	<script src="../assets/ctrl/SolutionListCtrl.js"></script>
 	<script id="dataList" type="text/x-jsrender">
+"name": $("#name").val(),
+            "sex": $("#sex").val(),
+            "age": $("#age").val(),
+            "testResault": $("#testResault").val(),
+            "caseId": $("#caseId").val(),
+            "doctor": $("#doctor").val(),
+            "department": $("#department").val(),
+            "sendDate": $("#sendDate").val(),
+            "reportDate": $("#reportDate").val(),
+            "testType": $("#testType").val(),
+            "description": $("#description").val(),
 			<tr>
-				<td>{{:sno}}</td>
-				<td>{{:sysGroup}}</td>
-				<td>{{:isuCode}}</td>
-				<td>{{:maxTryTime}}</td>
-				<td>{{:exeCron}}</td>
-				<td>{{:exeType}}</td>
-				<td>{{:solStatus}}</td>
-				<td>{{:solLevel}}</td>
-				<td>{{:solDes}}</td>
+				<td>{{:id}}</td>
+				<td>{{:name}}</td>
+				<td>{{:sex}}</td>
+				<td>{{:age}}</td>
+				<td>{{:testResault}}</td>
+				<td>{{:caseId}}</td>
+				<td>{{:doctor}}</td>
+				<td>{{:department}}</td>
+				<td>{{:sendDate}}</td>
+				<td>{{:reportDate}}</td>
+				<td>{{:testType}}</td>
+				<td>{{:description}}</td>
 				<td>
 				<div class="action-buttons">
 					<button class="btn btn-white btn-info btn-bold btn-minier" onclick="removeSol('{{:sno}}');">

@@ -1,6 +1,7 @@
 package com.itmaoo.oa.action;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +16,7 @@ import com.itmaoo.oa.dao.IProductDao;
 import com.itmaoo.oa.dao.IUserDao;
 import com.itmaoo.oa.entity.po.ProductPo;
 import com.itmaoo.oa.entity.po.UserPo;
+import com.itmaoo.oa.entity.query.ProductQuery;
 import com.itmaoo.oa.entity.query.UserQuery;
 import com.itmaoo.oa.entity.vo.ProductVo;
 import com.itmaoo.oa.entity.vo.ResponseData;
@@ -142,6 +144,33 @@ public class ProAction extends BaseAction {
       rd.setData(userInfo);
       return rd;
     }
+
+  }
+  @ResponseBody
+  @RequestMapping("list")
+  public ResponseData list(HttpServletRequest request, @RequestBody ProductVo proVo) {
+    
+    ResponseData rd = new ResponseData();
+  /*  if (StringUtils.isEmpty(proVo.getCaseId())) {
+      rd.setStatus("5006");
+      rd.setMsg("病理唯一编号不能为空");
+      return rd;
+    }*/
+   /* ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
+    if(prductPo!=null){
+      rd.setStatus("5006");
+      rd.setMsg("病理唯一编号已存在");
+      return rd;
+    }*/
+    UserVo logedUser = getLogedUser(request);
+   // if (logedUser != null) {
+      List<ProductPo> count = proDao.selectList(new ProductQuery());
+      rd.setData(count);
+   // } else {
+  //    rd.setStatus("3001");
+  //    rd.setMsg("未登录");
+  //  }
+    return rd;
 
   }
 
