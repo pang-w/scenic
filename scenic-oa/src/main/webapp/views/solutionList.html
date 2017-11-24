@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>啄木鸟（Piculus）</title>
+<script src="../assets/js/import-css.js"></script>
+</head>
+
+
+<body class="no-skin">
+	<div id="navbar" class="navbar navbar-default ace-save-state"></div>
+
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try {
+				ace.settings.loadState('main-container')
+			} catch (e) {
+			}
+		</script>
+
+		<div id="sidebar" class="sidebar responsive ace-save-state"></div>
+
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a
+							href="index.html">首页</a></li>
+						<li class="">修复管理</li>
+						<li class="active">修复方案查询</li>
+					</ul>
+					<!-- /.breadcrumb -->
+				</div>
+
+				<div class="page-content">
+					<div class="page-header">
+						<h1>修复方案查询</h1>
+					</div>
+					<!-- /.page-header -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+							<div class="widget-box">
+								<div class="widget-header widget-header-blue widget-header-flat">
+									<h4 class="widget-title lighter">查询条件</h4>
+								</div>
+
+								<div class="widget-body">
+									<form class="form-horizontal" role="form">
+										<div class="widget-main">
+											<div id="fuelux-wizard-container">
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right">
+														方案编号： </label>
+													<div class="col-sm-2">
+														<input type="text" id="sno" placeholder="方案编号"
+															class="col-xs-12" />
+													</div>
+													<label class="col-sm-1 control-label no-padding-right">
+														系统编号： </label>
+													<div class="col-sm-2">
+														<input type="text" id="sysGroup" placeholder="系统编号"
+															class="col-xs-12" />
+													</div>
+													<label class="col-sm-1 control-label no-padding-right">
+														修复接口： </label>
+													<div class="col-sm-2">
+														<input type="text" id="isuCode" placeholder="修复处理名"
+															class="col-xs-12" />
+													</div>
+												</div>
+												<div class="wizard-actions">
+													<button class="btn btn-primary" id="btnSearch"
+														type="button">
+														<i class="ace-icon fa fa-search icon-on-right"></i> 查询
+													</button>
+
+													<button class="btn btn-grey" type="reset">
+														重置 <i class="ace-icon fa fa-undo icon-on-right"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+										<!-- /.widget-main -->
+									</form>
+								</div>
+								<!-- /.widget-body -->
+							</div>
+							<div class="hr hr-18 dotted hr-double"></div>
+							<table class="table  table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>方案编号</th>
+										<th>系统编号</th>
+										<th>修复接口</th>
+										<th>最大重试次数</th>
+										<th>重试间隔</th>
+										<th>执行方式</th>
+										<th>方案状态</th>
+										<th>方案等级</th>
+										<th>描述</th>
+										<th>操作</th>
+
+									</tr>
+								</thead>
+								<tbody id="dataInfo"></tbody>
+								
+							</table>
+							<div class="row" id="pagination" style="display: none"></div>
+							<!-- PAGE CONTENT ENDS -->
+							<hr/>
+							<div id="changeInfo"></div>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.page-content -->
+			</div>
+		</div>
+		<!-- /.main-content -->
+
+		<div id="footer" class="footer"></div>
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	<!-- /.main-container -->
+
+	<script src="../assets/js/import-js.js"></script>
+	<script type="text/javascript">
+		var activeMenu = [ 11, 7 ];
+	</script>
+	<script src="../assets/js/load.js"></script>
+	<script src="../assets/js/pagination.js"></script>
+	<script src="../assets/ctrl/SolutionListCtrl.js"></script>
+	<script id="dataList" type="text/x-jsrender">
+			<tr>
+				<td>{{:sno}}</td>
+				<td>{{:sysGroup}}</td>
+				<td>{{:isuCode}}</td>
+				<td>{{:maxTryTime}}</td>
+				<td>{{:exeCron}}</td>
+				<td>{{:exeType}}</td>
+				<td>{{:solStatus}}</td>
+				<td>{{:solLevel}}</td>
+				<td>{{:solDes}}</td>
+				<td>
+				<div class="action-buttons">
+					<button class="btn btn-white btn-info btn-bold btn-minier" onclick="removeSol('{{:sno}}');">
+                		<i class="ace-icon glyphicon fa-go"></i>删除
+            		</button>
+				    <button class="btn btn-white btn-info btn-bold btn-minier" 
+						onclick="changeSol('{{:sno}}','{{:solLevel}}','{{:sysGroup}}','{{:isuCode}}','{{:maxTryTime}}','{{:exeCron}}','{{:exeType}}','{{:solStatus}}','{{:solDes}}');">
+                		<i class="ace-icon glyphicon fa-go"></i>修改
+            		</button>
+				</div>
+				</td>
+			</tr>
+		</script>
+	<script id="changeSol" type="text/x-jsrender">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-blue widget-header-flat">
+                                <h4 class="widget-title lighter">修改方案[{{:sno}}] 修复接口[{{:isuCode}}]</h4>
+                            </div>
+                            <div class="widget-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="widget-main">
+                                        <div id="fuelux-wizard-container">
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label no-padding-right"> 系统组别： </label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" id="ch_sysGroup" value="{{:sysGroup}}"  class="col-xs-12"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label no-padding-right"> 最大重试次数： </label>
+                                                <div class="col-sm-2">
+                                                       <input type="number" id="ch_maxTryTime" value="{{:maxTryTime}}" class="col-xs-12"/>
+                                                </div>
+                                                <label class="col-sm-1 control-label no-padding-right"> 重试间隔： </label>
+                                                <div class="col-sm-2">
+                                                     <input type="text" id="ch_exeCron" value="{{:exeCron}}" class="col-xs-12"/>
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label class="col-sm-1 control-label no-padding-right"> 执行方式： </label>
+                                                <div class="col-sm-2">
+                                                    <select id="ch_exeType" value="{{:exeType}}">
+														{{if exeType=="Auto"}}
+                                                       		<option value="Auto" selected="selected">自动</option>
+ 															<option value="Manual">手动</option>
+														{{/if}}
+														{{if exeType=="Manual"}}
+                                                       		<option value="Auto" >自动</option>
+ 															<option value="Manual" selected="selected">手动</option>
+														{{/if}}
+                                                    </select>
+                                                </div>
+                                                <label class="col-sm-1 control-label no-padding-right"> 方案状态： </label>
+                                                <div class="col-sm-2">
+                                                	<select id="ch_solStatus">
+                                                		{{if solStatus=="Enable"}}
+                                                        	<option value="Enable" selected="selected">正常</option>
+                                                        	<option value="Disable">失效</option>
+                                                		{{/if}}
+                                                		{{if solStatus=="Disable"}}
+                                                        	<option value="Enable">正常</option>
+                                                        	<option value="Disable" selected="selected">失效</option>
+                                                		{{/if}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label no-padding-right"> 方案等级： </label>
+                                                <div class="col-sm-2">
+                                                	<select id="ch_solLevel">
+                                                       	<option value="Low" {{if solLevel=="Low"}} selected="selected" {{/if}}>不重要</option>
+                                                        <option value="Middle" {{if solLevel=="Middle"}} selected="selected" {{/if}}>一般</option>
+                                                        <option value="Hight" {{if solLevel=="Hight"}} selected="selected" {{/if}}>重要</option>
+                                                        <option value="Critical" {{if solLevel=="Critical"}} selected="selected" {{/if}}>非常重要</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-sm-1 control-label no-padding-right"> 描述： </label>
+                                                <div class="col-sm-4">
+                                                     <input type="text" id="ch_solDes" value="{{:solDes}}" class="col-xs-12"/>
+                                                </div>
+                                            </div>
+											<input type="text" id="ch_isuCode" value="{{:isuCode}}"  hidden/>
+											<input type="text" id="ch_sno" value="{{:sno}}"  hidden/>
+                                        </div>
+                                        <hr/>
+                                        <div class="wizard-actions">
+                                            <button class="btn btn-primary" onclick="doChangeSol()" type="button">
+                                                <i class="ace-icon fa fa-search icon-on-right"></i>
+                                                提交
+                                            </button>
+                                        </div>
+                                    </div><!-- /.widget-main -->
+                                </form>
+                            </div><!-- /.widget-body -->
+                        </div>
+                        <div class="row" id="pagination" style="display: none"></div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+	</script>
+</body>
+</html>

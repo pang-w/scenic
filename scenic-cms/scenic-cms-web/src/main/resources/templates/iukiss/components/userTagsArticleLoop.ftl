@@ -15,37 +15,40 @@
 						</div>
 					</div>
 				</article>
-				<article id="108" class="post" ng-repeat="atc in articles">
+				<#list articles as atc >
+				<article id="108" class="post">
 					<div class="post-head">
 						<h1 class="post-title">
-							<a href="../../../article/{{atc.uuid}}.html">{{atc.title}}</a>
+							<a href="../../../article/${atc.uuid}.html">${atc.title}</a>
 						</h1>
 						<div class="post-meta">
-							<span class="author">作者：<a href="../../../i/{{atc.username}}">{{atc.username}}</a></span>
+							<span class="author">作者：<a href="../../../i/${atc.username}}">${atc.username}</a></span>
 							•
-							<time class="post-date" datetime="{{atc.lastmodify}}"
-								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
+							<time class="post-date" datetime="${atc.lastmodify}}"
+								title="${atc.lastmodify}">${atc.lastmodify}</time>
 						</div>
 						<div class="col-sm-4"></div>
 					</div>
 
 					<div class="post-content">
-						<p>{{atc.description}}</p>
+						<p>${atc.description}</p>
 					</div>
 
 					<footer class="post-footer clearfix">
 						<div class="pull-left tag-list">
 							<div class="widget">
 								<div class="content tag-cloud">
-									<i class="fa fa-tag"></i>标签 <a ng-click="selectTag(ut.value)"
-										ng-repeat="ut in atc.tags">{{ut.value}}</a>
+									<i class="fa fa-tag"></i>标签 
+									<#list atc.tags as tag>
+									<a >${tag.value}</a>
+									</#list>
 								</div>
 							</div>
 						</div>
 						<div class="pull-right share"></div>
 					</footer>
 				</article>
-				
+				</#list>
 				<nav class="pagination" role="navigation">
 					<span class="page-number">第 ${pager.currentPage} 页 ⁄ 共 ${pager.totalPage} 页</span> <a
 						class="older-posts" href="http://www.iukiss.com/i/articles"><i

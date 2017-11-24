@@ -192,32 +192,7 @@ public class IndexPageAction extends BaseAction {
 		return rd;
 
 	}
-	private ArticleDto makeupTagAndProductForArticle(ArticlePo articlePo) {
-		TagQuery tagQuery = new TagQuery();
-		tagQuery.setArticleUuid(articlePo.getUuid());
-		tagQuery.setEffected(true); 
-		List<TagPo> tags = tagDao.selectList(tagQuery);
-		List<TagDto> tagsDto = Lists.newArrayList();
-		if (tags != null) {
-			for (TagPo tag : tags) {
-				tagsDto.add(EntityUtil.tagPoToDto(tag));
-			}
-		}
-		ProductQuery productQuery = new ProductQuery();
-		productQuery.setArticleUuid(articlePo.getUuid());
-		productQuery.setEffected(true);
-		List<ProductPo> productDb = productDao.selectList(productQuery);
-		List<ProductDto> productsDto = Lists.newArrayList();
-		if (productDb != null) {
-			for (ProductPo p : productDb) {
-				productsDto.add(EntityUtil.productPoToDto(p));
-			}
-		}
-		ArticleDto articlePoToDto = EntityUtil.articlePoToDto(articlePo);
-		articlePoToDto.setProducts(productsDto);
-		articlePoToDto.setTags(tagsDto);
-		return articlePoToDto;
-	}
+	
 	@ResponseBody
 	@RequestMapping("topUser")
 	public ResponseData topUser(HttpServletRequest request) {

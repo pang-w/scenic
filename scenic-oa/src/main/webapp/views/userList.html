@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>啄木鸟（Piculus）</title>
+    <script src="../assets/js/import-css.js"></script>
+</head>
+
+<body class="no-skin">
+<div id="navbar" class="navbar navbar-default ace-save-state"></div>
+
+<div class="main-container ace-save-state" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.loadState('main-container')
+        } catch (e) {
+        }
+    </script>
+
+    <div id="sidebar" class="sidebar responsive ace-save-state"></div>
+
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li class="">系统管理</li>
+                    <li class="active">用户管理</li>
+                </ul><!-- /.breadcrumb -->
+            </div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        用户查询
+                    </h1>
+                </div><!-- /.page-header -->
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-blue widget-header-flat">
+                                <h4 class="widget-title lighter">查询条件</h4>
+                            </div>
+
+                            <div class="widget-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="widget-main">
+                                        <div id="fuelux-wizard-container">
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label no-padding-right"> 登录名： </label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" id="usrName" placeholder="登录名"
+                                                           class="col-xs-12"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="wizard-actions">
+                                            <button class="btn btn-primary" id="btnAddUser" type="button">
+                                                <i class="ace-icon fa fa-users icon-on-right"></i>
+                                                添加用户
+                                            </button>
+                                            <button class="btn btn-primary" id="btnSearch" type="button">
+                                                <i class="ace-icon fa fa-search icon-on-right"></i>
+                                                查询
+                                            </button>
+                                            <button class="btn btn-grey" type="reset">
+                                                重置
+                                                <i class="ace-icon fa fa-undo icon-on-right"></i>
+                                            </button>
+                                        </div>
+                                    </div><!-- /.widget-main -->
+                                </form>
+                            </div><!-- /.widget-body -->
+                        </div>
+                        <div class="hr hr-18 dotted hr-double"></div>
+                        <table class="table  table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>登录名</th>
+                                <th>真实姓名</th>
+                                <th>性别</th>
+                                <th>用户类型</th>
+                                <th>人员状态</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="dataInfo"></tbody>
+                        </table>
+                        <div class="row" id="pagination" style="display: none"></div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+
+        <div id="add-user-box" class="widget-box no-border" style="display: none;">
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form>
+                        <fieldset>
+                            <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" id="newUsrName" class="form-control" placeholder="登录名"/>
+                            <i class="ace-icon fa fa-user"></i>
+                        </span>
+                            </label>
+                            <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" id="newRealName" class="form-control" placeholder="真实姓名"/>
+                            <i class="ace-icon"></i>
+                        </span>
+                            </label>
+                            <div class="clearfix">
+                                <button type="button" onclick="addUser()"
+                                        class="width-35 pull-right btn btn-sm btn-danger">
+                                    <i class="ace-icon glyphicon-plus"></i>
+                                    <span class="bigger-110">添加</span>
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div><!-- /.widget-main -->
+            </div><!-- /.widget-body -->
+        </div><!-- /.forgot-box -->
+    </div><!-- /.main-content -->
+
+    <div id="footer" class="footer"></div>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->
+
+<script src="../assets/js/import-js.js"></script>
+<script type="text/javascript">var activeMenu = [9, 10];</script>
+<script src="../assets/js/load.js"></script>
+<script src="../assets/js/pagination.js"></script>
+<script src="../assets/ctrl/UserListCtrl.js"></script>
+
+<script id="dataList" type="text/x-jsrender">
+    <tr>
+        <td>{{:usrName}}</td>
+        <td>{{:realName}}</td>
+        <td>
+            {{if usrSex=='1'}}
+                <span class="label label-pink arrowed-right">女</span>
+            {{else usrSex=='0'}}
+                <span class="label label-purple arrowed">男</span>
+            {{else}}
+                {{:usrSex}}
+            {{/if}}
+        </td>
+        <td>
+            {{if usrType=='1'}}
+                <span class="badge badge-danger">超级管理员</span>
+            {{else usrType=='0'}}
+                <span class="badge badge-success">运维人员</span>
+            {{else}}
+                {{:usrType}}
+            {{/if}}
+        </td>
+        <td>
+            {{if usrStatus=='1'}}
+                <span class="label label-success label-white middle">在职</span>
+            {{else usrStatus=='0'}}
+                <span class="label label-white middle">离职</span>
+            {{else}}
+                {{:usrStatus}}
+            {{/if}}
+        </td>
+        <td>
+            {{if status=='1'}}
+                <span class="label label-success arrowed">有效</span>
+            {{else status=='0'}}
+                <span class="label">无效</span>
+            {{else}}
+                {{:status}}
+            {{/if}}
+        </td>
+        <td>
+            {{if usrName=='admin'}}
+                <button class="btn btn-white btn-warning btn-bold btn-minier" disabled>
+                    <i class="ace-icon fa fa-trash-o orange"></i>删除
+                </button>
+            {{else}}
+                <button class="btn btn-white btn-warning btn-bold btn-minier" onclick="deleteUser('{{:usrId}}', '{{:usrName}}');">
+                    <i class="ace-icon glyphicon glyphicon-trash"></i>删除
+                </button>
+            {{/if}}
+        </td>
+    </tr>
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="log.root" value="/dockerv/private/logs" />
+
+	<property name="pattern"
+		value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{sessionId}] %-5level [%thread] %logger{80} :%msg%n" />
+
+	<!-- 控制台输出 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!--错误日志 -->
+	<appender name="ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.root}/_ERROR.txt</file>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${log.root}/_ERROR/%d{yyyy-MM-dd}/%i.txt
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 1MB -->
+				<maxFileSize>20MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="GEHC"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.root}/piculus-log.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.root}/%d{yyyy-MM-dd}/piculus-%i.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>20MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ISSUES_MSG_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.root}/issues-msg-log.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.root}/%d{yyyy-MM-dd}/issues-msg-%i.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>20MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+	<appender name="RESULT_MSG_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.root}/result-msg-log.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.root}/%d{yyyy-MM-dd}/result-msg-%i.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<TimeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>20MB</MaxFileSize>
+			</TimeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${pattern}</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 日志过滤 -->
+	<logger name="org.springframework">
+		<level value="info" />
+	</logger>
+	<logger name="java.sql">
+		<level value="info" />
+	</logger>
+	<logger name="org.apache">
+		<level value="info" />
+	</logger>
+
+	<logger name="IssuesMsgLog" additivity="false">
+		<level value="info" />
+		<appender-ref ref="ISSUES_MSG_LOG" />
+	</logger>
+	<logger name="ResultMsgLog" additivity="false">
+		<level value="info" />
+		<appender-ref ref="RESULT_MSG_LOG" />
+	</logger>
+
+	<!-- 按模块输出业务日志 -->
+	<logger name="com.itmaoo.oa" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="GEHC" />
+		<appender-ref ref="ERROR" />
+	</logger>
+
+	<!-- root级别控制 -->
+	<root level="debug">
+		<appender-ref ref="GEHC" />
+		<appender-ref ref="ERROR" />
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>  

@@ -17,7 +17,7 @@
 
 	<context:annotation-config />
 	<task:annotation-driven />
-	 <context:property-placeholder location="classpath:application.properties" />
+	<context:property-placeholder location="classpath:application.properties" />
 	<import resource="classpath*:/spring-db.xml" />
 
 	<!-- 服务注入 -->

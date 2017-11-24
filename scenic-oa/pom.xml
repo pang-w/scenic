@@ -1,28 +1,231 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
         <artifactId>scenic</artifactId>
         <groupId>com.itmaoo.scenic</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>scenic-oa</artifactId>
-    <packaging>jar</packaging>
-
-    <name>scenic-oa</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>scenic-oa</artifactId>
+	<packaging>war</packaging>
+	<name>scenic-oa</name>
+	<url>http://maven.apache.org</url>
+	<description>办公自动化</description>
+	<properties>
+		<!-- custom jar -->
+        <quartz.version>2.1.7</quartz.version>
+        <ojdbc.version>6</ojdbc.version>
+        <commons.lang3.version>3.1</commons.lang3.version>
+        <commons.codec.version>1.7</commons.codec.version>
+        <commons.dbcp.version>1.4</commons.dbcp.version>
+        <commons-pool.version>1.5.4</commons-pool.version>
+        <commons-fileupload.version>1.2.2</commons-fileupload.version>
+        <commons.io.version>2.4</commons.io.version>
+        <cglib-nodep.version>2.2.2</cglib-nodep.version>
+        <jdbcdslog.version>1.0.6.2</jdbcdslog.version>
+        <bcprov-jdk16.version>1.46</bcprov-jdk16.version>
+        <dom4j.version>1.6</dom4j.version>
+        <cxf.version>2.7.11</cxf.version>
+        <axis2.version>1.6.2</axis2.version>
+        <jaxb-xjc.version>2.1.13</jaxb-xjc.version>
+        <jaxen.version>1.1.4</jaxen.version>
+        <neethi.version>3.0.3</neethi.version>
+        <axiom.version>1.2.14</axiom.version>
+        <XmlSchema.version>1.4.7</XmlSchema.version>
+        <jsonlib.version>2.4</jsonlib.version>
+        <xstream.version>1.4</xstream.version>
+        <javax.mail.version>1.4.7</javax.mail.version>
+        <net.sourceforge.jexcelapi.version>2.6.12</net.sourceforge.jexcelapi.version>
+        <org.apache.poi.version>3.9</org.apache.poi.version>
+        <com.google.guava.version>15.0</com.google.guava.version>
+        <mockito-all.version>1.9.5</mockito-all.version>
+        <aspectjweaver.version>1.6.9</aspectjweaver.version>
+        <com.itextpdf.version>5.5.7</com.itextpdf.version>
+        <com.itextpdf.tool.version>5.5.6</com.itextpdf.tool.version>
+        <com.itextpdf.itext.asian.version>5.2.0</com.itextpdf.itext.asian.version>
+        <versions-maven-plugin.version>2.3</versions-maven-plugin.version>
+        <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
     </properties>
+	<dependencies>
+		<!-- 部署相关 -->
+ 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>1.5.8.RELEASE</version>
+		</dependency>
 
-    <dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>1.5.6.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+
+		<!--mybatis 数据访问层 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+
+		<!-- mysql 数据库连接 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<!-- druid连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.usc</groupId>
+            <artifactId>jdbcdslog</artifactId>
+            <version>${jdbcdslog.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${cglib-nodep.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons.dbcp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+
+        <!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-mapper-asl</artifactId> </dependency> 
+            <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-core-asl</artifactId> </dependency> -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+		<!-- itmaoo -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>22.0</version>
+        </dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<!-- itmaoo -->
     </dependencies>
+	<build>
+		<finalName>oa</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<!--如果想在没有web.xml文件的情况下构建WAR，请设置为false。 -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

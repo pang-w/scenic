@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>啄木鸟（Piculus）</title>
+<script src="../assets/js/import-css.js"></script>
+<script id="dataList" type="text/x-jsrender">
+
+		<tr>
+        	<td colspan="7"></td>
+			
+   		 <tr>
+		<tr>
+        	<th colspan="6">{{:isuNum}}</th>
+			<td>
+				<button class="btn btn-white btn-info btn-bold btn-minier" onclick="goIssues('{{:isuNum}}');">
+					<i class="ace-icon glyphicon glyphicon-list"></i>异常详情
+				</button>
+			</td>
+   		 <tr>
+<tr>
+        <td>{{:sno}}</td>
+		<td>
+			{{if solLevel=='Low'}}不重要{{/if}}
+			{{if solLevel=='Middle'}}一般{{/if}}
+			{{if solLevel=='Hight'}}<b>重要</b>{{/if}}
+			{{if solLevel=='Critical'}}<b><font color="#FF0000">非常重要</font></b>{{/if}}
+		</td>
+		<td>
+			{{if solStatus=='Enable'}}正常{{/if}}
+			{{if solStatus=='Disable'}}失效{{/if}}
+		</td>
+		<td>{{:exeCron}}</td>
+		<td>{{:sysGroup}}</td>
+        <td>{{:isuCode}}</td>
+		<td>{{:solDes}}</td>
+</tr>
+<tr>
+        <td>{{:ino}}</td>
+		<td>
+			{{if exeType=='Auto'}}自动{{/if}}
+			{{if exeType=='Manual'}}手动{{/if}}
+		</td>
+		<td>
+			{{if insStatus=='Init'}}初始化{{/if}}
+			{{if insStatus=='Pending'}}预处理{{/if}}
+			{{if insStatus=='Processing'}}正在处理{{/if}}
+			{{if insStatus=='Success'}}成功{{/if}}
+			{{if insStatus=='Fail'}}<font color="#FF0000">失败</font>{{/if}}
+		</td>
+        <td>{{:retryTimes}}/{{:maxTryTime}} ({{:lastTryDate}})</td>
+		
+		<td>{{:startTime}}</td>
+		<td>{{:endTime}}</td>
+		<td>{{:insDesc}}</td>
+    </tr>
+
+	<tr>
+        <th colspan="8" class="wizard-actions">
+		{{if insStatus!='Success'}}
+			{{if maxTryTime!=retryTimes}}
+			<button class="btn btn-primary" onclick="manualExeSol('{{:ino}}', 'Enable');">
+                <i class="ace-icon fa fa-refresh icon-on-right"></i> 执行方案
+            </button>
+ 			{{/if}}
+			<button class="btn btn-primary" onclick="manualExeSol('{{:ino}}','Disable');">
+                <i class="ace-icon fa fa-circle icon-on-right"></i> 停止执行
+            </button>
+ 		{{/if}}
+
+		</th>
+	<tr>
+
+</script>
+</head>
+
+<body class="no-skin">
+	<div id="navbar" class="navbar navbar-default ace-save-state"></div>
+
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try {
+				ace.settings.loadState('main-container')
+			} catch (e) {
+			}
+		</script>
+
+		<div id="sidebar" class="sidebar responsive ace-save-state"></div>
+
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a
+							href="index.html">首页</a></li>
+						<li class="">流程控制</li>
+						<li class="active">异常处理</li>
+					</ul>
+					<!-- /.breadcrumb -->
+				</div>
+
+				<div class="page-content">
+					<div class="page-header">
+						<h1>异常修复查询</h1>
+					</div>
+					<!-- /.page-header -->
+
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+							<div class="widget-box">
+								<div class="widget-header widget-header-blue widget-header-flat">
+									<h4 class="widget-title lighter">查询条件</h4>
+								</div>
+
+								<div class="widget-body">
+									<form class="form-horizontal" role="form">
+										<div class="widget-main">
+											<div id="fuelux-wizard-container">
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right">
+														异常编号： </label>
+													<div class="col-sm-2">
+														<input type="text" id="isuNum" placeholder="异常编号"
+															class="col-xs-12" />
+													</div>
+													<label class="col-sm-1 control-label no-padding-right">
+														修复方案编号： </label>
+													<div class="col-sm-2">
+														<input type="text" id="sno" placeholder="方案编号"
+															class="col-xs-12" />
+													</div>
+												</div>
+												<hr />
+												<div class="wizard-actions">
+													<button class="btn btn-primary" id="btnSearch" type="button">
+														<i class="ace-icon fa fa-search icon-on-right"></i> 查询
+													</button>
+
+													<button class="btn btn-grey" type="reset">
+														重置 <i class="ace-icon fa fa-undo icon-on-right"></i>
+													</button>
+												</div>
+											</div>
+											<!-- /.widget-main -->
+										</div>
+									</form>
+								</div>
+								<!-- /.widget-body -->
+							</div>
+							<div class="hr hr-18 dotted hr-double"></div>
+							<table class="table  table-bordered table-hover" style="overflow:scroll">
+								<thead>
+									<tr>
+										<th colspan="6">异常编号</th>
+										<th>异常详情</th>
+									</tr>
+									<tr>
+										<th>SNO</th>
+										<th>方案等级</th>
+										<th>方案状态</th>
+										<th>重试间隔</th>
+										<th>系统组别</th>
+										<th>修复接口</th>
+										<th>方案描述</th>
+									</tr>
+									<tr>
+										<th>INO</th>
+										<th>执行方式</th>
+										<th>执行状态</th>
+										<th>重试(最后重试时间)</th>
+										<th>修复开始时间</th>
+										<th>修复结束时间</th>
+										<th>修复描述</th>
+									</tr>
+								</thead>
+								<tbody id="dataInfo"></tbody>
+	
+							</table>
+							<div class="row" id="pagination" style="display: none"></div>
+							<!-- PAGE CONTENT ENDS -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.page-content -->
+			</div>
+		</div>
+		<!-- /.main-content -->
+
+		<div id="footer" class="footer"></div>
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn bn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	<!-- /.main-container -->
+
+	<script src="../assets/js/import-js.js"></script>
+	<script type="text/javascript">
+		var activeMenu = [ 14, 13 ];
+	</script>
+	<script src="../assets/js/load.js"></script>
+	<script src="../assets/js/pagination.js"></script>
+	<script src="../assets/ctrl/SolInsCtrl.js"></script>
+	<script src="../assets/My97DatePicker/WdatePicker.js"></script>
+
+	
+</body>
+</html>

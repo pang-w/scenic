@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8"/>
+	    <title>啄木鸟（Piculus）</title>
+	    <script src="../assets/js/import-css.js"></script>
+	</head>
+
+	<body class="no-skin">
+		<div id="navbar" class="navbar navbar-default ace-save-state"></div>
+
+		<div class="main-container ace-save-state" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.loadState('main-container')}catch(e){}
+			</script>
+
+			<div id="sidebar" class="sidebar responsive ace-save-state"></div>
+
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+						<ul class="breadcrumb">
+							<li>
+								<i class="ace-icon fa fa-home home-icon"></i>
+								<a href="index.html">首页</a>
+							</li>
+							<li class="active">JMS监控</li>
+						</ul><!-- /.breadcrumb -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								JMS
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									ActiveMQ
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<div class="row">
+									<div class="col-xs-12">
+										<h3 class="header smaller lighter blue">broker监控</h3>
+										<table class="table  table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>代理名</th>
+													<th>消息总数</th>
+													<th>消费者总数</th>
+													<th>生产者总数</th>
+													<th>出队消息总数</th>
+													<th>入队消息总数</th>
+													<th>总内存使用百分比</th>
+												</tr>
+											</thead>
+
+											<tbody id="brokerMsg"></tbody>
+										</table>
+									</div><!-- /.span -->
+								</div><!-- /.row -->
+								<div class="row">
+									<div class="col-xs-12">
+										<h3 class="header smaller lighter blue">queue监控</h3>
+										<table class="table  table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>目标名</th>
+													<th>生产者数量</th>
+													<th>消费者数量</th>
+													<th>出队消息数</th>
+													<th>入队消息数</th>
+													<th>分派消息数</th>
+													<th>失效消息数</th>
+													<th>最大排队时间</th>
+													<th>内存使用百分比</th>
+													<th>内存限额（单位：B）</th>
+												</tr>
+											</thead>
+
+											<tbody id="queueMsg"></tbody>
+										</table>
+									</div><!-- /.span -->
+								</div><!-- /.row -->
+								<div class="row">
+									<div class="col-xs-12">
+										<h3 class="header smaller lighter blue">topic监控</h3>
+										<table class="table  table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>目标名</th>
+													<th>生产者数量</th>
+													<th>消费者数量</th>
+													<th>出队消息数</th>
+													<th>入队消息数</th>
+													<th>分派消息数</th>
+													<th>失效消息数</th>
+													<th>最大排队时间</th>
+													<th>内存使用百分比</th>
+													<th>内存限额（单位：B）</th>
+												</tr>
+											</thead>
+
+											<tbody id="topicMsg"></tbody>
+										</table>
+									</div><!-- /.span -->
+								</div><!-- /.row -->
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+			<div id="footer" class="footer"></div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+
+		<script src="../assets/js/import-js.js"></script>
+		<script type="text/javascript">var activeMenu = [2];</script>
+		<script src="../assets/js/load.js"></script>
+		<script src="../assets/ctrl/MonitorCtrl.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script id="brokerMsgInfo" type="text/x-jsrender">
+			<tr>
+				<td>{{:brokerName}}</td>
+				<td>{{:totalMessageCount}}</td>
+				<td>{{:totalConsumerCount}}</td>
+				<td>{{:totalProducerCount}}</td>
+				<td>{{:totalDequeueCount}}</td>
+				<td>{{:totalEnqueueCount}}</td>
+				<td>{{:totalMemoryPercentUsage}}%</td>
+			</tr>
+		</script>
+		<script id="queueMsgList" type="text/x-jsrender">
+			<tr>
+				<td>{{:name}}</td>
+				<td>{{:producerCount}}</td>
+				<td>{{:consumerCount}}</td>
+				<td>{{:dequeueCount}}</td>
+				<td>{{:enqueueCount}}</td>
+				<td>{{:dispatchCount}}</td>
+				<td>{{:expiredCount}}</td>
+				<td>{{:maxEnqueueTime}}</td>
+				<td>{{:memoryPercentUsage}}%</td>
+				<td>{{:memoryLimit}}</td>
+			</tr>
+		</script>
+		<script id="topicMsgList" type="text/x-jsrender">
+			<tr>
+				<td>{{:name}}</td>
+				<td>{{:producerCount}}</td>
+				<td>{{:consumerCount}}</td>
+				<td>{{:dequeueCount}}</td>
+				<td>{{:enqueueCount}}</td>
+				<td>{{:dispatchCount}}</td>
+				<td>{{:expiredCount}}</td>
+				<td>{{:maxEnqueueTime}}</td>
+				<td>{{:memoryPercentUsage}}%</td>
+				<td>{{:memoryLimit}}</td>
+			</tr>
+		</script>
+	</body>
+</html>
