@@ -36,13 +36,15 @@ function login() {
         "password": usrPwd,
         "verCode": verCode
     };
-    support.syncAjax("user/login", data, function (data) {
-        if (data.status == "0000") {
+    support.syncAjax("user/login", data, function (rs) {
+        if (rs.status == "0000") {
         	 location.href = "./index.html";
+        }else{
+        	layer.msg(rs.msg);
         }
 
-    }, function (data) {
-        layer.msg(data.errorInfo.errorMessage);
+    }, function (rs) {
+        layer.msg(rs.msg);
         loadImage();
         $("#verCode").val("");
     });

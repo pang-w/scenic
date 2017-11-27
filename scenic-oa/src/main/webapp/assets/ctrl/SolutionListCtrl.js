@@ -4,7 +4,21 @@ jQuery(function ($) {
         search("1");
     });
     $("#btnChangeSol").click(function () {
-    	 doChangeSol();
+    	var data = {
+    			"caseId": $("#caseId").text(),
+    			"name": $("#name").val(),
+                "sex": $("#sex").val(),
+                "age": $("#age").val(),
+                "testResault": $("#testResault").val(),
+                "doctor": $("#doctor").val(),
+                "department": $("#department").val(),
+                "testType": $("#testType").val(),
+                "description": $("#description").val(),
+        };
+        support.ajax("pro/update", data, function (data) {
+                layer.msg(data.errorInfo.errorMessage);
+                search("1");
+        });
     });
 });
 function search(page) {
@@ -16,40 +30,24 @@ function search(page) {
             "caseId": $("#caseId").val(),
             "doctor": $("#doctor").val(),
             "department": $("#department").val(),
-            "sendDate": $("#sendDate").val(),
-            "reportDate": $("#reportDate").val(),
+            "sendDateStart": $("#sendDateStart").val(),
+            "sendDateEnd": $("#sendDateEnd").val(),
+            "reportDateStart": $("#reportDateStart").val(),
+            "reportDateEnd": $("#reportDateEnd").val(),
             "testType": $("#testType").val(),
             "description": $("#description").val(),
-            "pageSize": "10",
             "pageIndex": page
     };
-    support.ajax("pro/list", data, function (data) {
-        if (!data.data) {
+    support.ajax("pro/list", data, function (rs) {
+        if (rs.data.dataList==null) {
             $("#dataInfo").html("");
             $("#pagination").attr("style", "display: none");
             layer.msg("未找到符合条件的数据");
             return;
         }
         $("#pagination").attr("style", "");
-        $("#dataInfo").html($("#dataList").render(data.data));
-      //  loadPagination(info);
-    });
-}
-function doChangeSol() {
-    var data = {
-    		"sno": $("#ch_sno").val(),
-            "sysGroup": $("#ch_sysGroup").val(),
-            "isuCode": $("#ch_isuCode").val(),
-            "solStatus": $("#ch_solStatus").val(),
-            "maxTryTime": $("#ch_maxTryTime").val(),
-            "exeCron": $("#ch_exeCron").val(),
-            "exeType": $("#ch_exeType").val(),
-            "solLevel": $("#ch_solLevel").val(),
-            "solDes": $("#ch_solDes").val(),
-    };
-    support.ajax("procession/updateSol", data, function (data) {
-            layer.msg(data.errorInfo.errorMessage);
-            search("1");
+        $("#dataInfo").html($("#dataList").render(rs.data.dataList));
+        loadPagination(rs.data);
     });
 }
 
@@ -65,27 +63,58 @@ function loadUrlParam() {
     }
 }
 
-function removeSol(sno) {
+function removeSol(caseId) {
 	var data = {
-    		"sno": sno
+    		"caseId": caseId
     };
-    support.ajax("web/removeSol", data, function (data) {
-            layer.msg(data.respInfo.info);
+    support.ajax("pro/remove", data, function (data) {
+            layer.msg(data.msg);
             search("1")
     });
 }
-function changeSol(sno,solLevel,sysGroup,isuCode,maxTryTime,exeCron,exeType,solStatus,solDes) {
+function doChangePro(){
 	var data = {
-			"sno":sno,
-			"solLevel":solLevel,
-			"sysGroup":sysGroup,
-			"isuCode":isuCode,
-			"maxTryTime":maxTryTime,
-			"exeCron":exeCron,
-			"exeType":exeType,
-			"solStatus":solStatus,
-			"solDes":solDes
-	};
+			"caseId": $("#editcaseId").text(),
+			"name": $("#editname").val(),
+            "sex": $("#editsex").val(),
+            "age": $("#editage").val(),
+            "testResault": $("#edittestResault").val(),
+            "doctor": $("#editdoctor").val(),
+            "department": $("#editdepartment").val(),
+            "testType": $("#edittestType").val(),
+            "description": $("#editdescription").val(),
+    };
+    support.ajax("pro/update", data, function (data) {
+            layer.msg(data.msg);
+            search("1");
+    });
+};
+function changeSol(id
+		,name
+		,sex
+		,age
+		,testResault
+		,caseId
+		,doctor
+		,department
+		,sendDate
+		,reportDate
+		,testType
+		,description) {
+    var data = {
+    		"id":id,
+    		"name":name,
+    		"sex":sex,
+    		"age":age,
+    		"testResault":testResault,
+    		"caseId":caseId,
+    		"doctor":doctor,
+    		"department":department,
+    		"sendDate":sendDate,
+    		"reportDate":reportDate,
+    		"testType":testType,
+    		"description":description
+    } 
 	 $("#changeInfo").html($("#changeSol").render(data));
 }
 

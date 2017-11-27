@@ -1,79 +1,132 @@
 package com.itmaoo.oa.entity.query;
 
+import java.util.Date;
+
 /**
  * 实体类 - 商品
  **/
 
 public class ProductQuery extends BaseQuery {
 
-	private static final long serialVersionUID = 4858058186018438872L;
-	
-	private Integer id;
-	private String name;
-	private String imgUrl;
-	private String thdPartyUrl;
-	private String price;
-	private String description;
-	
-	private String username;
-	private String articleUuid;
-	private Boolean effected;
-	
-	public Boolean getEffected() {
-		return effected;
-	}
-	public void setEffected(Boolean effected) {
-		this.effected = effected;
-	}
-	public String getArticleUuid() {
-		return articleUuid;
-	}
-	public void setArticleUuid(String articleUuid) {
-		this.articleUuid = articleUuid;
-	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getImgUrl() {
-		return imgUrl;
-	}
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
-	public String getThdPartyUrl() {
-		return thdPartyUrl;
-	}
-	public void setThdPartyUrl(String thdPartyUrl) {
-		this.thdPartyUrl = thdPartyUrl;
-	}
-	public String getPrice() {
-		return price;
-	}
-	public void setPrice(String price) {
-		this.price = price;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+  private static final long serialVersionUID = 4858058186018438872L;
+  /**
+   * 登记查询的信息必须包括:姓名，性别，年龄，检测结果，病理唯一编号，送检医生，送检科室，送检日期，报告日期，样本类型，ID
+   */
+  private Integer id;
+  private String name;
+  private String sex;
+  private String age;
+  private String testResault;
+  private String caseId;
+  private String doctor;
+  private String department;
+  private Date sendDateStart;
+  private Date reportDateStart;
+  private Date sendDateEnd;
+  private Date reportDateEnd;
+  private String testType;
+  private String description;
+  private Date createDate;
+  private Date lastModifyDate;
+  
+  public Date getCreateDate() {
+    return createDate;
+  }
+  public void setCreateDate(Date createDate) {
+    this.createDate = createDate;
+  }
+  public Date getLastModifyDate() {
+    return lastModifyDate;
+  }
+  public void setLastModifyDate(Date lastModifyDate) {
+    this.lastModifyDate = lastModifyDate;
+  }
+  public Integer getId() {
+    return id;
+  }
+  public void setId(Integer id) {
+    this.id = id;
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public String getSex() {
+    return sex;
+  }
+  public void setSex(String sex) {
+    this.sex = sex;
+  }
+  public String getAge() {
+    return age;
+  }
+  public void setAge(String age) {
+    this.age = age;
+  }
+  public String getTestResault() {
+    return testResault;
+  }
+  public void setTestResault(String testResault) {
+    this.testResault = testResault;
+  }
+  public String getCaseId() {
+    return caseId;
+  }
+  public void setCaseId(String caseId) {
+    this.caseId = caseId;
+  }
+  public String getDoctor() {
+    return doctor;
+  }
+  public void setDoctor(String doctor) {
+    this.doctor = doctor;
+  }
 
-	
+ 
+  public String getDepartment() {
+    return department;
+  }
+  public void setDepartment(String department) {
+    this.department = department;
+  }
+
+  public Date getSendDateStart() {
+    return sendDateStart;
+  }
+  public void setSendDateStart(Date sendDateStart) {
+    this.sendDateStart = sendDateStart;
+  }
+  public Date getReportDateStart() {
+    return reportDateStart;
+  }
+  public void setReportDateStart(Date reportDateStart) {
+    this.reportDateStart = reportDateStart;
+  }
+  public Date getSendDateEnd() {
+    return sendDateEnd;
+  }
+  public void setSendDateEnd(Date sendDateEnd) {
+    this.sendDateEnd = sendDateEnd;
+  }
+  public Date getReportDateEnd() {
+    return reportDateEnd;
+  }
+  public void setReportDateEnd(Date reportDateEnd) {
+    this.reportDateEnd = reportDateEnd;
+  }
+  public String getTestType() {
+    return testType;
+  }
+  public void setTestType(String testType) {
+    this.testType = testType;
+  }
+  public String getDescription() {
+    return description;
+  }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
 }

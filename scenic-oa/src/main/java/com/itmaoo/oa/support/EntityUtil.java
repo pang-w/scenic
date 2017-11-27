@@ -81,7 +81,8 @@ public class EntityUtil {
 	  proVo.setDepartment(productPo.getDepartment());
     //
 	//  proVo.setReportDate(reportDate);
-	  proVo.setSendDate(new Date());
+	  proVo.setSendDate(CommonUtil.formatDate(productPo.getSendDate()));
+	  proVo.setReportDate(CommonUtil.formatDate(productPo.getReportDate()));
 	  proVo.setSex(productPo.getSex());
 	  proVo.setTestResault(productPo.getTestResault());
 	  proVo.setTestType(productPo.getTestType());

@@ -41,6 +41,13 @@
 		WHERE
 		productid = #{id}
 	</select>
+	<delete id="deleteByCaseId" parameterType="java.lang.String">
+		DELETE
+		FROM product
+		WHERE
+		caseid = #{_parameter}
+	</delete>
+	
 	<select id="selectSingleByCaseId" resultType="ProductPo" parameterType="java.lang.String">
 		SELECT
 		<include refid="cols" />
@@ -48,50 +55,68 @@
 		WHERE
 		caseid = #{_parameter}
 	</select>
-	<select id="selectSingleByUserAndProductName" resultType="ProductPo" parameterType="ProductQuery">
-		SELECT
-		<include refid="cols" />
-		FROM product
-		WHERE
-		username = #{username}
-		AND
-		name = #{name}
-	</select>
-	<update id="updateById" parameterType="ProductPo">
+	<update id="updateByCaseId" parameterType="ProductPo">
 		UPDATE
 		product
-		SET	
-		username=#{username},
+		SET
 		name=#{name},
-		type=#{type},
-		basenum=#{baseNum},
-		imgurl=#{imgUrl},
-		description=#{description},
-		type=#{type},
+		sex=#{sex},
+		age=#{age},
+		testresault=#{testResault},
+		doctor=#{doctor},
+		department=#{department},
+		testtype=#{testType},
 		lastmodifydate=#{lastModifyDate},
-		linkto=#{linkTo},
-		price=#{price}
+		description=#{description}
 		WHERE
-		productid = #{id}
+		caseid = #{caseId}
 	</update>
 	<sql id="collectionList">
 		SELECT
 		<include refid="cols" />
 		FROM product ad
-		
 		WHERE
 		1=1
-		<if test="null!= username and '' != username">
-		AND username = #{username}
+		<if test="null!= name and '' != name">
+		AND name like concat('%', #{name}, '%')
 		</if>
-		<if test="null!= articleUuid and '' != articleUuid">
-		AND productid in ( SELECT productid FROM articleproductlink where
-		 <if test="null!= effected and '' != effected">
-		 	effected = #{effected} AND 
-		 </if>
-		 articleuuid=#{articleUuid})
+		<if test="null!= sex and '' != sex">
+		AND sex = #{sex}
 		</if>
-		ORDER BY createdate DESC
+		<if test="null!= age and '' != age">
+		AND age like concat('%', #{age}, '%')
+		</if>
+		<if test="null!= testResault and '' != testResault">
+		AND testResault like concat('%', #{testResault}, '%')
+		</if>
+		<if test="null!= caseId and '' != caseId">
+		AND caseId like concat('%', #{caseId}, '%')
+		</if>
+		<if test="null!= doctor and '' != doctor">
+		AND doctor like concat('%', #{doctor}, '%')
+		</if>
+		<if test="null!= department and '' != department">
+		AND department like concat('%', #{department}, '%')
+		</if>
+		<if test="null!= testType and '' != testType">
+		AND testtype like concat('%', #{testType}, '%')
+		</if>
+
+		<if test="null!= sendDateStart">
+		<![CDATA[ AND senddate >= #{sendDateStart}]]>
+		</if>
+		<if test="null!= sendDateEnd">
+		<![CDATA[ AND date(senddate) <= date(#{sendDateEnd})]]>
+		</if>
+		<if test="null!= reportDateStart">
+		<![CDATA[ AND date(reportDate) >= date(#{reportDateStart})]]>
+		</if>
+		<if test="null!= reportDateEnd">
+		<![CDATA[ AND date(reportDate) <= date(#{reportDateEnd})]]>
+		</if>
+		<if test="null!= description and '' != description">
+		AND description like concat('%', #{description}, '%')
+		</if>
 	</sql>
 	<!-- 批次信息查询  -->
 	<select id="selectList" resultType="ProductPo" parameterType="ProductQuery">
@@ -103,6 +128,6 @@
 	<select id="selectListCount" resultType="int" parameterType="ProductQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) c
 	</select>
 </mapper>

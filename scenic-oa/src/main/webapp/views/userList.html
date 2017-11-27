@@ -84,10 +84,8 @@
                             <tr>
                                 <th>登录名</th>
                                 <th>真实姓名</th>
-                                <th>性别</th>
-                                <th>用户类型</th>
-                                <th>人员状态</th>
-                                <th>状态</th>
+                                <th>创建人</th>
+                                <th>创建时间</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -145,54 +143,20 @@
 
 <script id="dataList" type="text/x-jsrender">
     <tr>
-        <td>{{:usrName}}</td>
-        <td>{{:realName}}</td>
+        <td>{{:username}}</td>
+        <td>{{:nickname}}</td>
         <td>
-            {{if usrSex=='1'}}
-                <span class="label label-pink arrowed-right">女</span>
-            {{else usrSex=='0'}}
-                <span class="label label-purple arrowed">男</span>
-            {{else}}
-                {{:usrSex}}
-            {{/if}}
+            {{:recCode}}
         </td>
         <td>
-            {{if usrType=='1'}}
-                <span class="badge badge-danger">超级管理员</span>
-            {{else usrType=='0'}}
-                <span class="badge badge-success">运维人员</span>
-            {{else}}
-                {{:usrType}}
-            {{/if}}
+            {{:createDate}}
         </td>
         <td>
-            {{if usrStatus=='1'}}
-                <span class="label label-success label-white middle">在职</span>
-            {{else usrStatus=='0'}}
-                <span class="label label-white middle">离职</span>
-            {{else}}
-                {{:usrStatus}}
-            {{/if}}
-        </td>
-        <td>
-            {{if status=='1'}}
-                <span class="label label-success arrowed">有效</span>
-            {{else status=='0'}}
-                <span class="label">无效</span>
-            {{else}}
-                {{:status}}
-            {{/if}}
-        </td>
-        <td>
-            {{if usrName=='admin'}}
-                <button class="btn btn-white btn-warning btn-bold btn-minier" disabled>
-                    <i class="ace-icon fa fa-trash-o orange"></i>删除
-                </button>
-            {{else}}
-                <button class="btn btn-white btn-warning btn-bold btn-minier" onclick="deleteUser('{{:usrId}}', '{{:usrName}}');">
+
+                <button class="btn btn-white btn-warning btn-bold btn-minier" onclick="deleteUser('{{:username}}');">
                     <i class="ace-icon glyphicon glyphicon-trash"></i>删除
                 </button>
-            {{/if}}
+
         </td>
     </tr>
 </script>

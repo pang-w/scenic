@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>啄木鸟（Piculus）</title>
+<title>病例管理系统</title>
 <script src="../assets/js/import-css.js"></script>
 </head>
 
@@ -26,15 +26,14 @@
 					<ul class="breadcrumb">
 						<li><i class="ace-icon fa fa-home home-icon"></i> <a
 							href="index.html">首页</a></li>
-						<li class="">修复管理</li>
-						<li class="active">修复方案查询</li>
+						<li class="active">病例管理</li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
 
 				<div class="page-content">
 					<div class="page-header">
-						<h1>修复方案查询</h1>
+						<h1>病例查询</h1>
 					</div>
 					<!-- /.page-header -->
 
@@ -63,6 +62,7 @@
 													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
 													<div class="col-sm-2">
 														<select id="sex">
+															<option value="">全部</option>
 															<option value="男">男</option>
 															<option value="女">女</option>
 														</select>
@@ -87,22 +87,24 @@
 													<div class="col-sm-2">
 														<input type="text" id="department" placeholder="送检科室" class="col-xs-12"/>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
-													<div class="col-sm-2">
-														<input type="date" id="sendDate" placeholder="送检日期" class="col-xs-12"/>
-													</div>
-												</div>
-												<div class="form-group">
 													<label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
 													<div class="col-sm-2">
 														<input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
 													</div>
+													
+												</div>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
+													<div class="col-sm-2">
+														<input type="date" id="sendDateStart" placeholder="送检日期" class="col-xs-12"/>
+														至<input type="date" id="sendDateEnd" placeholder="送检日期" class="col-xs-12"/>
+													</div>
 
 													<label class="col-sm-1 control-label no-padding-right"> 报告日期： </label>
 													<div class="col-sm-2">
-														<input type="date" id="reportDate" placeholder="报告日期" class="col-xs-12"/>
+														<input type="date" id="reportDateStart" placeholder="报告日期" class="col-xs-12"/>
+														至<input type="date" id="reportDateEnd" placeholder="报告日期" class="col-xs-12"/>
 													</div>
-
 
 													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
 													<div class="col-sm-4">
@@ -191,11 +193,22 @@
 				<td>{{:description}}</td>
 				<td>
 				<div class="action-buttons">
-					<button class="btn btn-white btn-info btn-bold btn-minier" onclick="removeSol('{{:sno}}');">
+					<button class="btn btn-white btn-info btn-bold btn-minier" onclick="removeSol('{{:caseId}}');">
                 		<i class="ace-icon glyphicon fa-go"></i>删除
             		</button>
 				    <button class="btn btn-white btn-info btn-bold btn-minier" 
-						onclick="changeSol('{{:sno}}','{{:solLevel}}','{{:sysGroup}}','{{:isuCode}}','{{:maxTryTime}}','{{:exeCron}}','{{:exeType}}','{{:solStatus}}','{{:solDes}}');">
+						onclick="changeSol('{{:id}}','{{:name}}',
+				'{{:sex}}',
+				'{{:age}}',
+				'{{:testResault}}',
+				'{{:caseId}}',
+				'{{:doctor}}',
+				'{{:department}}',
+				'{{:sendDate}}',
+				'{{:reportDate}}',
+				'{{:testType}}',
+				'{{:description}}'
+						);">
                 		<i class="ace-icon glyphicon fa-go"></i>修改
             		</button>
 				</div>
@@ -207,7 +220,7 @@
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="widget-box">
                             <div class="widget-header widget-header-blue widget-header-flat">
-                                <h4 class="widget-title lighter">修改方案[{{:sno}}] 修复接口[{{:isuCode}}]</h4>
+                                <h4 class="widget-title lighter">修改病例ID-<span id="editcaseId" >{{:caseId}}<span></h4>
                             </div>
                             <div class="widget-body">
                                 <form class="form-horizontal" role="form">
@@ -216,69 +229,56 @@
 												<div class="form-group">
 													<label class="col-sm-1 control-label no-padding-right"> 姓名： </label>
 													<div class="col-sm-2">
-														<input type="text" id="name" placeholder="如 张三" class="col-xs-12"/>
-													</div>
-													<label class="col-sm-1 control-label no-padding-right">ID：</label>
-													<div class="col-sm-2">
-														<input type="text" id="caseId" placeholder="病例唯一编号" class="col-xs-12"/>
+														<input type="text" id="editname"  value="{{:name}}" class="col-xs-12"/>
 													</div>
 
 													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
 													<div class="col-sm-2">
-														<select id="sex">
-															<option value="男">男</option>
-															<option value="女">女</option>
+														<select id="editsex"  value="{{:sex}}" >
+															<option value="男" {{if sex=='男'}}selected{{/if}}>男</option>
+															<option value="女" {{if sex=='女'}}selected{{/if}}>女</option>
 														</select>
 													</div>
 													<label class="col-sm-1 control-label no-padding-right"> 年龄： </label>
 													<div class="col-sm-2">
-														<input type="text" id="age" placeholder="如 28" class="col-xs-12"/>
+														<input type="text" id="editage" placeholder="如 28" value="{{:age}}" class="col-xs-12"/>
 													</div>
 												</div>
 
 												<div class="form-group">
 													<label class="col-sm-1 control-label no-padding-right"> 检测结果： </label>
 													<div class="col-sm-2">
-														<input type="text" id="testResault" placeholder="检测结果" class="col-xs-12"/>
+														<input type="text" id="edittestResault" placeholder="检测结果" value="{{:testResault}}" class="col-xs-12"/>
 													</div>
 													<label class="col-sm-1 control-label no-padding-right"> 送检医生： </label>
 													<div class="col-sm-2">
-														<input type="text" id="doctor" placeholder="送检医生" class="col-xs-12"/>
+														<input type="text" id="editdoctor" placeholder="送检医生" value="{{:doctor}}" class="col-xs-12"/>
 													</div>
 
 													<label class="col-sm-1 control-label no-padding-right"> 送检科室： </label>
 													<div class="col-sm-2">
-														<input type="text" id="department" placeholder="送检科室" class="col-xs-12"/>
-													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
-													<div class="col-sm-2">
-														<input type="date" id="sendDate" placeholder="送检日期" class="col-xs-12"/>
+														<input type="text" id="editdepartment" placeholder="送检科室" value="{{:department}}" class="col-xs-12"/>
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
 													<div class="col-sm-2">
-														<input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
-													</div>
-
-													<label class="col-sm-1 control-label no-padding-right"> 报告日期： </label>
-													<div class="col-sm-2">
-														<input type="date" id="reportDate" placeholder="报告日期" class="col-xs-12"/>
+														<input type="text" id="edittestType" placeholder="样本类型" value="{{:testType}}" class="col-xs-12"/>
 													</div>
 
 
 													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
 													<div class="col-sm-4">
-														<input type="text" id="description" placeholder="描述信息" class="col-xs-12"/>
+														<input type="text" id="editdescription" placeholder="描述信息" value="{{:description}}" class="col-xs-12"/>
 													</div>
 												</div>
 											</div>
 											<hr/>
 											<div class="wizard-actions">
-												<button class="btn btn-block btn-primary"onclick="doChangeSol()"" type="button">
+												<div class="btn btn-block btn-primary" onclick="doChangePro()">
 													<i class="ace-icon fa fa-search icon-on-right"></i>
 													提交
-												</button>
+												</div>
 											</div>
 										</div><!-- /.widget-main -->
 									</form>

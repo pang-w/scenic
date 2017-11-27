@@ -24,7 +24,7 @@ function showLoginUser() {
     });
 }
 function logout() {
-    support.ajax("user/loginout", {}, function (data) {
+    support.ajax("user/logout", {}, function (data) {
         location.href = "login.html";
     }, function () {
         layer.msg("注销失败,请稍后重试!");
@@ -96,13 +96,8 @@ function loadMenuIcon() {
     }
 }
 function chnagePwd() {
-    var oldPwd = $("#oldPwd").val();
     var newPwd = $("#newPwd").val();
     var conPwd = $("#conPwd").val();
-    if (!oldPwd) {
-        layer.tips('原密码不能为空！', "#oldPwd");
-        return;
-    }
     if (!newPwd) {
         layer.tips('新密码不能为空！', "#newPwd");
         return;
@@ -116,8 +111,7 @@ function chnagePwd() {
         return;
     }
     var param = {
-        "usrPwd": oldPwd,
-        "usrNewPwd": newPwd
+        "password": newPwd,
     };
     support.ajax("user/changePwd", param, function (data) {
         logout();

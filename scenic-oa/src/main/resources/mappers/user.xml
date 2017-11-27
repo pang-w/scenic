@@ -61,9 +61,6 @@
 		SELECT
 		<include refid="cols" />
 		FROM user u
-		LEFT JOIN
-		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
-		on u.username = sl.belikeduser
 		WHERE
 		username = #{username}
 	</select>
@@ -71,7 +68,6 @@
 		SELECT
 		<include refid="cols" />
 		FROM user u
-		
 		WHERE
 		iucode = #{iuCode}
 	</select>
@@ -85,10 +81,25 @@
 		password=  #{password}
 	</select>
 	
+	<delete id="deleteByUniqueKey" parameterType="java.lang.String">
+		DELETE
+		FROM user
+		WHERE
+		username = #{_parameter}
+	</delete>
+	
 	<sql id="collectionList">
 		SELECT
 		<include refid="cols" />
 		FROM user u
+		WHERE
+		1=1
+		<if test="null!= recCode and '' != recCode">
+		AND reccode = #{recCode}
+		</if>
+		<if test="null!= username and '' != username">
+		AND username like concat('%', #{username}, '%')
+		</if>
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->
@@ -101,6 +112,6 @@
 	<select id="selectListCount" resultType="int" parameterType="UserQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) u
 	</select>
 </mapper>

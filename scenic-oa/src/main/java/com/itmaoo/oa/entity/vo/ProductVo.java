@@ -20,11 +20,48 @@ public class ProductVo extends BaseVo {
 	private String caseId;
 	private String doctor;
 	private String department;
-	private Date sendDate;
+	private String sendDate;
 	private String reportDate;
 	private String testType;
 	private String description;
+	private Date sendDateStart;
+  private Date reportDateStart;
+	private Date sendDateEnd;
+	private Date reportDateEnd;
 	
+	private Integer pageIndex;
+	
+  public Integer getPageIndex() {
+    return pageIndex;
+  }
+  public void setPageIndex(Integer pageIndex) {
+    this.pageIndex = pageIndex;
+  }
+  public Date getSendDateEnd() {
+    return sendDateEnd;
+  }
+  public void setSendDateEnd(Date sendDateEnd) {
+    this.sendDateEnd = sendDateEnd;
+  }
+
+  public Date getSendDateStart() {
+    return sendDateStart;
+  }
+  public void setSendDateStart(Date sendDateStart) {
+    this.sendDateStart = sendDateStart;
+  }
+  public Date getReportDateStart() {
+    return reportDateStart;
+  }
+  public void setReportDateStart(Date reportDateStart) {
+    this.reportDateStart = reportDateStart;
+  }
+  public Date getReportDateEnd() {
+    return reportDateEnd;
+  }
+  public void setReportDateEnd(Date reportDateEnd) {
+    this.reportDateEnd = reportDateEnd;
+  }
   public Integer getId() {
     return id;
   }
@@ -75,10 +112,11 @@ public class ProductVo extends BaseVo {
   public void setDepartment(String department) {
     this.department = department;
   }
-  public Date getSendDate() {
+
+  public String getSendDate() {
     return sendDate;
   }
-  public void setSendDate(Date sendDate) {
+  public void setSendDate(String sendDate) {
     this.sendDate = sendDate;
   }
   public String getReportDate() {

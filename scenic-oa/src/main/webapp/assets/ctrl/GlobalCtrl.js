@@ -118,6 +118,7 @@ var support = {
 						callback(data);
 					}
 				} else if (data.status == "3001") {
+					layer.msg(data.msg);
 					location.href = "login.html";
 				} else {
 					if (errCallback && typeof errCallback == "function") {
@@ -146,6 +147,7 @@ var support = {
 					}
 				} else if (data.status == "3001") {
 					location.href = "login.html";
+					layer.msg(data.msg);
 				} else {
 					if (errCallback && typeof errCallback == "function") {
 						errCallback(data);

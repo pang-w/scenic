@@ -15,12 +15,12 @@ jQuery(function ($) {
 });
 function search(page) {
     var data = {
-        "usrName": $("#usrName").val(),
+        "username": $("#usrName").val(),
         "pageSize": "10",
         "pageIndex": page
     };
-    support.ajax("user/list", data, function (data) {
-        var info = data.respInfo.users;
+    support.ajax("user/list", data, function (rs) {
+        var info = rs.data;
         if (!info.totalPage) {
             $("#dataInfo").html("");
             $("#pagination").attr("style", "display: none");
@@ -40,8 +40,8 @@ function addUser() {
         return;
     }
     var param = {
-        "usrName": newUsrName,
-        "realName": newRealName
+        "username": newUsrName,
+        "nickname": newRealName
     };
     support.ajax("user/addUser", param, function (data) {
         $("#usrName").val(newUsrName);
@@ -53,9 +53,9 @@ function addUser() {
         search(1);
     });
 }
-function deleteUser(userId, userName) {
+function deleteUser(userName) {
     layer.confirm("确认删除用户【" + userName + "】么？", {btn :['删除', '关闭']}, function () {
-        support.ajax("user/deleteUser", {"usrId" : userId}, function (data) {
+        support.ajax("user/deleteUser", {"username" : userName}, function (data) {
             layer.msg("删除成功");
             var pageIndex = $("#pageIndex").html();
             search(pageIndex);

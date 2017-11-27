@@ -11,5 +11,6 @@ public interface IUserDao extends IBaseDao<UserPo>{
 	
 	int update(UserPo iucode);
 	int updatePassword(UserPo userPo);
+  int selectListCount(UserQuery query);
 	
 }

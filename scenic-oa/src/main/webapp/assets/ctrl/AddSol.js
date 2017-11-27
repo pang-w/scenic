@@ -15,10 +15,12 @@ function add() {
             "department": $("#department").val(),
             "sendDate": $("#sendDate").val(),
             "reportDate": $("#reportDate").val(),
+            "sendDateEnd": $("#sendDateEnd").val(),
+            "reportDateEnd": $("#reportDateEnd").val(),
             "testType": $("#testType").val(),
             "description": $("#description").val()
     };
     support.ajax("pro/add", data, function (data) {
-            layer.msg(data.respInfo.info);
+            layer.msg(data.msg);
     });
 }
