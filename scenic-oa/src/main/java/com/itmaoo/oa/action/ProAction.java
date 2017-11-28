@@ -23,7 +23,6 @@ import com.itmaoo.oa.entity.query.UserQuery;
 import com.itmaoo.oa.entity.vo.ProductVo;
 import com.itmaoo.oa.entity.vo.ResponseData;
 import com.itmaoo.oa.entity.vo.UserVo;
-import com.itmaoo.oa.support.CommonUtil;
 import com.itmaoo.oa.support.EntityUtil;
 
 @Controller
@@ -38,24 +37,24 @@ public class ProAction extends BaseAction {
   @ResponseBody
   @RequestMapping("add")
   public ResponseData regest(HttpServletRequest request, @RequestBody ProductVo proVo) {
-    
+
     ResponseData rd = new ResponseData();
     if (StringUtils.isEmpty(proVo.getCaseId())) {
       rd.setStatus("5006");
       rd.setMsg("病理唯一编号不能为空");
       return rd;
     }
-   /* ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
-    if(prductPo!=null){
+    ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
+    if (prductPo != null) {
       rd.setStatus("5006");
       rd.setMsg("病理唯一编号已存在");
       return rd;
-    }*/
+    }
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
       ProductPo poForSave = EntityUtil.productVoToPo(proVo);
       int count = proDao.insert(poForSave);
-      if(count!=1){
+      if (count != 1) {
         rd.setStatus("5006");
         rd.setMsg("保存失败");
         return rd;
@@ -77,18 +76,18 @@ public class ProAction extends BaseAction {
       rd.setMsg("病理唯一编号不能为空");
       return rd;
     }
-   
+
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
       ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
-      if(prductPo==null){
+      if (prductPo == null) {
         rd.setStatus("5006");
         rd.setMsg("不存在的病理编号");
         return rd;
       }
       ProductPo poForSave = EntityUtil.productVoToPo(proVo);
       int count = proDao.updateByCaseId(poForSave);
-      if(count!=1){
+      if (count != 1) {
         rd.setStatus("5006");
         rd.setMsg("保存失败");
         return rd;
@@ -154,20 +153,20 @@ public class ProAction extends BaseAction {
     }
 
   }
+
   @ResponseBody
   @RequestMapping("list")
   public ResponseData list(HttpServletRequest request, @RequestBody ProductVo productVo) {
-   
-    
+
     ResponseData rd = new ResponseData();
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
-    
+
       ProductQuery query = new ProductQuery();
       query.setId(productVo.getId());
       query.setDescription(productVo.getDescription());
-    //  query.setLastModifyDate(new Date());
-      
+      // query.setLastModifyDate(new Date());
+
       query.setAge(productVo.getAge());
       query.setCaseId(productVo.getCaseId());
       query.setDoctor(productVo.getDoctor());
@@ -181,26 +180,26 @@ public class ProAction extends BaseAction {
       query.setSex(productVo.getSex());
       query.setTestResault(productVo.getTestResault());
       query.setTestType(productVo.getTestType());
-      if(productVo.getPageIndex()!=null){
+      if (productVo.getPageIndex() != null) {
         query.setPageIndex(productVo.getPageIndex());
       }
       List<ProductPo> proPos = proDao.selectList(query);
       List<ProductVo> proVos = Lists.newArrayList();
-      if(proPos!=null){
-        for(ProductPo po:proPos){
+      if (proPos != null) {
+        for (ProductPo po : proPos) {
           proVos.add(EntityUtil.productPoToVo(po));
         }
-      } 
-      
+      }
+
       PagingData<ProductVo> pagingData = new PagingData<>();
       pagingData.setDataList(proVos);
       pagingData.setPageIndex(query.getPageIndex());// 设置当前页
       pagingData.setPageSize(query.getPageSize());// 设置一页多少条数据
       int count = proDao.selectListCount(query);
-      
+
       pagingData.setTotalCount(count);// 设置总数量
       pagingData.setTotalPage(count, query.getPageSize());// 设置总共多少页
-      
+
       rd.setData(pagingData);
     } else {
       rd.setStatus("3001");
@@ -209,21 +208,21 @@ public class ProAction extends BaseAction {
     return rd;
 
   }
+
   @ResponseBody
   @RequestMapping("remove")
   public ResponseData remove(HttpServletRequest request, @RequestBody ProductVo productVo) {
-   
-    
+
     ResponseData rd = new ResponseData();
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
-    
+
       ProductQuery query = new ProductQuery();
 
       query.setCaseId(productVo.getCaseId());
 
       Integer count = proDao.deleteByCaseId(productVo.getCaseId());
-      if(count < 1){
+      if (count < 1) {
         rd.setStatus("5001");
         rd.setMsg("删除失败");
         return rd;
@@ -235,6 +234,7 @@ public class ProAction extends BaseAction {
     return rd;
 
   }
+
   @ResponseBody
   @RequestMapping("logout")
   public ResponseData logout(HttpServletRequest request) {

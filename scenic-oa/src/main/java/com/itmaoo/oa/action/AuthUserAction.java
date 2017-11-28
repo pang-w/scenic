@@ -16,18 +16,16 @@ import com.google.common.collect.Lists;
 import com.itmaoo.oa.dao.IUserDao;
 import com.itmaoo.oa.entity.PagingData;
 import com.itmaoo.oa.entity.po.UserPo;
-import com.itmaoo.oa.entity.query.BaseQuery;
 import com.itmaoo.oa.entity.query.UserQuery;
-import com.itmaoo.oa.entity.vo.ProductVo;
 import com.itmaoo.oa.entity.vo.ResponseData;
 import com.itmaoo.oa.entity.vo.UserVo;
-import com.itmaoo.oa.support.CommonUtil;
 import com.itmaoo.oa.support.EntityUtil;
 
 @Controller
 @RequestMapping(value = "/action/user/")
 public class AuthUserAction extends BaseAction {
 
+  private static final String ADMIN = "admin";
   @Autowired
   private IUserDao userDao;
 
@@ -87,7 +85,7 @@ public class AuthUserAction extends BaseAction {
     if (logedUser != null) {
       
       UserQuery query = new UserQuery();
-      if(logedUser.getUsername()!="admin"){
+      if(!logedUser.getUsername().equals(ADMIN)){
         query.setRecCode(logedUser.getUsername());
       }
       query.setUsername(userDto.getUsername());
@@ -138,7 +136,11 @@ public class AuthUserAction extends BaseAction {
   @RequestMapping("deleteUser")
   public ResponseData deleteUser(HttpServletRequest request, @RequestBody UserVo userDto) {
     ResponseData rd = new ResponseData();
-
+    if(ADMIN.equals(userDto.getUsername())){
+      rd.setStatus("4001");
+      rd.setMsg("");
+      return rd;
+    }
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
       userDao.deleteByUniqueKey(userDto.getUsername());
