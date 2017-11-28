@@ -1,0 +1,968 @@
+2017-11-28 10:24:17.951 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2aa3cd93: startup date [Tue Nov 28 10:24:17 CST 2017]; root of context hierarchy
+2017-11-28 10:24:18.327 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-basic.xml]
+2017-11-28 10:24:18.333 [] DEBUG [background-preinit] org.jboss.logging :Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2017-11-28 10:24:18.334 [] INFO  [background-preinit] org.hibernate.validator.internal.util.Version :HV000001: Hibernate Validator 5.3.5.Final
+2017-11-28 10:24:18.359 [] DEBUG [background-preinit] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:18.539 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]
+2017-11-28 10:24:18.576 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-mvc.xml]
+2017-11-28 10:24:18.733 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IBaseDao.class]
+2017-11-28 10:24:18.733 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IProductDao.class]
+2017-11-28 10:24:18.733 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]
+2017-11-28 10:24:18.733 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IBaseDao' and 'com.itmaoo.oa.dao.IBaseDao' mapperInterface
+2017-11-28 10:24:18.733 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IProductDao' and 'com.itmaoo.oa.dao.IProductDao' mapperInterface
+2017-11-28 10:24:18.733 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IUserDao' and 'com.itmaoo.oa.dao.IUserDao' mapperInterface
+2017-11-28 10:24:18.858 [] INFO  [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer :Loading properties file from class path resource [application.properties]
+2017-11-28 10:24:18.923 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:18.934 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:18.938 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:24:18.939 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:24:18.940 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:24:18.941 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:24:18.941 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:24:18.942 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:24:18.942 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:24:18.942 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:24:19.182 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:19.183 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:19.183 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:24:19.183 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:24:19.184 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:24:19.184 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:24:19.184 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:24:19.184 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:24:19.184 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:24:19.184 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:24:19.423 [] INFO  [main] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer :Tomcat initialized with port(s): 8080 (http)
+2017-11-28 10:24:19.435 [] INFO  [main] org.apache.catalina.core.StandardService :Starting service [Tomcat]
+2017-11-28 10:24:19.435 [] INFO  [main] org.apache.catalina.core.StandardEngine :Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-11-28 10:24:19.574 [] INFO  [localhost-startStop-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] :Initializing Spring embedded WebApplicationContext
+2017-11-28 10:24:19.574 [] INFO  [localhost-startStop-1] org.springframework.web.context.ContextLoader :Root WebApplicationContext: initialization completed in 1624 ms
+2017-11-28 10:24:19.685 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean :Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 10:24:19.687 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 10:24:19.688 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 10:24:19.688 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 10:24:19.688 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 10:24:20.601 [] ERROR [main] com.alibaba.druid.pool.DruidDataSource :init datasource error, url: jdbc:mysql://120.25.193.26:3306/oa
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:939)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:871)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1694)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1215)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2255)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2286)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2085)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:795)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:400)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:684)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1713)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1650)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:207)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1131)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1059)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:589)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+2017-11-28 10:24:20.606 [] ERROR [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} init error
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:939)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:871)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1694)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1215)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2255)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2286)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2085)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:795)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:400)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:684)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1713)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1650)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:207)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1131)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1059)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:589)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+2017-11-28 10:24:20.606 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} inited
+2017-11-28 10:24:20.607 [] WARN  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authUserAction': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IUserDao' defined in file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Invocation of init method failed; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+2017-11-28 10:24:20.608 [] INFO  [main] org.apache.catalina.core.StandardService :Stopping service [Tomcat]
+2017-11-28 10:24:20.625 [] INFO  [main] o.s.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer :
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-11-28 10:24:20.627 [] ERROR [main] org.springframework.boot.SpringApplication :Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authUserAction': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IUserDao' defined in file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Invocation of init method failed; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:592)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:370)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1219)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:754)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:866)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:542)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IUserDao' defined in file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Invocation of init method failed; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:207)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1131)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1059)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:589)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Invocation of init method failed; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:359)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:108)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1486)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1231)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:551)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 32 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]: Invocation of init method failed; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1583)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:351)
+	... 42 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'oa'
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.Util.getInstance(Util.java:387)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:939)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3878)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3814)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:871)
+	at com.mysql.jdbc.MysqlIO.proceedHandshakeWithPluggableAuthentication(MysqlIO.java:1694)
+	at com.mysql.jdbc.MysqlIO.doHandshake(MysqlIO.java:1215)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2255)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2286)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2085)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:795)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:400)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:327)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:148)
+	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:785)
+	at com.alibaba.druid.filter.FilterEventAdapter.connection_connect(FilterEventAdapter.java:38)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:211)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:142)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1410)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:684)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1713)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1650)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1579)
+	... 49 common frames omitted
+2017-11-28 10:24:57.407 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:24:57 CST 2017]; root of context hierarchy
+2017-11-28 10:24:57.712 [] DEBUG [background-preinit] org.jboss.logging :Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2017-11-28 10:24:57.713 [] INFO  [background-preinit] org.hibernate.validator.internal.util.Version :HV000001: Hibernate Validator 5.3.5.Final
+2017-11-28 10:24:57.725 [] DEBUG [background-preinit] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:57.843 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-basic.xml]
+2017-11-28 10:24:57.956 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]
+2017-11-28 10:24:57.992 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-mvc.xml]
+2017-11-28 10:24:58.132 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IBaseDao.class]
+2017-11-28 10:24:58.133 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IProductDao.class]
+2017-11-28 10:24:58.133 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]
+2017-11-28 10:24:58.133 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IBaseDao' and 'com.itmaoo.oa.dao.IBaseDao' mapperInterface
+2017-11-28 10:24:58.133 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IProductDao' and 'com.itmaoo.oa.dao.IProductDao' mapperInterface
+2017-11-28 10:24:58.133 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IUserDao' and 'com.itmaoo.oa.dao.IUserDao' mapperInterface
+2017-11-28 10:24:58.258 [] INFO  [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer :Loading properties file from class path resource [application.properties]
+2017-11-28 10:24:58.318 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:58.329 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:58.332 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:24:58.333 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:24:58.335 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:24:58.336 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:24:58.337 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:24:58.337 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:24:58.337 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:24:58.337 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:24:58.559 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:24:58.560 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:24:58.561 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:24:58.561 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:24:58.732 [] INFO  [main] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer :Tomcat initialized with port(s): 8080 (http)
+2017-11-28 10:24:58.744 [] INFO  [main] org.apache.catalina.core.StandardService :Starting service [Tomcat]
+2017-11-28 10:24:58.745 [] INFO  [main] org.apache.catalina.core.StandardEngine :Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-11-28 10:24:58.834 [] INFO  [localhost-startStop-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] :Initializing Spring embedded WebApplicationContext
+2017-11-28 10:24:58.834 [] INFO  [localhost-startStop-1] org.springframework.web.context.ContextLoader :Root WebApplicationContext: initialization completed in 1427 ms
+2017-11-28 10:24:58.950 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean :Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 10:24:58.953 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 10:24:58.954 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 10:24:58.954 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 10:24:58.954 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 10:24:59.883 [] DEBUG [main] druid.sql.Connection :{conn-10001} connected
+2017-11-28 10:24:59.992 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} inited
+2017-11-28 10:25:00.122 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed configuration file: 'class path resource [mybatis.xml]'
+2017-11-28 10:25:00.167 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed mapper file: 'file [/home/mario/git/scenic/scenic-oa/target/classes/mappers/product.xml]'
+2017-11-28 10:25:00.177 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed mapper file: 'file [/home/mario/git/scenic/scenic-oa/target/classes/mappers/user.xml]'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update/] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list.*] onto handler 'authUserAction'
+2017-11-28 10:25:00.217 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list/] onto handler 'authUserAction'
+2017-11-28 10:25:00.218 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add] onto handler 'proAction'
+2017-11-28 10:25:00.218 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add.*] onto handler 'proAction'
+2017-11-28 10:25:00.218 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add/] onto handler 'proAction'
+2017-11-28 10:25:00.218 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword] onto handler 'proAction'
+2017-11-28 10:25:00.218 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword/] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login/] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout/] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser/] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove/] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update/] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list.*] onto handler 'proAction'
+2017-11-28 10:25:00.219 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list/] onto handler 'proAction'
+2017-11-28 10:25:00.226 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/${server.error.path:${error.path:/error}}] onto handler 'basicErrorController'
+2017-11-28 10:25:00.439 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter :Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:24:57 CST 2017]; root of context hierarchy
+2017-11-28 10:25:00.483 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/addUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.regest(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/deleteUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.deleteUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/changePwd]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.changepassword(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/login]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.loginUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/logout]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.logout(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/loginUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.checkLogged(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/update]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.update(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.484 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/list]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.list(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.487 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/add]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.regest(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:00.487 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/changepassword]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.changepassword(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.488 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/login]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.loginUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:00.488 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/logout]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.logout(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:00.488 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/loginUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.checkLogged(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:00.488 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/remove]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.remove(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:00.488 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/update]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.update(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:00.488 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/list]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.list(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:00.489 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 10:25:00.489 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:00.519 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:25:00.519 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:25:00.546 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:25:00.564 [] INFO  [main] o.s.boot.autoconfigure.web.WebMvcAutoConfiguration$WelcomePageHandlerMapping :Adding welcome page: ServletContext resource [/index.html]
+2017-11-28 10:25:00.770 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Registering beans for JMX exposure on startup
+2017-11-28 10:25:00.771 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-11-28 10:25:00.771 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Bean with name 'logFilter' has been autodetected for JMX exposure
+2017-11-28 10:25:00.774 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Located MBean 'logFilter': registering with JMX server as MBean [com.alibaba.druid.filter.logging:name=logFilter,type=Slf4jLogFilter]
+2017-11-28 10:25:00.775 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-11-28 10:25:00.788 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Initializing ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:00.799 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Starting ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:00.806 [] ERROR [main] org.apache.coyote.http11.Http11NioProtocol :Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+2017-11-28 10:25:00.807 [] ERROR [main] org.apache.catalina.core.StandardService :Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 14 common frames omitted
+2017-11-28 10:25:00.815 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Pausing ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:00.816 [] INFO  [main] org.apache.catalina.core.StandardService :Stopping service [Tomcat]
+2017-11-28 10:25:00.822 [] INFO  [main] org.apache.catalina.util.LifecycleBase :The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2017-11-28 10:25:00.822 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Stopping ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:00.822 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Destroying ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:00.824 [] INFO  [main] o.s.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer :
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-11-28 10:25:00.826 [] ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter :
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-11-28 10:25:00.827 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:24:57 CST 2017]; root of context hierarchy
+2017-11-28 10:25:00.828 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Unregistering JMX-exposed beans on shutdown
+2017-11-28 10:25:00.828 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Unregistering JMX-exposed beans
+2017-11-28 10:25:00.831 [] DEBUG [main] druid.sql.Connection :{conn-10001} closed
+2017-11-28 10:25:00.831 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} closed
+2017-11-28 10:25:48.830 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:25:48 CST 2017]; root of context hierarchy
+2017-11-28 10:25:49.093 [] DEBUG [background-preinit] org.jboss.logging :Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2017-11-28 10:25:49.094 [] INFO  [background-preinit] org.hibernate.validator.internal.util.Version :HV000001: Hibernate Validator 5.3.5.Final
+2017-11-28 10:25:49.112 [] DEBUG [background-preinit] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:25:49.288 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-basic.xml]
+2017-11-28 10:25:49.423 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]
+2017-11-28 10:25:49.461 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-mvc.xml]
+2017-11-28 10:25:49.597 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IBaseDao.class]
+2017-11-28 10:25:49.597 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IProductDao.class]
+2017-11-28 10:25:49.597 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]
+2017-11-28 10:25:49.597 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IBaseDao' and 'com.itmaoo.oa.dao.IBaseDao' mapperInterface
+2017-11-28 10:25:49.597 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IProductDao' and 'com.itmaoo.oa.dao.IProductDao' mapperInterface
+2017-11-28 10:25:49.597 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IUserDao' and 'com.itmaoo.oa.dao.IUserDao' mapperInterface
+2017-11-28 10:25:49.710 [] INFO  [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer :Loading properties file from class path resource [application.properties]
+2017-11-28 10:25:49.769 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:25:49.780 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:25:49.784 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:25:49.784 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:25:49.786 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:25:49.787 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:25:49.788 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:25:49.788 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:25:49.788 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:25:49.788 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:25:50.006 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:25:50.007 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:25:50.008 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:25:50.008 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:25:50.008 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:25:50.010 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:25:50.010 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:25:50.010 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:25:50.010 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:25:50.010 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:25:50.176 [] INFO  [main] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer :Tomcat initialized with port(s): 8080 (http)
+2017-11-28 10:25:50.187 [] INFO  [main] org.apache.catalina.core.StandardService :Starting service [Tomcat]
+2017-11-28 10:25:50.187 [] INFO  [main] org.apache.catalina.core.StandardEngine :Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-11-28 10:25:50.273 [] INFO  [localhost-startStop-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] :Initializing Spring embedded WebApplicationContext
+2017-11-28 10:25:50.273 [] INFO  [localhost-startStop-1] org.springframework.web.context.ContextLoader :Root WebApplicationContext: initialization completed in 1444 ms
+2017-11-28 10:25:50.378 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean :Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 10:25:50.382 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 10:25:50.382 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 10:25:50.382 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 10:25:50.382 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 10:25:51.328 [] DEBUG [main] druid.sql.Connection :{conn-10001} connected
+2017-11-28 10:25:51.434 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} inited
+2017-11-28 10:25:51.541 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed configuration file: 'class path resource [mybatis.xml]'
+2017-11-28 10:25:51.586 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed mapper file: 'file [/home/mario/git/scenic/scenic-oa/target/classes/mappers/product.xml]'
+2017-11-28 10:25:51.595 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed mapper file: 'file [/home/mario/git/scenic/scenic-oa/target/classes/mappers/user.xml]'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update/] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list.*] onto handler 'authUserAction'
+2017-11-28 10:25:51.635 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list/] onto handler 'authUserAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword.*] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword/] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login.*] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login/] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout.*] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout/] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser.*] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser/] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add.*] onto handler 'proAction'
+2017-11-28 10:25:51.636 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add/] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove.*] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove/] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update.*] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update/] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list.*] onto handler 'proAction'
+2017-11-28 10:25:51.637 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list/] onto handler 'proAction'
+2017-11-28 10:25:51.646 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/${server.error.path:${error.path:/error}}] onto handler 'basicErrorController'
+2017-11-28 10:25:51.844 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter :Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:25:48 CST 2017]; root of context hierarchy
+2017-11-28 10:25:51.885 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/deleteUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.deleteUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.885 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/changePwd]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.changepassword(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.886 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/login]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.loginUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.886 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/logout]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.logout(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:51.886 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/loginUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.checkLogged(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:51.886 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/addUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.regest(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.886 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/update]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.update(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.886 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/list]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.list(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.889 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/changepassword]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.changepassword(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.889 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/login]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.loginUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:25:51.889 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/logout]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.logout(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:51.889 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/loginUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.checkLogged(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:51.889 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/add]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.regest(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:51.890 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/remove]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.remove(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:51.890 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/update]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.update(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:51.890 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/list]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.list(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:25:51.891 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 10:25:51.891 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:25:51.914 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:25:51.914 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:25:51.938 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:25:51.955 [] INFO  [main] o.s.boot.autoconfigure.web.WebMvcAutoConfiguration$WelcomePageHandlerMapping :Adding welcome page: ServletContext resource [/index.html]
+2017-11-28 10:25:52.135 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Registering beans for JMX exposure on startup
+2017-11-28 10:25:52.135 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-11-28 10:25:52.136 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Bean with name 'logFilter' has been autodetected for JMX exposure
+2017-11-28 10:25:52.138 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Located MBean 'logFilter': registering with JMX server as MBean [com.alibaba.druid.filter.logging:name=logFilter,type=Slf4jLogFilter]
+2017-11-28 10:25:52.139 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-11-28 10:25:52.152 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Initializing ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:52.161 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Starting ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:52.164 [] ERROR [main] org.apache.coyote.http11.Http11NioProtocol :Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+2017-11-28 10:25:52.165 [] ERROR [main] org.apache.catalina.core.StandardService :Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 14 common frames omitted
+2017-11-28 10:25:52.170 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Pausing ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:52.170 [] INFO  [main] org.apache.catalina.core.StandardService :Stopping service [Tomcat]
+2017-11-28 10:25:52.178 [] INFO  [main] org.apache.catalina.util.LifecycleBase :The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2017-11-28 10:25:52.178 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Stopping ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:52.178 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Destroying ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:25:52.180 [] INFO  [main] o.s.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer :
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-11-28 10:25:52.182 [] ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter :
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-11-28 10:25:52.183 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:25:48 CST 2017]; root of context hierarchy
+2017-11-28 10:25:52.183 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Unregistering JMX-exposed beans on shutdown
+2017-11-28 10:25:52.183 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Unregistering JMX-exposed beans
+2017-11-28 10:25:52.185 [] DEBUG [main] druid.sql.Connection :{conn-10001} closed
+2017-11-28 10:25:52.186 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} closed
+2017-11-28 10:26:06.732 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:26:06 CST 2017]; root of context hierarchy
+2017-11-28 10:26:07.039 [] DEBUG [background-preinit] org.jboss.logging :Logging Provider: org.jboss.logging.Slf4jLoggerProvider found via system property
+2017-11-28 10:26:07.040 [] INFO  [background-preinit] org.hibernate.validator.internal.util.Version :HV000001: Hibernate Validator 5.3.5.Final
+2017-11-28 10:26:07.063 [] DEBUG [background-preinit] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:26:07.184 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-basic.xml]
+2017-11-28 10:26:07.331 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-db.xml]
+2017-11-28 10:26:07.366 [] INFO  [main] org.springframework.beans.factory.xml.XmlBeanDefinitionReader :Loading XML bean definitions from URL [file:/home/mario/git/scenic/scenic-oa/target/classes/spring-mvc.xml]
+2017-11-28 10:26:07.501 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IBaseDao.class]
+2017-11-28 10:26:07.501 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IProductDao.class]
+2017-11-28 10:26:07.501 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Identified candidate component class: file [/home/mario/git/scenic/scenic-oa/target/classes/com/itmaoo/oa/dao/IUserDao.class]
+2017-11-28 10:26:07.501 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IBaseDao' and 'com.itmaoo.oa.dao.IBaseDao' mapperInterface
+2017-11-28 10:26:07.501 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IProductDao' and 'com.itmaoo.oa.dao.IProductDao' mapperInterface
+2017-11-28 10:26:07.501 [] DEBUG [main] org.mybatis.spring.mapper.ClassPathMapperScanner :Creating MapperFactoryBean with name 'IUserDao' and 'com.itmaoo.oa.dao.IUserDao' mapperInterface
+2017-11-28 10:26:07.616 [] INFO  [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer :Loading properties file from class path resource [application.properties]
+2017-11-28 10:26:07.677 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:26:07.689 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:26:07.692 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:26:07.692 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:26:07.694 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:26:07.695 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:26:07.696 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:26:07.696 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:26:07.696 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:26:07.697 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:26:07.917 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.engine.resolver.DefaultTraversableResolver :Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.engine.ConfigurationImpl :Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy40
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :Trying to load META-INF/validation.xml for XML based Validator configuration.
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via user class loader
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via TCCL
+2017-11-28 10:26:07.918 [] DEBUG [main] org.hibernate.validator.internal.xml.ResourceLoaderHelper :Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2017-11-28 10:26:07.919 [] DEBUG [main] org.hibernate.validator.internal.xml.ValidationXmlParser :No META-INF/validation.xml found. Using annotation based configuration only.
+2017-11-28 10:26:08.087 [] INFO  [main] org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer :Tomcat initialized with port(s): 8080 (http)
+2017-11-28 10:26:08.097 [] INFO  [main] org.apache.catalina.core.StandardService :Starting service [Tomcat]
+2017-11-28 10:26:08.097 [] INFO  [main] org.apache.catalina.core.StandardEngine :Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-11-28 10:26:08.181 [] INFO  [localhost-startStop-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] :Initializing Spring embedded WebApplicationContext
+2017-11-28 10:26:08.181 [] INFO  [localhost-startStop-1] org.springframework.web.context.ContextLoader :Root WebApplicationContext: initialization completed in 1449 ms
+2017-11-28 10:26:08.292 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.ServletRegistrationBean :Mapping servlet: 'dispatcherServlet' to [/]
+2017-11-28 10:26:08.294 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-11-28 10:26:08.295 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-11-28 10:26:08.295 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-11-28 10:26:08.295 [] INFO  [localhost-startStop-1] org.springframework.boot.web.servlet.FilterRegistrationBean :Mapping filter: 'requestContextFilter' to: [/*]
+2017-11-28 10:26:09.372 [] DEBUG [main] druid.sql.Connection :{conn-10001} connected
+2017-11-28 10:26:09.506 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} inited
+2017-11-28 10:26:09.615 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed configuration file: 'class path resource [mybatis.xml]'
+2017-11-28 10:26:09.658 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed mapper file: 'file [/home/mario/git/scenic/scenic-oa/target/classes/mappers/product.xml]'
+2017-11-28 10:26:09.667 [] DEBUG [main] org.mybatis.spring.SqlSessionFactoryBean :Parsed mapper file: 'file [/home/mario/git/scenic/scenic-oa/target/classes/mappers/user.xml]'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/addUser/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/deleteUser/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/changePwd/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/login/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/logout/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/loginUser/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/update/] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list] onto handler 'authUserAction'
+2017-11-28 10:26:09.705 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list.*] onto handler 'authUserAction'
+2017-11-28 10:26:09.706 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/user/list/] onto handler 'authUserAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/add/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/changepassword/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/login/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/logout/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/loginUser/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/remove/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/update/] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list.*] onto handler 'proAction'
+2017-11-28 10:26:09.707 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/action/pro/list/] onto handler 'proAction'
+2017-11-28 10:26:09.715 [] INFO  [main] org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping :Mapped URL path [/${server.error.path:${error.path:/error}}] onto handler 'basicErrorController'
+2017-11-28 10:26:09.904 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter :Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:26:06 CST 2017]; root of context hierarchy
+2017-11-28 10:26:09.945 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/addUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.regest(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/deleteUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.deleteUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/changePwd]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.changepassword(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/login]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.loginUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/logout]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.logout(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/loginUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.checkLogged(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/update]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.update(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.946 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/user/list]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.AuthUserAction.list(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/add]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.regest(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/changepassword]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.changepassword(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/login]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.loginUser(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.UserVo)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/logout]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.logout(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/loginUser]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.checkLogged(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/remove]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.remove(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/update]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.update(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:26:09.950 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/action/pro/list]}" onto public com.itmaoo.oa.entity.vo.ResponseData com.itmaoo.oa.action.ProAction.list(javax.servlet.http.HttpServletRequest,com.itmaoo.oa.entity.vo.ProductVo)
+2017-11-28 10:26:09.951 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-11-28 10:26:09.952 [] INFO  [main] o.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping :Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-11-28 10:26:09.975 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:26:09.975 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:26:10.002 [] INFO  [main] org.springframework.web.servlet.handler.SimpleUrlHandlerMapping :Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-11-28 10:26:10.019 [] INFO  [main] o.s.boot.autoconfigure.web.WebMvcAutoConfiguration$WelcomePageHandlerMapping :Adding welcome page: ServletContext resource [/index.html]
+2017-11-28 10:26:10.197 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Registering beans for JMX exposure on startup
+2017-11-28 10:26:10.198 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Bean with name 'dataSource' has been autodetected for JMX exposure
+2017-11-28 10:26:10.198 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Bean with name 'logFilter' has been autodetected for JMX exposure
+2017-11-28 10:26:10.202 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Located MBean 'logFilter': registering with JMX server as MBean [com.alibaba.druid.filter.logging:name=logFilter,type=Slf4jLogFilter]
+2017-11-28 10:26:10.203 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2017-11-28 10:26:10.215 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Initializing ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:26:10.224 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Starting ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:26:10.227 [] ERROR [main] org.apache.coyote.http11.Http11NioProtocol :Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+2017-11-28 10:26:10.228 [] ERROR [main] org.apache.catalina.core.StandardService :Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.itmaoo.oa.App.main(App.java:18)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: 地址已在使用
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 14 common frames omitted
+2017-11-28 10:26:10.234 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Pausing ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:26:10.234 [] INFO  [main] org.apache.catalina.core.StandardService :Stopping service [Tomcat]
+2017-11-28 10:26:10.241 [] INFO  [main] org.apache.catalina.util.LifecycleBase :The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2017-11-28 10:26:10.241 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Stopping ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:26:10.241 [] INFO  [main] org.apache.coyote.http11.Http11NioProtocol :Destroying ProtocolHandler ["http-nio-8080"]
+2017-11-28 10:26:10.244 [] INFO  [main] o.s.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer :
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-11-28 10:26:10.245 [] ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter :
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-11-28 10:26:10.246 [] INFO  [main] o.s.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext :Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b44655e: startup date [Tue Nov 28 10:26:06 CST 2017]; root of context hierarchy
+2017-11-28 10:26:10.247 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Unregistering JMX-exposed beans on shutdown
+2017-11-28 10:26:10.247 [] INFO  [main] org.springframework.jmx.export.annotation.AnnotationMBeanExporter :Unregistering JMX-exposed beans
+2017-11-28 10:26:10.249 [] DEBUG [main] druid.sql.Connection :{conn-10001} closed
+2017-11-28 10:26:10.249 [] INFO  [main] com.alibaba.druid.pool.DruidDataSource :{dataSource-1} closed

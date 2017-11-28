@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>啄木鸟（Piculus）</title>
+    <title>病例管理系统</title>
     <script src="../assets/js/import-css.js"></script>
 </head>
 
@@ -152,11 +152,15 @@
             {{:createDate}}
         </td>
         <td>
-
+			{{if usrName=='admin'}}
+                <button class="btn btn-white btn-warning btn-bold btn-minier" disabled>
+                    <i class="ace-icon fa fa-trash-o orange"></i>删除
+                </button>
+            {{else}}
                 <button class="btn btn-white btn-warning btn-bold btn-minier" onclick="deleteUser('{{:username}}');">
                     <i class="ace-icon glyphicon glyphicon-trash"></i>删除
                 </button>
-
+			{{/if}}
         </td>
     </tr>
 </script>
