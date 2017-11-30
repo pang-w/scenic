@@ -17,7 +17,15 @@ public class ArticleQuery extends BaseQuery {
 	private Boolean isPublished;
 	private String articleUuid;
 	
+	private String tag;
 	
+	
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
 	public String getArticleUuid() {
 		return articleUuid;
 	}

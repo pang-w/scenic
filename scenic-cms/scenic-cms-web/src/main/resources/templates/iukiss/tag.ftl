@@ -28,7 +28,7 @@
 <script type="text/javascript" src="../assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="../assets/ctrl/index.js"></script>
 <script type="text/javascript" src="../assets/ctrl/base.js"></script>
-<script type="text/javascript" src="../assets/ctrl/indexLoad.js"></script>
+<script type="text/javascript" src="../assets/ctrl/tagLoad.js"></script>
 
 <script type="text/javascript" src="../assets/base/js/angular.min.js"></script>
 

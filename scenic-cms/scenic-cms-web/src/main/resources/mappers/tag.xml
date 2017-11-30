@@ -53,7 +53,10 @@
 		WHERE
 		1=1
 		<if test="null!= createBy and '' != createBy">
-		AND createBy = #{createBy}
+		AND createby = #{createBy}
+		</if>
+		<if test="null!= type and '' != type">
+		AND type = #{type}
 		</if>
 		<if test="null!= articleUuid and '' != articleUuid">
 		AND tagid in ( SELECT tagid FROM articletaglink where
@@ -69,7 +72,6 @@
 		 </if>
 		 articleuuid in (SELECT uuid FROM article where username=#{username}))
 		</if>
-
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->
@@ -84,6 +86,6 @@
 	<select id="selectListCount" resultType="int" parameterType="TagQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) c 
 	</select>
 </mapper>

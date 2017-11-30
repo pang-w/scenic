@@ -83,6 +83,6 @@
 	<select id="selectListCount" resultType="int" parameterType="ArticleTagLinkQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) c
 	</select>
 </mapper>

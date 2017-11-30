@@ -21,21 +21,24 @@ function loadIndexAll(){
 			}
 	    
 	    });
-		$scope.searchArticlePrevious = function(){
-			var page = $("#articlePageIndex").html();
-			support.ajax("page/index/article", {"pageIndex":(parseInt(page) - 1)}, function (result) {
+		$scope.searchPrevious = function(){
+			var page = $("#pageIndex").html();
+			var searchTag = $("#searchTag").val();
+			support.ajax("page/tag/article", {"pageIndex":(parseInt(page) - 1),"searchTag":searchTag}, function (result) {
 			     $scope.articles = result.data;
 			     $scope.$apply();
 		    });
 		};
-		$scope.searchArticleNext = function(){
-			var page = $("#articlePageIndex").html();
-			support.ajax("page/index/article", {"pageIndex":(parseInt(page) + 1)}, function (result) {
+		$scope.searchNext = function(){
+			var page = $("#pageIndex").html();
+			var searchTag = $("#searchTag").val();
+			support.ajax("page/tag/article", {"pageIndex":(parseInt(page) + 1),"searchTag":searchTag}, function (result) {
 			     $scope.articles = result.data;
 			     $scope.$apply();
 		    });
 		};
-		support.ajax("page/index/article", {}, function (result) {
+		var searchTag = $("#searchTag").val();
+		support.ajax("page/tag/article", {"searchTag":searchTag}, function (result) {
 		     $scope.articles = result.data;
 		     $scope.$apply();
 	    });

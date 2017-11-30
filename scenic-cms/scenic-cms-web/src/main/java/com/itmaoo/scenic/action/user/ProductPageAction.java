@@ -12,58 +12,59 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
-import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IArticleMessageDao;
+import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
 import com.itmaoo.scenic.entity.dto.PagingData;
+import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.po.ArticleMessagePo;
-import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.po.ProductPo;
 import com.itmaoo.scenic.entity.query.ArticleMessageQuery;
-import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
 @Controller
-@RequestMapping(value = "/action/page/article/")
-public class ArticlePageAction extends BaseAction {
+@RequestMapping(value = "/action/page/product/")
+public class ProductPageAction extends BaseAction {
 	@Autowired
 	private IArticleMessageDao articleMessageDao;
 	@Autowired
-	private IArticleDao articleDao;
+	private IProductDao productDao;
 	
 	@ResponseBody
-	@RequestMapping("article")
-	public ResponseData publicArticle(HttpServletRequest request, @RequestBody ArticleDto articleRequest) {
+	@RequestMapping("product")
+	public ResponseData publicProduct(HttpServletRequest request, @RequestBody ProductDto proRequest) {
 		ResponseData rd = new ResponseData();
 
-		// 登录用户 可浏览的信息
-		PagingData<ArticleDto> userArticlesPagingData = new PagingData<>();
+		PagingData<ProductDto> publicArticlesPagingData = new PagingData<>();
 
-		ArticleQuery suerArticleQuery = new ArticleQuery();
-		suerArticleQuery.setIsPublished(true);
-		if (articleRequest == null || articleRequest.getPageIndex() == null) {
-			suerArticleQuery.setPageIndex(1);
+		
+		
+		ProductQuery proQuery = new ProductQuery();
+		if (proRequest == null || proRequest.getPageIndex() == null) {
+			proQuery.setPageIndex(1);
 		} else {
-			suerArticleQuery.setPageIndex(articleRequest.getPageIndex());
+			proQuery.setPageIndex(proRequest.getPageIndex());
 		}
-		suerArticleQuery.setPageSize(5);
-		List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
-		List<ArticleDto> userArticlesDto = Lists.newArrayList();
-		if (userArticlesPo != null) {
-			for (ArticlePo articlePo : userArticlesPo) {
-				ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
-				userArticlesDto.add(articlePoToDto);
+		// proQuery.setUsername(loggedUser.getUsername());
+		List<ProductPo> productsPo = productDao.selectList(proQuery);
+		List<ProductDto> publicProductsDto = Lists.newArrayList();
+		if (productsPo != null) {
+			for (ProductPo pPo : productsPo) {
+				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+				publicProductsDto.add(proPoToDto);
 			}
 		}
-		userArticlesPagingData.setDataList(userArticlesDto);
-		userArticlesPagingData.setPageIndex(suerArticleQuery.getPageIndex());// 设置当前页
-		userArticlesPagingData.setPageSize(suerArticleQuery.getPageSize());// 设置一页多少条数据
-		int count = articleDao.selectListCount(suerArticleQuery);
-		userArticlesPagingData.setTotalCount(count);// 设置总数量
-		userArticlesPagingData.setTotalPage(count, suerArticleQuery.getPageSize());// 设置总共多少页
+		publicArticlesPagingData.setDataList(publicProductsDto);
+		publicArticlesPagingData.setPageIndex(proQuery.getPageIndex());// 设置当前页
+		publicArticlesPagingData.setPageSize(proQuery.getPageSize());// 设置一页多少条数据
+		int count = productDao.selectListCount(proQuery);
+		publicArticlesPagingData.setTotalCount(count);// 设置总数量
+		publicArticlesPagingData.setTotalPage(count, proQuery.getPageSize());// 设置总共多少页
 
-		rd.setData(userArticlesPagingData);
+		rd.setData(publicArticlesPagingData);
 		return rd;
 
 	}

@@ -9,4 +9,6 @@ public interface IImageDao extends IBaseDao<ImagePo>{
 
 	int updateByImageName(ImagePo image);
 
+	
+
 }

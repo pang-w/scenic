@@ -25,6 +25,14 @@ public class ArticleDto extends BaseDto{
 	private List<ProductDto> products;
 	private List<TagDto> tags;
 	
+	private String searchTag;
+	
+	public String getSearchTag() {
+		return searchTag;
+	}
+	public void setSearchTag(String searchTag) {
+		this.searchTag = searchTag;
+	}
 	public List<ProductDto> getProducts() {
 		return products;
 	}

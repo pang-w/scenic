@@ -25,8 +25,8 @@ import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
 @Controller
-@RequestMapping(value = "/action/page/article/")
-public class ArticlePageAction extends BaseAction {
+@RequestMapping(value = "/action/page/tag/")
+public class TagPageAction extends BaseAction {
 	@Autowired
 	private IArticleMessageDao articleMessageDao;
 	@Autowired
@@ -41,7 +41,10 @@ public class ArticlePageAction extends BaseAction {
 		PagingData<ArticleDto> userArticlesPagingData = new PagingData<>();
 
 		ArticleQuery suerArticleQuery = new ArticleQuery();
+		suerArticleQuery.setTag(articleRequest.getSearchTag());
+		
 		suerArticleQuery.setIsPublished(true);
+		
 		if (articleRequest == null || articleRequest.getPageIndex() == null) {
 			suerArticleQuery.setPageIndex(1);
 		} else {

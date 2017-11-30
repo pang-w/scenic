@@ -53,6 +53,6 @@
 	<select id="selectListCount" resultType="int" parameterType="ArticleLikeQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) c
 	</select>
 </mapper>

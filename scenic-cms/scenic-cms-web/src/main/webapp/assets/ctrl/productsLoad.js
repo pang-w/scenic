@@ -13,7 +13,6 @@ function loadIndexAll(){
 	    	if (result.data.status == "0000") {
 	    		$scope.topUser = result.data.data.topUser;
 	    		$scope.loggedUser = result.data.data.loggedUser;
-	            $scope.products = result.data.data.products;
 	            
 		        $scope.asideTags = result.data.data.asideTags;
 		        $scope.userTags = result.data.data.userTags;
@@ -21,23 +20,22 @@ function loadIndexAll(){
 			}
 	    
 	    });
-		$scope.searchArticlePrevious = function(){
-			var page = $("#articlePageIndex").html();
-			support.ajax("page/index/article", {"pageIndex":(parseInt(page) - 1)}, function (result) {
-			     $scope.articles = result.data;
+		$scope.searchProductPrevious = function(){
+			var page = $("#productPageIndex").html();
+			support.ajax("page/product/product", {"pageIndex":(parseInt(page) - 1)}, function (result) {
+			     $scope.products = result.data;
 			     $scope.$apply();
 		    });
 		};
-		$scope.searchArticleNext = function(){
-			var page = $("#articlePageIndex").html();
-			support.ajax("page/index/article", {"pageIndex":(parseInt(page) + 1)}, function (result) {
-			     $scope.articles = result.data;
+		$scope.searchProductNext = function(){
+			var page = $("#productPageIndex").html();
+			support.ajax("page/product/product", {"pageIndex":(parseInt(page) + 1)}, function (result) {
+			     $scope.products = result.data;
 			     $scope.$apply();
 		    });
 		};
-		support.ajax("page/index/article", {}, function (result) {
-		     $scope.articles = result.data;
-		     $scope.$apply();
+		support.ajax("page/product/product", {}, function (result) {
+		     $scope.products = result.data;
 	    });
 		
 		
@@ -86,15 +84,12 @@ function loadIndexAll(){
 		};
 		support.ajax("menu/article", {}, function (result) {
 		     $scope.articleMenu = result.data;
-		     $scope.$apply();
 	    });
 		support.ajax("menu/image", {}, function (result) {
 		     $scope.imageMenu = result.data;
-		     $scope.$apply();
 	    });
 		support.ajax("menu/product", {}, function (result) {
 		     $scope.productMenu = result.data;
-		     $scope.$apply();
 	    });
 		$scope.layerViewProduct = function (data) {
 			layer.open({

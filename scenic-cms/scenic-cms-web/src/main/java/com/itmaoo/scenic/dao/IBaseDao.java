@@ -2,6 +2,7 @@ package com.itmaoo.scenic.dao;
 
 import java.util.List;
 
+import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.query.BaseQuery;
 
 public interface IBaseDao<T> {
@@ -23,5 +24,7 @@ public interface IBaseDao<T> {
 	int selectSequence();
 	
 	int deleteByUniqueKey(String key);
+	
+	int selectListCount(BaseQuery suerArticleQuery);
 	
 }

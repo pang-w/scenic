@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ImageDto;
+import com.itmaoo.scenic.entity.dto.PagingData;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
@@ -11,7 +12,7 @@ import com.itmaoo.scenic.entity.dto.UserDto;
 public class IndexPageDto {
 	private UserDto topUser;
 	private UserDto loggedUser;
-	private List<ArticleDto> articles;
+	private PagingData<ArticleDto> articles;
 	private List<ProductDto> products;
 	private List<ArticleDto> articleMenu;
 	private List<ImageDto> imageMenu;
@@ -77,10 +78,11 @@ public class IndexPageDto {
 	public void setTopUser(UserDto topUser) {
 		this.topUser = topUser;
 	}
-	public List<ArticleDto> getArticles() {
+
+	public PagingData<ArticleDto> getArticles() {
 		return articles;
 	}
-	public void setArticles(List<ArticleDto> articles) {
+	public void setArticles(PagingData<ArticleDto> articles) {
 		this.articles = articles;
 	}
 	public List<ArticleDto> getArticleMenu() {

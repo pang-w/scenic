@@ -1,7 +1,5 @@
 package com.itmaoo.scenic.entity.dto;
 
-import java.util.List;
-
 /**
  * 实体类 - 商品
  **/

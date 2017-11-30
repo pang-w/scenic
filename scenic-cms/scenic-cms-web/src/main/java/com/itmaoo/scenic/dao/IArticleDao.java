@@ -7,4 +7,6 @@ public interface IArticleDao extends IBaseDao<ArticlePo>{
 	int updatePublishStatus(ArticlePo articlePo);
 	
 	ArticlePo selectSingleById(ArticleQuery articleQuery);
+
+	int selectListCount(ArticleQuery query);
 }

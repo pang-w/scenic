@@ -113,6 +113,6 @@
 	<select id="selectListCount" resultType="int" parameterType="UserQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) c
 	</select>
 </mapper>

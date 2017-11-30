@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
-import com.itmaoo.scenic.entity.dto.PagerDto;
+import com.itmaoo.scenic.entity.dto.PagingData;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.UserPo;
@@ -52,10 +52,16 @@ public class UserHtmlAction extends BaseAction {
 		aq.setUsername(viewusername);
 		List<ArticlePo> articles = articleDao.selectList(aq);
 		List<ArticleDto> aticleDtos = EntityUtil.articlePoToDto(articles);
-		PagerDto pager = new PagerDto();
-		pager.setCurrentPage(1);
-		pager.setTotalPage(aticleDtos.size() / 10 + 1);
-		pager.setList(aticleDtos);
+		
+
+		PagingData<ArticleDto> pager = new PagingData<ArticleDto>();
+		pager.setDataList(aticleDtos);
+		pager.setPageIndex(aq.getPageIndex());// 设置当前页
+		pager.setPageSize(aq.getPageSize());// 设置一页多少条数据
+		int count = articleDao.selectListCount(aq);
+		pager.setTotalCount(count);// 设置总数量
+		pager.setTotalPage(count, aq.getPageSize());// 设置总共多少页
+		
 
 		map.addAttribute("baseDomain", baseDomain);
 		map.addAttribute("imgDomain", imgDomain);
@@ -77,27 +83,40 @@ public class UserHtmlAction extends BaseAction {
 		UserDto loggedUser = getLogedUser(request);
 
 		ArticleQuery aq = new ArticleQuery();
-		//aq.setUsername(tag);
+		aq.setPageIndex(1);
+		aq.setPageSize(5);
+		aq.setTag(tag);
 		List<ArticlePo> articles = articleDao.selectList(aq);
 		List<ArticleDto> aticleDtos = EntityUtil.articlePoToDto(articles);
-		PagerDto pager = new PagerDto();
-		pager.setCurrentPage(1);
-		pager.setTotalPage(aticleDtos.size() / 10 + 1);
-		pager.setList(aticleDtos);
+		if (articles != null) {
+			for (ArticlePo articlePo : articles) {
+				ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
+				aticleDtos.add(articlePoToDto);
+			}
+		}
+		PagingData<ArticleDto> pager = new PagingData<ArticleDto>();
+		pager.setDataList(aticleDtos);
+		pager.setPageIndex(aq.getPageIndex());// 设置当前页
+		pager.setPageSize(aq.getPageSize());// 设置一页多少条数据
+		int count = articleDao.selectListCount(aq);
+		pager.setTotalCount(count);// 设置总数量
+		pager.setTotalPage(count, aq.getPageSize());// 设置总共多少页
+		
+		map.addAttribute("tag", tag);
 		map.addAttribute("pager", pager);
 		map.addAttribute("author", author);
 		map.addAttribute("articles",aticleDtos);
 		if (loggedUser != null) {
 			map.addAttribute("loggedUser", loggedUser);
 			if (loggedUser.getUsername().equals(tag)) {
-				ModelAndView mv = new ModelAndView("iukiss/tags");
+				ModelAndView mv = new ModelAndView("iukiss/tag");
 				return mv;
 			} else {
-				ModelAndView mv = new ModelAndView("iukiss/tags");
+				ModelAndView mv = new ModelAndView("iukiss/tag");
 				return mv;
 			}
 		} else {
-			ModelAndView mv = new ModelAndView("iukiss/tags");
+			ModelAndView mv = new ModelAndView("iukiss/tag");
 			return mv;
 		}
 

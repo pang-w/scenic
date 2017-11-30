@@ -31,7 +31,6 @@
 <script type="text/javascript" src="../assets/ctrl/base.js"></script>
 <script type="text/javascript" src="../assets/ctrl/articleLoad.js"></script>
 <script type="text/javascript" src="../assets/base/js/angular.min.js"></script>
-<script type="text/javascript" src="../assets/ctrl/article.js"></script>
 
 
 </head>
@@ -47,8 +46,6 @@
 		<div class="container">
 			<div class="row">
 				<main class="col-md-8 main-content">
-
-				
 				
 				<article class="post">
 					<div class="row">
@@ -109,11 +106,9 @@
 				</main>
 
 				<aside class="col-md-4 sidebar">
-
 					<!-- start tag cloud widget -->
 					<#include "components/asideTags.ftl">
 					<!-- end tag cloud widget -->
-
 				</aside>
 
 			</div>

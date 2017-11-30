@@ -14,23 +14,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.dao.ITagDao;
 import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
-import com.itmaoo.scenic.entity.dto.ImageDto;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
-import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.ProductPo;
 import com.itmaoo.scenic.entity.po.TagPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
-import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
@@ -51,9 +47,6 @@ public class EditPageAction extends BaseAction {
 	private IArticleDao articleDao;
 
 	@Autowired
-	private IImageDao imageDao;
-
-	@Autowired
 	private IProductDao productDao;
 	@Autowired
 	private ITagDao tagDao;
@@ -68,19 +61,6 @@ public class EditPageAction extends BaseAction {
 		/** top user **/
 		UserDto userData = (UserDto) topUser(request).getData();
 
-		/** public articles (publicArticlesDto)**/
-		ArticleQuery query = new ArticleQuery();
-		query.setIsPublished(true);
-		query.setPageIndex(1);
-		query.setPageSize(5);
-		List<ArticlePo> articlesPo = articleDao.selectList(query);
-		List<ArticleDto> publicArticlesDto = Lists.newArrayList();
-		if (articlesPo != null) {
-			for (ArticlePo articlePo : articlesPo) {
-				ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
-				publicArticlesDto.add(articlePoToDto);
-			}
-		}
 		/** Products (productsDto)**/
 		ProductQuery proQuery = new ProductQuery();
 		// proQuery.setUsername(loggedUser.getUsername());
@@ -96,7 +76,7 @@ public class EditPageAction extends BaseAction {
 		TagQuery asideTagQuery = new TagQuery();
 		//asideTagQuery.setUsername(username);
 		asideTagQuery.setPageIndex(1);
-		asideTagQuery.setPageSize(5);
+		asideTagQuery.setPageSize(20);
 		List<TagPo> asideTagsPo = tagDao.selectList(asideTagQuery);
 		List<TagDto> asideTagsDto = EntityUtil.tagPoToDtoList(asideTagsPo);
 		
@@ -116,8 +96,6 @@ public class EditPageAction extends BaseAction {
 		//Set public properties
 		IndexPageDto indexDto = new IndexPageDto();
 		indexDto.setTopUser(userData);
-		indexDto.setArticles(publicArticlesDto);
-		indexDto.setProducts(publicProductsDto);
 		indexDto.setAsideTags(asideTagsDto);
 		indexDto.setLinkedProducts(linkedProductsDto);
 
@@ -127,10 +105,19 @@ public class EditPageAction extends BaseAction {
 			/** Tags (asideTagsDto)**/
 			TagQuery userTagQuery = new TagQuery();
 			userTagQuery.setUsername(loggedUser.getUsername());
-			asideTagQuery.setPageIndex(1);
-			asideTagQuery.setPageSize(5);
+			userTagQuery.setPageIndex(1);
+			userTagQuery.setPageSize(20);
 			List<TagPo> userTagsPo = tagDao.selectList(userTagQuery);
-			List<TagDto> userTagsDto = EntityUtil.tagPoToDtoList(userTagsPo);
+			TagQuery defaultTagQuery = new TagQuery();
+			defaultTagQuery.setPageIndex(1);
+			defaultTagQuery.setPageSize(5);
+			defaultTagQuery.setType("default");
+			List<TagPo> defaultTagsPo = tagDao.selectList(defaultTagQuery);
+			//添加默认Tag
+			
+			List<TagDto> userTagsDto = EntityUtil.tagPoToDtoList(defaultTagsPo);
+			userTagsDto.addAll(EntityUtil.tagPoToDtoList(userTagsPo));
+			indexDto.setUserTags(userTagsDto);
 			
 			/** user articles **/
 			List<ArticleDto> userArticlesDto = Lists.newArrayList();
@@ -141,7 +128,7 @@ public class EditPageAction extends BaseAction {
 				suerArticleQuery.setPageSize(5);
 				List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
 				ArticleDto editArticle = new ArticleDto();
-				if (articlesPo != null) {
+				if (userArticlesPo != null) {
 					for (ArticlePo articlePo : userArticlesPo) {
 						ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
 						userArticlesDto.add(articlePoToDto);
@@ -152,43 +139,7 @@ public class EditPageAction extends BaseAction {
 					}
 				}
 			}
-			/** Images **/
-			ImageQuery iQuery = new ImageQuery();
-			iQuery.setUsername(loggedUser.getUsername());
-			List<ImagePo> imageMenu = imageDao.selectList(iQuery);
-			List<ImageDto> imagesDto = Lists.newArrayList();
-			if (imageMenu != null) {
-				for (ImagePo imagePo : imageMenu) {
-					ImageDto imagePoToDto = EntityUtil.imagePoToDto(imagePo);
-					if (!imgDomain.endsWith("/")) {
-						imagePoToDto.setUrl(imgDomain + "/" + imagePoToDto.getBaseUri());
-					} else {
-						imagePoToDto.setUrl(imgDomain + imagePoToDto.getBaseUri());
-					}
-					imagesDto.add(imagePoToDto);
-				}
-			}
-
-			/** User Product **/
-			ProductQuery uProQuery = new ProductQuery();
-			uProQuery.setUsername(loggedUser.getUsername());
-			List<ProductPo> uProductsPo = productDao.selectList(uProQuery);
-			List<ProductDto> productMenu = Lists.newArrayList();
-			if (productMenu != null) {
-				for (ProductPo pPo : uProductsPo) {
-					ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
-
-					productMenu.add(proPoToDto);
-				}
-			}
-			indexDto.setArticleMenu(userArticlesDto);
-			// indexDto.setAttentionMenu(articlesDto);
-			indexDto.setImageMenu(imagesDto);
-			indexDto.setProductMenu(productMenu);
-			indexDto.setLoggedUser(loggedUser);
-			indexDto.setUserTags(userTagsDto);
 		}
-
 		
 		ResponseData rd = new ResponseData();
 		rd.setData(indexDto);

@@ -6,7 +6,11 @@ import java.util.Date;
  * @author mario
  *
  */
-public class ImageDto {
+public class ImageDto extends BaseDto{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7711473873175719666L;
 	private Integer id;
 	private String description;
 	private String baseUri;
@@ -14,7 +18,6 @@ public class ImageDto {
 	private String linkTo;
 	private String type;
 	
-	private Date createDate;
 	private String username;
 	private String imageName;
 	
@@ -58,12 +61,7 @@ public class ImageDto {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+
 	public String getUsername() {
 		return username;
 	}

@@ -72,8 +72,8 @@
 		<if test="null!= isPublished and '' != isPublished">
 		AND ispublished = #{isPublished}
 		</if>
-		<if test="null!= articleUuid and '' != articleUuid">
-		AND tagid in ( SELECT tagid FROM articletaglink where articleuuid=#{articleUuid})
+		<if test="null!= tag and '' != tag">
+		AND uuid in ( SELECT articleuuid FROM articletaglink where tagid in (select tagid from tag where value like concat('%', #{tag}, '%')))
 		</if>
 		
 		ORDER BY createdate DESC
@@ -90,6 +90,6 @@
 	<select id="selectListCount" resultType="int" parameterType="ArticleQuery">
 		SELECT count(*) FROM (
 		<include refid="collectionList" />
-		)
+		) c
 	</select>
 </mapper>

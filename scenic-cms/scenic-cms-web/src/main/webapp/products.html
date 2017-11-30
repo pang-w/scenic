@@ -29,7 +29,7 @@
 <script type="text/javascript" src="/assets/base/layer/layer.js"></script>
 <script type="text/javascript" src="/assets/ctrl/index.js"></script>
 <script type="text/javascript" src="/assets/ctrl/base.js"></script>
-<script type="text/javascript" src="/assets/ctrl/indexLoad.js"></script>
+<script type="text/javascript" src="/assets/ctrl/productsLoad.js"></script>
 <script type="text/javascript" src="/assets/base/js/angular.min.js"></script>
 
 </head>
@@ -115,7 +115,7 @@
 					</div>
 				</article>
 					
-					<article id="108" class="post"  ng-repeat="p in products">
+					<article id="108" class="post"  ng-repeat="p in products.dataList">
 						<aside class="col-md-4 sidebar">
 							<img alt="user" width="90%"
 								 src="{{p.imgUrl}}">
@@ -145,9 +145,15 @@
 
 
 				<nav class="pagination" role="navigation">
-					<span class="page-number">第 1 页 ⁄ 共 1 页</span> <a
-						class="older-posts" href="./page/2"><i
-						class="fa fa-angle-right"></i></a>
+
+					<span ng-if="products.pageIndex!=1" class="btn btn-default" class="older-posts" id="pagePrevious" ng-click="searchProductPrevious()">
+					<i class="fa fa-angle-left"></i></span>
+					
+					<span class="page-number">第 <span id="productPageIndex">{{products.pageIndex}}</span> 页 ⁄ 共 
+					<span id="totalPage">{{products.totalPage}}</span> 页</span>
+					
+					<span  ng-if="products.pageIndex!=products.totalPage" class="btn btn-default" class="older-posts" id="pageNext" ng-click="searchProductNext()">
+					<i class="fa fa-angle-right"></i></span>
 				</nav>
 
 				</main>
@@ -168,53 +174,83 @@
 						<h4 class="title">我的资源</h4>
 						<div class="panel-group" id="accordion">
 							<div class="panel panel-default">
-								<div class='btn-block panel-heading panel-title' id="collapseArticleAction">我的文章</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseArticleAction">我的文章</div>
 								<div id="collapseArticle" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in articleMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
-											<a href="/action/edit/article/{{a.uuid}}">
-        											<i class="pull-right fa fa-edit"></i>
-        									</a>
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in articleMenu.dataList">
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
+											<a href="/action/edit/article/{{a.uuid}}"> <i class="pull-right fa fa-edit"></i></a>
+										</li>
+										<li class="list-group-item">
+
+												<span ng-if="articleMenu.pageIndex!=1" class="btn" class="older-posts" id="pagePrevious" ng-click="searchMenuArticlePrevious()">
+												<i class="fa fa-angle-left"></i></span>
+												
+												<span class="page-number">第 <span id="menuArticlePageIndex">{{articleMenu.pageIndex}}</span> 页 ⁄ 共 
+												<span id="totalPage">{{articleMenu.totalPage}}</span> 页</span>
+												
+												<span  ng-if="articleMenu.pageIndex!=articleMenu.totalPage" class="btn" class="older-posts" id="pageNext" ng-click="searchMenuArticleNext()">
+												<i class="fa fa-angle-right"></i></span>
+											
 										</li>
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-success">
-								<div class='btn-block panel-heading panel-title' id="collapseAttentionAction">我的收藏</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseAttentionAction">我的收藏</div>
 								<div id="collapseAttention" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
+									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{ a.title }}</a>
+											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
 										</li>
+										
 									</ul>
 								</div>
 							</div>
 							<div class="panel panel-info">
-								<div class='btn-block panel-heading panel-title' id="collapseProductAction">我的商品
-								<a onclick="support.layerAddProduct()">
-									<i class="pull-right fa fa-edit"></i>
-								</a>
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">
+									我的商品 <a onclick="support.layerAddProduct()"> <i class="pull-right fa fa-edit"></i></a>
 								</div>
 								<div id="collapseProduct" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in productMenu">
-											<a href="#">{{ a.name }}</a>
-											<a class='btn pull-right' ng-click="ngEditProduct(a.id)" >
-												<i class="pull-right fa fa-edit"></i>
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in productMenu.dataList">
+											<a ng-click="layerViewProduct(a)">{{ a.name }}</a> <a
+											class='btn pull-right' ng-click="ngEditProduct(a.id)"> <i
+												class="pull-right fa fa-edit"></i>
 											</a>
+										</li>
+										<li class="list-group-item">
+												<span ng-if="productMenu.pageIndex!=1" class="btn" class="older-posts" id="pagePrevious" ng-click="searchMenuProductPrevious()">
+												<i class="fa fa-angle-left"></i></span>
+												
+												<span class="page-number">第 <span id="menuProductPageIndex">{{productMenu.pageIndex}}</span> 页 ⁄ 共 
+												<span id="totalPage">{{productMenu.totalPage}}</span> 页</span>
+												
+												<span  ng-if="productMenu.pageIndex!=productMenu.totalPage" class="btn" class="older-posts" id="pageNext" ng-click="searchMenuProductNext()">
+												<i class="fa fa-angle-right"></i></span>
 										</li>
 									</ul>
 								</div>
 							</div>
-							
+
 							<div class="panel panel-warning">
-								<div class='btn-block panel-heading panel-title' id="collapseImageAction">我的图片</div>
+								<div class='btn-block panel-heading panel-title'
+									id="collapseImageAction">我的图片</div>
 								<div id="collapseImage" class="panel-collapse collapse">
-									<ul class="list-group panel-body" >
-										<li class="list-group-item" ng-repeat="a in imageMenu">
-											<a ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a>
-											
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in imageMenu.dataList"><a
+											ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a></li>
+										<li class="list-group-item">
+												<span ng-if="imageMenu.pageIndex!=1" class="btn" class="older-posts" id="pagePrevious" ng-click="searchMenuImagePrevious()">
+												<i class="fa fa-angle-left"></i></span>
+												
+												<span class="page-number">第 <span id="menuImagePageIndex">{{imageMenu.pageIndex}}</span> 页 ⁄ 共 
+												<span id="totalPage">{{imageMenu.totalPage}}</span> 页</span>
+												
+												<span  ng-if="imageMenu.pageIndex!=imageMenu.totalPage" class="btn" class="older-posts" id="pageNext" ng-click="searchMenuImageNext()">
+												<i class="fa fa-angle-right"></i></span>
 										</li>
 									</ul>
 								</div>
@@ -227,7 +263,7 @@
 					<div class="widget">
 						<h4 class="title">标签云</h4>
 						<div class="content tag-cloud">
-							<a href="tags/{{st.value}}" ng-repeat="at in asideTags">{{at.value}}</a>
+							<a href="tags/{{at.value}}" ng-repeat="at in asideTags">{{at.value}}</a>
 
 						</div>
 					</div>

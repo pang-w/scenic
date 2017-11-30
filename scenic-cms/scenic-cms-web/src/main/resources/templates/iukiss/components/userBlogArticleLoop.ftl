@@ -15,7 +15,7 @@
 						</div>
 					</div>
 				</article>
-				<article id="108" class="post" ng-repeat="atc in articles">
+				<article id="108" class="post" ng-repeat="atc in articles.dataList">
 					<div class="post-head">
 						<h1 class="post-title">
 							<a href="../../../article/{{atc.uuid}}.html">{{atc.title}}</a>
@@ -47,8 +47,14 @@
 				</article>
 				
 				<nav class="pagination" role="navigation">
-					<span class="page-number">第 ${pager.currentPage} 页 ⁄ 共 ${pager.totalPage} 页</span> <a
-						class="older-posts" href="http://www.iukiss.com/i/articles"><i
-						class="fa fa-angle-right"></i></a>
+
+					<span ng-if="articles.pageIndex!=1" class="btn btn-default" class="older-posts" id="pagePrevious" ng-click="searchPrevious()">
+					<i class="fa fa-angle-left"></i></span>
+					
+					<span class="page-number">第 <span id="pageIndex">{{articles.pageIndex}}</span> 页 ⁄ 共 
+					<span id="totalPage">{{articles.totalPage}}</span> 页</span>
+					
+					<span  ng-if="articles.pageIndex!=articles.totalPage" class="btn btn-default" class="older-posts" id="pageNext" ng-click="searchNext()">
+					<i class="fa fa-angle-right"></i></span>
 				</nav>
 			</main>

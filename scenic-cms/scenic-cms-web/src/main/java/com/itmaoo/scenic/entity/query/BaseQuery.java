@@ -30,7 +30,7 @@ public class BaseQuery extends BaseEntity {
 	
 	public BaseQuery() {
 		pageIndex = 1;
-		pageSize = 15;
+		pageSize = 5;
 	}
 
 	public Integer getPageIndex() {

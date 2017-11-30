@@ -24,7 +24,7 @@ import com.itmaoo.scenic.entity.support.EntityUtil;
 @Controller
 @RequestMapping(value = "/action/user/tag/")
 public class TagUserAction extends BaseAction {
-	
+
 	@Autowired
 	private ITagDao tagDao;
 
@@ -46,8 +46,9 @@ public class TagUserAction extends BaseAction {
 			tagDao.insert(entity);
 		}
 		rd.setData(user);
-		return rd;    
+		return rd;
 	}
+
 	@RequestMapping("select")
 	@ResponseBody
 	public ResponseData addMessage(HttpServletRequest request, @RequestBody TagDto tageDto) {
@@ -62,17 +63,17 @@ public class TagUserAction extends BaseAction {
 			query.setValue(tageDto.getValue());
 			query.setCreateBy(tageDto.getCreateBy());
 			List<TagDto> tagsDto = Lists.newArrayList();
-			
+
 			List<TagPo> tagsPo = tagDao.selectList(query);
-			if(tagsPo!=null){
-				for(TagPo tagPo:tagsPo){
+			if (tagsPo != null) {
+				for (TagPo tagPo : tagsPo) {
 					tagsDto.add(EntityUtil.tagPoToDto(tagPo));
 				}
 			}
 			rd.setData(tagsDto);
 		}
-		return rd;    
+		return rd;
 
 	}
-	
+
 }

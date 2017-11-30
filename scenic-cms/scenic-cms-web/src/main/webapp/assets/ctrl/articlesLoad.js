@@ -23,19 +23,19 @@ function loadIndexAll(){
 	    });
 		$scope.searchArticlePrevious = function(){
 			var page = $("#articlePageIndex").html();
-			support.ajax("page/index/article", {"pageIndex":(parseInt(page) - 1)}, function (result) {
+			support.ajax("page/article/article", {"pageIndex":(parseInt(page) - 1)}, function (result) {
 			     $scope.articles = result.data;
 			     $scope.$apply();
 		    });
 		};
 		$scope.searchArticleNext = function(){
 			var page = $("#articlePageIndex").html();
-			support.ajax("page/index/article", {"pageIndex":(parseInt(page) + 1)}, function (result) {
+			support.ajax("page/article/article", {"pageIndex":(parseInt(page) + 1)}, function (result) {
 			     $scope.articles = result.data;
 			     $scope.$apply();
 		    });
 		};
-		support.ajax("page/index/article", {}, function (result) {
+		support.ajax("page/article/article", {}, function (result) {
 		     $scope.articles = result.data;
 		     $scope.$apply();
 	    });
@@ -86,15 +86,12 @@ function loadIndexAll(){
 		};
 		support.ajax("menu/article", {}, function (result) {
 		     $scope.articleMenu = result.data;
-		     $scope.$apply();
 	    });
 		support.ajax("menu/image", {}, function (result) {
 		     $scope.imageMenu = result.data;
-		     $scope.$apply();
 	    });
 		support.ajax("menu/product", {}, function (result) {
 		     $scope.productMenu = result.data;
-		     $scope.$apply();
 	    });
 		$scope.layerViewProduct = function (data) {
 			layer.open({

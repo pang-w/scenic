@@ -1,4 +1,5 @@
 jQuery(function($) {
+	
 	$("#createArticle").click(function() {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
@@ -107,7 +108,30 @@ jQuery(function($) {
 			checkLogged();
 		});
 	}
+	checkLogged();
 });
+function checkLogged() {
+	support.ajax("user/auth/checkLogged", null,
+			function(response) {
+			//	loadIndexAll();
+				if(response.status=="0000"){
+					$("#loggedDropdown").slideDown();
+					$("#loginLayerOutBtn").slideUp();
+					$("#loggedUesername").text(response.data.username);
+				}else{
+					$("#loggedDropdown").slideUp();
+					$("#loginLayerOutBtn").slideDown();
+				}
+			},
+			function(response) {
+				$("#loggedDropdown").slideUp();
+				$("#loginLayerOutBtn").slideDown();
+				if(response.status=="4004"){
+				//changeToLogged(response.data.username);
+				}
+			}
+	);
+}
 
 
 

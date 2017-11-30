@@ -93,7 +93,9 @@ public class EntityUtil {
 		}
 		List<ArticleDto> results = Lists.newArrayList();
 		for(ArticlePo apo:articles){
-			results.add(articlePoToDto(apo));
+			ArticleDto articlePoToDto = articlePoToDto(apo);
+			articlePoToDto.setTags(Lists.newArrayList());
+			results.add(articlePoToDto);
 		}
 		return results;
 	}
@@ -102,7 +104,7 @@ public class EntityUtil {
 		ImageDto imageDto = new ImageDto();
 		imageDto.setBaseNum(imagePo.getBaseNum());
 		imageDto.setBaseUri(imagePo.getBaseUri());
-		imageDto.setCreateDate(imagePo.getCreateDate());
+		imageDto.setCreateDate(CommonUtil.formatDate(imagePo.getCreateDate()));
 		imageDto.setDescription(imagePo.getDesc());
 		imageDto.setLinkTo(imagePo.getLinkTo());
 		imageDto.setUsername(imagePo.getUsername());

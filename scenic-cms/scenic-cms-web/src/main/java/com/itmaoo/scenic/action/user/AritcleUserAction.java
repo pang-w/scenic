@@ -2,6 +2,7 @@ package com.itmaoo.scenic.action.user;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,21 +17,27 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSException;
+import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
+import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IArticleLikeDao;
 import com.itmaoo.scenic.dao.IArticleMessageDao;
 import com.itmaoo.scenic.dao.IImageDao;
 import com.itmaoo.scenic.dao.IMessageLikeDao;
+import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ArticleLikeDto;
 import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
 import com.itmaoo.scenic.entity.dto.MessageLikeDto;
+import com.itmaoo.scenic.entity.dto.PagingData;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticleLikePo;
 import com.itmaoo.scenic.entity.po.ArticleMessagePo;
+import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.MessageLikePo;
+import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.service.ImageService;
 
@@ -46,6 +53,9 @@ public class AritcleUserAction extends BaseAction {
 	private IArticleLikeDao articleLikeDao;
 	@Autowired
 	private IMessageLikeDao messageLikeDao;
+	
+	@Autowired
+	private IArticleDao articleDao;
 
 	private String imagePrefixUrl = "http://img.iukiss.com/";
 
@@ -125,7 +135,6 @@ public class AritcleUserAction extends BaseAction {
 					rd.setStatus("0001");
 					rd.setMsg("无权限");
 				}
-				
 			} else {
 				rd.setStatus("0001");
 				rd.setMsg("仅支持jpg和png格式图片");

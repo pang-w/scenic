@@ -1,7 +1,6 @@
 package com.itmaoo.scenic.entity.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import net.sf.json.JSONObject;
 
@@ -12,6 +11,17 @@ public class BaseDto implements Serializable {
 	private String createDate;
 	private String lastModifyDate;
 	
+	private Integer pageIndex;
+
+
+	public Integer getPageIndex() {
+		return pageIndex;
+	}
+
+	public void setPageIndex(Integer pageIndex) {
+		this.pageIndex = pageIndex;
+	}
+
 	public Integer getId() {
 		return id;
 	}
