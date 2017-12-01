@@ -56,9 +56,10 @@ public class AuthUserAction extends BaseAction {
 			rd.setStatus("5004");
 			rd.setMsg("密码必须为5位以上的字符");
 			return rd;
-		}else if(!userDto.getPassword().equals(userDto.getConfirmMassword())){
+		}else if(!userDto.getPassword().equals(userDto.getConfirmPassword())){
 			rd.setStatus("5004");
 			rd.setMsg("两次密码输入不一致");
+			return rd;
 		}
 		if (StringUtils.isEmpty(userDto.getRecCode())||
 				userDto.getRecCode().length()!=8) {
@@ -84,6 +85,7 @@ public class AuthUserAction extends BaseAction {
 				userPo.setTelphone(userDto.getTelphone());
 				userPo.setCreateDate(new Date());
 				userPo.setEmail(userDto.getEmail());
+				userPo.setNickname(recQuery.getNickname());
 				userPo.setInvalid(false);
 				userPo.setIsMale(userDto.getIsMale());
 				userPo.setLastLoggedDate(null);
@@ -149,7 +151,7 @@ public class AuthUserAction extends BaseAction {
 			rd.setMsg("密码必须为5位以上的字符");
 			return rd;
 		}
-		if(!userDto.getPassword().equals(userDto.getConfirmMassword())){
+		if(!userDto.getPassword().equals(userDto.getConfirmPassword())){
 			rd.setStatus("5004");
 			rd.setMsg("密码不一致");
 			return rd;

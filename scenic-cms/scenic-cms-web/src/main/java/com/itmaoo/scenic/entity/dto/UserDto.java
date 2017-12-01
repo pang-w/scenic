@@ -10,7 +10,7 @@ public class UserDto extends BaseDto{
 	private Integer userid;
 	private String username;
 	private String password;
-	private String confirmMassword; 
+	private String confirmPassword; 
 	private String nickname;
 	private String signature;
 	private String email;
@@ -25,11 +25,11 @@ public class UserDto extends BaseDto{
 	private String lastLoggedDate;
 	
 	
-	public String getConfirmMassword() {
-		return confirmMassword;
+	public String getConfirmPassword() {
+		return confirmPassword;
 	}
-	public void setConfirmMassword(String confirmMassword) {
-		this.confirmMassword = confirmMassword;
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 	public Integer getSignatureLikedCount() {
 		return signatureLikedCount;

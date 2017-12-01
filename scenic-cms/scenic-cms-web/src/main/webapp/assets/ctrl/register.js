@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
     			"username" : $("#user-name").val(),
     			"nickname" : $("#user-nick-name").val(),
     			"password" : $("#user-password").val(),
-    			"password" : $("#user-password-confirm").val(),
+    			"confirmPassword" : $("#user-password-confirm").val(),
     			"signature" : $("#user-signature").val()
     		};
     		support.ajax("user/auth/regist", data, function(response) {
