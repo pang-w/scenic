@@ -26,7 +26,15 @@ public class ArticleDto extends BaseDto{
 	private List<TagDto> tags;
 	
 	private String searchTag;
+	private String blogerName;
 	
+	
+	public String getBlogerName() {
+		return blogerName;
+	}
+	public void setBlogerName(String blogerName) {
+		this.blogerName = blogerName;
+	}
 	public String getSearchTag() {
 		return searchTag;
 	}

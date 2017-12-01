@@ -48,6 +48,11 @@
 		left join
 		(SELECT messageid as messageId, count(messageid) as likedCount FROM messagelike group by messageid) ml
 		on ad.articlemessageid = ml.messageid
+		WHERE
+		1=1
+		<if test="null!= articleUuid and '' != articleUuid">
+		AND ad.articleuuid = #{articleUuid}
+		</if>
 		ORDER BY createdate DESC
 	</sql>
 	<!-- 批次信息查询  -->

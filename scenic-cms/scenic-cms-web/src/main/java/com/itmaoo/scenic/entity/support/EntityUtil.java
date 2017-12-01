@@ -23,6 +23,11 @@ public class EntityUtil {
 
 		UserDto userDto = new UserDto();
 		userDto.setNickname(userPo.getNickname());
+		if(userPo.getNickname()!=null){
+			userDto.setNickname(userPo.getNickname());
+		}else{
+			userDto.setNickname(userDto.getUsername());
+		}
 		userDto.setTelphone(userPo.getTelphone());
 		userDto.setCreateDate(CommonUtil.formatDate(userPo.getCreateDate()));
 		userDto.setEmail(userPo.getEmail());
@@ -34,7 +39,11 @@ public class EntityUtil {
 		userDto.setIuCode(userPo.getIuCode());
 		userDto.setRecCode(userPo.getRecCode());
 		userDto.setSignature(userPo.getSignature());
-		userDto.setSignatureLikedCount(userPo.getSignatureLikedCount());
+		if(userPo.getSignatureLikedCount()!=null){
+			userDto.setSignatureLikedCount(userPo.getSignatureLikedCount());
+		}else{
+			userDto.setSignatureLikedCount(0);
+		}
 		return userDto;
 
 	}

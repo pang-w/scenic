@@ -48,25 +48,9 @@ public class UserHtmlAction extends BaseAction {
 		}
 		UserDto userPoToDto = EntityUtil.userPoToDto(userAuthor);
 
-		ArticleQuery aq = new ArticleQuery();
-		aq.setUsername(viewusername);
-		List<ArticlePo> articles = articleDao.selectList(aq);
-		List<ArticleDto> aticleDtos = EntityUtil.articlePoToDto(articles);
-		
-
-		PagingData<ArticleDto> pager = new PagingData<ArticleDto>();
-		pager.setDataList(aticleDtos);
-		pager.setPageIndex(aq.getPageIndex());// 设置当前页
-		pager.setPageSize(aq.getPageSize());// 设置一页多少条数据
-		int count = articleDao.selectListCount(aq);
-		pager.setTotalCount(count);// 设置总数量
-		pager.setTotalPage(count, aq.getPageSize());// 设置总共多少页
-		
-
 		map.addAttribute("baseDomain", baseDomain);
 		map.addAttribute("imgDomain", imgDomain);
-		map.addAttribute("pager", pager);
-		map.addAttribute("author", userPoToDto);
+		map.addAttribute("bloger", userPoToDto);
 
 		ModelAndView mv = new ModelAndView("iukiss/blog");
 		return mv;

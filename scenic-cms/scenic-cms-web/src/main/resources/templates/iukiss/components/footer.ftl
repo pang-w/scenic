@@ -62,7 +62,7 @@
 				<div class="col-sm-12">
 					<span>Copyright © <a href="http://www.iukiss.com">IUKISS中文网</a></span>
 					| <span><a href="http://www.miibeian.gov.cn/"
-						target="_blank">豫ICP备16004342号-2</a></span> |
+						target="_blank">豫ICP备16004342号-2</a></span>
 				</div>
 			</div>
 		</div>

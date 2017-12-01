@@ -93,7 +93,6 @@ public class IndexPageAction extends BaseAction {
 			indexDto.setLoggedUser(loggedUser);
 			indexDto.setUserTags(userTagsDto);
 		}
-
 		ResponseData rd = new ResponseData();
 		rd.setData(indexDto);
 		return rd;
