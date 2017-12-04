@@ -85,12 +85,12 @@ public class AuthUserAction extends BaseAction {
 				userPo.setTelphone(userDto.getTelphone());
 				userPo.setCreateDate(new Date());
 				userPo.setEmail(userDto.getEmail());
-				userPo.setNickname(recQuery.getNickname());
 				userPo.setInvalid(false);
 				userPo.setIsMale(userDto.getIsMale());
 				userPo.setLastLoggedDate(null);
 				userPo.setPassword(userDto.getPassword());
 				userPo.setUsername(userDto.getUsername());
+				userPo.setNickname(userDto.getNickname());
 				userPo.setIuCode(CommonUtil.generateShortUuid());
 				userPo.setRecCode(userDto.getRecCode());
 				userPo.setSignature(userDto.getSignature());

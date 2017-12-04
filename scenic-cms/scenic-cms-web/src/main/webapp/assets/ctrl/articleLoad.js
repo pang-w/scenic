@@ -18,6 +18,7 @@ jQuery(function($) {
 		support.ajax("user/article/addMessage", data,function(response) {
 			if (response.status == "0000") {
 				layer.msg(response.msg);
+				location.reload();
 			}
 		});
 	});

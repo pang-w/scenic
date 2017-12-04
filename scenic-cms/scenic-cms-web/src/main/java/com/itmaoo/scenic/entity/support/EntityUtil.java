@@ -22,11 +22,10 @@ public class EntityUtil {
 	public static UserDto userPoToDto(UserPo userPo) {
 
 		UserDto userDto = new UserDto();
-		userDto.setNickname(userPo.getNickname());
 		if(userPo.getNickname()!=null){
 			userDto.setNickname(userPo.getNickname());
 		}else{
-			userDto.setNickname(userDto.getUsername());
+			userDto.setNickname(userPo.getUsername());
 		}
 		userDto.setTelphone(userPo.getTelphone());
 		userDto.setCreateDate(CommonUtil.formatDate(userPo.getCreateDate()));
