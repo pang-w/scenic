@@ -13,8 +13,6 @@ public class ArticleDto extends BaseDto{
 	private String title;
 	private String content;
 	private String uuid;
-	private String createDate;
-	private String lastmodify;
 	private String username;
 	private String description;
 	private Boolean isPublished;
@@ -98,21 +96,8 @@ public class ArticleDto extends BaseDto{
 		this.content = content;
 	}
 
-	public String getCreateDate() {
-		return createDate;
-	}
 
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
 
-	public String getLastmodify() {
-		return lastmodify;
-	}
-
-	public void setLastmodify(String lastmodify) {
-		this.lastmodify = lastmodify;
-	}
 
 	public String getUsername() {
 		return username;

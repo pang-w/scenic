@@ -37,6 +37,7 @@ import com.itmaoo.scenic.entity.po.ArticleMessagePo;
 import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
 import com.itmaoo.scenic.entity.po.MessageLikePo;
+import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.service.ImageService;
@@ -144,7 +145,80 @@ public class AritcleUserAction extends BaseAction {
 		return rd;
 
 	}
+	/**
+	 * 
+	 * @param request
+	 * @param type ALY WX
+	 * @param file
+	 * @return
+	 */
+	@RequestMapping("savePayImg")
+	@ResponseBody
+	public ResponseData savePayImg(HttpServletRequest request, @RequestParam("type") String type,	@RequestParam("file") MultipartFile file) {
 
+		ResponseData rd = new ResponseData();
+		SavedImage si = new SavedImage();
+		String baseNum = UUID.randomUUID().toString().replaceAll("-", "");
+		String ofn = file.getOriginalFilename().toLowerCase();
+		String imageUri = null;
+		UserDto user = getLogedUser(request);
+		if (user == null) {
+			rd.setMsg("未登录");
+			rd.setStatus("4000");
+		} else {
+			if (ofn.lastIndexOf(".") != -1 && (ofn.endsWith("jpg") || ofn.endsWith("png"))) {
+
+				String imageSuffix = ofn.substring(ofn.lastIndexOf(".") + 1, ofn.length());
+				imageUri = "img/user/" + user.getUsername().toLowerCase() + "/pay/" + type.toLowerCase()+"."+imageSuffix;
+				if (!imagePrefixUrl.endsWith("/")) {
+					imagePrefixUrl = imagePrefixUrl + "/";
+				}
+				si.setUrl(imagePrefixUrl + imageUri);
+				
+				UserPo userPo = new UserPo();
+				userPo.setUsername(user.getUsername());
+				userPo.setLastModifyDate(new Date());
+				if("ALI".equals(type)){
+					userPo.setAlipayImgUrl(imageUri);
+				}else if("WX".equals(type)){
+					userPo.setWeixinImgUrl(imageUri);
+				}else{
+					rd.setStatus("0001");
+					rd.setMsg("类型不存在");
+					return rd;
+				}
+				try {
+					Integer conut = getUserDao().updatePayImgUrl(userPo);
+					if(conut!=1){
+						rd.setStatus("0001");
+						rd.setMsg("更新PayImgUrl失败");
+						return rd;
+					}
+					imageService.saveOssImage(file, imageUri);
+				} catch (OSSException e) {
+					rd.setStatus("0002");
+					rd.setMsg("保存图片失败 [OSSException]");
+					e.printStackTrace();
+				} catch (ClientException e) {
+					rd.setStatus("0003");
+					rd.setMsg("保存图片失败 [ClientException]");
+					e.printStackTrace();
+				} catch (IOException e) {
+					rd.setStatus("0004");
+					rd.setMsg("保存图片失败 [IOException]");
+					e.printStackTrace();
+				}
+				resetLogedUser(request, user);
+				
+			} else {
+				rd.setStatus("0001");
+				rd.setMsg("仅支持jpg和png格式图片");
+			}
+		}
+		rd.setData(si);
+		return rd;
+
+	}
 	@RequestMapping("likeArticle")
 	@ResponseBody
 	public ResponseData likeArticle(HttpServletRequest request, @RequestBody ArticleLikeDto articleLikeDto) {

@@ -33,7 +33,6 @@
 <script type="text/javascript" src="../assets/ctrl/articleLoad.js"></script>
 <script type="text/javascript" src="../assets/base/js/angular.min.js"></script>
 
-
 </head>
 
 <body class="home-template" ng-app="iukissApp"
@@ -55,29 +54,69 @@
 								type="hidden" value="${articleUuid}" />
 						</div>
 					</div>
+					<div class="row">
+						<span>作者：<a href="../../../i/${author.username}">${author.nickname} </a></span>
+						<span>创建于：${article.createDate}</span>
+						 <#if article.lastModifyDate??><span>修改：${article.lastModifyDate}</span></#if>
+					</div>
 					<hr />
 					<div class="row">
 						<div>${article.content}</div>
 					</div>
 					<hr />
 					<div class="row">
+						<#if article.tags??>
 						<div class="widget">
 							<div class="content tag-cloud">
-								<i class="fa fa-tag"></i>标签
+								<i class="fa fa-tag"></i> 标签：
 								<#list article.tags as tag> <a
 									href="../tags/${tag.value}">${tag.value}</a> </#list>
 							</div>
 						</div>
+						</#if>
+						<#if article.products??>
 						<div class="widget">
 							<div class="content tag-cloud">
-								<i class="fa fa-tag"></i>关联商品
+								<i class="fa fa-cogs"></i> 配置：
 								<#list article.products as product> <a>${product.name}</a>
 								</#list>
 							</div>
 						</div>
+						</#if>
 					</div>
 				</article>
-
+				<article id="108" class="post">
+					<#if author.alipayImgUrl??>
+					<aside class="col-md-2 sidebar">
+						<img height="100%" width="100%"  src="http://img.iukiss.com/${author.alipayImgUrl}"></img>
+						<div class="author">支付宝打赏</div>
+						<input id="authorName" type="hidden" value="${author.username}"/>
+					</aside>
+					</#if>
+					<aside class="col-md-3 sidebar">
+						<div>
+							<input id="signatureLikedUsername" type="hidden" value="ITMAOO"/>作者：
+							<span class="author"><a href="../../../i/${author.username}">${author.nickname}</a></span> 
+						</div>
+						<div>
+							 ${author.signatureLikedCount}赞<span class='btn' id="likeSignatureBtn" ><i class="fa fa-heart"></i> 点赞</span> 
+						</div>
+					</aside>
+					<#if author.weixinImgUrl??>
+					<aside class="col-md-2 sidebar">
+						<img height="100%" width="100%" src="http://img.iukiss.com/${author.weixinImgUrl}"></img>
+						<div class="author">微信打赏</div>
+					</aside>
+					</#if>
+					
+					<aside class="col-md-5 sidebar">
+						<div>
+							<p>${author.signature}</p>
+						</div>
+					</aside>
+					
+					
+				</article>
 				<div class="panel panel-warning">
 					<div class='btn-block panel-heading panel-title'
 						id="collapseAddMessageAction">点击添加评论</div>

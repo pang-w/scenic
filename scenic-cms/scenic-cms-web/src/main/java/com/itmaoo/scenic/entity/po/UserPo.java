@@ -23,7 +23,22 @@ public class UserPo extends BasePo{
 	private String signature;
 	private String nickname;
 	private Integer signatureLikedCount;
+	private String alipayImgUrl;
+	private String weixinImgUrl;
 	
+	
+	public String getAlipayImgUrl() {
+		return alipayImgUrl;
+	}
+	public void setAlipayImgUrl(String alipayImgUrl) {
+		this.alipayImgUrl = alipayImgUrl;
+	}
+	public String getWeixinImgUrl() {
+		return weixinImgUrl;
+	}
+	public void setWeixinImgUrl(String weixinImgUrl) {
+		this.weixinImgUrl = weixinImgUrl;
+	}
 	public Integer getSignatureLikedCount() {
 		return signatureLikedCount;
 	}

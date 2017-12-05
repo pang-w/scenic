@@ -17,7 +17,9 @@
 		logintrytimes AS loginTryTimes,
 		lastloggeddate AS lastLoggedDate,
 		ismale AS isMale,
-		signature AS signature
+		signature AS signature,
+		alipayimgurl AS alipayImgUrl,
+		weixinimgurl AS weixinImgUrl
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -45,6 +47,21 @@
 		WHERE
 		username = #{username}
 	</update>
+	<update id="updatePayImgUrl" parameterType="UserPo">
+		UPDATE
+		user
+		SET
+		lastmodifydate=#{lastModifyDate}
+		<if test="null!= alipayImgUrl and '' != alipayImgUrl">
+		,alipayimgurl = #{alipayImgUrl}
+		</if>
+		<if test="null!= weixinImgUrl and '' != weixinImgUrl">
+		, weixinimgurl = #{weixinImgUrl}
+		</if>
+		WHERE
+		username = #{username}
+	</update>
+	
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="Collection">
 		INSERT INTO user (

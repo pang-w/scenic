@@ -23,6 +23,7 @@ jQuery(function($) {
 		
 	});
 	
+	
 	$("#collapseArticleAction").click(function () {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
@@ -164,7 +165,6 @@ jQuery(function($) {
 				disableDragAndDrop : false,
 				callbacks : {
 					onImageUpload : function(files) {
-						$(".note-toolbar.btn-toolbar").append('正在上传图片');
 						var $files = $(files);
 						$files.each(function() {
 							var file = this;

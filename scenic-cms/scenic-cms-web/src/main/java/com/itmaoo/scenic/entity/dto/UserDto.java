@@ -24,7 +24,22 @@ public class UserDto extends BaseDto{
 	//yyyy-MM-dd HH:mm:ss
 	private String lastLoggedDate;
 	
+	private String alipayImgUrl;
+	private String weixinImgUrl;
 	
+	
+	public String getAlipayImgUrl() {
+		return alipayImgUrl;
+	}
+	public void setAlipayImgUrl(String alipayImgUrl) {
+		this.alipayImgUrl = alipayImgUrl;
+	}
+	public String getWeixinImgUrl() {
+		return weixinImgUrl;
+	}
+	public void setWeixinImgUrl(String weixinImgUrl) {
+		this.weixinImgUrl = weixinImgUrl;
+	}
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}

@@ -13,14 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
+import com.itmaoo.scenic.dao.IArticleTagLinkDao;
+import com.itmaoo.scenic.dao.IProductDao;
+import com.itmaoo.scenic.dao.ITagDao;
+import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.PagingData;
+import com.itmaoo.scenic.entity.dto.ProductDto;
+import com.itmaoo.scenic.entity.dto.ResponseData;
+import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
+import com.itmaoo.scenic.entity.po.ProductPo;
+import com.itmaoo.scenic.entity.po.TagPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
+import com.itmaoo.scenic.entity.query.ProductQuery;
+import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
@@ -28,7 +40,14 @@ import com.itmaoo.scenic.entity.support.EntityUtil;
 public class UserHtmlAction extends BaseAction {
 	@Autowired
 	private IArticleDao articleDao;
+	@Autowired
+	private ITagDao tagDao;
 
+
+	@Autowired
+	private IProductDao productDao;
+	@Autowired
+	private IUserDao userDao;
 	@Value("${base.site.domain}")
 	private String baseDomain;
 
@@ -54,6 +73,65 @@ public class UserHtmlAction extends BaseAction {
 
 		ModelAndView mv = new ModelAndView("iukiss/blog");
 		return mv;
+
+	}
+
+	@RequestMapping("/a/{uuid}")
+	@ResponseBody
+	public ModelAndView article(HttpServletRequest request, @PathVariable("uuid") String uuid, ModelMap map) {
+
+		// 取出数据库中的数生成永久地址页面，不要直接生成，保证下次生成的一致性
+
+		ArticlePo articlePo = new ArticlePo();
+		articlePo.setIsPublished(true);
+		articlePo.setUuid(uuid);
+		Integer count = articleDao.updatePublishStatus(articlePo);
+		ArticleQuery aq = new ArticleQuery();
+		aq.setUuid(uuid);
+		ArticlePo a = articleDao.selectSingle(aq);
+		if (a != null) {
+			// 获取标签
+			TagQuery tagQuery = new TagQuery();
+			tagQuery.setArticleUuid(articlePo.getUuid());
+			tagQuery.setEffected(true);
+			List<TagPo> tags = tagDao.selectList(tagQuery);
+			// 设置为null在展示文章时不显示标签整个节点
+			List<TagDto> tagsDto = null;
+			if (tags != null && !tags.isEmpty()) {
+				tagsDto = Lists.newArrayList();
+				for (TagPo tag : tags) {
+					tagsDto.add(EntityUtil.tagPoToDto(tag));
+				}
+			}
+			// 获取商品
+			ProductQuery productQuery = new ProductQuery();
+			productQuery.setArticleUuid(articlePo.getUuid());
+			productQuery.setEffected(true);
+			List<ProductPo> productDb = productDao.selectList(productQuery);
+			List<ProductDto> productsDto = null;
+			if (productDb != null && !productDb.isEmpty()) {
+				productsDto = Lists.newArrayList();
+				for (ProductPo p : productDb) {
+					productsDto.add(EntityUtil.productPoToDto(p));
+				}
+			}
+			ArticleDto articlePoToDto = EntityUtil.articlePoToDto(a);
+			articlePoToDto.setProducts(productsDto);
+			articlePoToDto.setTags(tagsDto);
+			UserQuery uquery = new UserQuery();
+			uquery.setUsername(a.getUsername());
+			UserPo userDb = userDao.selectByUsername(uquery);
+			UserDto userInfo = EntityUtil.userPoToDto(userDb);
+			
+			map.put("author", userInfo);
+			map.put("article", articlePoToDto);
+			map.put("imgDomain", imgDomain);
+			map.put("articleUuid", uuid);
+
+			ModelAndView mv = new ModelAndView("iukiss/article");
+			return mv;
+		}
+		return null;
 
 	}
 
@@ -85,11 +163,11 @@ public class UserHtmlAction extends BaseAction {
 		int count = articleDao.selectListCount(aq);
 		pager.setTotalCount(count);// 设置总数量
 		pager.setTotalPage(count, aq.getPageSize());// 设置总共多少页
-		
+
 		map.addAttribute("tag", tag);
 		map.addAttribute("pager", pager);
 		map.addAttribute("author", author);
-		map.addAttribute("articles",aticleDtos);
+		map.addAttribute("articles", aticleDtos);
 		if (loggedUser != null) {
 			map.addAttribute("loggedUser", loggedUser);
 			if (loggedUser.getUsername().equals(tag)) {

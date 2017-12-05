@@ -43,6 +43,8 @@ public class EntityUtil {
 		}else{
 			userDto.setSignatureLikedCount(0);
 		}
+		userDto.setAlipayImgUrl(userPo.getAlipayImgUrl());
+		userDto.setWeixinImgUrl(userPo.getWeixinImgUrl());
 		return userDto;
 
 	}
@@ -60,6 +62,8 @@ public class EntityUtil {
 		userPo.setIuCode(userPo.getIuCode());
 		userPo.setRecCode(userDto.getRecCode());
 		userPo.setSignature(userDto.getSignature());
+		userPo.setAlipayImgUrl(userDto.getAlipayImgUrl());
+		userPo.setWeixinImgUrl(userDto.getWeixinImgUrl());
 		
 		return userPo;
 
@@ -90,7 +94,7 @@ public class EntityUtil {
 		articleDto.setUuid(articlePo.getUuid());
 		
 		articleDto.setCreateDate(CommonUtil.formatDate(articlePo.getCreateDate()));
-		articleDto.setLastmodify(CommonUtil.formatDate(articlePo.getLastModifyDate()));
+		articleDto.setLastModifyDate(CommonUtil.formatDate(articlePo.getLastModifyDate()));
 
 		return articleDto;
 

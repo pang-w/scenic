@@ -130,29 +130,41 @@ var support = {
 		};
 		$.ajax(settings);
 	},
-	fileUploadAjax : function(url, filesId, data, callback, errCallback,
-			beforeSend) {
-		$.ajaxFileUpload({
-			url : "../action/" + url,
-			secureuri : false,
-			fileElementId : filesId,
-			dataType : 'json',
+	fileUploadAjax : function(url, type,file, callback, errCallback, beforeSend) {
+		// FormData，新的form表单封装，具体可百度，但其实用法很简单，如下
+		var data = new FormData();
+		// 将文件加入到file中，后端可获得到参数名为“file”
+		data.append("file", file);
+		data.append("type", type);
+		// ajax上传
+		$.ajax({
 			data : data,
-			success : function(data, status) {
-				if (data.status == "0000") {
+			type : "POST",
+			url : "../action/"+url,// div上的action
+			cache : false,
+			contentType : false,
+			processData : false,
+
+			// 成功时调用方法，后端返回json数据
+			success : function(response) {
+				if (response.status == "0000") {
 					if (callback && typeof callback == "function") {
-						callback(data);
+						callback(response);
 					}
-				} else if (data.status == "4003") {
+				} else if (response.status == "3001") {
 					location.href = "login.html";
-				} else {
+				} else if (response.status == "3002") {
+					
+				}else {
 					if (errCallback && typeof errCallback == "function") {
-						errCallback(data);
+						errCallback(response);
 					} else {
-						layer.msg(data.msg);
+						layer.msg(response.msg);
 					}
 				}
-			}
+				
+
+			},
 		});
 	}
 };

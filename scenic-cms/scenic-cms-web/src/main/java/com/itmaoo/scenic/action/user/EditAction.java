@@ -33,6 +33,7 @@ import com.itmaoo.scenic.dao.IArticleProductLinkDao;
 import com.itmaoo.scenic.dao.IArticleTagLinkDao;
 import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.dao.ITagDao;
+import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
@@ -43,11 +44,13 @@ import com.itmaoo.scenic.entity.po.ArticleProductLinkPo;
 import com.itmaoo.scenic.entity.po.ArticleTagLinkPo;
 import com.itmaoo.scenic.entity.po.ProductPo;
 import com.itmaoo.scenic.entity.po.TagPo;
+import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleProductLinkQuery;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.query.ArticleTagLinkQuery;
 import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.query.TagQuery;
+import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
 
 import freemarker.template.Configuration;
@@ -74,6 +77,9 @@ public class EditAction extends BaseAction {
 
 	@Value("${base.img.domain}")
 	private String imgDomain;
+	
+	@Autowired
+	private IUserDao userDao;
 
 	@RequestMapping("article/{articleUuid}")
 	@ResponseBody
@@ -257,9 +263,12 @@ public class EditAction extends BaseAction {
 		// 获取标签
 		TagQuery tagQuery = new TagQuery();
 		tagQuery.setArticleUuid(articlePo.getUuid());
+		tagQuery.setEffected(true);
 		List<TagPo> tags = tagDao.selectList(tagQuery);
-		List<TagDto> tagsDto = Lists.newArrayList();
-		if (tags != null) {
+		//设置为null在展示文章时不显示标签整个节点
+		List<TagDto> tagsDto = null;
+		if (tags != null && !tags.isEmpty()) {
+			tagsDto = Lists.newArrayList();
 			for (TagPo tag : tags) {
 				tagsDto.add(EntityUtil.tagPoToDto(tag));
 			}
@@ -267,9 +276,11 @@ public class EditAction extends BaseAction {
 		// 获取商品
 		ProductQuery productQuery = new ProductQuery();
 		productQuery.setArticleUuid(articlePo.getUuid());
+		productQuery.setEffected(true);
 		List<ProductPo> productDb = productDao.selectList(productQuery);
-		List<ProductDto> productsDto = Lists.newArrayList();
-		if (productDb != null) {
+		List<ProductDto> productsDto = null;
+		if (productDb != null&& !productDb.isEmpty()) {
+			productsDto = Lists.newArrayList();
 			for (ProductPo p : productDb) {
 				productsDto.add(EntityUtil.productPoToDto(p));
 			}
@@ -307,6 +318,7 @@ public class EditAction extends BaseAction {
 
 	private void buildArticleHtml(ArticleDto entity, HttpServletRequest request) {
 		try {
+			UserDto loggeduser = getLogedUser(request);
 			// 创建一个合适的Configration对象
 			Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);
 
@@ -326,7 +338,7 @@ public class EditAction extends BaseAction {
 			Writer writer = new OutputStreamWriter(new FileOutputStream(path + "article/" + entity.getUuid() + ".html"),
 					"UTF-8");
 			Map<String, Object> map = new HashMap<String, Object>();
-
+			map.put("author", loggeduser);
 			map.put("article", entity);
 			map.put("imgDomain", imgDomain);
 			map.put("articleUuid", entity.getUuid());

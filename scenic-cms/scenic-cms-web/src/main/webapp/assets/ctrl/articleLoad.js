@@ -1,4 +1,5 @@
 jQuery(function($) {
+	
 	$("#likeArticleBtn").click(function() {
 		var data = {
 				"articleUuid" : $("#articleUuid").val()
