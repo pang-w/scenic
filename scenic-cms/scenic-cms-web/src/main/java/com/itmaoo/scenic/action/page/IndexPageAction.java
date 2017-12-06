@@ -1,4 +1,4 @@
-package com.itmaoo.scenic.action.user;
+package com.itmaoo.scenic.action.page;
 
 import java.util.List;
 
@@ -14,23 +14,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.dao.IImageDao;
-import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
 import com.itmaoo.scenic.dao.ITagDao;
 import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.PagingData;
-import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
-import com.itmaoo.scenic.entity.po.ProductPo;
 import com.itmaoo.scenic.entity.po.TagPo;
 import com.itmaoo.scenic.entity.po.UserPo;
 import com.itmaoo.scenic.entity.query.ArticleQuery;
-import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.query.SignatureLikeQuery;
 import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
@@ -46,11 +41,6 @@ public class IndexPageAction extends BaseAction {
 	@Autowired
 	private IArticleDao articleDao;
 
-	@Autowired
-	private IImageDao imageDao;
-
-	@Autowired
-	private IProductDao productDao;
 	@Autowired
 	private ITagDao tagDao;
 

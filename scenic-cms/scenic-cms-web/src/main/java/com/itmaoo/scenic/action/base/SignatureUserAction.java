@@ -1,4 +1,4 @@
-package com.itmaoo.scenic.action.user;
+package com.itmaoo.scenic.action.base;
 
 import java.util.Date;
 
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.ISignatureLikeDao;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SignatureLikeDto;

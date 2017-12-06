@@ -1,4 +1,4 @@
-package com.itmaoo.scenic.action.user;
+package com.itmaoo.scenic.action.base;
 
 import java.util.List;
 
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.Lists;
-import com.itmaoo.scenic.action.base.BaseAction;
 import com.itmaoo.scenic.dao.IArticleDao;
 import com.itmaoo.scenic.dao.IArticleTagLinkDao;
 import com.itmaoo.scenic.dao.IProductDao;
@@ -79,20 +78,14 @@ public class UserHtmlAction extends BaseAction {
 	@RequestMapping("/a/{uuid}")
 	@ResponseBody
 	public ModelAndView article(HttpServletRequest request, @PathVariable("uuid") String uuid, ModelMap map) {
-
-		// 取出数据库中的数生成永久地址页面，不要直接生成，保证下次生成的一致性
-
-		ArticlePo articlePo = new ArticlePo();
-		articlePo.setIsPublished(true);
-		articlePo.setUuid(uuid);
-		Integer count = articleDao.updatePublishStatus(articlePo);
 		ArticleQuery aq = new ArticleQuery();
 		aq.setUuid(uuid);
+		aq.setIsPublished(true); 
 		ArticlePo a = articleDao.selectSingle(aq);
 		if (a != null) {
 			// 获取标签
 			TagQuery tagQuery = new TagQuery();
-			tagQuery.setArticleUuid(articlePo.getUuid());
+			tagQuery.setArticleUuid(uuid);
 			tagQuery.setEffected(true);
 			List<TagPo> tags = tagDao.selectList(tagQuery);
 			// 设置为null在展示文章时不显示标签整个节点
@@ -105,7 +98,7 @@ public class UserHtmlAction extends BaseAction {
 			}
 			// 获取商品
 			ProductQuery productQuery = new ProductQuery();
-			productQuery.setArticleUuid(articlePo.getUuid());
+			productQuery.setArticleUuid(uuid);
 			productQuery.setEffected(true);
 			List<ProductPo> productDb = productDao.selectList(productQuery);
 			List<ProductDto> productsDto = null;
@@ -184,13 +177,51 @@ public class UserHtmlAction extends BaseAction {
 
 	}
 
-	@RequestMapping("/product/add/")
+	@RequestMapping("/action/edit/article/{articleUuid}")
 	@ResponseBody
-	public ModelAndView createProduct(HttpServletRequest request, ModelMap map) {
+	public ModelAndView createArticle(@PathVariable("articleUuid") String articleUuid, ModelMap map) {
+		while (articleUuid.endsWith("/")) {
+			articleUuid = articleUuid.substring(0, articleUuid.length() - 1);
+		}
+		ArticleQuery aq = new ArticleQuery();
+		aq.setUuid(articleUuid);
+		ArticlePo articlePo = articleDao.selectSingle(aq);
+		ArticleDto editArticle = null;
+		if (articlePo == null) {
+			editArticle = new ArticleDto();
+			editArticle.setUuid(articleUuid);
+			editArticle.setContent("");
+			editArticle.setTitle("");
+		} else {
+			editArticle = EntityUtil.articlePoToDto(articlePo);
+			TagQuery tagQuery = new TagQuery();
+			tagQuery.setArticleUuid(articlePo.getUuid());
+			List<TagPo> tags = tagDao.selectList(tagQuery);
+			List<TagDto> tagsDto = Lists.newArrayList();
+			if (tags != null) {
+				for (TagPo tag : tags) {
+					tagsDto.add(EntityUtil.tagPoToDto(tag));
+				}
+			}
+			ProductQuery productQuery = new ProductQuery();
+			productQuery.setArticleUuid(articlePo.getUuid());
+			List<ProductPo> productDb = productDao.selectList(productQuery);
+			List<ProductDto> productsDto = Lists.newArrayList();
+			if (productDb != null) {
+				for (ProductPo p : productDb) {
+					productsDto.add(EntityUtil.productPoToDto(p));
+				}
+			}
+			editArticle.setTags(tagsDto);
+			editArticle.setProducts(productsDto);
+		}
 
-		request.getAttribute("imageUrl");
+		map.addAttribute("editArticle", editArticle);
 
-		ModelAndView mv = new ModelAndView("iukiss/index");
+		map.addAttribute("imgDomain", imgDomain);
+		map.addAttribute("articleUuid", articleUuid);
+
+		ModelAndView mv = new ModelAndView("iukiss/editor");
 		return mv;
 
 	}

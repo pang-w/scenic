@@ -36,6 +36,9 @@
 		FROM article
 		WHERE
 		uuid = #{uuid}
+		<if test="null!= isPublished and '' != isPublished">
+		AND ispublished = #{isPublished}
+		</if>
 	</select>
 	<update id="updateByUniqueKey" parameterType="ArticlePo">
 		UPDATE
@@ -54,6 +57,7 @@
 		article
 		SET
 		ispublished=#{isPublished}
+		
 		WHERE
 		uuid = #{uuid}
 	</update>

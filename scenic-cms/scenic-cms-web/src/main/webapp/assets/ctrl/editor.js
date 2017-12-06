@@ -105,21 +105,7 @@ jQuery(function($) {
 	
 	
 	
-	$("#saveAndPreview").click(function() {
-		support.ajax("user/auth/checkLogged", null,
-				function(response) {
-					if(response.status!="0000"){
-						layer.msg(response.msg);
-					}else{
-						saveAndPreview();
-					}
-				},
-				function(response) {
-					layer.msg(response.msg);
-				}
-		);
-		
-	});
+
 	$("#publishArticle").click(function() {
 		support.ajax("user/auth/checkLogged", null,
 				function(response) {
@@ -177,7 +163,7 @@ jQuery(function($) {
 							$.ajax({
 								data : data,
 								type : "POST",
-								url : "/action/user/article/saveImg",// div上的action
+								url : "/action/image/saveImg",// div上的action
 								cache : false,
 								contentType : false,
 								processData : false,
@@ -203,23 +189,13 @@ jQuery(function($) {
 				}
 			});
 	
-	function saveAndPreview() {
-		var data = {
-			"title" : $("#articleTitle").val(),
-			"content" : $("#summernote").summernote('code'),
-			"uuid" : $("#articleUuid").val()
-		};
-		support.ajax("edit/article/save", data, function(response) {
-			$("#previewTitle").html(response.data.title);
-			$("#previewContent").html(response.data.content);
-		});
-	}
+
 
 	function publish() {
 		var data = {
 			"uuid" : $("#articleUuid").val()
 		};
-		support.ajax("edit/article/publish", data, function(response) {
+		support.ajax("page/edit/article/publish", data, function(response) {
 			layer.msg(response.msg);
 		});
 	}
@@ -227,7 +203,7 @@ jQuery(function($) {
 		var data = {
 			"uuid" : $("#articleUuid").val()
 		};
-		support.ajax("edit/article/unpublish", data, function(response) {
+		support.ajax("page/edit/article/unpublish", data, function(response) {
 			layer.msg(response.msg);
 		});
 	}

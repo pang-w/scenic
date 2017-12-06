@@ -1,15 +1,13 @@
-package com.itmaoo.scenic.action.user;
+package com.itmaoo.scenic.action.base;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,46 +15,20 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSException;
-import com.google.common.collect.Lists;
-import com.itmaoo.scenic.action.base.BaseAction;
-import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.dao.IArticleLikeDao;
-import com.itmaoo.scenic.dao.IArticleMessageDao;
 import com.itmaoo.scenic.dao.IImageDao;
-import com.itmaoo.scenic.dao.IMessageLikeDao;
-import com.itmaoo.scenic.entity.dto.ArticleDto;
-import com.itmaoo.scenic.entity.dto.ArticleLikeDto;
-import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
-import com.itmaoo.scenic.entity.dto.MessageLikeDto;
-import com.itmaoo.scenic.entity.dto.PagingData;
 import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.SavedImage;
 import com.itmaoo.scenic.entity.dto.UserDto;
-import com.itmaoo.scenic.entity.po.ArticleLikePo;
-import com.itmaoo.scenic.entity.po.ArticleMessagePo;
-import com.itmaoo.scenic.entity.po.ArticlePo;
 import com.itmaoo.scenic.entity.po.ImagePo;
-import com.itmaoo.scenic.entity.po.MessageLikePo;
 import com.itmaoo.scenic.entity.po.UserPo;
-import com.itmaoo.scenic.entity.query.ArticleQuery;
 import com.itmaoo.scenic.entity.query.ImageQuery;
 import com.itmaoo.scenic.service.ImageService;
 
 @Controller
-@RequestMapping(value = "/action/user/article/")
-public class AritcleUserAction extends BaseAction {
+@RequestMapping(value = "/action/image/")
+public class ImageAction extends BaseAction {
 	@Autowired
 	private IImageDao imageDao;
-	@Autowired
-	private IArticleMessageDao articleMessageDao;
-	
-	@Autowired
-	private IArticleLikeDao articleLikeDao;
-	@Autowired
-	private IMessageLikeDao messageLikeDao;
-	
-	@Autowired
-	private IArticleDao articleDao;
 
 	private String imagePrefixUrl = "http://img.iukiss.com/";
 
@@ -158,7 +130,6 @@ public class AritcleUserAction extends BaseAction {
 
 		ResponseData rd = new ResponseData();
 		SavedImage si = new SavedImage();
-		String baseNum = UUID.randomUUID().toString().replaceAll("-", "");
 		String ofn = file.getOriginalFilename().toLowerCase();
 		String imageUri = null;
 		UserDto user = getLogedUser(request);
@@ -217,67 +188,6 @@ public class AritcleUserAction extends BaseAction {
 		}
 		rd.setData(si);
 		return rd;
-
-	}
-	@RequestMapping("likeArticle")
-	@ResponseBody
-	public ResponseData likeArticle(HttpServletRequest request, @RequestBody ArticleLikeDto articleLikeDto) {
-		UserDto user = getLogedUser(request);
-		ResponseData rd = new ResponseData();
-		if (user == null) {
-			rd.setStatus("4004");
-			rd.setMsg("未登录");
-		} else {
-			ArticleLikePo entity = new ArticleLikePo();
-			entity.setArticleUuid(articleLikeDto.getArticleUuid());
-			entity.setActionUser(user.getUsername());
-			entity.setCreateDate(new Date());
-			articleLikeDao.insert(entity);
-		}
-		rd.setData(user);
-		return rd;    
-
-	}
-	@RequestMapping("addMessage")
-	@ResponseBody
-	public ResponseData addMessage(HttpServletRequest request, @RequestBody ArticleMessageDto articleMessageDto) {
-
-		UserDto user = getLogedUser(request);
-		ResponseData rd = new ResponseData();
-		if (user == null) {
-			rd.setStatus("4004");
-			rd.setMsg("未登录");
-		} else {
-			ArticleMessagePo entity = new ArticleMessagePo();
-			entity.setArticleUuid(articleMessageDto.getArticleUuid());
-			entity.setActionUser(user.getUsername());
-			entity.setMessage(articleMessageDto.getMessage());
-			entity.setCreateDate(new Date());
-			articleMessageDao.insert(entity);
-		}
-		rd.setData(user);
-		return rd;    
-
-	}
-	@RequestMapping("likeMessage")
-	@ResponseBody
-	public ResponseData addMessage(HttpServletRequest request, @RequestBody MessageLikeDto messageLikeDto) {
-
-		UserDto user = getLogedUser(request);
-		ResponseData rd = new ResponseData();
-		if (user == null) {
-			rd.setStatus("4004");
-			rd.setMsg("未登录");
-		} else {
-			MessageLikePo entity = new MessageLikePo();
-			entity.setActionUser(user.getUsername());
-			entity.setMessageId(messageLikeDto.getMessageId());
-			entity.setCreateDate(new Date());
-			entity.setLastModifyDate(new Date());
-			messageLikeDao.insert(entity);
-		}
-		rd.setData(user);
-		return rd;    
 
 	}
 }

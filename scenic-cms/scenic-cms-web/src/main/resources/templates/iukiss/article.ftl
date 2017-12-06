@@ -95,7 +95,7 @@
 					</#if>
 					<aside class="col-md-3 sidebar">
 						<div>
-							<input id="signatureLikedUsername" type="hidden" value="ITMAOO"/>作者：
+							<input id="signatureLikedUsername" type="hidden" value="${author.username}"/>作者：
 							<span class="author"><a href="../../../i/${author.username}">${author.nickname}</a></span> 
 						</div>
 						<div>

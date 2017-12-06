@@ -86,12 +86,15 @@ function loadIndexAll(){
 		};
 		support.ajax("menu/article", {}, function (result) {
 		     $scope.articleMenu = result.data;
+		     $scope.$apply();
 	    });
 		support.ajax("menu/image", {}, function (result) {
 		     $scope.imageMenu = result.data;
+		     $scope.$apply();
 	    });
 		support.ajax("menu/product", {}, function (result) {
 		     $scope.productMenu = result.data;
+		     $scope.$apply();
 	    });
 		$scope.layerViewProduct = function (data) {
 			layer.open({

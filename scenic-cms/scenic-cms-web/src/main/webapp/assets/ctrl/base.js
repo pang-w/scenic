@@ -65,7 +65,7 @@ var support = {
 			});
 	},
 	layerEditProduct : function layerEditProduct(pid) {
-		support.ajax("user/product/searchById", {id:pid}, function(response) {
+		support.ajax("page/product/searchById", {id:pid}, function(response) {
 			layer.open({
 				  type:  2//Page层类型
 				  ,area: ['300px', '450px']

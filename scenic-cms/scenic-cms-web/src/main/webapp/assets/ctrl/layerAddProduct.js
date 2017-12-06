@@ -9,7 +9,7 @@ jQuery(function($) {
 			"price" : $("#proPrice").val(),
 			"description" : $("#proDesc").val()
 		};
-		support.ajax("user/product/add", data, function(response) {
+		support.ajax("page/product/add", data, function(response) {
 			window.parent.location.reload();
 			var index = parent.layer.getFrameIndex(window.name);
 			parent.layer.close(index);

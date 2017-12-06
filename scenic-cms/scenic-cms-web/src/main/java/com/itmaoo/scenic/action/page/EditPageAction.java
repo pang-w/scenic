@@ -1,4 +1,4 @@
-package com.itmaoo.scenic.action.user;
+package com.itmaoo.scenic.action.page;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,12 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.action.base.BaseAction;
@@ -52,17 +50,27 @@ import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
+import com.itmaoo.scenic.entity.support.IndexPageDto;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-
+/**
+ * 
+ * @author mario
+ *
+ */
 @Controller
-@RequestMapping(value = "/action/edit/")
-public class EditAction extends BaseAction {
+@RequestMapping(value = "/action/page/edit/")
+public class EditPageAction extends BaseAction {
+	@Autowired
+	private IUserDao userDao;
+
 	@Autowired
 	private IArticleDao articleDao;
 
+	@Autowired
+	private IProductDao productDao;
 	@Autowired
 	private ITagDao tagDao;
 
@@ -70,63 +78,100 @@ public class EditAction extends BaseAction {
 	private IArticleTagLinkDao articleTagLinkDao;
 
 	@Autowired
-	private IProductDao productDao;
-
-	@Autowired
 	private IArticleProductLinkDao articleProductLinkDao;
-
 	@Value("${base.img.domain}")
 	private String imgDomain;
-	
-	@Autowired
-	private IUserDao userDao;
 
-	@RequestMapping("article/{articleUuid}")
 	@ResponseBody
-	public ModelAndView createArticle(@PathVariable("articleUuid") String articleUuid, ModelMap map) {
-		while (articleUuid.endsWith("/")) {
-			articleUuid = articleUuid.substring(0, articleUuid.length() - 1);
+	@RequestMapping("{articleUuid}")
+	public ResponseData all(HttpServletRequest request, @PathVariable("articleUuid") String articleUuid) {
+
+		/** top user **/
+		UserDto userData = (UserDto) topUser(request).getData();
+
+		/** Products (productsDto)**/
+		ProductQuery proQuery = new ProductQuery();
+		// proQuery.setUsername(loggedUser.getUsername());
+		List<ProductPo> productsPo = productDao.selectList(proQuery);
+		List<ProductDto> publicProductsDto = Lists.newArrayList();
+		if (productsPo != null) {
+			for (ProductPo pPo : productsPo) {
+				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+				publicProductsDto.add(proPoToDto);
+			}
 		}
-		ArticleQuery aq = new ArticleQuery();
-		aq.setUuid(articleUuid);
-		ArticlePo articlePo = articleDao.selectSingle(aq);
-		ArticleDto editArticle = null;
-		if (articlePo == null) {
-			editArticle = new ArticleDto();
-			editArticle.setUuid(articleUuid);
-			editArticle.setContent("");
-			editArticle.setTitle("");
-		} else {
-			editArticle = EntityUtil.articlePoToDto(articlePo);
-			TagQuery tagQuery = new TagQuery();
-			tagQuery.setArticleUuid(articlePo.getUuid());
-			List<TagPo> tags = tagDao.selectList(tagQuery);
-			List<TagDto> tagsDto = Lists.newArrayList();
-			if (tags != null) {
-				for (TagPo tag : tags) {
-					tagsDto.add(EntityUtil.tagPoToDto(tag));
+		/** Tags (asideTagsDto)**/
+		TagQuery asideTagQuery = new TagQuery();
+		//asideTagQuery.setUsername(username);
+		asideTagQuery.setPageIndex(1);
+		asideTagQuery.setPageSize(20);
+		List<TagPo> asideTagsPo = tagDao.selectList(asideTagQuery);
+		List<TagDto> asideTagsDto = EntityUtil.tagPoToDtoList(asideTagsPo);
+		
+		/** Products (productsDto)**/
+		ProductQuery linkProQuery = new ProductQuery();
+		linkProQuery.setArticleUuid(articleUuid);
+		List<ProductPo> linkedProductsPo = productDao.selectList(linkProQuery);
+		List<ProductDto> linkedProductsDto = Lists.newArrayList();
+		if (linkedProductsPo != null) {
+			for (ProductPo pPo : linkedProductsPo) {
+				ProductDto proPoToDto = EntityUtil.productPoToDto(pPo);
+				linkedProductsDto.add(proPoToDto);
+			}
+		}
+
+
+		//Set public properties
+		IndexPageDto indexDto = new IndexPageDto();
+		indexDto.setTopUser(userData);
+		indexDto.setAsideTags(asideTagsDto);
+		indexDto.setLinkedProducts(linkedProductsDto);
+
+		//登录用户 可浏览的信息
+		UserDto loggedUser = getLogedUser(request);
+		if (loggedUser != null) {
+			/** Tags (asideTagsDto)**/
+			TagQuery userTagQuery = new TagQuery();
+			userTagQuery.setUsername(loggedUser.getUsername());
+			userTagQuery.setPageIndex(1);
+			userTagQuery.setPageSize(20);
+			List<TagPo> userTagsPo = tagDao.selectList(userTagQuery);
+			TagQuery defaultTagQuery = new TagQuery();
+			defaultTagQuery.setPageIndex(1);
+			defaultTagQuery.setPageSize(5);
+			defaultTagQuery.setType("default");
+			List<TagPo> defaultTagsPo = tagDao.selectList(defaultTagQuery);
+			//添加默认Tag
+			
+			List<TagDto> userTagsDto = EntityUtil.tagPoToDtoList(defaultTagsPo);
+			userTagsDto.addAll(EntityUtil.tagPoToDtoList(userTagsPo));
+			indexDto.setUserTags(userTagsDto);
+			
+			/** user articles **/
+			List<ArticleDto> userArticlesDto = Lists.newArrayList();
+			if (loggedUser != null) {
+				ArticleQuery suerArticleQuery = new ArticleQuery();
+				suerArticleQuery.setUsername(loggedUser.getUsername());
+				suerArticleQuery.setPageIndex(1);
+				suerArticleQuery.setPageSize(5);
+				List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
+				ArticleDto editArticle = new ArticleDto();
+				if (userArticlesPo != null) {
+					for (ArticlePo articlePo : userArticlesPo) {
+						ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
+						userArticlesDto.add(articlePoToDto);
+						if (articlePo.getUuid().equals(articleUuid)) {
+							editArticle = articlePoToDto;
+							indexDto.setEditArticle(editArticle);
+						}
+					}
 				}
 			}
-			ProductQuery productQuery = new ProductQuery();
-			productQuery.setArticleUuid(articlePo.getUuid());
-			List<ProductPo> productDb = productDao.selectList(productQuery);
-			List<ProductDto> productsDto = Lists.newArrayList();
-			if (productDb != null) {
-				for (ProductPo p : productDb) {
-					productsDto.add(EntityUtil.productPoToDto(p));
-				}
-			}
-			editArticle.setTags(tagsDto);
-			editArticle.setProducts(productsDto);
 		}
-
-		map.addAttribute("editArticle", editArticle);
-
-		map.addAttribute("imgDomain", imgDomain);
-		map.addAttribute("articleUuid", articleUuid);
-
-		ModelAndView mv = new ModelAndView("iukiss/editor");
-		return mv;
+		
+		ResponseData rd = new ResponseData();
+		rd.setData(indexDto);
+		return rd;
 
 	}
 
@@ -289,7 +334,7 @@ public class EditAction extends BaseAction {
 		articlePoToDto.setProducts(productsDto);
 		articlePoToDto.setTags(tagsDto);
 
-		buildArticleHtml(articlePoToDto, request);
+	//	buildArticleHtml(articlePoToDto, request);
 
 		ResponseData rd = new ResponseData();
 		rd.setData(article);
@@ -370,5 +415,20 @@ public class EditAction extends BaseAction {
 		// newText = newText.replace("'", "''");
 		// 如果是用存储过程存储数据，这行不用加，如果你用的是SQL语句来存数据，这行要加上，功能为置换 ‘
 		return newText;
+	}
+	
+
+	@ResponseBody
+	@RequestMapping("topUser")
+	public ResponseData topUser(HttpServletRequest request) {
+		UserQuery userQuery = new UserQuery();
+		userQuery.setUsername("ITMAOO");
+		UserPo recUser = userDao.selectByUsername(userQuery);
+		UserDto userData = EntityUtil.userPoToDto(recUser);
+		
+		ResponseData rd = new ResponseData();
+		rd.setData(userData);
+		return rd;
+
 	}
 }

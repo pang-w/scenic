@@ -124,8 +124,8 @@
 						<div class="post-meta">
 							<span class="author">作者：<a href="/i/{{atc.username}}">{{atc.username}}</a></span>
 							•
-							<time class="post-date" datetime="{{atc.lastmodify}}"
-								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
+							<time class="post-date" datetime="{{atc.lastModifyDate}}"
+								title="{{atc.lastModifyDate}}">{{atc.lastModifyDate}}</time>
 						</div>
 						<div class="col-sm-4"></div>
 					</div>
@@ -183,7 +183,7 @@
 								<div id="collapseArticle" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in articleMenu.dataList">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
+											<a href="/a/{{a.uuid}}" target="_blank">{{a.title }}</a>
 											<a href="/action/edit/article/{{a.uuid}}"> <i class="pull-right fa fa-edit"></i></a>
 										</li>
 										<li class="list-group-item">
@@ -207,7 +207,7 @@
 								<div id="collapseAttention" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in attentionMenu">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
+											<a href="/a/{{a.uuid}}" target="_blank">{{a.title }}</a>
 										</li>
 										
 									</ul>

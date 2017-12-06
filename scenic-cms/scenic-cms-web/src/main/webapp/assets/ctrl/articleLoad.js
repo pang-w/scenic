@@ -4,7 +4,7 @@ jQuery(function($) {
 		var data = {
 				"articleUuid" : $("#articleUuid").val()
 			};
-		support.ajax("user/article/likeArticle", data,function(response) {
+		support.ajax("page/article/likeArticle", data,function(response) {
 			if (response.status == "0000") {
 				location.reload();
 			}
@@ -16,7 +16,7 @@ jQuery(function($) {
 				"articleUuid" : $("#articleUuid").val(),
 				"message" : $("#articleMessage").val()
 			};
-		support.ajax("user/article/addMessage", data,function(response) {
+		support.ajax("page/article/addMessage", data,function(response) {
 			if (response.status == "0000") {
 				layer.msg(response.msg);
 				location.reload();
@@ -51,7 +51,7 @@ function loadIndexAll(){
 			var data = {
 					"messageId" : messageId
 				};
-			support.ajax("user/article/likeMessage", data,function(response) {
+			support.ajax("page/article/likeMessage", data,function(response) {
 				if (response.status == "0000") {
 					location.reload();
 				}

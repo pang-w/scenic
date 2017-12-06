@@ -8,7 +8,7 @@ jQuery(function($) {
 		
 		$("#doLayerEditProduction").click(function() {
 
-			support.ajax("user/product/update", $scope.editPro, function(response) {
+			support.ajax("page/product/update", $scope.editPro, function(response) {
 				window.parent.location.reload();
 				var index = parent.layer.getFrameIndex(window.name);
 				parent.layer.close(index);

@@ -1,4 +1,4 @@
-package com.itmaoo.scenic.action.user;
+package com.itmaoo.scenic.action.page;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ import com.itmaoo.scenic.entity.dto.ArticleMessageDto;
 import com.itmaoo.scenic.entity.dto.PagingData;
 import com.itmaoo.scenic.entity.dto.ProductDto;
 import com.itmaoo.scenic.entity.dto.ResponseData;
+import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticleMessagePo;
 import com.itmaoo.scenic.entity.po.ProductPo;
 import com.itmaoo.scenic.entity.query.ArticleMessageQuery;
@@ -84,6 +85,73 @@ public class ProductPageAction extends BaseAction {
 			}
 		}
 		rd.setData(massagesDto);
+		return rd;
+
+	}
+	@RequestMapping("add")
+	@ResponseBody
+	public ResponseData add(HttpServletRequest request, @RequestBody ProductDto productDto) {
+
+		ResponseData rd = new ResponseData();
+
+		UserDto user = getLogedUser(request);
+		if (user == null) {
+			rd.setMsg("未登录");
+			rd.setStatus("4000");
+		} else {
+			ProductPo proPo = EntityUtil.productDtoToPo(productDto); 
+			proPo.setUsername(user.getUsername());
+			productDao.insert(proPo);
+			
+
+		}
+
+		return rd;
+
+	}
+	@RequestMapping("update")
+	@ResponseBody
+	public ResponseData update(HttpServletRequest request, @RequestBody ProductDto productDto) {
+
+		ResponseData rd = new ResponseData();
+
+		UserDto user = getLogedUser(request);
+		if (user == null) {
+			rd.setMsg("未登录");
+			rd.setStatus("4000");
+		} else {
+			ProductPo proPo = EntityUtil.productDtoToPo(productDto); 
+			proPo.setUsername(user.getUsername());
+			productDao.updateById(proPo);
+			
+
+		}
+
+		return rd;
+
+	}
+	@RequestMapping("searchById")
+	@ResponseBody
+	public ResponseData searchById(HttpServletRequest request, @RequestBody ProductDto productDto) {
+
+		ResponseData rd = new ResponseData();
+
+		UserDto user = getLogedUser(request);
+		if (user == null) {
+			rd.setMsg("未登录");
+			rd.setStatus("4000");
+		} else {
+			ProductQuery productQuery = new ProductQuery();
+			productQuery.setId(productDto.getId());
+			ProductPo proPo = productDao.selectById(productQuery);
+			if(proPo!=null){
+				rd.setData(EntityUtil.productPoToDto(proPo));
+			}else{
+				rd.setData(new ProductDto());
+			}
+
+		}
+
 		return rd;
 
 	}

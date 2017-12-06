@@ -15,7 +15,7 @@ jQuery(document).ready(function() {
    
 	$("#user-pay-ali").change(function() {
 		
-		support.fileUploadAjax("user/article/savePayImg", "ALI",this.files[0],function(response) {
+		support.fileUploadAjax("image/savePayImg", "ALI",this.files[0],function(response) {
 			if (response.status == "0000") {
 				location.reload();
 			}
@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
 	});
 	$("#user-pay-weixin").change(function() {
 		
-		support.fileUploadAjax("user/article/savePayImg", "WX",this.files[0],function(response) {
+		support.fileUploadAjax("image/savePayImg", "WX",this.files[0],function(response) {
 			if (response.status == "0000") {
 				location.reload();
 			}

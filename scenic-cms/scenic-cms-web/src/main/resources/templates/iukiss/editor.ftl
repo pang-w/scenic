@@ -152,7 +152,7 @@
 									value="发布" /> <input class="btn btn-default"
 									id="unpublishArticle" type="submit" value="取消发布" /> <a
 									class="btn btn-default" target="_blank"
-									href="/article/${articleUuid}.html">访问文章</a>
+									href="/a/${articleUuid}">访问文章</a>
 							</div>
 						</div>
 						<hr>
@@ -189,7 +189,7 @@
 								<div id="collapseArticle" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in articleMenu.dataList">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
+											<a href="/a/{{a.uuid}}" target="_blank">{{a.title }}</a>
 											<a href="/action/edit/article/{{a.uuid}}"> <i class="pull-right fa fa-edit"></i></a>
 										</li>
 										<li class="list-group-item">
@@ -213,7 +213,7 @@
 								<div id="collapseAttention" class="panel-collapse collapse">
 									<ul class="list-group panel-body">
 										<li class="list-group-item" ng-repeat="a in attentionMenu.dataList">
-											<a href="/article/{{a.uuid}}.html" target="_blank">{{a.title }}</a>
+											<a href="/a/{{a.uuid}}" target="_blank">{{a.title }}</a>
 										</li>
 										
 									</ul>

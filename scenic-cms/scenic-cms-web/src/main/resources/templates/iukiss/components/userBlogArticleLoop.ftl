@@ -24,8 +24,8 @@
 						<div class="post-meta">
 							<span class="author">作者：<a href="../../../i/{{atc.username}}">{{atc.username}}</a></span>
 							•
-							<time class="post-date" datetime="{{atc.lastmodify}}"
-								title="{{atc.lastmodify}}">{{atc.lastmodify}}</time>
+							<time class="post-date" datetime="{{atc.lastModifyDate}}"
+								title="{{atc.lastModifyDate}}">{{atc.lastModifyDate}}</time>
 						</div>
 						<div class="col-sm-4"></div>
 					</div>

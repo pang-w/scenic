@@ -55,7 +55,7 @@ function loadEditAll(){
 									"selectedTags": $scope.selectedTags,
 									"selectedProducts": $scope.selectedProducts
 								};
-								support.ajax("edit/article/save", data, function(response) {
+								support.ajax("page/edit/article/save", data, function(response) {
 									layer.msg(response.msg);
 								});
 						}
@@ -64,9 +64,31 @@ function loadEditAll(){
 						layer.msg(response.msg);
 					}
 			);
-			
 		});
-
+		$("#saveAndPreview").click(function() {
+			support.ajax("user/auth/checkLogged", null,
+					function(response) {
+						if(response.status!="0000"){
+							layer.msg(response.msg);
+						}else{
+							var data = {
+									"title" : $("#articleTitle").val(),
+									"content" : $("#summernote").summernote('code'),
+									"uuid" : $("#articleUuid").val(),
+									"selectedTags": $scope.selectedTags,
+									"selectedProducts": $scope.selectedProducts
+								};
+								support.ajax("page/edit/article/save", data, function(response) {
+									$("#previewTitle").html(response.data.title);
+									$("#previewContent").html(response.data.content);
+								});
+						}
+					},
+					function(response) {
+						layer.msg(response.msg);
+					}
+			);
+		});
 		$('#addSelfTagBtn').bind('keypress',function(event){ 
 	         if(event.keyCode == 13) {  
 	        	 var value = $('#addSelfTagBtn').val()
