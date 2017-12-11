@@ -15,7 +15,15 @@ public class ArticlePo extends BasePo{
 	private Date createDate;
 	private Date lastModifyDate;
 	private Boolean isPublished;
+	private String defaultImageUrl;
 	
+	
+	public String getDefaultImageUrl() {
+		return defaultImageUrl;
+	}
+	public void setDefaultImageUrl(String defaultImageUrl) {
+		this.defaultImageUrl = defaultImageUrl;
+	}
 	public Boolean getIsPublished() {
 		return isPublished;
 	}

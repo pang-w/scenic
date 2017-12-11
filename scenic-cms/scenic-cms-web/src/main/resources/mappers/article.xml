@@ -12,7 +12,8 @@
 		content AS content,
 		description AS description,
 		createdate AS createDate,
-		lastmodify AS lastModifyDate
+		lastmodify AS lastModifyDate,
+		defaultimageurl AS defaultImageUrl
 	</sql>
 	<sql id="pageHead">
 		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
@@ -23,11 +24,11 @@
 	<!-- 新增检查表 -->
 	<insert id="insert" parameterType="ArticlePo">
 		INSERT INTO article (
-		articleid, title, keyword, uuid, username, content,createdate,lastmodify,description
+		articleid, title, keyword, uuid, username, content,createdate,lastmodify,description,defaultimageurl
 		)
 		VALUES
 		(
-		#{id}, #{title}, #{keyword}, #{uuid}, #{username},#{content},#{createDate},#{lastModifyDate},#{description}
+		#{id}, #{title}, #{keyword}, #{uuid}, #{username},#{content},#{createDate},#{lastModifyDate},#{description},#{defaultImageUrl}
 		)
 	</insert>
 	<select id="selectSingle" resultType="ArticlePo" parameterType="ArticleQuery">
@@ -48,7 +49,8 @@
 		keyword=#{keyword},
 		content=#{content},
 		lastmodify=#{lastModifyDate},
-		description=#{description}
+		description=#{description},
+		defaultimageurl=#{defaultImageUrl}
 		WHERE
 		uuid = #{uuid}
 	</update>

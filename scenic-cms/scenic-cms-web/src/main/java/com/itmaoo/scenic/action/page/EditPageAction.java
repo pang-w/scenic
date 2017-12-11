@@ -251,7 +251,8 @@ public class EditPageAction extends BaseAction {
 			entity.setUuid(article.getUuid());
 			entity.setTitle(article.getTitle());
 			entity.setUsername(loggeduser.getUsername());
-
+			
+			entity.setDefaultImageUrl(getDefaultImageUrl(entity.getContent()));
 			entity.setDescription(getDesc(entity.getContent()));
 
 			ArticleQuery aq = new ArticleQuery();
@@ -273,23 +274,22 @@ public class EditPageAction extends BaseAction {
 		return rd;
 	}
 
-	private String getDesc(String content) {
-		String tmpString = content.replaceAll("(?i)[^a-zA-Z0-9\u4E00-\u9FA5]", "");// 去掉所有中英文符号
-		char[] carr = tmpString.toCharArray();
-		for (int i = 0; i < tmpString.length(); i++) {
-			if (carr[i] < 0xFF) {
-				carr[i] = ' ';// 过滤掉非汉字内容
+	
+
+	private String getDefaultImageUrl(String content) {
+		Pattern pattern = Pattern.compile("<img[^<>]*>");
+		Matcher matcher = pattern.matcher(content);
+		String imageHtml = "";
+		if(matcher.find()){
+			imageHtml = matcher.group();
+			Pattern patternSrc = Pattern.compile("src=\"([^\"]*)\"");
+			Matcher matcherSrc = patternSrc.matcher(imageHtml);
+			if(matcherSrc.find()){
+				return matcherSrc.group(1);
 			}
 		}
-		String desc = String.copyValueOf(carr).trim();
-		Pattern p = Pattern.compile("\\s{2,}|\t");
-		Matcher m = p.matcher(desc);
-		String strNoBlank = m.replaceAll(" ");
-		if (strNoBlank.length() > 128) {
-			strNoBlank = strNoBlank.substring(0, 124) + "...";
-		}
-		return strNoBlank;
 
+		return null;
 	}
 
 	@RequestMapping("article/publish")
@@ -361,49 +361,6 @@ public class EditPageAction extends BaseAction {
 
 	}
 
-	private void buildArticleHtml(ArticleDto entity, HttpServletRequest request) {
-		try {
-			UserDto loggeduser = getLogedUser(request);
-			// 创建一个合适的Configration对象
-			Configuration configuration = new Configuration(Configuration.VERSION_2_3_23);
-
-			configuration.// setClassForTemplateLoading(this.getClass(),"templates");
-					setDirectoryForTemplateLoading(
-							new File(this.getClass().getClassLoader().getResource("").getPath() + "templates"));
-
-			// configuration.setDirectoryForTemplateLoading(new
-			// File("/template"));
-			configuration.setDefaultEncoding("UTF-8"); // 这个一定要设置，不然在生成的页面中 会乱码
-			// 项目部署路径
-			String path = request.getSession().getServletContext().getRealPath("/");
-
-			// 获取或创建一个模版。
-			Template template = configuration.getTemplate("iukiss/article.ftl");
-
-			Writer writer = new OutputStreamWriter(new FileOutputStream(path + "article/" + entity.getUuid() + ".html"),
-					"UTF-8");
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("author", loggeduser);
-			map.put("article", entity);
-			map.put("imgDomain", imgDomain);
-			map.put("articleUuid", entity.getUuid());
-
-			template.process(map, writer);
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TemplateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	public String checkTextDanger(String checkText) {
 		String newText = checkText.trim(); // 去掉头尾空格
 		newText = newText.replace("\n", "<br>");
@@ -415,6 +372,19 @@ public class EditPageAction extends BaseAction {
 		// newText = newText.replace("'", "''");
 		// 如果是用存储过程存储数据，这行不用加，如果你用的是SQL语句来存数据，这行要加上，功能为置换 ‘
 		return newText;
+	}
+	public static String getDesc(String content) {
+        content = content.replaceAll("<[^<>]*>", "");
+		String strNoBlank = content.replaceAll("\\s{2,}"," ");
+		if (strNoBlank.length() > 128) {
+			strNoBlank = strNoBlank.substring(0, 124) + "...";
+		}
+		return strNoBlank;
+	}
+	public static void main(String[] args) {
+		String tt = "<img src=\"http://img.iukiss.com/img/user/itmaoo/iukiss.png\" style=\"max-width: 80%; text-align: center;\">asdf";
+		String s = EditPageAction.getDesc(tt);
+		System.out.println(s);
 	}
 	
 

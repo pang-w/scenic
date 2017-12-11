@@ -25,7 +25,15 @@ public class ArticleDto extends BaseDto{
 	
 	private String searchTag;
 	private String blogerName;
+	private String defaultImageUrl;
 	
+	
+	public String getDefaultImageUrl() {
+		return defaultImageUrl;
+	}
+	public void setDefaultImageUrl(String defaultImageUrl) {
+		this.defaultImageUrl = defaultImageUrl;
+	}
 	
 	public String getBlogerName() {
 		return blogerName;

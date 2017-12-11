@@ -15,14 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.common.collect.Lists;
 import com.itmaoo.scenic.dao.IArticleDao;
-import com.itmaoo.scenic.dao.IArticleTagLinkDao;
 import com.itmaoo.scenic.dao.IProductDao;
 import com.itmaoo.scenic.dao.ITagDao;
 import com.itmaoo.scenic.dao.IUserDao;
 import com.itmaoo.scenic.entity.dto.ArticleDto;
 import com.itmaoo.scenic.entity.dto.PagingData;
 import com.itmaoo.scenic.entity.dto.ProductDto;
-import com.itmaoo.scenic.entity.dto.ResponseData;
 import com.itmaoo.scenic.entity.dto.TagDto;
 import com.itmaoo.scenic.entity.dto.UserDto;
 import com.itmaoo.scenic.entity.po.ArticlePo;
@@ -41,8 +39,6 @@ public class UserHtmlAction extends BaseAction {
 	private IArticleDao articleDao;
 	@Autowired
 	private ITagDao tagDao;
-
-
 	@Autowired
 	private IProductDao productDao;
 	@Autowired

@@ -16,28 +16,42 @@ public class ArticleQuery extends BaseQuery {
 	private String uuid;
 	private Boolean isPublished;
 	private String articleUuid;
-	
+
 	private String tag;
-	
-	
+	private String defaultImageUrl;
+
+	public String getDefaultImageUrl() {
+		return defaultImageUrl;
+	}
+
+	public void setDefaultImageUrl(String defaultImageUrl) {
+		this.defaultImageUrl = defaultImageUrl;
+	}
+
 	public String getTag() {
 		return tag;
 	}
+
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+
 	public String getArticleUuid() {
 		return articleUuid;
 	}
+
 	public void setArticleUuid(String articleUuid) {
 		this.articleUuid = articleUuid;
 	}
+
 	public Boolean getIsPublished() {
 		return isPublished;
 	}
+
 	public void setIsPublished(Boolean isPublished) {
 		this.isPublished = isPublished;
 	}
+
 	public String getUuid() {
 		return uuid;
 	}
@@ -69,7 +83,6 @@ public class ArticleQuery extends BaseQuery {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
 
 	public String getUsername() {
 		return username;

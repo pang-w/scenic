@@ -129,7 +129,9 @@
 						</div>
 						<div class="col-sm-4"></div>
 					</div>
-
+					<div class="featured-media" ng-if="atc.defaultImageUrl">
+					        <img src="{{atc.defaultImageUrl}}"/>
+					 </div>
 					<div class="post-content">
 						<p>{{atc.description}}</p>
 					</div>

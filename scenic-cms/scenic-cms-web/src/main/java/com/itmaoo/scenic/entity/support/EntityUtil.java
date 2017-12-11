@@ -78,7 +78,6 @@ public class EntityUtil {
 		articlePo.setTitle(articleDto.getTitle());
 		articlePo.setUsername(articleDto.getUsername());
 		articlePo.setUuid(articleDto.getUuid());
-
 		return articlePo;
 
 	}
@@ -95,7 +94,7 @@ public class EntityUtil {
 		
 		articleDto.setCreateDate(CommonUtil.formatDate(articlePo.getCreateDate()));
 		articleDto.setLastModifyDate(CommonUtil.formatDate(articlePo.getLastModifyDate()));
-
+		articleDto.setDefaultImageUrl(articlePo.getDefaultImageUrl());
 		return articleDto;
 
 	}
