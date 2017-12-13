@@ -51,7 +51,7 @@ public class UserHtmlAction extends BaseAction {
 
 	@RequestMapping("/i/{useranme}")
 	@ResponseBody
-	public ModelAndView index(HttpServletRequest request, @PathVariable("useranme") String viewusername, ModelMap map) {
+	public ModelAndView blog(HttpServletRequest request, @PathVariable("useranme") String viewusername, ModelMap map) {
 
 		UserQuery userQuery = new UserQuery();
 		userQuery.setUsername(viewusername);
@@ -123,7 +123,34 @@ public class UserHtmlAction extends BaseAction {
 		return null;
 
 	}
+	@RequestMapping("/")
+	@ResponseBody
+	public ModelAndView indexNull(HttpServletRequest request, ModelMap map) {
+		return index(request, map);
+		}
+	@RequestMapping("/index.html")
+	@ResponseBody
+	public ModelAndView index(HttpServletRequest request, ModelMap map) {
+		ArticleQuery indexArticleQuery = new ArticleQuery();
+		indexArticleQuery.setIsPublished(true);
+		indexArticleQuery.setPageSize(5);
+		List<ArticlePo> indexArticlesPo = articleDao.selectList(indexArticleQuery);
+		List<ArticleDto> indexArticlesDto = Lists.newArrayList();
+		if (indexArticlesPo != null) {
+			for (ArticlePo articlePo : indexArticlesPo) {
+				ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
+				indexArticlesDto.add(articlePoToDto);
+			}
+		}
 
+		map.addAttribute("baseDomain", baseDomain);
+		map.addAttribute("imgDomain", imgDomain);
+		map.addAttribute("indexArticles", indexArticlesDto);
+
+		ModelAndView mv = new ModelAndView("iukiss/index");
+		return mv;
+
+	}
 	@RequestMapping("/tags/{tag}")
 	@ResponseBody
 	public ModelAndView tag(HttpServletRequest request, @PathVariable("tag") String tag, ModelMap map) {

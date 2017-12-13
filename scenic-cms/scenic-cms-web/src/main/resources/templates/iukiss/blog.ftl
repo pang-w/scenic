@@ -6,7 +6,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>哎呦KISS_IUKISS</title>
+<title>IUKISS-传播价值</title>
 <meta name="description" content="我的消费，我的故事。">
 <meta name="keywords" content="文章,商品,旅行，装修，办事流程">
 

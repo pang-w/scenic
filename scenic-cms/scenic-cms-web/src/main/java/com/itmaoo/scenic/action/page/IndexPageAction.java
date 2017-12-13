@@ -95,32 +95,32 @@ public class IndexPageAction extends BaseAction {
 		ResponseData rd = new ResponseData();
 
 		// 登录用户 可浏览的信息
-		PagingData<ArticleDto> userArticlesPagingData = new PagingData<>();
+		PagingData<ArticleDto> indexArticlesPagingData = new PagingData<>();
 
-		ArticleQuery suerArticleQuery = new ArticleQuery();
-		suerArticleQuery.setIsPublished(true);
+		ArticleQuery indexArticleQuery = new ArticleQuery();
+		indexArticleQuery.setIsPublished(true);
 		if (articleRequest == null || articleRequest.getPageIndex() == null) {
-			suerArticleQuery.setPageIndex(1);
+			indexArticleQuery.setPageIndex(1);
 		} else {
-			suerArticleQuery.setPageIndex(articleRequest.getPageIndex());
+			indexArticleQuery.setPageIndex(articleRequest.getPageIndex());
 		}
-		suerArticleQuery.setPageSize(5);
-		List<ArticlePo> userArticlesPo = articleDao.selectList(suerArticleQuery);
-		List<ArticleDto> userArticlesDto = Lists.newArrayList();
-		if (userArticlesPo != null) {
-			for (ArticlePo articlePo : userArticlesPo) {
+		indexArticleQuery.setPageSize(5);
+		List<ArticlePo> indexArticlesPo = articleDao.selectList(indexArticleQuery);
+		List<ArticleDto> indexArticlesDto = Lists.newArrayList();
+		if (indexArticlesPo != null) {
+			for (ArticlePo articlePo : indexArticlesPo) {
 				ArticleDto articlePoToDto = makeupTagAndProductForArticle(articlePo);
-				userArticlesDto.add(articlePoToDto);
+				indexArticlesDto.add(articlePoToDto);
 			}
 		}
-		userArticlesPagingData.setDataList(userArticlesDto);
-		userArticlesPagingData.setPageIndex(suerArticleQuery.getPageIndex());// 设置当前页
-		userArticlesPagingData.setPageSize(suerArticleQuery.getPageSize());// 设置一页多少条数据
-		int count = articleDao.selectListCount(suerArticleQuery);
-		userArticlesPagingData.setTotalCount(count);// 设置总数量
-		userArticlesPagingData.setTotalPage(count, suerArticleQuery.getPageSize());// 设置总共多少页
+		indexArticlesPagingData.setDataList(indexArticlesDto);
+		indexArticlesPagingData.setPageIndex(indexArticleQuery.getPageIndex());// 设置当前页
+		indexArticlesPagingData.setPageSize(indexArticleQuery.getPageSize());// 设置一页多少条数据
+		int count = articleDao.selectListCount(indexArticleQuery);
+		indexArticlesPagingData.setTotalCount(count);// 设置总数量
+		indexArticlesPagingData.setTotalPage(count, indexArticleQuery.getPageSize());// 设置总共多少页
 
-		rd.setData(userArticlesPagingData);
+		rd.setData(indexArticlesPagingData);
 		return rd;
 
 	}
