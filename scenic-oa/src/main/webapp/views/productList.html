@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>病例管理系统</title>
+<title>人员管理系统</title>
 <script src="../assets/js/import-css.js"></script>
 </head>
 
@@ -26,14 +26,14 @@
 					<ul class="breadcrumb">
 						<li><i class="ace-icon fa fa-home home-icon"></i> <a
 							href="index.html">首页</a></li>
-						<li class="active">病例管理</li>
+						<li class="active">人员管理</li>
 					</ul>
 					<!-- /.breadcrumb -->
 				</div>
 
 				<div class="page-content">
 					<div class="page-header">
-						<h1>病例查询</h1>
+						<h1>人员查询</h1>
 					</div>
 					<!-- /.page-header -->
 
@@ -54,9 +54,9 @@
 													<div class="col-sm-2">
 														<input type="text" id="name" placeholder="如 张三" class="col-xs-12"/>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right">ID：</label>
+													<label class="col-sm-1 control-label no-padding-right">手机号：</label>
 													<div class="col-sm-2">
-														<input type="text" id="caseId" placeholder="病例唯一编号" class="col-xs-12"/>
+														<input type="text" id="caseId" placeholder="人员唯一编号" class="col-xs-12"/>
 													</div>
 
 													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
@@ -67,45 +67,44 @@
 															<option value="女">女</option>
 														</select>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 年龄： </label>
-													<div class="col-sm-2">
-														<input type="text" id="age" placeholder="如 28" class="col-xs-12"/>
-													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 是否付费： </label>
+													
+													<select id="age">
+															<option value="">全部</option>
+															<option value="是">是</option>
+															<option value="否">否</option>
+														</select>
 												</div>
 
 												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right"> 检测结果： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 从事行业： </label>
 													<div class="col-sm-2">
-														<input type="text" id="testResault" placeholder="检测结果" class="col-xs-12"/>
+														<input type="text" id="testResault" placeholder="从事行业" class="col-xs-12"/>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 送检医生： </label>
-													<div class="col-sm-2">
-														<input type="text" id="doctor" placeholder="送检医生" class="col-xs-12"/>
-													</div>
-
-													<label class="col-sm-1 control-label no-padding-right"> 送检科室： </label>
-													<div class="col-sm-2">
-														<input type="text" id="department" placeholder="送检科室" class="col-xs-12"/>
-													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 感兴趣行业： </label>
 													<div class="col-sm-2">
 														<input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
 													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 学院： </label>
+													<div class="col-sm-2">
+														<input type="text" id="doctor" placeholder="学院" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 专业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="department" placeholder="专业" class="col-xs-12"/>
+													</div>
+													
 													
 												</div>
 												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 入学时间： </label>
 													<div class="col-sm-2">
-														<input type="date" id="sendDateStart" placeholder="送检日期" class="col-xs-12"/>
-														至<input type="date" id="sendDateEnd" placeholder="送检日期" class="col-xs-12"/>
+														<input type="date" id="sendDateStart" placeholder="入学时间" class="col-xs-12"/>
+														至<input type="date" id="sendDateEnd" placeholder="入学时间" class="col-xs-12"/>
 													</div>
 
-													<label class="col-sm-1 control-label no-padding-right"> 报告日期： </label>
-													<div class="col-sm-2">
-														<input type="date" id="reportDateStart" placeholder="报告日期" class="col-xs-12"/>
-														至<input type="date" id="reportDateEnd" placeholder="报告日期" class="col-xs-12"/>
-													</div>
-
+													
 													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
 													<div class="col-sm-4">
 														<input type="text" id="description" placeholder="描述信息" class="col-xs-12"/>
@@ -132,14 +131,13 @@
 										<td>系统编号</td>
 										<td>姓名</td>
 										<td>性别</td>
-										<td>年龄</td>
-										<td>检测结果</td>
-										<td>ID</td>
-										<td>送检医生</td>
-										<td>送检科室</td>
-										<td>送检日期</td>
-										<td>报告日期</td>
-										<td>样本类型</td>
+										<td>是否付费</td>
+										<td>从事行业</td>
+										<td>手机号</td>
+										<td>学院</td>
+										<td>专业</td>
+										<td>入学时间</td>
+										<td>感兴趣行业</td>
 										<td>描述</td>
 										<td>
 
@@ -188,7 +186,6 @@
 				<td>{{:doctor}}</td>
 				<td>{{:department}}</td>
 				<td>{{:sendDate}}</td>
-				<td>{{:reportDate}}</td>
 				<td>{{:testType}}</td>
 				<td>{{:description}}</td>
 				<td>
@@ -220,7 +217,7 @@
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="widget-box">
                             <div class="widget-header widget-header-blue widget-header-flat">
-                                <h4 class="widget-title lighter">修改病例ID-<span id="editcaseId" >{{:caseId}}<span></h4>
+                                <h4 class="widget-title lighter">修改人员ID-<span id="editcaseId" >{{:caseId}}<span></h4>
                             </div>
                             <div class="widget-body">
                                 <form class="form-horizontal" role="form">
@@ -239,29 +236,32 @@
 															<option value="女" {{if sex=='女'}}selected{{/if}}>女</option>
 														</select>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 年龄： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 是否交费： </label>
 													<div class="col-sm-2">
-														<input type="text" id="editage" placeholder="如 28" value="{{:age}}" class="col-xs-12"/>
+														<select id="editage"  value="{{:age}}" >
+															<option value="是" {{if age=='是'}}selected{{/if}}>是</option>
+															<option value="否" {{if age!='是'}}selected{{/if}}>否</option>
+														</select>
 													</div>
 												</div>
 
 												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right"> 检测结果： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 从事行业： </label>
 													<div class="col-sm-2">
-														<input type="text" id="edittestResault" placeholder="检测结果" value="{{:testResault}}" class="col-xs-12"/>
+														<input type="text" id="edittestResault" placeholder="从事行业" value="{{:testResault}}" class="col-xs-12"/>
 													</div>
-													<label class="col-sm-1 control-label no-padding-right"> 送检医生： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 学院： </label>
 													<div class="col-sm-2">
-														<input type="text" id="editdoctor" placeholder="送检医生" value="{{:doctor}}" class="col-xs-12"/>
+														<input type="text" id="editdoctor" placeholder="学院" value="{{:doctor}}" class="col-xs-12"/>
 													</div>
 
-													<label class="col-sm-1 control-label no-padding-right"> 送检科室： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 专业： </label>
 													<div class="col-sm-2">
-														<input type="text" id="editdepartment" placeholder="送检科室" value="{{:department}}" class="col-xs-12"/>
+														<input type="text" id="editdepartment" placeholder="专业" value="{{:department}}" class="col-xs-12"/>
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
+													<label class="col-sm-1 control-label no-padding-right"> 感兴趣行业： </label>
 													<div class="col-sm-2">
 														<input type="text" id="edittestType" placeholder="样本类型" value="{{:testType}}" class="col-xs-12"/>
 													</div>

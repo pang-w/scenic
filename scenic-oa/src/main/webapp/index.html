@@ -1,6 +1,364 @@
-<script type="text/javascript">   
-setInterval("redirect()", 10);
-function redirect() {    
-    location.href = 'views/index.html';   
-}   
-</script> 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>郑州轻工业学院上海校友会</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no" charset="utf-8"/>
+<style>
+.row {
+	*zoom: 1;
+}
+
+.row:before, .row:after {
+	content: " ";
+	display: table;
+}
+
+.row:after {
+	clear: both;
+}
+
+.col-3 {
+	width: 33.3%;
+	display: inline-block;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+}
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+}
+
+body {
+	font-family: 'Lantinghei SC', Helvetica, Arial, 'Hiragino Sans GB',
+		'STHeiti', 'WenQuanYi Micro Hei', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	background: black;
+	color: white;
+}
+
+.container {
+	width: 600px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 10px;
+	text-align: center;
+}
+
+.logo {
+	height: 150px;
+}
+
+.title {
+	font-size: 25px;
+	margin-bottom: 40px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+footer section {
+	margin-bottom: 20px;
+}
+
+button {
+	padding: 10px 40px;
+	border: 1px solid white;
+	background-color: rgba(156, 217, 249, .2);
+	color: white;
+	border-radius: 5px;
+	font-size: 1em;
+	transition: background .3s;
+}
+
+button:hover, button:active {
+	background-color: rgba(156, 217, 249, .25);
+}
+
+.count {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.count-postfix {
+	font-weight: normal;
+	font-size: 12.8px;
+}
+
+.count-description {
+	margin-top: 2px;
+}
+
+@media ( max-width : 680px) {
+	body {
+		font-size: .8em;
+	}
+}
+
+@media ( max-height : 600px) {
+	.logo {
+		height: 120px;
+	}
+}
+
+@media ( max-height : 500px) {
+	.logo {
+		height: 100px;
+	}
+	.title {
+		margin-bottom: 30px;
+	}
+}
+
+canvas {
+	position: fixed;
+}
+</style>
+</head>
+<body>
+	<canvas></canvas>
+	<div class="container">
+		<section>
+		<br>
+		<br>
+			<div class="title">
+				郑州轻工业学院上海校友会<br>2018元旦晚会
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<div class="count">
+						N<span class="count-postfix"> 轮</span>
+					</div>
+					<div class="count-description">学友互动</div>
+				</div>
+				<div class="col-3">
+					<div class="count">
+						N<span class="count-postfix"> 组</span>
+					</div>
+					<div class="count-description">趣味抽奖</div>
+				</div>
+				<div class="col-3">
+					<div class="count">
+						N<span class="count-postfix"> 多</span>
+					</div>
+					<div class="count-description">美食美酒</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer>
+		<section>
+			<p>
+				1 月 6 日（周六）晚<br>
+				报名方式：<a href="../views/index.html" target="_blank">点击并填写个人信息</a><br/>
+				<strong>地点: 长征膳府</strong><br>
+				<small>上海市普陀区真北路1263号 </small><br>
+				 费用：200元 收款人[石玉] 微信：18621024113 付宝：115427008@qq.com, 欢迎校友赞助活动!<br/>
+				<a href="../zzuli/index.html" target="_blank">手机访问宣传页</a><br/>
+			</p>
+		</section>
+		<a href="http://j.map.baidu.com/lZAij"><div
+				style="height: 100px; background: url(assets/address.png) no-repeat top center; background-size: cover; opacity: .7;"
+				class="footer-img"></div></a>
+	</footer>
+	<script src="lib/animation.js"></script>
+	<script>(function() {
+
+    var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
+
+    // Main
+    initHeader();
+    initAnimation();
+    addListeners();
+
+    function initHeader() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        target = {x: width/2, y: height/2};
+
+        largeHeader = document.querySelector('body');
+        largeHeader.style.height = height+'px';
+
+        canvas = document.querySelector('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        ctx = canvas.getContext('2d');
+
+        // create points
+        points = [];
+        count = Math.floor(width / 70);
+        for(var x = 0; x < width; x = x + width/count) {
+            for(var y = 0; y < height; y = y + height/count) {
+                var px = x + Math.random()*width/count;
+                var py = y + Math.random()*height/count;
+                var p = {x: px, originX: px, y: py, originY: py };
+                points.push(p);
+            }
+        }
+
+        // for each point find the 5 closest points
+        for(var i = 0; i < points.length; i++) {
+            var closest = [];
+            var p1 = points[i];
+            for(var j = 0; j < points.length; j++) {
+                var p2 = points[j]
+                if(!(p1 == p2)) {
+                    var placed = false;
+                    for(var k = 0; k < 5; k++) {
+                        if(!placed) {
+                            if(closest[k] == undefined) {
+                                closest[k] = p2;
+                                placed = true;
+                            }
+                        }
+                    }
+
+                    for(var k = 0; k < 5; k++) {
+                        if(!placed) {
+                            if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                                closest[k] = p2;
+                                placed = true;
+                            }
+                        }
+                    }
+                }
+            }
+            p1.closest = closest;
+        }
+
+        // assign a circle to each point
+        for(var i in points) {
+            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+            points[i].circle = c;
+        }
+    }
+
+    // Event handling
+    function addListeners() {
+        if(!('ontouchstart' in window)) {
+            window.addEventListener('mousemove', mouseMove);
+        }
+        window.addEventListener('scroll', scrollCheck);
+        window.addEventListener('resize', resize);
+    }
+
+    function mouseMove(e) {
+        var posx = posy = 0;
+        if (e.pageX || e.pageY) {
+            posx = e.pageX;
+            posy = e.pageY;
+        }
+        else if (e.clientX || e.clientY)    {
+            posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+            posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+        }
+        target.x = posx;
+        target.y = posy;
+    }
+
+    function scrollCheck() {
+        if(document.body.scrollTop > height) animateHeader = false;
+        else animateHeader = true;
+    }
+
+    function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        largeHeader.style.height = height+'px';
+        canvas.width = width;
+        canvas.height = height;
+    }
+
+    // animation
+    function initAnimation() {
+        animate();
+        for(var i in points) {
+            shiftPoint(points[i]);
+        }
+    }
+
+    function animate() {
+        if(animateHeader) {
+            ctx.clearRect(0,0,width,height);
+            for(var i in points) {
+                // detect points in range
+                if(Math.abs(getDistance(target, points[i])) < 4000) {
+                    points[i].active = 0.3;
+                    points[i].circle.active = 0.6;
+                } else if(Math.abs(getDistance(target, points[i])) < 20000) {
+                    points[i].active = 0.1;
+                    points[i].circle.active = 0.3;
+                } else if(Math.abs(getDistance(target, points[i])) < 40000) {
+                    points[i].active = 0.02;
+                    points[i].circle.active = 0.1;
+                } else {
+                    points[i].active = 0;
+                    points[i].circle.active = 0;
+                }
+
+                drawLines(points[i]);
+                points[i].circle.draw();
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    function shiftPoint(p) {
+        TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*100,
+            y: p.originY-50+Math.random()*100, ease:Circ.easeInOut,
+            onComplete: function() {
+                shiftPoint(p);
+            }});
+    }
+
+    // Canvas manipulation
+    function drawLines(p) {
+        if(!p.active) return;
+        for(var i in p.closest) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p.closest[i].x, p.closest[i].y);
+            ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
+            ctx.stroke();
+        }
+    }
+
+    function Circle(pos,rad,color) {
+        var _this = this;
+
+        // constructor
+        (function() {
+            _this.pos = pos || null;
+            _this.radius = rad || null;
+            _this.color = color || null;
+        })();
+
+        this.draw = function() {
+            if(!_this.active) return;
+            ctx.beginPath();
+            ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
+            ctx.fill();
+        };
+    }
+
+    // Util
+    function getDistance(p1, p2) {
+        return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+    }
+    
+})();</script>
+</body>
+</html>

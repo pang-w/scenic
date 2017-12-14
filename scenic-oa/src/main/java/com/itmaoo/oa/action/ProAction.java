@@ -39,19 +39,24 @@ public class ProAction extends BaseAction {
   public ResponseData regest(HttpServletRequest request, @RequestBody ProductVo proVo) {
 
     ResponseData rd = new ResponseData();
+    if (StringUtils.isEmpty(proVo.getName())) {
+      rd.setStatus("5006");
+      rd.setMsg("姓名不能为空");
+      return rd;
+    }
     if (StringUtils.isEmpty(proVo.getCaseId())) {
       rd.setStatus("5006");
-      rd.setMsg("病理唯一编号不能为空");
+      rd.setMsg("手机号不能为空");
       return rd;
     }
     ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
     if (prductPo != null) {
       rd.setStatus("5006");
-      rd.setMsg("病理唯一编号已存在");
+      rd.setMsg("手机号:"+proVo.getCaseId()+"姓名："+prductPo.getName()+" 已报名");
       return rd;
     }
-    UserVo logedUser = getLogedUser(request);
-    if (logedUser != null) {
+  //  UserVo logedUser = getLogedUser(request);
+   // if (logedUser != null) {
       ProductPo poForSave = EntityUtil.productVoToPo(proVo);
       int count = proDao.insert(poForSave);
       if (count != 1) {
@@ -59,10 +64,10 @@ public class ProAction extends BaseAction {
         rd.setMsg("保存失败");
         return rd;
       }
-    } else {
-      rd.setStatus("3001");
-      rd.setMsg("未登录");
-    }
+   // } else {
+     // rd.setStatus("3001");
+    //  rd.setMsg("未登录");
+  //  }
     return rd;
 
   }
@@ -73,7 +78,7 @@ public class ProAction extends BaseAction {
     ResponseData rd = new ResponseData();
     if (StringUtils.isEmpty(proVo.getCaseId())) {
       rd.setStatus("5006");
-      rd.setMsg("病理唯一编号不能为空");
+      rd.setMsg("人员唯一编号不能为空");
       return rd;
     }
 
@@ -82,7 +87,7 @@ public class ProAction extends BaseAction {
       ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
       if (prductPo == null) {
         rd.setStatus("5006");
-        rd.setMsg("不存在的病理编号");
+        rd.setMsg("不存在的人员编号");
         return rd;
       }
       ProductPo poForSave = EntityUtil.productVoToPo(proVo);

@@ -79,6 +79,7 @@
 							<li><a href="/tags/装修">装修</a></li>
 							<li><a href="/tags/办事流程">办事流程</a></li>
 							<li><a href="/tags/IT技能">IT技能</a></li>
+							<li><a href="/zzuli.html">轻院上海活动</a></li>
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">

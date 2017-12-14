@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>病例添加</title>
+    <title>人员添加</title>
     <script src="../assets/js/import-css.js"></script>
     <script src="../assets/js/import-js.js"></script>
 	<script type="text/javascript">var activeMenu = [11, 18];</script>
@@ -33,14 +33,14 @@
                         <i class="ace-icon fa fa-home home-icon"></i>
                         <a href="index.html">首页</a>
                     </li>
-                    <li class="active">病例添加</li>
+                    <li class="active">人员添加</li>
                 </ul><!-- /.breadcrumb -->
             </div>
 
             <div class="page-content">
                 <div class="page-header">
                     <h1>
-                        添加病例
+                        添加人员
                     </h1>
                 </div><!-- /.page-header -->
 
@@ -49,79 +49,91 @@
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="widget-box">
                             <div class="widget-header widget-header-blue widget-header-flat">
-                                <h4 class="widget-title lighter">病例内容</h4>
+                                <h4 class="widget-title lighter">人员内容</h4>
                             </div>
                             <div class="widget-body">
                                 <form class="form-horizontal" role="form">
                                     <div class="widget-main">
                                         <div id="fuelux-wizard-container">
                                             <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 姓名： </label>
-                                                <div class="col-sm-2">
-                                                    <input type="text" id="name" placeholder="如 张三" class="col-xs-12"/>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right">ID：</label>
-                                                <div class="col-sm-2">
-                                                    <input type="text" id="caseId" placeholder="病例唯一编号" class="col-xs-12"/>
-                                                </div>
+                                               <label class="col-sm-1 control-label no-padding-right">
+									姓名： </label>
+								<div class="col-sm-2">
+									<input type="text" id="name" placeholder="如 张XX"
+										class="col-xs-12" />
+								</div>
+								<label class="col-sm-1 control-label no-padding-right">手机号：</label>
+								<div class="col-sm-2">
+									<input type="text" id="caseId" placeholder="手机号"
+										class="col-xs-12" />
+								</div>
 
-                                                <label class="col-sm-1 control-label no-padding-right"> 性别： </label>
-                                                <div class="col-sm-2">
-                                                    <select id="sex">
-                                                        <option value="男">男</option>
-                                                        <option value="女">女</option>
-                                                    </select>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right"> 年龄： </label>
-                                                <div class="col-sm-2">
-                                                     <input type="text" id="age" placeholder="如 28" class="col-xs-12"/>
-                                                </div>
-                                            </div>
-                
-                                             <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 检测结果： </label>
-                                                <div class="col-sm-2">
-                                                    <input type="text" id="testResault" placeholder="检测结果" class="col-xs-12"/>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right"> 送检医生： </label>
-                                                <div class="col-sm-2">
-                                                    <input type="text" id="doctor" placeholder="送检医生" class="col-xs-12"/>
-                                                </div>
+								<label class="col-sm-1 control-label no-padding-right">
+									性别： </label>
+								<div class="col-sm-2">
+									<select id="sex">
+										<option value="男">男</option>
+										<option value="女">女</option>
+									</select>
+								</div>
+								<label class="col-sm-1 control-label no-padding-right">
+									年龄： </label>
+								<div class="col-sm-2">
+									<input type="text" id="age" placeholder="如 28"
+										class="col-xs-12" />
+								</div>
+							</div>
 
-                                                <label class="col-sm-1 control-label no-padding-right"> 送检科室： </label>
-                                                <div class="col-sm-2">
-                                                    <input type="text" id="department" placeholder="送检科室" class="col-xs-12"/>
-                                                </div>
-                                                <label class="col-sm-1 control-label no-padding-right"> 送检日期： </label>
-                                                <div class="col-sm-2">
-                                                     <input type="date" id="sendDate" placeholder="送检日期" class="col-xs-12"/>
-                                                </div>
-                                            </div>
-                                             <div class="form-group">
-                                                <label class="col-sm-1 control-label no-padding-right"> 样本类型： </label>
-                                                 <div class="col-sm-2">
-                                                     <input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
-                                                 </div>
+							<div class="form-group">
+								<label class="col-sm-1 control-label no-padding-right">
+									从事行业： </label>
+								<div class="col-sm-2">
+									<input type="text" id="testResault" placeholder="如 工业设计，金融，软件"
+										class="col-xs-12" />
+								</div>
+								<label class="col-sm-1 control-label no-padding-right">
+									学院： </label>
+								<div class="col-sm-2">
+									<input type="text" id="doctor" placeholder="如 计算机学院"
+										class="col-xs-12" />
+								</div>
 
-                                                <label class="col-sm-1 control-label no-padding-right"> 报告日期： </label>
-                                                <div class="col-sm-2">
-                                                     <input type="date" id="reportDate" placeholder="报告日期" class="col-xs-12"/>
-                                                </div>
+								<label class="col-sm-1 control-label no-padding-right">
+									专业： </label>
+								<div class="col-sm-2">
+									<input type="text" id="department" placeholder="如 软件设计"
+										class="col-xs-12" />
+								</div>
+								<label class="col-sm-1 control-label no-padding-right">
+									入学时间： </label>
+								<div class="col-sm-2">
+									<input type="date" id="sendDate" placeholder="送检日期"
+										class="col-xs-12" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-1 control-label no-padding-right">
+									感兴趣行业： </label>
+								<div class="col-sm-2">
+									<input type="text" id="testType" placeholder="样本类型"
+										class="col-xs-12" />
+								</div>
 
-                                               
-                                                <label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
-                                                <div class="col-sm-4">
-                                                     <input type="text" id="description" placeholder="描述信息" class="col-xs-12"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
-                                        <div class="wizard-actions">
-                                            <button class="btn btn-block btn-primary" id="addSol" type="button">
-                                                <i class="ace-icon fa fa-search icon-on-right"></i>
-                                                提交
-                                            </button>
-                                        </div>
+								<label class="col-sm-1 control-label no-padding-right">
+									建议或意见： </label>
+								<div class="col-sm-4">
+									<input type="text" id="description" placeholder="描述信息"
+										class="col-xs-12" />
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="wizard-actions">
+							<button class="btn btn-block btn-primary" id="addSol"
+								type="button">
+								<i class="ace-icon fa fa-search icon-on-right"></i> 提交
+							</button>
+						</div>
                                     </div><!-- /.widget-main -->
                                 </form>
                             </div><!-- /.widget-body -->

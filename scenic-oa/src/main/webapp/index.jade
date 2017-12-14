@@ -1,0 +1,331 @@
+doctype html
+html
+    head
+        title Definers & Makers 9 月 25 日晚 7:30
+        meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+        //- link(href='lib/flexboxgrid.min.css', rel="stylesheet")
+        style.
+            .row {
+                *zoom: 1;
+            }
+            .row:before, .row:after {
+                content: " ";
+                display: table;
+            }
+            .row:after {
+                clear: both;
+            }
+            .col-3 {
+                width: 33.3%;
+                display: inline-block;
+            }
+            *, *:before, *:after {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                outline: none;
+            }
+            html, body {
+                height: 100%;
+                overflow: hidden;
+                margin: 0;
+            }
+            body {
+                font-family: 'Lantinghei SC', Helvetica, Arial, 'Hiragino Sans GB', 'STHeiti', 'WenQuanYi Micro Hei', sans-serif;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+                background: black;
+                color: white;
+            }
+            .container {
+                width: 600px;
+                max-width: 100%;
+                margin: 0 auto;
+                padding: 0 10px;
+                text-align: center;
+            }
+            .logo {
+                height: 150px;
+            }
+            .title {
+                font-size: 25px;
+                margin-bottom: 40px;
+            }
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+            footer section {
+                margin-bottom: 20px;
+            }
+            button {
+                padding: 10px 40px;
+                border: 1px solid white;
+                background-color: rgba(156, 217, 249, .2);
+                color: white;
+                border-radius: 5px;
+                font-size: 1em;
+                transition: background .3s;
+            }
+            button:hover, button:active {
+                background-color: rgba(156, 217, 249, .25);
+            }
+            .count {
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .count-postfix {
+                font-weight: normal;
+                font-size: 12.8px;
+            }
+            .count-description {
+                margin-top: 2px;
+            }
+            @media (max-width: 680px) {
+                body {
+                    font-size: .8em;
+                }
+            }
+            @media (max-height: 600px) {
+                .logo {
+                    height: 120px;
+                }
+            }
+            @media (max-height: 500px) {
+                .logo {
+                    height: 100px;
+                }
+                .title {
+                    margin-bottom: 30px;
+                }
+            }
+            canvas {
+                position:fixed;
+            }
+    body
+        canvas
+        .container
+            section
+                img.logo(src='assets/logo.png')
+                .title 京城技术含量最高的
+                    br
+                    | 一次线下聚会
+                .row
+                    .col-3 
+                        .count 3
+                            span.count-postfix  轮
+                        .count-description 极速讲解
+                    .col-3
+                        .count 3
+                            span.count-postfix  组
+                        .count-description 趣味抽奖
+                    .col-3
+                        .count N
+                            span.count-postfix  多
+                        .count-description 美食美酒
+                    
+            
+        footer
+            section
+                p 9 月 25 日（本周五）19:30 - 22:30
+                    br
+                    strong 地点:「科技寺」北新桥
+                    br
+                    small 北京市东城区东四北大街107号科林大厦B座107室 
+                    br
+            a(href='http://j.map.baidu.com/cmvfD')
+                .footer-img(style='height: 100px; background: url(assets/address.png) no-repeat top center; background-size: cover; opacity: .7;')
+                    
+        
+        script(src='lib/animation.js')
+        script.
+            (function() {
+
+                var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
+
+                // Main
+                initHeader();
+                initAnimation();
+                addListeners();
+
+                function initHeader() {
+                    width = window.innerWidth;
+                    height = window.innerHeight;
+                    target = {x: width/2, y: height/2};
+
+                    largeHeader = document.querySelector('body');
+                    largeHeader.style.height = height+'px';
+
+                    canvas = document.querySelector('canvas');
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx = canvas.getContext('2d');
+
+                    // create points
+                    points = [];
+                    count = Math.floor(width / 70);
+                    for(var x = 0; x < width; x = x + width/count) {
+                        for(var y = 0; y < height; y = y + height/count) {
+                            var px = x + Math.random()*width/count;
+                            var py = y + Math.random()*height/count;
+                            var p = {x: px, originX: px, y: py, originY: py };
+                            points.push(p);
+                        }
+                    }
+
+                    // for each point find the 5 closest points
+                    for(var i = 0; i < points.length; i++) {
+                        var closest = [];
+                        var p1 = points[i];
+                        for(var j = 0; j < points.length; j++) {
+                            var p2 = points[j]
+                            if(!(p1 == p2)) {
+                                var placed = false;
+                                for(var k = 0; k < 5; k++) {
+                                    if(!placed) {
+                                        if(closest[k] == undefined) {
+                                            closest[k] = p2;
+                                            placed = true;
+                                        }
+                                    }
+                                }
+
+                                for(var k = 0; k < 5; k++) {
+                                    if(!placed) {
+                                        if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                                            closest[k] = p2;
+                                            placed = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        p1.closest = closest;
+                    }
+
+                    // assign a circle to each point
+                    for(var i in points) {
+                        var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+                        points[i].circle = c;
+                    }
+                }
+
+                // Event handling
+                function addListeners() {
+                    if(!('ontouchstart' in window)) {
+                        window.addEventListener('mousemove', mouseMove);
+                    }
+                    window.addEventListener('scroll', scrollCheck);
+                    window.addEventListener('resize', resize);
+                }
+
+                function mouseMove(e) {
+                    var posx = posy = 0;
+                    if (e.pageX || e.pageY) {
+                        posx = e.pageX;
+                        posy = e.pageY;
+                    }
+                    else if (e.clientX || e.clientY)    {
+                        posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                        posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                    }
+                    target.x = posx;
+                    target.y = posy;
+                }
+
+                function scrollCheck() {
+                    if(document.body.scrollTop > height) animateHeader = false;
+                    else animateHeader = true;
+                }
+
+                function resize() {
+                    width = window.innerWidth;
+                    height = window.innerHeight;
+                    largeHeader.style.height = height+'px';
+                    canvas.width = width;
+                    canvas.height = height;
+                }
+
+                // animation
+                function initAnimation() {
+                    animate();
+                    for(var i in points) {
+                        shiftPoint(points[i]);
+                    }
+                }
+
+                function animate() {
+                    if(animateHeader) {
+                        ctx.clearRect(0,0,width,height);
+                        for(var i in points) {
+                            // detect points in range
+                            if(Math.abs(getDistance(target, points[i])) < 4000) {
+                                points[i].active = 0.3;
+                                points[i].circle.active = 0.6;
+                            } else if(Math.abs(getDistance(target, points[i])) < 20000) {
+                                points[i].active = 0.1;
+                                points[i].circle.active = 0.3;
+                            } else if(Math.abs(getDistance(target, points[i])) < 40000) {
+                                points[i].active = 0.02;
+                                points[i].circle.active = 0.1;
+                            } else {
+                                points[i].active = 0;
+                                points[i].circle.active = 0;
+                            }
+
+                            drawLines(points[i]);
+                            points[i].circle.draw();
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                }
+
+                function shiftPoint(p) {
+                    TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*100,
+                        y: p.originY-50+Math.random()*100, ease:Circ.easeInOut,
+                        onComplete: function() {
+                            shiftPoint(p);
+                        }});
+                }
+
+                // Canvas manipulation
+                function drawLines(p) {
+                    if(!p.active) return;
+                    for(var i in p.closest) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p.closest[i].x, p.closest[i].y);
+                        ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
+                        ctx.stroke();
+                    }
+                }
+
+                function Circle(pos,rad,color) {
+                    var _this = this;
+
+                    // constructor
+                    (function() {
+                        _this.pos = pos || null;
+                        _this.radius = rad || null;
+                        _this.color = color || null;
+                    })();
+
+                    this.draw = function() {
+                        if(!_this.active) return;
+                        ctx.beginPath();
+                        ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
+                        ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
+                        ctx.fill();
+                    };
+                }
+
+                // Util
+                function getDistance(p1, p2) {
+                    return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+                }
+                
+            })();
+        

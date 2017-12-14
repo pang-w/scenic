@@ -59,8 +59,8 @@ public class EntityUtil {
 		proPo.setName(productVo.getName());
 		proPo.setDepartment(productVo.getDepartment());
 		//
-		proPo.setReportDate(new Date());
-		proPo.setSendDate(new Date());
+		proPo.setReportDate(productVo.getReportDateStart());
+		proPo.setSendDate(productVo.getSendDateStart());
 		proPo.setSex(productVo.getSex());
 		proPo.setTestResault(productVo.getTestResault());
 		proPo.setTestType(productVo.getTestType());

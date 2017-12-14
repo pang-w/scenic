@@ -1,0 +1,11 @@
+2017-11-30 16:12:54.760 [] INFO  [main] com.itmaoo.oa.App :Starting App on Mario with PID 30567 (/home/mario/git/scenic/scenic-oa/target/classes started by mario in /home/mario/git/scenic/scenic-oa)
+2017-11-30 16:12:54.768 [] DEBUG [main] com.itmaoo.oa.App :Running with Spring Boot v1.5.6.RELEASE, Spring v4.3.4.RELEASE
+2017-11-30 16:12:54.768 [] INFO  [main] com.itmaoo.oa.App :No active profile set, falling back to default profiles: default
+2017-11-30 16:12:57.941 [] INFO  [main] com.itmaoo.oa.App :Started App in 3.398 seconds (JVM running for 3.746)
+2017-11-30 17:18:01.512 [] INFO  [main] com.itmaoo.oa.App :Starting App on Mario with PID 1563 (/home/mario/git/scenic/scenic-oa/target/classes started by mario in /home/mario/git/scenic/scenic-oa)
+2017-11-30 17:18:01.513 [] DEBUG [main] com.itmaoo.oa.App :Running with Spring Boot v1.5.6.RELEASE, Spring v4.3.4.RELEASE
+2017-11-30 17:18:01.513 [] INFO  [main] com.itmaoo.oa.App :No active profile set, falling back to default profiles: default
+2017-11-30 17:18:04.997 [] INFO  [main] com.itmaoo.oa.App :Started App in 3.716 seconds (JVM running for 4.015)
+2017-11-30 17:18:10.767 [] INFO  [main] com.itmaoo.oa.App :Starting App on Mario with PID 1611 (/home/mario/git/scenic/scenic-oa/target/classes started by mario in /home/mario/git/scenic/scenic-oa)
+2017-11-30 17:18:10.768 [] DEBUG [main] com.itmaoo.oa.App :Running with Spring Boot v1.5.6.RELEASE, Spring v4.3.4.RELEASE
+2017-11-30 17:18:10.768 [] INFO  [main] com.itmaoo.oa.App :No active profile set, falling back to default profiles: default

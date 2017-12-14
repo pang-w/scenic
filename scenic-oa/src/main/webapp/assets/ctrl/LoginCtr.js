@@ -38,7 +38,7 @@ function login() {
     };
     support.syncAjax("user/login", data, function (rs) {
         if (rs.status == "0000") {
-        	 location.href = "./index.html";
+        	 location.href = "./admin.html";
         }else{
         	layer.msg(rs.msg);
         }
