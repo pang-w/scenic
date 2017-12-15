@@ -3,6 +3,12 @@ jQuery(function ($) {
     $("#btnSearch").click(function () {
         search("1");
     });
+    $("#createExcel").click(function () {
+    	createExcel();
+    });
+    $("#dowloadExcel").click(function () {
+    	location.href="http://img.iukiss.com/oa/zzuli/data.xlsx"
+    });
     $("#btnChangeSol").click(function () {
     	var data = {
     			"caseId": $("#caseId").text(),
@@ -21,6 +27,26 @@ jQuery(function ($) {
         });
     });
 });
+function createExcel() {
+    var data = {
+    		"name": $("#name").val(),
+            "sex": $("#sex").val(),
+            "age": $("#age").val(),
+            "testResault": $("#testResault").val(),
+            "caseId": $("#caseId").val(),
+            "doctor": $("#doctor").val(),
+            "department": $("#department").val(),
+            "sendDateStart": $("#sendDateStart").val(),
+            "sendDateEnd": $("#sendDateEnd").val(),
+            "reportDateStart": $("#reportDateStart").val(),
+            "reportDateEnd": $("#reportDateEnd").val(),
+            "testType": $("#testType").val(),
+            "description": $("#description").val(),
+    };
+    support.ajax("pro/createExcel", data, function (rs) {
+    	layer.msg(rs.msg);
+    });
+}
 function search(page) {
     var data = {
     		"name": $("#name").val(),

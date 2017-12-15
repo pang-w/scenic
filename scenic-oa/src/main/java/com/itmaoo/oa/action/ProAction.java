@@ -1,10 +1,24 @@
 package com.itmaoo.oa.action;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -12,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.aliyun.oss.ClientException;
+import com.aliyun.oss.OSSException;
 import com.google.common.collect.Lists;
 import com.itmaoo.oa.dao.IProductDao;
 import com.itmaoo.oa.dao.IUserDao;
@@ -24,6 +40,7 @@ import com.itmaoo.oa.entity.vo.ProductVo;
 import com.itmaoo.oa.entity.vo.ResponseData;
 import com.itmaoo.oa.entity.vo.UserVo;
 import com.itmaoo.oa.support.EntityUtil;
+import com.itmaoo.oa.support.ImageService;
 
 @Controller
 @RequestMapping(value = "/action/pro/")
@@ -42,6 +59,11 @@ public class ProAction extends BaseAction {
     if (StringUtils.isEmpty(proVo.getName())) {
       rd.setStatus("5006");
       rd.setMsg("姓名不能为空");
+      return rd;
+    }
+    if (StringUtils.isEmpty(proVo.getSendDateStart())) {
+      rd.setStatus("5006");
+      rd.setMsg("入学时间不能为空");
       return rd;
     }
     if (StringUtils.isEmpty(proVo.getCaseId())) {
@@ -262,6 +284,95 @@ public class ProAction extends BaseAction {
     }
     rd.setData(user);
     return rd;
+  }
+  @ResponseBody
+  @RequestMapping("createExcel")
+  public ResponseData createExcel(HttpServletRequest request,HttpServletResponse response, @RequestBody ProductVo productVo){
+    ResponseData rd = new ResponseData();
+    UserVo logedUser = getLogedUser(request);
+    if (logedUser != null) {
+
+      ProductQuery query = new ProductQuery();
+      query.setId(productVo.getId());
+      query.setDescription(productVo.getDescription());
+      // query.setLastModifyDate(new Date());
+
+      query.setAge(productVo.getAge());
+      query.setCaseId(productVo.getCaseId());
+      query.setDoctor(productVo.getDoctor());
+      query.setName(productVo.getName());
+      query.setDepartment(productVo.getDepartment());
+      //
+      query.setReportDateStart(productVo.getReportDateStart());
+      query.setReportDateEnd(productVo.getReportDateEnd());
+      query.setSendDateStart(productVo.getSendDateStart());
+      query.setSendDateEnd(productVo.getSendDateEnd());
+      query.setSex(productVo.getSex());
+      query.setTestResault(productVo.getTestResault());
+      query.setTestType(productVo.getTestType());
+      
+      query.setPageSize(1000);
+      
+      List<ProductPo> proPos = proDao.selectList(query);
+      List<ProductVo> proVos = Lists.newArrayList();
+      if (proPos != null) {
+        for (ProductPo po : proPos) {
+          proVos.add(EntityUtil.productPoToVo(po));
+        }
+      }
+
+      HSSFWorkbook wb = doCreateExcel(proVos);
+      
+      try {
+        new ImageService().saveOssExcel(wb, "oa/zzuli/data.xlsx");
+      } catch (OSSException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (ClientException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+      
+    } else {
+      rd.setStatus("3001");
+      rd.setMsg("未登录");
+    }
+    return rd;
+  }
+  private HSSFWorkbook doCreateExcel(List<ProductVo> list){
+     
+    String[] excelHeader = { "姓名",  "性别",  "是否付费",  "从事行业",  "手机号", "学院",  "专业",  "入学时间",  "感兴趣行业", "描述"};    
+    HSSFWorkbook wb = new HSSFWorkbook();    
+    HSSFSheet sheet = wb.createSheet("轻院校友");
+    HSSFRow row = sheet.createRow((int) 0);
+    HSSFCellStyle style = wb.createCellStyle();    
+    style.setAlignment(HorizontalAlignment.CENTER);    
+
+    for (int i = 0; i < excelHeader.length; i++) {    
+        HSSFCell cell = row.createCell(i);    
+        cell.setCellValue(excelHeader[i]);    
+        cell.setCellStyle(style);    
+        //sheet.autoSizeColumn(i);    
+    }
+
+    for (int i = 0; i < list.size(); i++) {    
+        row = sheet.createRow(i + 1);    
+        ProductVo pv = list.get(i);    
+        row.createCell(0).setCellValue(pv.getName());    
+        row.createCell(1).setCellValue(pv.getSex());    
+        row.createCell(2).setCellValue(pv.getAge());
+        row.createCell(3).setCellValue(pv.getTestResault());
+        row.createCell(4).setCellValue(pv.getCaseId());
+        row.createCell(5).setCellValue(pv.getDoctor());
+        row.createCell(6).setCellValue(pv.getDepartment());
+        row.createCell(7).setCellValue(pv.getSendDate());
+        row.createCell(8).setCellValue(pv.getTestType());
+        row.createCell(9).setCellValue(pv.getDescription());
+    }    
+    return wb;   
   }
 
 }

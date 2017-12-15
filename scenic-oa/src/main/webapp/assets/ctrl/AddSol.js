@@ -22,5 +22,6 @@ function add() {
     };
     support.ajax("pro/add", data, function (data) {
             layer.msg(data.msg);
+            location.refresh();
     });
 }

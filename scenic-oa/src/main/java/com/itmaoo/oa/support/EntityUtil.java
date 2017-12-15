@@ -53,7 +53,7 @@ public class EntityUtil {
 		proPo.setDescription(productVo.getDescription());
 		proPo.setLastModifyDate(new Date());
 		
-		proPo.setAge(productVo.getAge());
+		proPo.setAge("否");
 		proPo.setCaseId(productVo.getCaseId());
 		proPo.setDoctor(productVo.getDoctor());
 		proPo.setName(productVo.getName());
