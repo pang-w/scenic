@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IUserDao">
+	<sql id="cols">
+		userid AS id,
+		username AS username,
+		nickname AS nickname,
+		password AS password,
+		email AS email,
+		telphone AS telphone,
+		createdate AS createDate,
+		invalid AS invalid,
+		iucode AS iuCode,
+		reccode AS recCode,
+		logintrytimes AS loginTryTimes,
+		lastloggeddate AS lastLoggedDate,
+		ismale AS isMale,
+		signature AS signature,
+		alipayimgurl AS alipayImgUrl,
+		weixinimgurl AS weixinImgUrl
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	
+	<update id="update" parameterType="UserPo">
+		UPDATE
+		user
+		SET
+		nickname=#{nickname},
+		signature=#{signature},
+		lastmodifydate=#{lastModifyDate}
+		WHERE
+		username = #{username}
+	</update>
+	<update id="updatePassword" parameterType="UserPo">
+		UPDATE
+		user
+		SET
+		password=#{password},
+		lastmodifydate=#{lastModifyDate}
+		WHERE
+		username = #{username}
+	</update>
+	<update id="updatePayImgUrl" parameterType="UserPo">
+		UPDATE
+		user
+		SET
+		lastmodifydate=#{lastModifyDate}
+		<if test="null!= alipayImgUrl and '' != alipayImgUrl">
+		,alipayimgurl = #{alipayImgUrl}
+		</if>
+		<if test="null!= weixinImgUrl and '' != weixinImgUrl">
+		, weixinimgurl = #{weixinImgUrl}
+		</if>
+		WHERE
+		username = #{username}
+	</update>
+	
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="Collection">
+		INSERT INTO user (
+		username, password, email,  telphone, createdate, invalid,
+		logintrytimes, lastloggeddate,ismale,iucode,reccode,signature,nickname
+		)
+		VALUES
+		(
+		#{username},#{password},#{email},#{telphone},#{createDate},	#{invalid},
+		#{loginTryTimes},#{createDate},#{lastLoggedDate},#{iuCode},	#{recCode},	#{signature},#{nickname}
+		)
+	</insert>
+	<select id="selectByUsername" resultType="UserPo" parameterType="UserQuery">
+		SELECT
+		<include refid="cols" />
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
+		WHERE
+		username = #{username}
+	</select>
+	<select id="selectSingleByIucode" resultType="UserPo" parameterType="UserQuery">
+		SELECT
+		<include refid="cols" />
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
+		WHERE
+		iucode = #{iuCode}
+	</select>
+	<select id="selectSingleLogin" resultType="UserPo" parameterType="UserQuery">
+		SELECT
+		<include refid="cols" />
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
+		WHERE
+		username = #{username}
+		AND
+		password=  #{password}
+	</select>
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		,signatureLikedCount as signatureLikedCount
+		FROM user u
+		LEFT JOIN
+		(SELECT belikeduser as belikeduser, count(signaturelikeid) as signatureLikedCount FROM signaturelike group by belikeduser) sl
+		on u.username = sl.belikeduser
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="UserPo" parameterType="UserQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="UserQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		) c
+	</select>
+</mapper>

@@ -1,12 +1,9 @@
 package com.itmaoo.oa.action;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,10 +12,7 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.util.CellRangeAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -56,6 +50,8 @@ public class ProAction extends BaseAction {
   public ResponseData regest(HttpServletRequest request, @RequestBody ProductVo proVo) {
 
     ResponseData rd = new ResponseData();
+    rd.setPageIndex(proVo.getPageIndex());
+    
     if (StringUtils.isEmpty(proVo.getName())) {
       rd.setStatus("5006");
       rd.setMsg("姓名不能为空");
@@ -66,9 +62,9 @@ public class ProAction extends BaseAction {
       rd.setMsg("入学时间不能为空");
       return rd;
     }
-    if (StringUtils.isEmpty(proVo.getCaseId())) {
+    if (StringUtils.isEmpty(proVo.getCaseId())||proVo.getCaseId().length()<7) {
       rd.setStatus("5006");
-      rd.setMsg("手机号不能为空");
+      rd.setMsg("请填写正确的手机号");
       return rd;
     }
     ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
@@ -80,11 +76,22 @@ public class ProAction extends BaseAction {
   //  UserVo logedUser = getLogedUser(request);
    // if (logedUser != null) {
       ProductPo poForSave = EntityUtil.productVoToPo(proVo);
+      poForSave.setAge("否");
       int count = proDao.insert(poForSave);
       if (count != 1) {
         rd.setStatus("5006");
         rd.setMsg("保存失败");
         return rd;
+      }else{
+        UserPo userPo = new UserPo();
+        userPo.setCreateDate(new Date());
+        userPo.setInvalid(false);
+        userPo.setLastLoggedDate(null);
+        userPo.setPassword(proVo.getCaseId().substring(proVo.getCaseId().length()-6, proVo.getCaseId().length()));
+        userPo.setUsername(proVo.getCaseId());
+        userPo.setNickname(proVo.getName());
+        userPo.setRecCode("zzuli");
+        userDao.insert(userPo);
       }
    // } else {
      // rd.setStatus("3001");
@@ -98,6 +105,7 @@ public class ProAction extends BaseAction {
   @RequestMapping("update")
   public ResponseData update(HttpServletRequest request, @RequestBody ProductVo proVo) {
     ResponseData rd = new ResponseData();
+    rd.setPageIndex(proVo.getPageIndex());
     if (StringUtils.isEmpty(proVo.getCaseId())) {
       rd.setStatus("5006");
       rd.setMsg("人员唯一编号不能为空");
@@ -106,6 +114,11 @@ public class ProAction extends BaseAction {
 
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
+      if(logedUser.getRecCode().equals("zzuli")&&!logedUser.getUsername().equals(proVo.getCaseId())){
+        rd.setStatus("5006");
+        rd.setMsg("无权限");
+        return rd;
+      }
       ProductPo prductPo = proDao.selectSingleByCaseId(proVo.getCaseId());
       if (prductPo == null) {
         rd.setStatus("5006");
@@ -214,7 +227,20 @@ public class ProAction extends BaseAction {
       List<ProductVo> proVos = Lists.newArrayList();
       if (proPos != null) {
         for (ProductPo po : proPos) {
-          proVos.add(EntityUtil.productPoToVo(po));
+          ProductVo productPoToVo = EntityUtil.productPoToVo(po);
+          if(logedUser.getRecCode().equals("zzuli")){
+            if(!logedUser.getUsername().equals(productPoToVo.getCaseId())){
+              productPoToVo.setDeleteAble(false);
+              productPoToVo.setUpdatgeAble(false);
+            }else{
+              productPoToVo.setDeleteAble(false);
+              productPoToVo.setUpdatgeAble(true);
+            }
+          }else{
+            productPoToVo.setDeleteAble(true);
+            productPoToVo.setUpdatgeAble(true);
+          }
+          proVos.add(productPoToVo);
         }
       }
 
@@ -241,9 +267,14 @@ public class ProAction extends BaseAction {
   public ResponseData remove(HttpServletRequest request, @RequestBody ProductVo productVo) {
 
     ResponseData rd = new ResponseData();
+    rd.setPageIndex(productVo.getPageIndex());
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
-
+      if(logedUser.getRecCode().equals("zzuli")&&!logedUser.getUsername().equals(productVo.getCaseId())){
+        rd.setStatus("5006");
+        rd.setMsg("无权限");
+        return rd;
+      }
       ProductQuery query = new ProductQuery();
 
       query.setCaseId(productVo.getCaseId());
@@ -254,6 +285,8 @@ public class ProAction extends BaseAction {
         rd.setMsg("删除失败");
         return rd;
       }
+      userDao.deleteByUniqueKey(productVo.getCaseId());
+      
     } else {
       rd.setStatus("3001");
       rd.setMsg("未登录");
@@ -317,7 +350,12 @@ public class ProAction extends BaseAction {
       List<ProductVo> proVos = Lists.newArrayList();
       if (proPos != null) {
         for (ProductPo po : proPos) {
-          proVos.add(EntityUtil.productPoToVo(po));
+          ProductVo productPoToVo = EntityUtil.productPoToVo(po);
+          if(logedUser.getRecCode().equals("zzuli")){
+            productPoToVo.setDescription("");
+          }
+          proVos.add(productPoToVo);
+          
         }
       }
 

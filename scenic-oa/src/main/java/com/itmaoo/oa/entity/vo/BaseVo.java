@@ -1,7 +1,6 @@
 package com.itmaoo.oa.entity.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -13,7 +12,37 @@ public class BaseVo implements Serializable {
 	private String createDate;
 	private String lastModifyDate;
 	
-	public Integer getId() {
+	private Boolean deleteAble;
+	private Boolean updatgeAble;
+
+	private Integer pageIndex;
+	
+	
+  public Integer getPageIndex() {
+    return pageIndex;
+  }
+
+  public void setPageIndex(Integer pageIndex) {
+    this.pageIndex = pageIndex;
+  }
+
+  public Boolean getDeleteAble() {
+    return deleteAble;
+  }
+
+  public void setDeleteAble(Boolean deleteAble) {
+    this.deleteAble = deleteAble;
+  }
+
+  public Boolean getUpdatgeAble() {
+    return updatgeAble;
+  }
+
+  public void setUpdatgeAble(Boolean updatgeAble) {
+    this.updatgeAble = updatgeAble;
+  }
+
+  public Integer getId() {
 		return id;
 	}
 

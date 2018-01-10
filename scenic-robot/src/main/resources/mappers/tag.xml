@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.ITagDao">
+	<sql id="cols">
+		tagid AS id,
+		value AS value,
+		createby AS createby,
+		type AS type,
+		description AS description,
+		parentid AS parentId,
+		createdate AS createDate,
+		lastmodifydate AS lastModifyDate
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="TagPo">
+		INSERT INTO tag (
+		tagid, value, description, createdate,lastmodifydate,type,parentid,createby
+		)
+		VALUES
+		(
+		#{id}, #{value}, #{description},#{createDate},#{lastModifyDate},#{type},#{parentId},#{createBy}
+		)
+	</insert>
+	<select id="selectSingleByValue" resultType="TagPo" parameterType="TagQuery">
+		SELECT
+		<include refid="cols" />
+		FROM tag
+		WHERE
+		value = #{value}
+	</select>
+	<select id="selectListByArticleUuid" resultType="TagPo" parameterType="TagQuery">
+		SELECT
+		<include refid="cols" />
+		FROM tag
+		WHERE
+		value = #{value}
+	</select>
+
+
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		FROM tag ad
+		WHERE
+		1=1
+		<if test="null!= createBy and '' != createBy">
+		AND createby = #{createBy}
+		</if>
+		<if test="null!= type and '' != type">
+		AND type = #{type}
+		</if>
+		<if test="null!= articleUuid and '' != articleUuid">
+		AND tagid in ( SELECT tagid FROM articletaglink where
+		 <if test="null!= effected and '' != effected">
+		 	effected = #{effected} AND 
+		 </if>
+		 articleuuid=#{articleUuid})
+		</if>
+		<if test="null!= username and '' != username">
+		AND tagid in ( SELECT tagid FROM articletaglink where 
+		 <if test="null!= effected and '' != effected">
+		 	effected = #{effected} AND 
+		 </if>
+		 articleuuid in (SELECT uuid FROM article where username=#{username}))
+		</if>
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="TagPo" parameterType="TagQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="TagQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		) c 
+	</select>
+</mapper>

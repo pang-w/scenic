@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IArticleDao">
+	<sql id="cols">
+		articleid AS id,
+		title AS title,
+		keyword AS keyword,
+		username AS username,
+		uuid AS uuid,
+		content AS content,
+		description AS description,
+		createdate AS createDate,
+		lastmodify AS lastModifyDate,
+		defaultimageurl AS defaultImageUrl
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="ArticlePo">
+		INSERT INTO article (
+		articleid, title, keyword, uuid, username, content,createdate,lastmodify,description,defaultimageurl
+		)
+		VALUES
+		(
+		#{id}, #{title}, #{keyword}, #{uuid}, #{username},#{content},#{createDate},#{lastModifyDate},#{description},#{defaultImageUrl}
+		)
+	</insert>
+	<select id="selectSingle" resultType="ArticlePo" parameterType="ArticleQuery">
+		SELECT
+		<include refid="cols" />
+		FROM article
+		WHERE
+		uuid = #{uuid}
+		<if test="null!= isPublished and '' != isPublished">
+		AND ispublished = #{isPublished}
+		</if>
+	</select>
+	<update id="updateByUniqueKey" parameterType="ArticlePo">
+		UPDATE
+		article
+		SET
+		title=#{title},
+		keyword=#{keyword},
+		content=#{content},
+		lastmodify=#{lastModifyDate},
+		description=#{description},
+		defaultimageurl=#{defaultImageUrl}
+		WHERE
+		uuid = #{uuid}
+	</update>
+	<update id="updatePublishStatus" parameterType="ArticlePo">
+		UPDATE
+		article
+		SET
+		ispublished=#{isPublished}
+		
+		WHERE
+		uuid = #{uuid}
+	</update>
+	
+	
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		FROM article ad
+		WHERE
+		1=1
+		<if test="null!= username and '' != username">
+		AND username = #{username}
+		</if>
+		<if test="null!= isPublished and '' != isPublished">
+		AND ispublished = #{isPublished}
+		</if>
+		<if test="null!= tag and '' != tag">
+		AND uuid in ( SELECT articleuuid FROM articletaglink where tagid in (select tagid from tag where value like concat('%', #{tag}, '%')))
+		</if>
+		
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="ArticlePo" parameterType="ArticleQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="ArticleQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		) c
+	</select>
+</mapper>

@@ -35,6 +35,11 @@ public class AuthUserAction extends BaseAction {
     ResponseData rd = new ResponseData();
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
+      if(logedUser.getRecCode().equals("zzuli")){
+        rd.setStatus("5006");
+        rd.setMsg("无管理用户权限");
+        return rd;
+      }
       UserQuery query = new UserQuery();
       query.setUsername(userDto.getUsername());
       UserPo userDb = userDao.selectByUsername(query);
@@ -83,10 +88,17 @@ public class AuthUserAction extends BaseAction {
 
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
-      
+      if(logedUser.getRecCode().equals("zzuli")){
+        rd.setStatus("5006");
+        rd.setMsg("无管理用户权限");
+        return rd;
+      }
       UserQuery query = new UserQuery();
       if(!logedUser.getUsername().equals(ADMIN)){
         query.setRecCode(logedUser.getUsername());
+      }
+      if (userDto.getPageIndex() != null) {
+        query.setPageIndex(userDto.getPageIndex());
       }
       query.setUsername(userDto.getUsername());
       List<UserPo> userPo = userDao.selectList(query);
@@ -119,6 +131,11 @@ public class AuthUserAction extends BaseAction {
 
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
+      if(logedUser.getRecCode().equals("zzuli")){
+        rd.setStatus("5006");
+        rd.setMsg("无管理用户权限");
+        return rd;
+      }
       UserPo userPo = new UserPo();
       userPo.setUsername(logedUser.getUsername());
       userPo.setNickname(userDto.getNickname());
@@ -136,6 +153,7 @@ public class AuthUserAction extends BaseAction {
   @RequestMapping("deleteUser")
   public ResponseData deleteUser(HttpServletRequest request, @RequestBody UserVo userDto) {
     ResponseData rd = new ResponseData();
+    
     if(ADMIN.equals(userDto.getUsername())){
       rd.setStatus("4001");
       rd.setMsg("");
@@ -143,6 +161,11 @@ public class AuthUserAction extends BaseAction {
     }
     UserVo logedUser = getLogedUser(request);
     if (logedUser != null) {
+      if(logedUser.getRecCode().equals("zzuli")){
+        rd.setStatus("5006");
+        rd.setMsg("无管理用户权限");
+        return rd;
+      }
       userDao.deleteByUniqueKey(userDto.getUsername());
     } else {
       rd.setStatus("4001");

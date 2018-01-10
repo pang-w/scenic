@@ -95,10 +95,10 @@ function removeSol(caseId) {
     };
     support.ajax("pro/remove", data, function (data) {
             layer.msg(data.msg);
-            search("1")
+            search($("#pageIndex").html());
     });
 }
-function doChangePro(){
+function doChangePro(page){
 	var data = {
 			"caseId": $("#editcaseId").text(),
 			"name": $("#editname").val(),
@@ -109,10 +109,11 @@ function doChangePro(){
             "department": $("#editdepartment").val(),
             "testType": $("#edittestType").val(),
             "description": $("#editdescription").val(),
+            "pageIndex": page
     };
     support.ajax("pro/update", data, function (data) {
             layer.msg(data.msg);
-            search("1");
+            search($("#pageIndex").html());
     });
 };
 function changeSol(id

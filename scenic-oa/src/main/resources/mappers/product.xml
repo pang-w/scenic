@@ -117,6 +117,7 @@
 		<if test="null!= description and '' != description">
 		AND description like concat('%', #{description}, '%')
 		</if>
+		order by senddate
 	</sql>
 	<!-- 批次信息查询  -->
 	<select id="selectList" resultType="ProductPo" parameterType="ProductQuery">

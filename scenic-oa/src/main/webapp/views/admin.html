@@ -1,61 +1,307 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>人员管理系统</title>
-    <script src="../assets/js/import-css.js"></script>
+<meta charset="utf-8" />
+<title>人员管理系统</title>
+<script src="../assets/js/import-css.js"></script>
 </head>
 
+
 <body class="no-skin">
-<div id="navbar" class="navbar navbar-default ace-save-state"></div>
+	<div id="navbar" class="navbar navbar-default ace-save-state"></div>
 
-<div class="main-container ace-save-state" id="main-container">
-    <script type="text/javascript">
-        try {
-            ace.settings.loadState('main-container')
-        } catch (e) {
-        }
-    </script>
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try {
+				ace.settings.loadState('main-container')
+			} catch (e) {
+			}
+		</script>
 
-    <div id="sidebar" class="sidebar responsive ace-save-state"> </div>
+		<div id="sidebar" class="sidebar responsive ace-save-state"></div>
 
-    <div class="main-content">
-        <div class="main-content-inner">
-            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="index.html">首页</a>
-                    </li>
-                </ul><!-- /.breadcrumb -->
-            </div>
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li><i class="ace-icon fa fa-home home-icon"></i> <a
+							href="admin.html">首页</a></li>
+						<li class="active">人员管理</li>
+					</ul>
+					<!-- /.breadcrumb -->
+				</div>
 
-            <div class="page-content">
-                <div class="page-header">
-                    <h1>
-                        欢迎使用
-                    </h1>
-                </div><!-- /.page-header -->
+				<div class="page-content">
+					<div class="page-header">
+						<h1>人员查询</h1>
+					</div>
+					<!-- /.page-header -->
 
-                <div class="row">
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+							<div class="widget-box">
+								<div class="widget-header widget-header-blue widget-header-flat">
+									<h4 class="widget-title lighter">查询条件</h4>
+								</div>
+
+								<div class="widget-body">
+									<form class="form-horizontal" role="form">
+										<div class="widget-main">
+											<div id="fuelux-wizard-container">
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 姓名： </label>
+													<div class="col-sm-2">
+														<input type="text" id="name" placeholder="如 张三" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right">手机号：</label>
+													<div class="col-sm-2">
+														<input type="text" id="caseId" placeholder="人员唯一编号" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
+													<div class="col-sm-2">
+														<select id="sex">
+															<option value="">全部</option>
+															<option value="男">男</option>
+															<option value="女">女</option>
+														</select>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 是否付费： </label>
+													
+													<select id="age">
+															<option value="">全部</option>
+															<option value="是">是</option>
+															<option value="否">否</option>
+														</select>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 从事行业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="testResault" placeholder="从事行业" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 感兴趣行业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="testType" placeholder="样本类型" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 学院： </label>
+													<div class="col-sm-2">
+														<input type="text" id="doctor" placeholder="学院" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 专业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="department" placeholder="专业" class="col-xs-12"/>
+													</div>
+													
+													
+												</div>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 入学时间： </label>
+													<div class="col-sm-2">
+														<input type="date" id="sendDateStart" placeholder="入学时间" class="col-xs-12"/>
+														至<input type="date" id="sendDateEnd" placeholder="入学时间" class="col-xs-12"/>
+													</div>
+
+													
+													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
+													<div class="col-sm-4">
+														<input type="text" id="description" placeholder="描述信息" class="col-xs-12"/>
+													</div>
+												</div>
+											</div>
+											<hr/>
+											<div class="wizard-actions">
+												<button class="btn btn-block btn-primary" id="btnSearch" type="button">
+													<i class="ace-icon fa fa-search icon-on-right"></i>
+													查询
+												</button>
+											</div>
+											<hr/>
+											<div class="wizard-actions">
+												<button class="btn btn-primary" id="createExcel" type="button">
+													<i class="ace-icon fa fa-search icon-on-right"></i>
+													导出
+												</button>
+												<button class="btn btn-primary" id="dowloadExcel" type="button">
+													<i class="ace-icon fa fa-search icon-on-right"></i>
+													下载
+												</button>
+											</div>
+											
+										</div><!-- /.widget-main -->
+									</form>
+								</div>
+								<!-- /.widget-body -->
+							</div>
+							<div class="hr hr-18 dotted hr-double"></div>
+							<table class="table  table-bordered table-hover">
+								<thead>
+									<tr>
+
+										<td>姓名</td>
+										<td>性别</td>
+										<td>付费</td>
+										<td>从事行业</td>
+										<td>手机号</td>
+										<td>学院</td>
+										<td>专业</td>
+										<td>入学时间</td>
+										<td>感兴趣行业</td>
+										<td>描述</td>
+										<td>操作</td>
+
+									</tr>
+								</thead>
+								<tbody id="dataInfo"></tbody>
+								
+							</table>
+							<div class="row" id="pagination" style="display: none"></div>
+							<!-- PAGE CONTENT ENDS -->
+							<hr/>
+							<div id="changeInfo"></div>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /.page-content -->
+			</div>
+		</div>
+		<!-- /.main-content -->
+
+		<div id="footer" class="footer"></div>
+		<a href="#" id="btn-scroll-up"
+			class="btn-scroll-up btn btn-sm btn-inverse"> <i
+			class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div>
+	<!-- /.main-container -->
+
+	<script src="../assets/js/import-js.js"></script>
+	<script type="text/javascript">
+		var activeMenu = [ 11, 7 ];
+	</script>
+	<script src="../assets/js/load.js"></script>
+	<script src="../assets/js/pagination.js"></script>
+	<script src="../assets/ctrl/SolutionListCtrl.js"></script>
+	<script id="dataList" type="text/x-jsrender">
+			<tr>
+				<td>{{:name}}</td>
+				<td>{{:sex}}</td>
+				<td>{{:age}}</td>
+				<td>{{:testResault}}</td>
+				<td>{{:caseId}}</td>
+				<td>{{:doctor}}</td>
+				<td>{{:department}}</td>
+				<td>{{:sendDate}}</td>
+				<td>{{:testType}}</td>
+				<td>{{if deleteAble==true}}{{:description}}{{/if}}</td>
+				<td>
+				<div class="action-buttons">
+{{if deleteAble==true}}
+					<button class="btn btn-white btn-info btn-bold btn-minier" onclick="removeSol('{{:caseId}}');">
+                		<i class="ace-icon glyphicon fa-go"></i>删除
+            		</button>
+{{/if}}
+{{if updatgeAble}}
+				    <button class="btn btn-white btn-info btn-bold btn-minier" 
+						onclick="changeSol('{{:id}}','{{:name}}',
+				'{{:sex}}',
+				'{{:age}}',
+				'{{:testResault}}',
+				'{{:caseId}}',
+				'{{:doctor}}',
+				'{{:department}}',
+				'{{:sendDate}}',
+				'{{:reportDate}}',
+				'{{:testType}}',
+				'{{:description}}'
+						);">
+                		<i class="ace-icon glyphicon fa-go"></i>修改
+            		</button>
+{{/if}}
+				</div>
+				</td>
+			</tr>
+		</script>
+	<script id="changeSol" type="text/x-jsrender">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
+                        <div class="widget-box">
+                            <div class="widget-header widget-header-blue widget-header-flat">
+                                <h4 class="widget-title lighter">修改人员ID-<span id="editcaseId" >{{:caseId}}<span></h4>
+                            </div>
+                            <div class="widget-body">
+                                <form class="form-horizontal" role="form">
+										<div class="widget-main">
+											<div id="fuelux-wizard-container">
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 姓名： </label>
+													<div class="col-sm-2">
+														<input type="text" id="editname"  value="{{:name}}" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 性别： </label>
+													<div class="col-sm-2">
+														<select id="editsex"  value="{{:sex}}" >
+															<option value="男" {{if sex=='男'}}selected{{/if}}>男</option>
+															<option value="女" {{if sex=='女'}}selected{{/if}}>女</option>
+														</select>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 是否交费： </label>
+													<div class="col-sm-2">
+														<select id="editage"  value="{{:age}}" >
+															<option value="是" {{if age=='是'}}selected{{/if}}>是</option>
+															<option value="否" {{if age!='是'}}selected{{/if}}>否</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 从事行业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="edittestResault" placeholder="从事行业" value="{{:testResault}}" class="col-xs-12"/>
+													</div>
+													<label class="col-sm-1 control-label no-padding-right"> 学院： </label>
+													<div class="col-sm-2">
+														<input type="text" id="editdoctor" placeholder="学院" value="{{:doctor}}" class="col-xs-12"/>
+													</div>
+
+													<label class="col-sm-1 control-label no-padding-right"> 专业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="editdepartment" placeholder="专业" value="{{:department}}" class="col-xs-12"/>
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-1 control-label no-padding-right"> 感兴趣行业： </label>
+													<div class="col-sm-2">
+														<input type="text" id="edittestType" placeholder="样本类型" value="{{:testType}}" class="col-xs-12"/>
+													</div>
+
+
+													<label class="col-sm-1 control-label no-padding-right"> 描述信息： </label>
+													<div class="col-sm-4">
+														<input type="text" id="editdescription" placeholder="描述信息" value="{{:description}}" class="col-xs-12"/>
+													</div>
+												</div>
+											</div>
+											<hr/>
+											<div class="wizard-actions">
+												<div class="btn btn-block btn-primary" onclick="doChangePro()">
+													<i class="ace-icon fa fa-search icon-on-right"></i>
+													提交
+												</div>
+											</div>
+										</div><!-- /.widget-main -->
+									</form>
+
+                            </div><!-- /.widget-body -->
+                        </div>
+                        <div class="row" id="pagination" style="display: none"></div>
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.page-content -->
-        </div>
-    </div><!-- /.main-content -->
-
-    <div id="footer" class="footer"></div>
-
-    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-        <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-    </a>
-</div><!-- /.main-container -->
-
-<script src="../assets/js/import-js.js"></script>
-<script type="text/javascript">var activeMenu = [1];</script>
-<script src="../assets/js/load.js"></script>
+	</script>
 </body>
 </html>

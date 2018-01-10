@@ -25,7 +25,7 @@
 				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 					<ul class="breadcrumb">
 						<li><i class="ace-icon fa fa-home home-icon"></i> <a
-							href="index.html">首页</a></li>
+							href="admin.html">首页</a></li>
 						<li class="active">人员管理</li>
 					</ul>
 					<!-- /.breadcrumb -->
@@ -140,10 +140,9 @@
 								<thead>
 									<tr>
 
-										<td>系统编号</td>
 										<td>姓名</td>
 										<td>性别</td>
-										<td>是否付费</td>
+										<td>付费</td>
 										<td>从事行业</td>
 										<td>手机号</td>
 										<td>学院</td>
@@ -151,7 +150,7 @@
 										<td>入学时间</td>
 										<td>感兴趣行业</td>
 										<td>描述</td>
-										<td>
+										<td>操作</td>
 
 									</tr>
 								</thead>
@@ -189,7 +188,6 @@
 	<script src="../assets/ctrl/SolutionListCtrl.js"></script>
 	<script id="dataList" type="text/x-jsrender">
 			<tr>
-				<td>{{:id}}</td>
 				<td>{{:name}}</td>
 				<td>{{:sex}}</td>
 				<td>{{:age}}</td>
@@ -199,12 +197,15 @@
 				<td>{{:department}}</td>
 				<td>{{:sendDate}}</td>
 				<td>{{:testType}}</td>
-				<td>{{:description}}</td>
+				<td>{{if deleteAble==true}}{{:description}}{{/if}}</td>
 				<td>
 				<div class="action-buttons">
+{{if deleteAble==true}}
 					<button class="btn btn-white btn-info btn-bold btn-minier" onclick="removeSol('{{:caseId}}');">
                 		<i class="ace-icon glyphicon fa-go"></i>删除
             		</button>
+{{/if}}
+{{if updatgeAble}}
 				    <button class="btn btn-white btn-info btn-bold btn-minier" 
 						onclick="changeSol('{{:id}}','{{:name}}',
 				'{{:sex}}',
@@ -220,6 +221,7 @@
 						);">
                 		<i class="ace-icon glyphicon fa-go"></i>修改
             		</button>
+{{/if}}
 				</div>
 				</td>
 			</tr>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IArticleProductLinkDao">
+	<sql id="cols">
+		articleproductlinkid AS id,
+		articleuuid AS articleUuid,
+		productid AS productId,
+		effected AS effected,
+		createdate AS createDate,
+		lastmodifydate AS lastModifyDate
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="ArticleProductLinkPo">
+		INSERT INTO articleproductlink (
+		articleproductlinkid, articleuuid, productid, effected,createdate,lastmodifydate
+		)
+		VALUES
+		(
+		#{id}, #{articleUuid}, #{productId}, #{effected},#{createDate},#{lastModifyDate}
+		)
+	</insert>
+	<update id="disableTagsByArticleUuid" parameterType="java.lang.String">
+		UPDATE
+		articleproductlink
+		SET
+		effected=false
+		WHERE
+		articleuuid = #{_parameter}
+	</update>
+	<update id="enableTagById" parameterType="java.lang.Integer">
+		UPDATE
+		articleproductlink
+		SET
+		effected=true
+		WHERE
+		articleproductlinkid = #{_parameter}
+	</update>
+	<select id="selectSingle" resultType="ArticleProductLinkPo" parameterType="ArticleProductLinkQuery">
+		SELECT
+		<include refid="cols" />
+		FROM articleproductlink
+		WHERE
+		articleuuid = #{articleUuid}
+		AND
+		productid = #{productId}
+	</select>
+
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		FROM articleproductlink ad
+		WHERE
+		1=1
+		<if test="null!= username and '' != username">
+		AND username = #{username}
+		</if>
+		<if test="null!= isPublished and '' != isPublished">
+		AND ispublished = #{isPublished}
+		</if>
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="ArticleProductLinkPo" parameterType="ArticleProductLinkQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="ArticleProductLinkQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		) c
+	</select>
+</mapper>

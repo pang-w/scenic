@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IMessageLikeDao">
+	<sql id="cols">
+		messagelikeid AS id,
+		messageid AS messageId,
+		actionuser AS actionUser,
+		createdate AS createDate,
+		lastmodifydate AS lastModifyDate
+
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="Collection">
+		INSERT INTO messagelike (
+		messageid , actionuser, createdate,lastmodifydate
+		)
+		VALUES
+		(
+		#{messageId},#{actionUser},#{createDate},#{lastModifyDate}
+		)
+	</insert>
+
+	<select id="countByLikedUser" resultType="int" parameterType="MessageLikeQuery">
+		SELECT count(*)
+		FROM messagelike
+		WHERE
+		belikeduser = #{belikedUser}
+	</select>
+
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		FROM messagelike ad
+		
+		left join
+		(SELECT messageid as messageId, count(messageid) as likedCout FROM messagelike group by messageid) ml
+		on ad.articlemessageid = ml.messageid
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="MessageLikePo" parameterType="MessageLikeQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="MessageLikeQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		) c
+	</select>
+</mapper>

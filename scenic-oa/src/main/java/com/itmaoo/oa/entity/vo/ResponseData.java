@@ -10,8 +10,17 @@ public class ResponseData extends BaseVo{
 	private String status = "0000";
 	private String msg = "处理成功";
 	private Object data;
+	private Integer pageIndex;
+	
+	public Integer getPageIndex() {
+    return pageIndex;
+  }
 
-	public String getStatus() {
+  public void setPageIndex(Integer pageIndex) {
+    this.pageIndex = pageIndex;
+  }
+
+  public String getStatus() {
 		return status;
 	}
 

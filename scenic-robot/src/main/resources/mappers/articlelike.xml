@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itmaoo.scenic.dao.IArticleLikeDao">
+	<sql id="cols">
+		articlelikeid AS id,
+		articleuuid AS articleUuid,
+		actionuser AS actionUser,
+		createdate AS createDate,
+		lastmodifydate AS lastModifyDate
+
+	</sql>
+	<sql id="pageHead">
+		SELECT * FROM(SELECT pg.*, @rownum:=@rownum+1 AS rn FROM(
+	</sql>
+	<sql id="pageFoot">
+	<![CDATA[ ) pg , (SELECT @rownum:=0) r) a WHERE rn <=#{endIndex} AND rn >=#{startIndex} ]]>
+	</sql>
+	
+	<!-- 新增检查表 -->
+	<insert id="insert" parameterType="Collection">
+		INSERT INTO articlelike (
+		articleuuid , actionuser, createdate
+		)
+		VALUES
+		(
+		#{articleUuid},#{actionUser},#{createDate}
+		)
+	</insert>
+
+	<select id="countByArticleUuid" resultType="int" parameterType="ArticleLikeQuery">
+		SELECT count(*)
+		FROM articlelike
+		WHERE
+		articleuuid = #{articleUuid}
+	</select>
+
+	
+	<sql id="collectionList">
+		SELECT
+		<include refid="cols" />
+		FROM user ad
+		ORDER BY createdate DESC
+	</sql>
+	<!-- 批次信息查询  -->
+	<select id="selectList" resultType="ArticleLikePo" parameterType="ArticleLikeQuery">
+		<include refid="pageHead" />
+		<include refid="collectionList" />
+		<include refid="pageFoot" />
+	</select>
+	<!-- 批次信息数量  -->
+	<select id="selectListCount" resultType="int" parameterType="ArticleLikeQuery">
+		SELECT count(*) FROM (
+		<include refid="collectionList" />
+		) c
+	</select>
+</mapper>
