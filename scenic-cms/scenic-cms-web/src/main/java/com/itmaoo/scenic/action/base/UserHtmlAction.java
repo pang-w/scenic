@@ -32,6 +32,8 @@ import com.itmaoo.scenic.entity.query.ProductQuery;
 import com.itmaoo.scenic.entity.query.TagQuery;
 import com.itmaoo.scenic.entity.query.UserQuery;
 import com.itmaoo.scenic.entity.support.EntityUtil;
+import com.itmaoo.scenic.wechat.SignConfig;
+import com.itmaoo.scenic.wechat.WechatUtil;
 
 @Controller
 public class UserHtmlAction extends BaseAction {
@@ -116,7 +118,7 @@ public class UserHtmlAction extends BaseAction {
 			map.put("article", articlePoToDto);
 			map.put("imgDomain", imgDomain);
 			map.put("articleUuid", uuid);
-
+			map.put("wechatSign", WechatUtil.getSign("/a/"+uuid));
 			ModelAndView mv = new ModelAndView("iukiss/article");
 			return mv;
 		}

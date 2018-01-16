@@ -79,7 +79,6 @@
 							<li><a href="/tags/装修">装修</a></li>
 							<li><a href="/tags/办事流程">办事流程</a></li>
 							<li><a href="/tags/IT技能">IT技能</a></li>
-							<li><a href="/zzuli.html">轻院上海活动</a></li>
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
@@ -118,6 +117,12 @@
 				<#include "components/indexArticleLoop.ftl">
 
 				<aside class="col-md-4 sidebar">
+					<!-- start widget -->
+					<div class="widget">
+						<h4 class="title">微信公众号：ITMAOO</h4>
+						<img src="http://img.iukiss.com/pay/qrcode_for_gh_2323c5fdb057_258.jpg"/>
+					</div>
+					<!-- end widget -->
 					<!-- start widget -->
 					<div class="widget">
 						<h4 class="title">写文章</h4>

@@ -65,6 +65,8 @@ function loadIndexAll(){
 	            
 		        $scope.asideTags = result.data.data.asideTags;
 		        $scope.linkedProduct = result.data.data.linkedProducts;
+
+		    
 			}
 	    
 	    });

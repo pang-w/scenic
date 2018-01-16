@@ -14,6 +14,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="origin">
 <meta name="generator" content="IUKISS 1.0.0">
+<meta name="sharecontent" data-msg-img="http://img.iukiss.com/img/user/tianlang/k2-qingdan.png" data-msg-title="你的标题" 	
+	data-msg-content="你的简介" data-msg-callBack="" 
+	data-line-img="http://img.iukiss.com/img/user/tianlang/dsc_0781.jpg" data-line-title="你的标题" data-line-callBack=""/>
 
 <link rel="canonical" href="/">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -32,7 +35,48 @@
 <script type="text/javascript" src="../assets/ctrl/base.js"></script>
 <script type="text/javascript" src="../assets/ctrl/articleLoad.js"></script>
 <script type="text/javascript" src="../assets/base/js/angular.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
+ <script>
+	wx.config({
+		appId : 'wx8f820f6d06dbb6d8',
+		timestamp : '${wechatSign.timestamp}',
+		nonceStr : '${wechatSign.noncestr}',
+		signature : '${wechatSign.signature}',
+		jsApiList : [ 'onMenuShareTimeline', 'onMenuShareAppMessage' ]
+	});
+
+	wx.ready(function() {
+
+		wx.onMenuShareTimeline({
+			title : '${article.title}', // 分享标题
+			link : 'http://www.itmaoo.com/a/${article.uuid}', // 分享链接
+			imgUrl : 'http://www.itmaoo.com/favicon.ico', // 分享图标
+			success : function() {
+				// 用户确认分享后执行的回调函数
+			},
+			cancel : function() {
+				// 用户取消分享后执行的回调函数
+			}
+		});
+
+		wx.onMenuShareAppMessage({
+			title : '${article.title}', // 分享标题
+			desc : '${article.description}', // 分享描述
+			link : 'http://www.itmaoo.com/a/${article.uuid}', // 分享链接
+			imgUrl : 'http://www.itmaoo.com/favicon.ico', // 分享图标
+			type : '', // 分享类型,music、video或link，不填默认为link
+			dataUrl : '', // 如果type是music或video，则要提供数据链接，默认为空
+			success : function() {
+				// 用户确认分享后执行的回调函数
+			},
+			cancel : function() {
+				// 用户取消分享后执行的回调函数
+			}
+		});
+
+	});
+ </script>
 </head>
 
 <body class="home-template" ng-app="iukissApp"
@@ -156,6 +200,12 @@
 				</main>
 
 				<aside class="col-md-4 sidebar">
+					<!-- start widget -->
+					<div class="widget">
+						<h4 class="title">微信公众号：ITMAOO</h4>
+						<img src="http://img.iukiss.com/pay/qrcode_for_gh_2323c5fdb057_258.jpg"/>
+					</div>
+					<!-- end widget -->
 					<!-- start tag cloud widget -->
 					<#include "components/asideTags.ftl"> <!-- end tag cloud widget -->
 				</aside>

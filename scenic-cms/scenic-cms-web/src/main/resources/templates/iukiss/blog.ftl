@@ -44,8 +44,15 @@
 	<section class="content-wrap">
 		<div class="container">
 			<div class="row">
+			
 				<#include "components/userBlogArticleLoop.ftl">
 				<aside class="col-md-4 sidebar">
+					<!-- start widget -->
+					<div class="widget">
+						<h4 class="title">微信公众号：ITMAOO</h4>
+						<img src="http://img.iukiss.com/pay/qrcode_for_gh_2323c5fdb057_258.jpg"/>
+					</div>
+					<!-- end widget -->
 					<!-- start widget -->
 					<div class="widget">
 						<h4 class="title">写文章</h4>
