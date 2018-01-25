@@ -1,0 +1,28 @@
+package com.scenic.wechat.server;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import com.scenic.wechat.server.enums.EventType;
+import com.scenic.wechat.server.enums.MessageType;
+
+/**
+ * author: 980463316@qq.com <br/>
+ * created on 2016/8/13 11:29.
+ * 用来标注真正处理消息的处理器，该注解只能标注在 AbstractMessageHandler的子类下
+ * @see com.scenic.wechat.server.handler.AbstractMessageHandler AbstractMessageHandler <br/>
+ *
+ */
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+public @interface MessageProcessor {
+
+    //标识要处理的消息类型
+    MessageType messageType() default MessageType.TEXT_MESSAGE;
+
+    //需要处理的事件类型，注意：只有当messageType = MessageType.EVENT的时候，该值才有用
+    EventType eventType() default EventType.NULL;
+
+}

@@ -63,8 +63,38 @@
 		WHERE
 		uuid = #{uuid}
 	</update>
+	<sql id="searchSql">
+		SELECT
+		<include refid="cols" />
+		FROM article ad
+		WHERE
+		1=1
+		
+		<if test="null!= isPublished and '' != isPublished">
+		AND ispublished = #{isPublished}
+		</if>
+		<if test="null!= tag and '' != tag">
+		AND uuid in ( SELECT articleuuid FROM articletaglink where tagid in (select tagid from tag where value like concat('%', #{tag}, '%')))
+		</if>
+		
+		<if test="null!= title and '' != title">
+		AND title like concat('%', #{title}, '%')
+		</if>
+		<if test="null!= username and '' != username">
+		AND username like concat('%', #{username}, '%')
+		</if>
+		<if test="null!= content and '' != content">
+		AND content like concat('%', #{content}, '%')
+		</if>
+		ORDER BY createdate DESC
+	</sql>
 	
-	
+<!-- 批次信息查询  -->
+	<select id="searchList" resultType="ArticlePo" parameterType="ArticleQuery">
+		<include refid="pageHead" />
+		<include refid="searchSql" />
+		<include refid="pageFoot" />
+	</select>
 	
 	<sql id="collectionList">
 		SELECT

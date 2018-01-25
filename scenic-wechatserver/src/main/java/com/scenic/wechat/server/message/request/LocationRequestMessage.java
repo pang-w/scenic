@@ -1,0 +1,84 @@
+package com.scenic.wechat.server.message.request;
+
+import com.scenic.wechat.server.enums.MessageType;
+
+import lombok.Data;
+
+/**
+ * 对地理位置消息的封装
+ * Created by jonnyliu-ds8 on 2016/8/5.
+ */
+@Data
+public class LocationRequestMessage extends BaseRequestMessage {
+
+    /**
+     *消息id，64位整型
+     */
+    private long MsgId;
+
+    /**
+     * 地理位置维度
+     */
+    private String Location_X;
+
+    /**
+     * 地理位置经度
+     */
+    private String Location_Y;
+
+    /**
+     * 地图缩放大小
+     */
+    private String Scale;
+
+    /**
+     * 地理位置信息
+     */
+    private String Label;
+
+    public long getMsgId() {
+		return MsgId;
+	}
+
+	public void setMsgId(long msgId) {
+		MsgId = msgId;
+	}
+
+	public String getLocation_X() {
+		return Location_X;
+	}
+
+	public void setLocation_X(String location_X) {
+		Location_X = location_X;
+	}
+
+	public String getLocation_Y() {
+		return Location_Y;
+	}
+
+	public void setLocation_Y(String location_Y) {
+		Location_Y = location_Y;
+	}
+
+	public String getScale() {
+		return Scale;
+	}
+
+	public void setScale(String scale) {
+		Scale = scale;
+	}
+
+	public String getLabel() {
+		return Label;
+	}
+
+	public void setLabel(String label) {
+		Label = label;
+	}
+
+	@Override
+    public String getMsgType() {
+        return MessageType.LOCATION_MESSAGE.getTypeStr();
+    }
+
+}

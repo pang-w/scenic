@@ -1,0 +1,9 @@
+<xml>
+	<URL><![CDATA[http://itmaoo.com]]></URL>
+	<ToUserName><![CDATA[test]]></ToUserName>
+	<FromUserName><![CDATA[test]]></FromUserName>
+	<CreateTime>1234</CreateTime>
+	<MsgType><![CDATA[text]]></MsgType>
+	<Content><![CDATA[asdf]]></Content>
+	<MsgId>123</MsgId>
+</xml>
