@@ -18,7 +18,7 @@
 	<context:annotation-config />
 	<task:annotation-driven />
 	<context:property-placeholder location="classpath:application.properties" />
-	<import resource="classpath*:/spring-db.xml" />
+	<!-- <import resource="classpath*:/spring-db.xml" /> -->
 
 	<!-- 服务注入 -->
 	<context:component-scan base-package="com.itmaoo.scenic" />

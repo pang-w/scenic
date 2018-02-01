@@ -1,0 +1,70 @@
+<meta charset="utf-8"/>
+
+<div class="navbar-container ace-save-state" id="navbar-container">
+    <div class="navbar-header pull-left">
+        <a href="index.html" class="navbar-brand">
+            <small>
+                <i class="fa fa-leaf"></i>
+                病例管理系统
+            </small>
+        </a>
+    </div>
+    <div class="navbar-buttons navbar-header pull-right" role="navigation">
+        <ul class="nav ace-nav">
+            <li class="light-blue dropdown-modal">
+                <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                    <img class="nav-user-photo" src="../assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                    <span class="user-info">
+						<small>欢迎,</small>
+						<span id="loginUsr"></span>
+					</span>
+                    <i class="ace-icon fa fa-caret-down"></i>
+                </a>
+                <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                    <li>
+                        <a href="#" data-target="#reset-password-box">
+                            <i class="ace-icon fa fa-cog"></i>
+                            修改密码
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="javascript:void(0);" onclick="logout();">
+                            <i class="ace-icon fa fa-power-off"></i>
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div><!-- /.navbar-container -->
+
+<div id="reset-password-box" class="forgot-box widget-box no-border" style="display: none;">
+    <div class="widget-body">
+        <div class="widget-main">
+            <form>
+                <fieldset>
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="password" id="newPwd" class="form-control" placeholder="新密码"/>
+                            <i class="ace-icon fa fa-lock"></i>
+                        </span>
+                    </label>
+                    <label class="block clearfix">
+                        <span class="block input-icon input-icon-right">
+                            <input type="password" id="conPwd" class="form-control" placeholder="确认密码"/>
+                            <i class="ace-icon fa fa-lock"></i>
+                        </span>
+                    </label>
+                    <div class="clearfix">
+                        <button type="button" onclick="chnagePwd()" class="width-35 pull-right btn btn-sm btn-danger">
+                            <i class="ace-icon fa fa-lightbulb-o"></i>
+                            <span class="bigger-110">修改密码</span>
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div><!-- /.widget-main -->
+    </div><!-- /.widget-body -->
+</div><!-- /.forgot-box -->

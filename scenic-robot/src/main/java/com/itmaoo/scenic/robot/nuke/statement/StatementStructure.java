@@ -1,6 +1,6 @@
 package com.itmaoo.scenic.robot.nuke.statement;
 
-public interface Statement {
+public interface StatementStructure {
 	
 
 }

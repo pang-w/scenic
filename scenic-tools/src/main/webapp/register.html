@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://www.iukiss.com/ -->
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>注册_IUKISS-传播价值</title>
+<meta name="description" content="IUKISS是一个简洁、强大的消费故事写作分享平台。在IUKISS可以方便的记录物品给你带来的便捷，也可以看到同一个物品鲜为人知的价值，IUKISS只求事情和物品完美的结合。">
+<meta name="keywords" content="IUKISS 写作 记录 商品 消费故事">
+
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="origin">
+<meta name="generator" content="IUKISS 1.0.0">
+
+<link rel="canonical" href=".">
+<link rel="shortcut icon" href="./favicon.ico">
+<link rel="next" href=".">
+
+<link rel="stylesheet" href="/assets/base/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/base/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/base/css/screen.css">
+<link rel="stylesheet" href="/assets/css/iukiss.css">
+<link rel="stylesheet" href="/assets/css/register.css">
+
+<script type="text/javascript" src="/assets/base/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/assets/base/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/base/layer/layer.js"></script>
+<script type="text/javascript" src="/assets/base/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="/assets/ctrl/index.js"></script>
+<script type="text/javascript" src="/assets/ctrl/base.js"></script>
+<script type="text/javascript" src="/assets/ctrl/register.js"></script>
+
+<script type="text/javascript" src="/assets/ctrl/indexLoad.js"></script>
+<script type="text/javascript" src="/assets/base/js/angular.min.js"></script>
+</head>
+
+<body class="home-template" ng-app="iukissApp" ng-controller="iukissCtrl">
+		<!-- start navigation -->
+	<nav class="main-navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="navbar-header">
+                        <span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-bars"></i>
+                        </span>
+					</div>
+					<div class="collapse navbar-collapse" id="main-menu">
+						<ul class="nav navbar-nav">
+							<li><a href="/">IUKISS</a></li>
+							<li><a href="/articles.html">文章</a></li>
+							<li><a href="/products.html">商品</a></li>
+						</ul>
+
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/tags/游记">游记 <span
+									class="sr-only">(current)</span></a></li>
+							<li><a href="/tags/装修">装修</a></li>
+							<li><a href="/tags/办事流程">办事流程</a></li>
+							<li><a href="/tags/IT技能">IT技能</a></li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/register.html">注册</a></li>
+							<li id="loginLayerOutBtn"><a onclick="support.layerLogin()">登录</a></li>
+							<li id="loggedDropdown" class="dropdown">
+								<a	id="loggedUesername" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/profile.html">个人资料</a></li>
+									<li data-filter-camera-type="Zed"><a
+											onclick="support.layerChangePassword()">修改密码</a></li>
+									<li data-filter-camera-type="Bravo"><a
+											onclick="support.logout()">退出</a></li>
+								</ul></li>
+						</ul>
+						<!-- <form class="navbar-form navbar-right">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search">
+							</div>
+							<button type="submit" class="btn btn-default">搜</button>
+						</form> -->
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- end navigation -->
+
+
+	<!-- start site's main content area -->
+	<section class="content-wrap">
+		<div class="container">
+			<div class="row">
+				<main class="col-md-8 main-content">
+
+				<article id="108" class="post">
+					<aside class="col-md-4 sidebar">
+						<i class="fa fa-user fa-5x"></i>
+					</aside>
+					<div class="row">
+						<div>
+							<p>{{topUser.signature}}</p>
+						</div>
+						<div class="pull-right">
+							<input id="signatureLikedUsername" type="hidden" value="{{topUser.username}}"/>
+							<span class="author"><a	href="/i/{{topUser.username}}">{{topUser.nickname}}</a></span> •
+							<time class="post-date" datetime="2017年10月25日星期三下午4点57分"
+								title="2017年10月25日星期三下午4点57分">{{topUser.createDate}}</time>
+							| {{topUser.signatureLikedCount}}赞<span class='btn'
+								id="likeSignatureBtn"><i class="fa fa-heart"></i> 点赞</span>
+						</div>
+					</div>
+				</article>
+				<article id="94" class="post tag-release tag-about-ghost">
+
+                        		<fieldset style="display: block;">
+		                        	<div class="form-top">
+		                        		<div class="form-top-left">
+		                        			<h3>注册用户_IUKISS生活消费记录平台</h3>
+		                            		<p>填写基本信息（目前仅对持有 [邀请码] 的用户开放注册）</p>
+		                        		</div>
+		                        		<div class="form-top-right">
+		                        			<i class="fa fa-user"></i>
+		                        		</div>
+		                            </div>
+		                            <div class="form-bottom">
+		                            	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">邀请码</label>
+				                        	<input type="text" placeholder="邀请码（能且只能向已注册的用户索取）..." class="form-control" id="user-rec-code">
+				                        </div>
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">登录名</label>
+				                        	<input type="text" placeholder="登录名..." class="form-control" id="user-name">
+				                        </div>
+				                         <div class="form-group">
+				                        	<label class="sr-only" for="user-nick-name">昵称</label>
+				                        	<input type="text" placeholder="昵称..." class="form-control" id="user-nick-name">
+				                        </div>
+				                        <div class="form-group">
+				                    		<label class="sr-only" for="form-facebook">密码</label>
+				                        	<input type="password" placeholder="密码..." class="form-control" id="user-password">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-twitter">确认密码</label>
+				                        	<input type="password" placeholder="确认密码..." class="form-control" id="user-password-confirm">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-about-yourself">签名</label>
+				                        	<textarea name="form-about-yourself" placeholder="一句对你影响深刻的话....." class="form-control" id="user-signature"></textarea>
+				                        </div>
+
+				                        <button id="registBtn" class="btn btn-default">注册</button>
+				                    </div>
+			                    </fieldset>
+		                    
+				</article>
+
+				</main>
+
+				<aside class="col-md-4 sidebar">
+					<!-- start widget -->
+					<div class="widget">
+						<h4 class="title">写文章</h4>
+						<div class="content download">
+							<input id="createArticle" type="button"
+								class="btn btn-default btn-block" value="写事专用" />
+						</div>
+					</div>
+					<!-- end widget -->
+
+					<!-- start resource widget -->
+					<div id="loggedInfo" class="widget">
+						<h4 class="title">我的资源</h4>
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseArticleAction">我的文章</div>
+								<div id="collapseArticle" class="panel-collapse collapse">
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in articleMenu.dataList">
+											<a href="/a/{{a.uuid}}" target="_blank">{{a.title }}</a>
+											<a href="/action/edit/article/{{a.uuid}}"> <i class="pull-right fa fa-edit"></i></a>
+										</li>
+										<li class="list-group-item">
+
+												<span ng-if="articleMenu.pageIndex!=1" class="btn" class="older-posts" id="pagePrevious" ng-click="searchMenuArticlePrevious()">
+												<i class="fa fa-angle-left"></i></span>
+												
+												<span class="page-number">第 <span id="menuArticlePageIndex">{{articleMenu.pageIndex}}</span> 页 ⁄ 共 
+												<span id="totalPage">{{articleMenu.totalPage}}</span> 页</span>
+												
+												<span  ng-if="articleMenu.pageIndex!=articleMenu.totalPage" class="btn" class="older-posts" id="pageNext" ng-click="searchMenuArticleNext()">
+												<i class="fa fa-angle-right"></i></span>
+											
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="panel panel-success">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseAttentionAction">我的收藏</div>
+								<div id="collapseAttention" class="panel-collapse collapse">
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in attentionMenu">
+											<a href="/a/{{a.uuid}}" target="_blank">{{a.title }}</a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+							<div class="panel panel-info">
+								<div class='btn-block panel-heading panel-title' id="collapseProductAction">
+									我的商品 <a onclick="support.layerAddProduct()"> <i class="pull-right fa fa-edit"></i></a>
+								</div>
+								<div id="collapseProduct" class="panel-collapse collapse">
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in productMenu.dataList">
+											<a ng-click="layerViewProduct(a)">{{ a.name }}</a> <a
+											class='btn pull-right' ng-click="ngEditProduct(a.id)"> <i
+												class="pull-right fa fa-edit"></i>
+											</a>
+										</li>
+										<li class="list-group-item">
+												<span ng-if="productMenu.pageIndex!=1" class="btn" class="older-posts" id="pagePrevious" ng-click="searchMenuProductPrevious()">
+												<i class="fa fa-angle-left"></i></span>
+												
+												<span class="page-number">第 <span id="menuProductPageIndex">{{productMenu.pageIndex}}</span> 页 ⁄ 共 
+												<span id="totalPage">{{productMenu.totalPage}}</span> 页</span>
+												
+												<span  ng-if="productMenu.pageIndex!=productMenu.totalPage" class="btn" class="older-posts" id="pageNext" ng-click="searchMenuProductNext()">
+												<i class="fa fa-angle-right"></i></span>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="panel panel-warning">
+								<div class='btn-block panel-heading panel-title'
+									id="collapseImageAction">我的图片</div>
+								<div id="collapseImage" class="panel-collapse collapse">
+									<ul class="list-group panel-body">
+										<li class="list-group-item" ng-repeat="a in imageMenu.dataList"><a
+											ng-click='ngShowImg(a.url)'>{{ a.imageName }}</a></li>
+										<li class="list-group-item">
+												<span ng-if="imageMenu.pageIndex!=1" class="btn" class="older-posts" id="pagePrevious" ng-click="searchMenuImagePrevious()">
+												<i class="fa fa-angle-left"></i></span>
+												
+												<span class="page-number">第 <span id="menuImagePageIndex">{{imageMenu.pageIndex}}</span> 页 ⁄ 共 
+												<span id="totalPage">{{imageMenu.totalPage}}</span> 页</span>
+												
+												<span  ng-if="imageMenu.pageIndex!=imageMenu.totalPage" class="btn" class="older-posts" id="pageNext" ng-click="searchMenuImageNext()">
+												<i class="fa fa-angle-right"></i></span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end resource widget -->
+				</aside>
+			</div>
+		</div>
+	</section>
+
+	<footer class="main-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="widget">
+						<h4 class="title">最新文章</h4>
+						<div class="content recent-post">
+							<div class="recent-single-post">
+								<a href="/article/FBDF1D49.html" class="post-title">顺应时代才能缔造时代</a>
+								<div class="date">2017年11月16日</div>
+							</div>
+							<div class="recent-single-post">
+								<a href="/article/B7F48C3D.html" class="post-title">IUKISS 1.0 版本正式发布</a>
+								<div class="date">2017年11月11日</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="widget">
+						<h4 class="title">标签云</h4>
+						<div class="content tag-cloud">
+							<a href="/tags/about-ghost">IUKISS</a> <a href="/tags/release">新版本发布</a>
+							<a href="/tags/javascript">JavaScript</a> <a href="/tags/promise">Promise</a>
+							<a href="/tags/zhuti">主题</a> <a href="/tags/nodejs">Node.js</a> <a
+								href="/tags/mysql">MySQL</a> <a href="/tags/nginx">Nginx</a> <a
+								href="/tags/aliyun-ecs">阿里云服务器</a> <a href="/tags/ubuntu">Ubuntu</a>
+							<a href="/tags/ghost-in-depth">深度玩转 IUKISS</a> <a
+								href="/tags/theme">Theme</a> <a href="/tags/zhu-shou-han-shu">助手函数</a>
+							<a href="/tags/markdown">Markdown</a> <a href="/tags/proxy">反向代理</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-4">
+					<div class="widget">
+						<h4 class="title">合作伙伴</h4>
+						<div class="content tag-cloud friend-links">
+							<a href="http://www.bootcss.com/" title="Bootstrap中文网"
+								target="_blank">Bootstrap中文网</a> <a
+								href="http://www.bootcdn.cn/" title="开放CDN服务" target="_blank">开放CDN服务</a>
+							<a href="http://www.gruntjs.net/" title="Grunt中文网"
+								target="_blank">Grunt中文网</a> <a href="http://www.gulpjs.com.cn/"
+								title="Gulp中文网" target="_blank">Gulp中文网</a>
+							<hr>
+							<a href="http://lodashjs.com/" title="Lodash中文文档" target="_blank">Lodash中文文档</a>
+							<a href="http://www.jquery123.com/" title="jQuery中文文档"
+								target="_blank">jQuery中文文档</a>
+							<hr>
+							<a href="http://www.aliyun.com/" title="阿里云" target="_blank">阿里云</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<span>Copyright © <a href="/">IUKISS</a></span> | <span><a
+						href="http://www.miibeian.gov.cn/" target="_blank">豫ICP备16004342号-2</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a href="/#" id="back-to-top" style="display: none;"><i
+		class="fa fa-angle-up"></i></a>
+
+</body>
+</html>
