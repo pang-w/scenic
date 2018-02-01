@@ -1,22 +1,35 @@
 package com.itmaoo.scenic.robot.action;
 
 import java.util.List;
+import java.util.Map;
 
+import com.itmaoo.scenic.robot.entity.po.Ciyu;
 import com.itmaoo.scenic.robot.nuke.Nuke;
 import com.itmaoo.scenic.robot.nuke.statement.StatementStructure;
 import com.itmaoo.scenic.robot.service.ChatContext;
 import com.itmaoo.scenic.robot.service.ChatContextProvider;
 import com.itmaoo.scenic.robot.service.NukeBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+@Controller
+@RequestMapping("/robot")
+@EnableAutoConfiguration
 public class RobotAction {
-	public ChatContextProvider chatContextProvider;
+
+	public ChatContextProvider chatContextProvider = new ChatContextProvider();
+	@Autowired
 	public NukeBuilder nukeBuilder;
-	
-	public String chat(String request,String contextid){
+
+	@RequestMapping("chat")
+	public String chat(@RequestParam("msg")String msg, @RequestParam("contextid")String contextid){
 		//获取聊天上下文
 		ChatContext chatContext = chatContextProvider.getChatContext(contextid);
 		//解析语句，语言输入处理
-		StatementStructure requstStatement = nukeBuilder.buildRequestStatement(chatContext,request);
+		Map<Integer,Ciyu> requstStatement = nukeBuilder.buildRequestStatement(chatContext,msg);
 		
 		//构建请求基本单元，语言输入处理
 		Nuke requstNuke = nukeBuilder.buildRequestNuke(chatContext,requstStatement);

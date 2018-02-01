@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ImportResource(locations = { "classpath*:spring-basic.xml" })
-@EnableJpaRepositories(basePackages = "com.itmaoo.scenic.robot.repository")
+@EnableJpaRepositories(basePackages = "com.itmaoo.scenic.robot")
 @EntityScan(basePackages = "com.itmaoo.scenic.robot.entity.po")
 public class AppStart extends SpringBootServletInitializer {
 
